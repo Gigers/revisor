@@ -717,23 +717,6 @@ public class Pessoa implements Casamento {
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
-
-	public int getIdade() {
-		return idade;
-	}
-
-	public void setIdade(int idade) {
-		this.idade = idade;
-	}
-
-	public double getAltura() {
-		return altura;
-	}
-
-	public void setAltura(double altura) {
-		this.altura = altura;
-	}
-
 }
 
 ```
@@ -742,3 +725,31 @@ Perceba que, após a definição da Interface, a classe Pessoa, implementou a in
 
 OBS: As interfaces são muito usadas, principalmente para definir comportamentos ou especificações para a classe que a implementa.
 
+# Coleções - List
+
+<code>List</code> é uma interface que faz parte das coleções do Java. Essa é uma coleção ordenada que aceita elementos duplicados.
+
+Vou tratar de duas implementações da interface List, o <code>Vector</code> e o <code>ArrayList</code>, que apesar de serem implementados da mesma interface, e possuirem os mesmos métodos, apresentam pequenas diferenças.
+
+OBS: Todas as implementações desta interface possuem os principais métodos, são eles:
+* add();
+* remove();
+* size();
+* addAll();
+* clear()
+
+Vamos agora ao <code>ArrayList</code> e ao <code>Vector</code>
+
+* ArrayList
+
+O ArrayList, é a implementação de um Array que é dimensionado dinâmicamente, este que funciona da seguinte maneira. Quando enche o espaço disponível, ele cresce o espaço em <code>50%</code>, assim caso o espaço chegue ao fim e há 10 espaços, este irá crescer para 15.
+
+Esta característica do ArrayList, faz ele ser muito custoso para o processador e para a memória, isso porque a cada vez que o espaço tem que ser acrescido, um novo ArrayList é criado na memória
+
+* Vector
+
+O Vector trabalha de forma muito parecida ao ArrayList, com a diferença, de que sua forma de realocação acaba sendo mais eficaz, isso porque quando estiver chegando em seu limite ele duplica, assim caso haja 10 espaços, ele irá <code>duplicar</code> para 20, e assim por diante.
+
+Por fim é possível perceber que o Vector acaba tendo um pouco mais de desempenho do que o ArrayList, e ainda o Vector é thread-safe, o que permite ele trabalhar com thread.
+
+Aqui vale deixar claro que, tudo irá depender da sua necessídade.
