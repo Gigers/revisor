@@ -100,29 +100,6 @@ Após esta instância é possível utilizar os métodos e atributos definidos na
 OBS: Os objetos são sempre por referência
 OBS: Instância é o ato de criar o objeto
 
-# Empacotamento
-
-Esta é a técninca utilizada quando há a necessidade de transformar variaveis primitivas em variáveis por referência. Esta é feita utilizando as classes que representam os tipos primitivos
-
-```java
-
-Integer
-Double
-Float
-
-```
-
-# Autoboxing
-
-O java em versões antigas, necessitava de instâncias de objetos para realizar o empacotamento, nas versões mais novas isso não é necessário, com a utilização do autoboxing, basta apenas utilizar a classe referente ao tipo primitivo e pronto, a coverão é feita. Veja:
-
-```java
-
-int a = 123;
-Integer b = a; // Valor primitivo transformado em referência 
-
-```
-
 # Tipos primitivos
 Tipos primitivos são os tipos básicos de dados, presente em qualquer linguagem de programação. Aqui não há referência, apenas valores, assim caso seja feito:
 
@@ -166,6 +143,31 @@ Out:  Pessoa 1: Alfredo
 # Primitivos vs Referência
 
 A principal diferência em utilizar as referências ao invês dos primitivos é que no caso dos valores por referência, que são objetos, é que estes tem métodos, que podem ser utilizados para outras conversões, ou até mesmo para facilitar algum outro processo 
+
+
+# Empacotamento
+
+Esta é a técninca utilizada quando há a necessidade de transformar variaveis primitivas em variáveis por referência. Esta é feita utilizando as classes que representam os tipos primitivos
+
+```java
+
+Integer
+Double
+Float
+
+```
+
+# Autoboxing
+
+O java em versões antigas, necessitava de instâncias de objetos para realizar o empacotamento, nas versões mais novas isso não é necessário, com a utilização do autoboxing, basta apenas utilizar a classe referente ao tipo primitivo e pronto, a coverão é feita. Veja:
+
+```java
+
+int a = 123;
+Integer b = a; // Valor primitivo transformado em referência 
+
+```
+
 
 # Matrizes em java
 
