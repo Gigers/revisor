@@ -257,7 +257,7 @@ Esta variável está utilizando o tipo <code>default</code>, esta que é coonhec
 
 Já quando é declarado como <code>public</code>, todos de todos os lugares tem acesso ao atributo declarado desta forma.
 
-O <code>protected</code> trabalha de forma similar ao <code>default</code>, porém as subclasses também tem acesso aos atributos declarados desta forma.
+O <code>protected</code> trabalha de forma similar ao <code>default</code>, porém as sobclasses também tem acesso aos atributos declarados desta forma.
 
 # Encapsulamento
 
@@ -340,17 +340,7 @@ public double getAltura(){
 # Assinatura de métodos
 
 Todo método possui uma assinatura. A assinatura define:
-* A forma de acesso:
-    * public;
-    * protected;
-    * default;
-    * private. 
-* O tipo de retorno:
-    * Este pode váriar de acordo com o tipo de dado que o método está trabalhando: Alguns exemplos:
-        * void;
-        * String;
-        * double;
-        * int.
+
 * Nome do método:
     * Aqui é definido o nome que aquele método irá receber.
 
@@ -359,9 +349,32 @@ Todo método possui uma assinatura. A assinatura define:
 
 # Sobrecarga de método
 
-Sobrecarregar métodos signica declarar diferentes métodos com o mesmo nome, porém com assinaturas diferentes, isto é, com argumentos e retornos diferentes.
+Sobrecarregar métodos signica declarar diferentes métodos com o mesmo nome, porém com assinaturas diferentes, isto é, com argumentos.
 
-Assim a JVM será capaz de escolher qual método será utilizado de acordo com a quantidade de argumentos e seus tipos.
+Veja um exemplo abaixo
+
+```java
+
+public void metodo(){
+
+}
+
+// É diferente de
+
+public void metodo(String args){
+
+}
+
+// Este que por sua vez é diferente de
+
+public void metodo(String args, String args2){
+
+}
+
+
+```
+
+Veja que apenas o argumento mudou mas assim a JVM será capaz de escolher qual método será utilizado de acordo com a quantidade de argumentos e seus tipos.
 
 # Modificadores de comportamento
 
@@ -377,7 +390,7 @@ Perceba que o comportamento das váriaveis foi alterado, fazendo que elas aceite
 
 OBS: Essa única modificação citada acima, só pode ser feita quando a váriavel que está com o <code>final</code> foi criada sem atribuição, caso ela seja criada com atribuição, nenhuma outra será permitida
 
-No caso de métodos, ele define que o método não pode ser sobrescrito por subclasses.
+No caso de métodos, ele define que o método não pode ser sobrescrito por sobclasses.
 
 * static
 
@@ -406,7 +419,7 @@ Calculadora.soma(123,312);
 // Veja que não foi necessário instânciar a classe para chamar o método.
 ```
 
-O <code>static</code> utilizado por métodos, deve sempre sem aplicado, em casos em que o método independe de outras partes da classe para funcionar.
+O <code>static</code> utilizado por métodos, deve sempre ser aplicado, em casos em que o método independe de outras partes da classe para funcionar.
 
 Os modificadores de comportamento podem ser utilizados juntamente aos modificadores de acesso, veja um exemplo:
 
@@ -490,11 +503,11 @@ public class Funcionario extends Pessoa{
  
 Agora a relação foi alterada, e a classe passou a ter a semântica correta, desta forma Funcionário, passou a <code>ser</code> uma pessoa, ao invês de ter.
 
-Este tipo de relação permite que de uma classe mais genérica seja criada, classes mais especializadas sejam criadas.
+Este tipo de relação permite que de uma classe mais genérica seja criada, para que classes mais especializadas sejam criadas.
 
 * Super
 
-Veja que na declaração do <code>construtor</code> de <code>Funcionario</code>, existe um <code>Super</code>, este representa o construtor da classe ancestral.
+Veja que na declaração do <code>construtor</code> de <code>Funcionario</code>, existe um <code>super</code>, este representa o construtor da classe ancestral.
 
 E ele pode ser usado em outros pontos também, já que com ele é possível acessar todos os elementos da classe pai, que não tenham sido declarados como <code>private</code>
 
@@ -502,7 +515,7 @@ E ele pode ser usado em outros pontos também, já que com ele é possível aces
 
 Com a herança outro conceito de orientação a objetos, pode ser definido com mais facilidade, que é o polimorfismo.
 
-De forma geral o polimorfismo significa multiplas formas, e na orientação a objetos, ele descreve um mesmo método que foi utilizado de várias formas.
+De forma geral o polimorfismo significa multiplas formas, e na orientação a objetos, ele descreve um mesmo método que possui ações diferentes, ou seja, formas diferentes..
 
 Como análogia ao mundo real, tem-se o carro. Onde todos tem os mesmos métodos, porém cada um com um funcionamento diferente.
 
@@ -552,6 +565,8 @@ public class Ferrari extends Carro{
 ```
 
 Perceba que os mesmo métodos da classe Carro, tomaram uma forma diferente, uma aplicação diferente. Isso básicamente é polimorfismo
+
+Vale deixar claro que, isto não é sobrecarga de métodos, isso porque aqui faço a sobrescrita, sem mudar assinatura. Caso altere a assinatura, estareí criando um novo método, e não sobscrevendo
 
 # Classe abstrata
 
