@@ -826,6 +826,143 @@ Por fim é possível perceber que o Vector acaba tendo um pouco mais de desempen
 
 Aqui vale deixar claro que, tudo irá depender da sua necessídade.
 
+
+# Comparação de objetos - CompareTo
+
+Executar ações para realizar a ordenação de objetos é algo comum, e a forma de ordenação de vários tipos já foram definidos, como por exemplo, os números que se ordenam do menor para o maior.
+
+Porém isso não ocorre automaticamente nos objetos, primeiro que, como citado no inicio, ao criarmos um objeto, estamos criando uma estrutura de dados nova, e assim o Java não consegue compreender qual critério ele deve utilizar para fazer a comparação, e definir qual será a ordem.
+
+Para fazer isso em Java é necessário a utiliação da Interface Comparable.
+
+Abaixo, será feito um exemplo de como comparar e definir a ordem dos elementos de um ArrayList.
+
+```java
+public class Pessoa implements Comparable<Pessoa>{
+
+    private String nome;
+    private int idade;
+
+    public String getNome() {
+		return nome;
+	}
+
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+
+	public int getIdade() {
+		return idade;
+	}
+
+	public void setIdade(int idade) {
+		this.idade = idade;
+	}
+
+    /*
+        Após implementar a interface Comparable
+        é necessário descrever o método compareTo().
+        Este passo é feito abaixo
+    */
+
+    public int compareTo(Pessoa p){
+        return nome.compareTo(p.getNome());
+    }
+
+    /*
+        Perceba que, implemento o método
+        que tem retorno int
+        isso porque ao fazer a comparação com nome.CompareTo
+        Estou retornando o seguinte:
+
+        Quando nome < p.getNome(); return  -1 (Ou qualquer valor negativo)
+        Quando nome > p.getNome(); return 1 (Ou qualquer valor positivo)
+        Quando nome == p.getNome(); return 0
+    */
+}
+```
+<!-- Separação -->
+
+```java
+import java.util.List;
+import java.util.Vector;
+import java.util.Collections;
+
+public class Start {
+
+	public static void main(String[] args) {
+
+		List<Pessoa> pessoas = new Vector<>();
+
+		pessoas.add(new Pessoa("Felipe", 12));
+		pessoas.add(new Pessoa("Pedro", 23));
+		pessoas.add(new Pessoa("Ana", 18));
+
+		Collections.sort(pessoas);
+
+		for (Pessoa pessoa : pessoas) {
+			System.out.println(pessoa.getNome());
+		}
+	}
+}
+```
+
+Out: 
+
+Ana
+Felipe
+Pedro
+
+Veja que a classe que será comparada teve de implementar a Interface Comparable, e,  a classe onde estava o método main, teve de importar a biblioteca <code>java.util.Collections</code>, isso para que fosse possível utilizar o <code>Collections.sort()</code>.
+
+Aqui fiz a implementação do sort pelo nome, mas poderia ser também pela idade, veja:
+
+```java
+public class Pessoa implements Comparable<Pessoa> {
+
+	private String nome;
+	private int idade;
+
+	public Pessoa(String nome, int idade) {
+		this.nome = nome;
+		this.idade = idade;
+	}
+
+	public String getNome() {
+		return nome;
+	}
+
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+
+	public int getIdade() {
+		return idade;
+	}
+
+	public void setIdade(int idade) {
+		this.idade = idade;
+	}
+
+	@Override
+	public int compareTo(Pessoa p) {
+
+		if(idade > p.getIdade()) {
+			return 1;
+		} else if(idade < p.getIdade()) {
+			return -1;
+		} else {
+			return 0;
+		}
+
+	}
+}
+```
+Da forma vista acima, a ordenação será feita da menor para a maior idade.
+
 # Serialização
 
+
+
 # Stringbuilder & Stringbuffer
+
