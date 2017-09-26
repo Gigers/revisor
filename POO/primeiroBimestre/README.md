@@ -147,27 +147,27 @@ A principal diferência em utilizar as referências ao invês dos primitivos é 
 
 # Empacotamento
 
-Esta é a técninca utilizada quando há a necessidade de transformar variaveis primitivas em variáveis por referência. Esta é feita utilizando as classes que representam os tipos primitivos
+Esta é a técninca utilizada quando há a necessidade de manipular um tipo primitivas como um objeto (variáveis por referência). Esta técnica é feita utilizando as classes que representam os tipos primitivos
 
 ```java
-
 Integer
 Double
 Float
-
 ```
 
 # Autoboxing
 
-O java em versões antigas, necessitava de instâncias de objetos para realizar o empacotamento, nas versões mais novas isso não é necessário, com a utilização do autoboxing, basta apenas utilizar a classe referente ao tipo primitivo e pronto, a coverão é feita. Veja:
+Até a versão 5 do Java, para realizar o empacotamento era necessário instânciar as classes equivalentes aos valores primitivos, porém, nas versões mais novas isso não é necessário, com a utilização do autoboxing, basta apenas utilizar a classe referente ao tipo primitivo e pronto, a conversão é feita. Veja:
 
 ```java
+// Versões anteriores
+int objeto = 123;
+int numero = objeto.intValue(); // Valor primitivo transformado em referência
 
+// Versões mais recentes (Java > 1.5)
 int a = 123;
 Integer b = a; // Valor primitivo transformado em referência 
-
 ```
-
 
 # Matrizes em java
 
@@ -208,7 +208,6 @@ for(int i : a){
 Também é possivel utilizar eles com dados criados pelo programador, por exemplo a classe Pessoa é um tipo de dado, e pode ser utilizada nos dois casos loop.
 
 ```java
-
 public class Pessoa{
     String nome;
 
@@ -230,7 +229,9 @@ for(Pessoa pessoa: pessoas){
 }
 ```
 
-A diferença entre estes dois formatos de loop, é que o for-each obrigatóriamente irá percorrer todos os itens, enquanto o for normal, que utiliza sentinela, pode não percorrer ou não passar por todos os itens, isso porque pode variar de acordo com os limites postos e pela forma com que o contador é acrescentado
+A diferença entre estes dois formatos de loop, é que o <code>for-each</code> obrigatóriamente irá percorrer todos os itens, isso porque o <code>for-each</code> é uma forma mais controlada de loop, tendo seu uso recomendado para percorrer toda uma coleção de dados por completo.
+
+Já o <code>for</code> normal, que utiliza sentinela, pode não percorrer ou não passar por todos os itens, isso porque pode variar de acordo com os limites postos e pela forma com que o contador é acrescentado
 
 ```java
 // Veja um exemplo que pode trazer problemas
@@ -241,6 +242,7 @@ for(int i = 0; i < a.length; i += 2){
     System.out.println(a[i]);
 }
 ``` 
+
 # Modificadores de acesso
 
 Em java há quatro modificadores de acesso: <code>public, protected, default, private</code>
@@ -253,11 +255,11 @@ Perceba que, ao fazer
     String nome;
 ```
 
-Esta variável está utilizando o tipo <code>default</code>, esta que é coonhecida por <code>package-private</code>, pois quando definida desta forma apenas a classe que criou e o pacote podem visualizar aquele atributo.
+O tipo <code>default</code> permite acesso apenas pelo classe que o criou e pelas classes presentes no mesmo pacote onde ele está, por isso é coonhecida por <code>package-private</code>.
 
 Já quando é declarado como <code>public</code>, todos de todos os lugares tem acesso ao atributo declarado desta forma.
 
-O <code>protected</code> trabalha de forma similar ao <code>default</code>, porém as sobclasses também tem acesso aos atributos declarados desta forma.
+O <code>protected</code> trabalha de forma similar ao <code>default</code>, porém as subclasses também passam a ter acesso aos atributos declarados deste tipo.
 
 # Encapsulamento
 
@@ -299,16 +301,23 @@ Assim é possível perceber que esta ação de ocultar os dados e disponibilizar
 
 # sets e gets
 
-Em alguns casos pode ocorrer de, a váriavel ficar disponível apenas para a classe, assim como ocorre quando é utilizado o modificador de acesso <code>private</code>.
+Com a aplicação dos modificadores de acesso, pode ocorrer de, certos atributos ficarem disponíveis apenas para a classe, mas, haverá a necessidade de alteração e consulta a este atributo por parte de operações externas a classe
 
-Nestes casos terão de ser utilizados métodos para fazer a modificação/acesso  destes atributos, esses são conhecidos como sets e gets.
+Neste caso será necessário criar métodos especificos para o acesso e modificação destes atributos, esses métodos são conhecidos como <code>sets</code> e <code>gets</code>
 
 Os sets são métodos utilizados para atribuir valor a alguma váriavel privada quando for necessário.
 E os gets para que os valores atribuidos a estas váriaveis podem ser acessados
 
+Veja abaixo um exemplo:
+
 ```java
 
 // Classe Pessoa
+
+/*
+No caso do uso do private, ele modifica a forma de visualização, 
+permitindo apenas a classe que o cria de acessar
+*/
 
 private String nome;
 private double altura;
@@ -326,7 +335,10 @@ public void setAltura(double altura){
     this.altura = altura;
 }
 
-// Porém apenas colocar os válores em algumas vezes não basta, assim sendo necessário visualiza-los, para isso são utilizados os gets
+/*
+Porém apenas colocar os válores em algumas vezes não basta, 
+assim sendo necessário visualiza-los, para isso são utilizados os gets
+*/
 
 public String getNome(){
     return nome;
@@ -336,6 +348,8 @@ public double getAltura(){
     return altura;
 }
 ```
+
+Ao utilizar os <code>sets</code> e <code>gets</code>, além de estar permitindo o acesso aos elementos, é possível fazer um acesso controlado ao atributo, podendo-se criar regras para que a modificação ou visualização siga alguma regra definida.
 
 # Assinatura de métodos
 
@@ -390,7 +404,7 @@ Perceba que o comportamento das váriaveis foi alterado, fazendo que elas aceite
 
 OBS: Essa única modificação citada acima, só pode ser feita quando a váriavel que está com o <code>final</code> foi criada sem atribuição, caso ela seja criada com atribuição, nenhuma outra será permitida
 
-No caso de métodos, ele define que o método não pode ser sobrescrito por sobclasses.
+No caso de métodos, ele define que o método não pode ser sobrescrito nas subclasses.
 
 * static
 
@@ -564,9 +578,9 @@ public class Ferrari extends Carro{
 }
 ```
 
-Perceba que os mesmo métodos da classe Carro, tomaram uma forma diferente, uma aplicação diferente. Isso básicamente é polimorfismo
+Perceba que os mesmo métodos da classe Carro, tomaram uma forma diferente, uma aplicação diferente. Isso básicamente é polimorfismo.
 
-Vale deixar claro que, isto não é sobrecarga de métodos, isso porque aqui faço a sobrescrita, sem mudar assinatura. Caso altere a assinatura, estareí criando um novo método, e não sobscrevendo
+Vale deixar claro que, isto não é sobrecarga de métodos, isso porque aqui faço a sobrescrita, sem mudar assinatura. Caso altere a assinatura, estareí criando um novo método, e não sobscrevendo.
 
 # Classe abstrata
 
@@ -578,12 +592,11 @@ As classes abstratas, por serem modelos para outras classes não podem ser inst�
 
 Desta forma para realizar a utilização das classes abstratas é necessário utilizar a herança. Com a utilização da classe abstrata os métodos filhos poderão (Opcionalmente) fazer polimorfismo e sobscrever os métodos herdados.
 
-Seu tipo de relação continua sendo <code>é um</code>
+Seu tipo de relação continua sendo <code>é um</code>.
 
 Veja um exemplo:
 
 ```java
-
 // Classe abstrata, não pode ser instânciada
 
 public abstract class Pessoa {
@@ -648,7 +661,6 @@ public abstract class Pessoa {
 	}
 
 	public abstract void andar();
-
 }
 
 public class Funcionario extends Pessoa {
