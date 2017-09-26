@@ -413,9 +413,9 @@ O <code>static</code>, outro modificador de comportamento, quando utilizado nas 
 ```java
 static String[] nomes;
 ```
-Se houver algo parecido com o item acima, e um objeto modificar, outros objetos verão os mesmos valores modificados.
+Se houver algo parecido com o item acima, a variável terá o mesmo valor para todos os objetos. Assim, caso um objeto faça uma modificação neste objeto, todos os demais irão ver esta variável com o valor posto pelo outro objeto.
 
-Ele também pode ser usado em métodos, porém neste caso, ele fará com que o método possa ser chamado sem a necessídade da criação de um objeto da classe que o carrega, veja
+Ele também pode ser usado em métodos, porém neste caso, ele fará com que o método possa ser chamado sem a necessídade da criação de um objeto da classe que o carrega, veja:
 
 ```java
 
@@ -438,7 +438,7 @@ O <code>static</code> utilizado por métodos, deve sempre ser aplicado, em casos
 Os modificadores de comportamento podem ser utilizados juntamente aos modificadores de acesso, veja um exemplo:
 
 ```java
-// Váriavel 
+// Variável 
 private static String nome;
 
 
@@ -448,20 +448,54 @@ public static void corre(){
 }
 ```
 
+OBS: A ordem da adição dos elementos, aqui não faz diferença, ou seja, se a adição for feita da forma: 
+
+```java
+static public void corre();
+```
+
+irá funcionar da mesma forma que se colocar:
+
+```java
+public static void corre();
+```
+
+Porém deve-se ficar atento as convenções já definidas pela comunidade.
+
+Nos casos vistos acima, o método será chamado diretamente pelo nome da classe, veja:
+
+```java
+public class Classe{
+
+    public static void metodo(){
+        System.out.println("Olha! Um método static");
+    }
+
+}
+```
+Para chamar este método basta usar:
+```java
+public static void main(String[] args){
+    
+    Classe.metodo();
+}
+```
+Out: Olha! Um método static
+
 # Herança
 
-Em orientação a objetos, a herança pode ser entendida como uma classe herdando funcionalidade e características de outra.
-A relação disposta pela herança pode ser dito como <code>é um</code>
+Em orientação a objetos, a herança pode ser entendida como uma classe que herda  funcionalidade e características de outra.
+A relação disposta pela herança pode ser dito como <code>é um tipo de</code>
 
 Desta forma, é possível abstrair e entender o conceito de quando utilizar a herança.
 
 Veja, acima foi dito que a herança é o ato de uma classe receber todos os métodos e atributos de outra classe, isso é feito por dois motivos
-* 1° - A abstração do mundo real utilizando deste mecanismo se torna muito mais fácil, por isso é importante ter em mente que esta relação é definida como <code>é um</code>
+* 1° - A abstração do mundo real utilizando deste mecanismo se torna muito mais fácil, por isso é importante ter em mente que esta relação é definida como <code>é um tipo de</code>
 * 2° - O reaproveitamento de código se torna mais simples neste caso.
 
 Veja um exemplo:
 
-A classe funcionário é uma pessoa, esta representação, pode ser feita da seguinte forma:
+A classe funcionário é uma (Entende-se é um tipo de) pessoa, a representação da herança em código, pode ser vista em: 
 
 ```java
 public class Pessoa{
@@ -515,21 +549,23 @@ public class Funcionario extends Pessoa{
 }
 ```
  
-Agora a relação foi alterada, e a classe passou a ter a semântica correta, desta forma Funcionário, passou a <code>ser</code> uma pessoa, ao invês de ter.
+Agora a relação foi alterada, e a classe passou a ter a semântica correta, desta forma <code>Funcionário</code>, passou a <code>ser</code> uma pessoa, ao invês de <code>ter</code>.
 
 Este tipo de relação permite que de uma classe mais genérica seja criada, para que classes mais especializadas sejam criadas.
+
+Para que isto fique claro, imagine uma empresa que faz cadeiras. Seu modelo padrão é um formato de cadeira mais genérico possível, para que assim, outras cadeiras possam herdar essas características, e dai criar cadeias mais específicas.
 
 * Super
 
 Veja que na declaração do <code>construtor</code> de <code>Funcionario</code>, existe um <code>super</code>, este representa o construtor da classe ancestral.
 
-E ele pode ser usado em outros pontos também, já que com ele é possível acessar todos os elementos da classe pai, que não tenham sido declarados como <code>private</code>
+E ele pode ser usado em outros pontos também, já que com ele é possível acessar todos os elementos da classe pai, que estejam disponíveis para as subclasses.
 
 # Polimorfismo
 
 Com a herança outro conceito de orientação a objetos, pode ser definido com mais facilidade, que é o polimorfismo.
 
-De forma geral o polimorfismo significa multiplas formas, e na orientação a objetos, ele descreve um mesmo método que possui ações diferentes, ou seja, formas diferentes..
+De forma geral o polimorfismo significa multiplas formas, e na orientação a objetos, ele significa que o comportamento de um classe foi usado de várias formas.
 
 Como análogia ao mundo real, tem-se o carro. Onde todos tem os mesmos métodos, porém cada um com um funcionamento diferente.
 
@@ -584,7 +620,7 @@ Vale deixar claro que, isto não é sobrecarga de métodos, isso porque aqui fa�
 
 # Classe abstrata
 
-Como foi visto anteriormente, uma classe é a representação de um modelo em software, utilizada para criar objetos, porém, as vezes é necessário que haja modelos para a criação de outras classes, isso é possível com a utilização de classes abstratas.
+Como foi visto anteriormente, uma classe é a representação de um modelo do mundo real em software, utilizada para criar objetos, porém, as vezes é necessário que haja modelos para a criação de outras classes, isso é possível com a utilização de classes abstratas.
 
 Assim <code>classes abstratas</code> são classes moldes para outras classes.
 
@@ -687,9 +723,9 @@ Veja que a classe <code>Funcionario</code> ao herdar de Pessoa, deve de implemen
 
 Até aqui foi possível perceber que, as classes abstratas, podem ou não carregar métodos abstratos, no caso de não carregarem este tipo de método, e mesmo assim ter métodos dentro de si, assumimos que esses são métodos genéricos, que podem ser utilizados por todos aqueles que irão herdar a classe.
 
-Porém, há casos em que isso não é interessante, e no momento da herança, queremos que certo método seja subscrito. Para isso são utilizados as <code>interfaces</code>.
+Porém, há casos em que isso não é interessante, e no momento da herança, queremos que certo método seja sobrescrito. Para isso são utilizados as <code>interfaces</code>.
 
-A <code>Interface</code> pode ser entendida como um trato firmado por uma classe, onde estamos dizendo que, tudo descrito na Interface será implementado na classe que assumir o trato.
+A <code>Interface</code> pode ser entendida como um trato ou especificação, firmado por uma classe, onde estamos dizendo que, tudo descrito na Interface será implementado na classe que assumit o trato.
 
 Ela trabalha de forma parecida com as classes abstratas, porém, tem todos os seus métodos abstratos, o que torna obrigatório sua implementação, como vimos anteriormente.
 
