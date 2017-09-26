@@ -827,7 +827,7 @@ Por fim é possível perceber que o Vector acaba tendo um pouco mais de desempen
 Aqui vale deixar claro que, tudo irá depender da sua necessídade.
 
 
-# Comparação de objetos - CompareTo
+# Comparação de objetos - compareTo e equals
 
 Executar ações para realizar a ordenação de objetos é algo comum, e a forma de ordenação de vários tipos já foram definidos, como por exemplo, os números que se ordenam do menor para o maior.
 
@@ -960,9 +960,296 @@ public class Pessoa implements Comparable<Pessoa> {
 ```
 Da forma vista acima, a ordenação será feita da menor para a maior idade.
 
+OBS: A diferença entre <code>equals()</code> e <code>compareTo()</code> é que o <code>equals()</code> retorna um boolean, informando se o valor é ou não igual, e o <code>compareTo()</code>, retorna valores inteiros, que dizem se o valor é menor, maior ou igual. 
+
+Da mesma forma que o <code>compareTo</code> o <code>equals</code> também pode ser alterado pelo programador para fazer a comparação de um item específico, veja:
+
+```java
+public class Iguais {
+
+	private String igualdade;
+	private String informacao;
+
+	public Iguais(String igualdade, String informacao) {
+		this.igualdade = igualdade;
+		this.informacao = informacao;
+	}
+
+	public String getIgualdade() {
+		return igualdade;
+	}
+
+	public String getInformacao() {
+		return informacao;
+	}
+
+	public void setInformacao(String informacao) {
+		this.informacao = informacao;
+	}
+
+	public void setIgualdade(String igualdade) {
+		this.igualdade = igualdade;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+
+		boolean igual = false;
+
+		Iguais i = (Iguais) obj;
+		if (this.igualdade.equals(i.getIgualdade())) {
+			igual = true;
+		}
+
+		return igual;
+
+	}
+
+}
+```
+
+Perceba que, como argumento estou recebendo um elemento <code>Object</code>, isso ocorre porque estou sobrescrevendo um método da classe <code>Object</code> a qual todos herdam, caso eu mude este argumento não estarei sobrescrevendo e sim sobrecarregando o método.
+
+Para que o item fique com o mesmo tipo de dados, faço um <code>Cast</code>, e assim evito problemas, e em seguida faço as comparações.
+
+<!--  -->
+
+```java
+public class Main {
+
+	public static void main(String[] args) {
+		
+		Iguais igual = new Iguais("Dado1", "Teste");
+		Iguais igual2 = new Iguais("Dado1", "Teste2");
+		
+		System.out.println(igual.equals(igual2));	
+	}
+}
+```
+
+No caso do <code>equals</code>, não é necessário a implementação de nenhuma Interface.
+
 # Serialização
 
+Com o aumento da quantidade de funcionalidades de um programa, passa ser interessante que haja persistência dos dados que estão sendo processados.
 
+Aqui irei demonstrar uma das formas de fazer a persistência, que é com a utilização de um recurso do Java, chamado de <code>Serialização</code>
+
+A serialização é a técnica utilizada para salver o estado atual dos objetos em arquivos binários, sendo assim este estado poderá ser recuperado posteriormente, ficando da mesma forma que estava quando foi serializado.
+
+Para realizar a serialização, é necessário implementar a Interface <code>Serializable</code>.
+
+Um ponto importante sobre a serialização é que, caso haja algum elemento que não precise, ou não possa ser serializado, então o modificador de comportamento <code>transient</code>, deve ser atribuido para o atributo em questão, veja:
+
+```java
+public class Pessoa implements Serializable{
+
+    // Atributo que não será serializado
+    private transient List<Pessoa> pessoas = new ArrayList<>();
+}
+```
+Na serialização podem haver erros com as verões dos arquivos serializados, assim fique atento as verões.
+
+OBS: Se necessário serializar objetos, que tenham como variáveis de instância outros objetos, então as classes dos objetos usados como variáveis também devem implementar a interface <code>Serializable</code>.
+
+# Exceções
+
+Durante a execução de um programa muitos erros podem ocorrer, para tratar isso, existem as exeções. Essas são formas de manipular problemas e de dizer ao programa o que fazer quando encontrar certos tipos de erros.
+
+Todas as exeções são heranças da classe <code>Exception</code>.
+
+Para capturar a exeção e aplicar o tratamento correto é possível utilizar o <code>Try-Catch</code>.
+
+Um exemplo de utilização de Try-Catch, pode ser feito com a serialização, veja:
+
+```java
+
+// Classe que será serializada
+
+import java.io.Serializable;
+
+@SuppressWarnings("serial")
+public class Pessoa implements Serializable {
+
+	
+	private String nome;
+	private int idade;
+
+	public Pessoa(String nome, int idade) {
+		this.nome = nome;
+		this.idade = idade;
+	}
+	
+	public String getNome() {
+		return nome;
+	}
+
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+
+	public int getIdade() {
+		return idade;
+	}
+
+	public void setIdade(int idade) {
+		this.idade = idade;
+	}
+
+}
+```
+<!-- Separação  -->
+```java
+import java.io.FileOutputStream;
+import java.io.ObjectOutputStream;
+import java.util.ArrayList;
+import java.util.List;
+
+public class Start {
+
+	public static void main(String[] args) {
+
+		// Objeto que será serializado
+		List<Pessoa> pessoas = new ArrayList<>();
+
+		pessoas.add(new Pessoa("Felipe", 21));
+		pessoas.add(new Pessoa("Maria", 19));
+		pessoas.add(new Pessoa("Pedrão", 23));
+
+		// Colocando o try-catch para tentar salvar o arquivo serializado
+
+		try {
+
+			FileOutputStream fos = new FileOutputStream("Binario.bin");
+			ObjectOutputStream oos = new ObjectOutputStream(fos);
+
+			oos.writeObject(pessoas);
+
+			// Fecha o stream
+			oos.close();
+			fos.close();
+
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
+
+	}
+
+}
+```
+
+Veja que ele irá tentar salvar e caso não consiga, será exibido a mensagem com o erro. Este <code>Exception</code> poderia ser mais específico, já que neste utilizei direto a classe, mas poderia ter utilizado o <code>IOException</code>, que é mais específico para erros de leitura/gravação.
+
+OBS: Um único try pode ter vários catchs.
+
+# Escrita em arquivos
+
+Também é possível escrever em arquivos de texto, este é um processo semelhante a escrita em arquivos de texto, porém aqui os dados não são transformados em binários, e não há a necessidade por parte das classes implementando Interfaces. 
+
+Isso ocorre pela simplicidade com a qual é feita a leitura e escrita desdes dados, aqui não é possível salvar o objeto todo, mas sim o conteúdo de cada uma de seus atributos.
+
+Para criar arquivos é possível fazer
+
+```java
+public class Dados {
+
+	private String dados;
+	private String dados2;
+
+	public String getDados() {
+		return dados;
+	}
+
+	public void setDados(String dados) {
+		this.dados = dados;
+	}
+
+	public String getDados2() {
+		return dados2;
+	}
+
+	public void setDados2(String dados2) {
+		this.dados2 = dados2;
+	}
+
+}
+```
+
+<!--  -->
+
+```java
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+
+public class Start {
+
+	public static void main(String[] args) {
+
+		Dados data = new Dados();
+
+		data.setDados("Um dado");
+		data.setDados2("Dois dados");
+
+		try {
+			File file = new File("./Dados.txt");
+			FileWriter fw = new FileWriter(file);
+
+			fw.write(data.getDados());
+			fw.write("\n");
+			fw.write(data.getDados2());
+
+			fw.close();
+		} catch (IOException e) {
+			System.out.println(e.getMessage());
+		}
+
+	}
+
+}
+```
+Veja que este também precisou utilizar do try-catch, isso porque podem haver erros, e para poder trata-los, foi utilizado o try-catch.
+
+No lugar do <code>FileWriter</code> é possível utilizar o <code>BufferedWriter</code>, que acaba tendo um pouco mais de desempenho que o <code>FileWriter</code> normal.
+
+E da mesma forma que a escrita foi feita a leitura também pode ser realizada. Seguindo a mesma hierarquia.
 
 # Stringbuilder & Stringbuffer
 
+Quando realizamos operações de concatenação com <code>+=</code> ou com <code>+</code>, não estamos realmente concatenando os valores.
+ O que estamos fazendo é na verdade criar um novo objeto na memória, e o anterior fica perdido na memória até que o coletor de lixo do Java faça sua remoção, isso em softwares muito grandes pode apresentar problemas de velocidade.
+
+Isso ocorre porque Strings são imutáveis. Para resolver este problema existem duas classes, o StringBuilder e o StringBuffer.
+
+O processo de aplicação dos dois é bem parecido, a diferença entre os dois é que um suporta sincronismo, este no caso é o StringBuffer, por isso o StringBuilder é um pouco mais rápido.
+
+A utilização destas classes é recomendada quando há muitas concatenações no programa.
+
+Veja o exemplo de uma implementação:
+
+```java
+public class Builder {
+
+	public static void main(String[] args) {
+
+		StringBuilder sb = new StringBuilder();
+		
+		sb.append("Teste ");
+		sb.append("de ");
+		sb.append("Software");
+		
+		System.out.println(sb.toString());
+
+	}
+
+}
+```
+
+Vale lembrar que a mesma implementação feita para este item, para o <code>StringBuffer</code>
+
+
+# Dica
+
+Por que não usar o float ?
+
+O float é uma classe que deixou de ser utilizada em Java, o padrão é utilizar o double, isso porque muitos problemas de precisão começaram a surgir. Assim sendo recomendado o uso do double.
