@@ -177,8 +177,9 @@ Desta forma a matriz passa a ser um ponteiro para ponteiro.
 
 # for e o for-each
 
-Existem duas formas de loop, o for, comunente já visto em outras linguagens, como C e o for-each, que é a otimização deste, veja
+Existem duas formas de loop <code>for</code>, o <code>for</code>, comunente já visto em outras linguagens, como C e o <code>for-each</code>, que é a otimização deste, veja
 
+Abaixo um exemplo de como o <code>for</code> é feito na linguagem C.
 ```c
 int a[] = {1,2,3,4,5};
 
@@ -188,6 +189,9 @@ for(int i = 0; i < sizeof(a) / sizeof(int); i++){
 }
 ```
 <!-- Separação -->
+
+Agora veja um exemplo de como o mesmo <code>for</code> é feito na linguagem Java.
+
 ```java
 
 int[] a = {1,2,3,4,5};
@@ -197,7 +201,12 @@ int[] a = {1,2,3,4,5};
 for(int i = 0; i < a.length; i++){
     System.out.println(a[i]);
 }
+```
+Perceba que o loop acima pode apresentar problemas, caso a coleção de dados tenha que ser toda percorrida, isso porque o programador pode fazer um incremento que não permita que todos os elementos sejam revisados, ou ainda, o limite pode ser menor que a quantidade de elementos, e no pior dos casos erros podem ocorrer pois o limite definido passa a quantidade de elementos
 
+Veja abaixo o <code>for-each</code>, que é a estrutura melhorada
+
+```java
 // for-earch (Loop melhorado)
 
 for(int i : a){
@@ -228,6 +237,8 @@ for(Pessoa pessoa: pessoas){
     System.out.println(pessoa.nome);
 }
 ```
+
+Em resumo:
 
 A diferença entre estes dois formatos de loop, é que o <code>for-each</code> obrigatóriamente irá percorrer todos os itens, isso porque o <code>for-each</code> é uma forma mais controlada de loop, tendo seu uso recomendado para percorrer toda uma coleção de dados por completo.
 
@@ -384,8 +395,6 @@ public void metodo(String args){
 public void metodo(String args, String args2){
 
 }
-
-
 ```
 
 Veja que apenas o argumento mudou mas assim a JVM será capaz de escolher qual método será utilizado de acordo com a quantidade de argumentos e seus tipos.
@@ -522,7 +531,7 @@ public class Funcionario{
     }
 }
 ```
-Perceba que não ficou natural está descrição, feita acima. No caso o funcionário <code>tem uma</code> pessoa, o que não é verdade, isso porque ele <code>é uma</code>.
+Perceba que não ficou natural está descrição, feita acima. No caso o funcionário <code>tem uma</code> pessoa, o que não é verdade, isso porque ele <code>é um tipo de</code>.
 
 Veja que sintaxe pode até estar correta, porém a semântica não. Vamos resolver este problema utilizando herança.
 
@@ -572,7 +581,6 @@ Como análogia ao mundo real, tem-se o carro. Onde todos tem os mesmos métodos,
 Veja, um exemplo de polimorfismo
 
 ```java
-
 public class Carro{
 
     private String marca;
@@ -716,7 +724,6 @@ public class Funcionario extends Pessoa {
 	}
 }
 ```
-
 Veja que a classe <code>Funcionario</code> ao herdar de Pessoa, deve de implementar o método abstrato. Veja que no exemplo anteríor demonstrado nas <code>classes abstratas</code> hávia um método e ele nem precisou ser alterado, isso por não ser abstrato.
 
 # Interface
@@ -818,3 +825,7 @@ O Vector trabalha de forma muito parecida ao ArrayList, com a diferença, de que
 Por fim é possível perceber que o Vector acaba tendo um pouco mais de desempenho do que o ArrayList, e ainda o Vector é thread-safe, o que permite ele trabalhar com thread.
 
 Aqui vale deixar claro que, tudo irá depender da sua necessídade.
+
+# Serialização
+
+# Stringbuilder & Stringbuffer
