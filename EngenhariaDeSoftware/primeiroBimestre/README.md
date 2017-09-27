@@ -1,11 +1,22 @@
-# Engenharia de software 2
+# Engenharia de software 2 - Fatec SJC (Revisão)
 
-# BPM
+## Introdução
+
+## Processos de software
+
+## RUP
+
+## Processos de negócios
+
+## Modelagem de processos de negócios
+
+## Eriksson-Penker
+
+## BPM
 
 * O que é ?
 
-
-# BPMN - Business Process Modeling Notation
+## BPMN - Business Process Modeling Notation
 
 <!-- Explicar o que é -->
 
@@ -43,3 +54,8 @@
 
 
 ![alt text](elementos_bpmn.png "Elementos BPMN")
+
+## Métodos ágeis
+
+
+### Users Stories
