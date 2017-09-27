@@ -79,17 +79,50 @@ O RUP é conhecido como uma metodologia que destaca-se por seguir as 'melhores p
 
 ## Processos de negócios
 
+Um processo de negócios nada mais é que um conjunto de atividades, iniciado primeiramente por um evento, dirigo por regras de negócio e utilizando recursos, cujo qual entrega um resultado, finalizando com um determinado valor, seja para o cliente interno, seja para o cliente externo de uma empresa.
+* Hierarquia:
+   * Processos;
+   * Subprocessos
+   * Atividades
+   * Tarefas
+
+Deve-se manter a análise somente no nível de processos. Como fazer isso? Para cada funcionalidade do negócio em estudo, verificam-se as características dessa funcionalidade.
+ 
+Com os candidatos a processos identificados, temos realizado apenas o primeiro passo. O próximo passo consiste em definir cada um deles. É necessário então, para cada processo, responder ao Questionário de Identificação de Processos. 
+* Questionário de Identificação de Processos:
+ * Atividades envolvidas (de acordo com a descrição narrativa)
+ * Quando será realizado a atividade (define o evento de entrada, "quando")
+ * Sequência da realização das atividades(implementação dos fluxos)
+ * Como serão realizadas as atividades
+ * Objetivo do processo
+ * O que está envolvido na execução das atividades
+ * O que é consumido ou utilizado
+ * O que é produzido
+ * Relação entre o processo e a estrutura de negócio
+
+* A Visão de Processos é realizada usando o diagrama das extensões Eriksson Penker da modelagem UML. 
+
+
 ## Modelagem de processos de negócios
 
 ## Eriksson-Penker
 
 ## BPM
 
-* O que é ?
+* BPM é a abreviação de Business Process Management, que traduzido para o português significa Gerenciamento de Processos de Negócio.
+
+* BPM é uma abordagem de gerenciamento adaptável, desenvolvido com a finalidade de sistematizar e facilitar processos organizacionais individuais complexos, dentro e fora das empresas.
+
+* O BPM tem como intuito trazer a tona informações pertinentes de como os processos são executados para que melhorias possam ser realizadas e para que os processos possam ser gerenciados possibilitando uma melhor tomada de decisões e visão do negócio como um todo.
+
+* Frase de impacto: "Você só pode melhorar aquilo que pode gerenciar, só pode gerenciar aquilo que pode medir e só pode medir aquilo que realmente conhece como é executado."
 
 ## BPMN - Business Process Modeling Notation
 
-<!-- Explicar o que é -->
+Notação BPMN especifica o processo de negócio em um diagrama que é fácil de ler tanto para os usuários técnicos quanto para os usuários de negócios. É intuitivo e permite a representação de detalhes complexos do processo. BPMN serve como uma linguagem padrão, colocando um fim na lacuna de comunicação entre a modelagem do processo e sua execução. Por este motivo e considerado hoje a lingua franca para comunicação no mundo dos negócios.
+
+* Resumindo:
+  Desenvolver uma visão clara sobre o projeto de entendimento "universal"
 
 * Elementos
 
