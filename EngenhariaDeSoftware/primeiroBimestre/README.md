@@ -2,9 +2,80 @@
 
 ## Introdução
 
+A engenharia de software se preocupa com teorias, métodos e ferramentas para o desenvolvimento de softwares profissionais. Tratando do ínicio do projeto até a manutenção do sistema, após estes já estar em uso.
+
+A engenharia de software tem essa preocupação com a excelência na construção de software por vários motivos, e alguns deles são listados abaixo:
+
+    * O custo de software em um sistema de computador acaba sendo muito elevado, veja que o software fica muito mais caro que o hardware;
+    * Custos para manter o software;
+    * Os sistemas que terão vida longa, em muitos casos, custam várias vezes o preço de desenvolvimento;
+
+Por esses e por outros motivos a engenharia de software acaba sendo muito importante.
+
+Os softwares são classificados em dois campos:
+
+* Genéricos
+    * Os softwares genéricos são sistemas autônomos, que são comercializados e vendidos para qualquer cliente que deseja comprar. Exemplos:
+        * Sistemas de gerenciamento de projetos;
+        * Softwares CAD;
+        * Software de propósito específico.
+
+    * Nestes casos, tanto as propriedades do software, quanto as decisões de mudanças no mesmo, são feitas pelo desenvolvedor do software. 
+
+* Sob encomenda
+    * Este é aquele tipo de software que foi criado para atender um cliente específico, e tudo isso, feito sob médida para os parâmetros e métricas do cliente. Exemplos: 
+        * Softwares de tráfego aéreo;
+        * Sistemas de monitoramento de tráfegos.
+
+    * Os softwares sob medidas, tem suas propriedades e decisões de mudanças feitas em virtude das necessidades do cliente.
+
+* Sobre a engenharia de software
+    * Utiliza teorias e métodos adequados para resolver os problemas tendo em mente as restrições organizacionais e financeiras.
+
+* Sobre a produção de software
+    * A engenharia de software não trata somente dos aspectos técnicos do desenvolvimento, mas também, com o gerenciamento de projetos, apoio a produção e muitos outros tópicos.
+
+### A importância da engenharia de software
+
+A importância da engenharia de software pode ser vista nos tópicos abaixo:
+    * Indivíduos e a sociedade dependem de sistemas de software avançados e complexos;
+    * Necessidade de sistemas confiáveis, feitos com economia e velocidade;
+    * Os custos são muito altos quando há necessidade de alteração de software que está em uso;
+
+### Atividades de processos de software
+* 1° - Especificação de software:
+    * Aqui são definidos os requisitos e restrições do software (Processo feito pelos engenheiros, juntamente aos clientes); 
+* 2° - Desenvolvimento:
+    * Neste passo o software é projetado e programado;
+* 3° - Validação de software:
+    * O software é verificado para se garantir de que, atende os requisitos do usuário;
+* 4° - Evolução de software;
+    * Software modificado para atender aos requisitos do usuário e do mercado.
+
+### Questões gerais que afetam a maioria dos softwares
+
+* Mudanças sociais e de negócios
+    * Com a mudança rápida da sociedade e dos neǵocios, e com isso, os softwares precisam de adaptação rápida para que a empresa se mantenha competitiva.
+* Segurança e confiança
+    * O sistema deve ser conviável, e deve ser resistente a falhas
+* Heterogeneidade
+    * Os sistemas devem cada vez mais se adequar para operar de forma distribuida.
+
+### Ética na engenharia de sotware
+
+
 ## Processos de software
 
-## RUP
+## Rational Unified Process - RUP
+
+O RUP é conhecido como uma metodologia que destaca-se por seguir as 'melhores práticas' de desenvolvimento de software. Entenda que as 'melhores práticas' no contexto de engenharia de software significa:
+
+* a-) Desenvolvimento iterativo;
+* b-) Gerenciamento de requisitos; 
+* c-) Arquitetura baseada em componentes;
+* d-) Organização do projeto em estruturas estáticas e dinâmicas;
+* e-) Especificação do software baseado em modelagem visual;
+* f-) Verificação constante de qualidade.
 
 ## Processos de negócios
 
@@ -59,3 +130,14 @@
 
 
 ### Users Stories
+
+
+## FAQ - Engenharia de software
+
+![alt text](head.png "HEAD FAQ")
+![alt text](faq_1.png "FAQ")
+![alt text](faq_2.png "FAQ")
+
+Sobre produtos
+
+![alt text](faq_3.png "FAQ PRODUTES")
