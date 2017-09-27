@@ -159,6 +159,10 @@ Notação BPMN especifica o processo de negócio em um diagrama que é fácil de
 
 ![alt text](elementos_bpmn.png "Elementos BPMN")
 
+
+* Veja abaixo, um exemplo simples de um BPMN:
+![alt text](BPMN-exemplo-tele-entrega-pizzaria.png "Exemplo BPMN")
+
 ## Métodos ágeis
 
 
