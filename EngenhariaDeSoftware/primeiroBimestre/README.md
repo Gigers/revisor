@@ -2,69 +2,83 @@
 
 ## Introdução
 
-A engenharia de software se preocupa com teorias, métodos e ferramentas para o desenvolvimento de softwares profissionais. Tratando do ínicio do projeto até a manutenção do sistema, após estes já estar em uso.
+A engenharia de software (ES) preocupa-se com as teorias, métodos e ferramentas para desempenhar da melhor forma possível a criação de softwares
 
-A engenharia de software tem essa preocupação com a excelência na construção de software por vários motivos, e alguns deles são listados abaixo:
+Isso porque o mercado atualmente depende de softwares para se manter, e cada vez mais há sistemas sendo controlados por softwares, e ainda, uma parte consideral do PIB de vários países são voltados para os softwares.
 
-    * O custo de software em um sistema de computador acaba sendo muito elevado, veja que o software fica muito mais caro que o hardware;
-    * Custos para manter o software;
-    * Os sistemas que terão vida longa, em muitos casos, custam várias vezes o preço de desenvolvimento;
+Perceba que a engenharia de software, busca utilizar métodos e teorias que se encaixem nos contextos organizacionais e financeiros das empresas.
 
-Por esses e por outros motivos a engenharia de software acaba sendo muito importante.
+Esta área, não trata apenas dos aspectos técnicos do desenvolvimento de software, e sim, de todo o ecossistema que rodeia esta atividade, ou seja, ela se preocupa e revisa, ferramentas, métodos e teorias que dão apoio ao desenvolvimento de software.
 
-Os softwares são classificados em dois campos:
+A importância desta engenharia tem crescido muito, por conta da necessidade do mercado e das pessoas de terem softwares mais rápidos, e mais confiavéis.
 
-* Genéricos
-    * Os softwares genéricos são sistemas autônomos, que são comercializados e vendidos para qualquer cliente que deseja comprar. Exemplos:
-        * Sistemas de gerenciamento de projetos;
-        * Softwares CAD;
-        * Software de propósito específico.
+O interessante dos trabalhos da ES é que não há um padrão universal, aplicável em todos os projetos, cada projeto utiliza certas técnicas, que em casos, não irão se aplicar a outros projetos
 
-    * Nestes casos, tanto as propriedades do software, quanto as decisões de mudanças no mesmo, são feitas pelo desenvolvedor do software. 
+Quando não há a engenhria de software, tem-se problemas com o gerenciamento e manutenção do sistema desenvolvido.
 
-* Sob encomenda
-    * Este é aquele tipo de software que foi criado para atender um cliente específico, e tudo isso, feito sob médida para os parâmetros e métricas do cliente. Exemplos: 
-        * Softwares de tráfego aéreo;
-        * Sistemas de monitoramento de tráfegos.
+### Custos de software
 
-    * Os softwares sob medidas, tem suas propriedades e decisões de mudanças feitas em virtude das necessidades do cliente.
+Em sistemas de computador, geralmente, o software acaba sendo a parte com maior custo, isso porque além do hardware barato, há que o software tem custos até o final de sua vida útil. Perceba que em softwares com vidas muito longas, o preço da manutenção pode se tornar muitas vezes o valor de compra do mesmo.
 
-* Sobre a engenharia de software
-    * Utiliza teorias e métodos adequados para resolver os problemas tendo em mente as restrições organizacionais e financeiras.
+Então a engenharia de software preocupa-se com que os custos sejam efetivos.
 
-* Sobre a produção de software
-    * A engenharia de software não trata somente dos aspectos técnicos do desenvolvimento, mas também, com o gerenciamento de projetos, apoio a produção e muitos outros tópicos.
+### Produtos de software
 
-### A importância da engenharia de software
+Estes podem ser divididos em duas partes.
 
-A importância da engenharia de software pode ser vista nos tópicos abaixo:
-    * Indivíduos e a sociedade dependem de sistemas de software avançados e complexos;
-    * Necessidade de sistemas confiáveis, feitos com economia e velocidade;
-    * Os custos são muito altos quando há necessidade de alteração de software que está em uso;
+* Produtos genéricos
+    * Estes são os softwares que são comercializados e vendidos para qualquer cliente com desejo e poder de compra;
+    * As específicações e decisões de mudanças são ditas pelo desenvolvedor;
+    * Exemplos: Softwares CAD, sistemas operacionais, entre outros.
 
-### Atividades de processos de software
-* 1° - Especificação de software:
-    * Aqui são definidos os requisitos e restrições do software (Processo feito pelos engenheiros, juntamente aos clientes); 
-* 2° - Desenvolvimento:
-    * Neste passo o software é projetado e programado;
-* 3° - Validação de software:
-    * O software é verificado para se garantir de que, atende os requisitos do usuário;
-* 4° - Evolução de software;
-    * Software modificado para atender aos requisitos do usuário e do mercado.
+* Produtos sob encomenda 
+    * Este tipo de software é encomendado por um cliente que deseja resolver suas próprias necessidades;
+    * As específicações e decisões são ditas pelas prioridades do cliente;
+    * Exemplos: Sistemas de tráfego aéreo, sistemas de monitoramento de trafego, entre outros.
 
-### Questões gerais que afetam a maioria dos softwares
+### Atividades de processo de software
 
-* Mudanças sociais e de negócios
-    * Com a mudança rápida da sociedade e dos neǵocios, e com isso, os softwares precisam de adaptação rápida para que a empresa se mantenha competitiva.
-* Segurança e confiança
-    * O sistema deve ser conviável, e deve ser resistente a falhas
+Esses são passos que a frente, dentro dos métodos demonstrados, serão melhores desenvolvidos e melhor explicados, este tópico é apenas uma introdução ao processo de software.
+
+* 1° - Especificação
+    * Passo onde os clientes e engenheiros definem o software que será produzido;
+* 2° - Desenvolvimento
+    * Nesta etapa o software é projetado e programado;
+* 3° - Validação
+    * Passo onde o software é validado, aqui é garantido que os requisitos levantados durante a especificação e desenvolvimento foram cumpridos;
+* 4° - Evolução
+    * Por fim a evolução, ela ocorre quando o software já está funcionando, porém o cliente precisa de mudanças e melhorias para que o sistema se adeque as novas formas de trabalho ou ao mercado.
+
+### Problemas que podem afetar um software
+
 * Heterogeneidade
-    * Os sistemas devem cada vez mais se adequar para operar de forma distribuida.
+    * Cada vez mais é exigido do software que ele seja o mais distribuido possível e que ele esteja nos mais diferentes dispositivos e computadores;
+* Mudanças de negócio e social
+    * O crescimento rápido das empresas fazem com que o software cresca junto com a empresa, assim para que ele não seja um problema, e sim uma solução;
+* Segurança e confiança
+    * É exigido do software que ele seja confiável, sempre esteja disponível e que garanta a segurança dos dados.
 
-### Ética na engenharia de sotware
+### Alguns tipos de software
 
+* 1° - Aplicações stand-alone
+    * São aplicações que são executadas em um único PC, e não necessitam estar contectadas a rede.
+* 2° - Aplicações interativas baseadas em transações
+    * São aplicações alocadas em computadores remotos, e nestes os usuários fazem o acesso de seus próprios computadores ou terminais. Exemplo: Aplicações web para e-commerce
+* 3° - Sistemas de controle embutidos
+    * São sistemas de software que controlam e gerenciam dispositivos de hardware
+* 4° - Sistemas de entretenimento
+    * Sistemas para uso pessoal, utilizado para entreter os usuários.
 
-## Processos de software
+### Fundamentos da engenharia de software
+
+Foi citado acima que, não há um único padrão que se adequa a todos os projetos, foi visto que o que ocorre é a utilização de cada modelo de processo de software (Discutido no tópico a frente) em momentos em que o projeto permite.
+
+Porém há alguns fundamentos que são a base, e que devem ser utilizados em qualquer modelo de software, e são eles:
+
+* 1° - Conhecer e entender os requisitos e especificações é de extrema importância para o desenvolvimento do projeto;
+* 2° - Gerenciar e enteder o projeto é muito importante. Isso porque não basta entender somente gerenciar, é necessário entender para que o gerenciamento seja efetivo;
+* 3° - Levar em consideração o desempenho e a segurança. Esses são tópicos listados como desafios da engenharia de software, e que devem sempre ter a atenção em um projeto;
+* 4° - Fazer a reutilização de software é muito importante, e deve ser feito sempre que possível.
 
 ## Rational Unified Process - RUP
 
@@ -76,6 +90,7 @@ O RUP é conhecido como uma metodologia que destaca-se por seguir as 'melhores p
 * d-) Organização do projeto em estruturas estáticas e dinâmicas;
 * e-) Especificação do software baseado em modelagem visual;
 * f-) Verificação constante de qualidade.
+
 
 ## Processos de negócios
 
@@ -138,6 +153,6 @@ O RUP é conhecido como uma metodologia que destaca-se por seguir as 'melhores p
 ![alt text](faq_1.png "FAQ")
 ![alt text](faq_2.png "FAQ")
 
-Sobre produtos
+Os atributos essenciais de um bom software
 
 ![alt text](faq_3.png "FAQ PRODUTES")
