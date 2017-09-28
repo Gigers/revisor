@@ -206,30 +206,28 @@ O ciclo de vida do Processo Unificado está organizado em quatro fases de gerên
 
 ## Processos de negócios
 
-Processos de neǵocios são conjuntos de atividades que no final geram um produto ou serviço para um certo grupo de clientes.
-Uma empresa é uma coleção de processos de négocio. Há casos que esta coleção de processos, está registrada em manuais, ou documentos, porém na maioria das vezes, eles estão no meio informal, sendo carregados apenas pelas pessoas que os executam. E isso acaba trazendo muitos problemas quando é necessário alguma mudança
+Um processo de negócios nada mais é que um conjunto de atividades, iniciado primeiramente por um evento, dirigo por regras de negócio e utilizando recursos, cujo qual entrega um resultado, finalizando com um determinado valor, seja para o cliente interno, seja para o cliente externo de uma empresa.
+* Hierarquia:
+   * Processos;
+   * Subprocessos
+   * Atividades
+   * Tarefas
 
-Porém para que a empresa consiga utilizar de sistemas de informação, e ganharem vantagens no mercado com isso, é necessário modificar os processos de negócio, mas quando isso não está documentado, esta se torna uma tarefa bastante dificil, assim antes de alterar os processos também é necessário alterar o comportamento das empresas, e das pessoas que fazem parte dela. 
+Deve-se manter a análise somente no nível de processos. Como fazer isso? Para cada funcionalidade do negócio em estudo, verificam-se as características dessa funcionalidade.
+ 
+Com os candidatos a processos identificados, temos realizado apenas o primeiro passo. O próximo passo consiste em definir cada um deles. É necessário então, para cada processo, responder ao Questionário de Identificação de Processos. 
+* Questionário de Identificação de Processos:
+ * Atividades envolvidas (de acordo com a descrição narrativa)
+ * Quando será realizado a atividade (define o evento de entrada, "quando")
+ * Sequência da realização das atividades(implementação dos fluxos)
+ * Como serão realizadas as atividades
+ * Objetivo do processo
+ * O que está envolvido na execução das atividades
+ * O que é consumido ou utilizado
+ * O que é produzido
+ * Relação entre o processo e a estrutura de negócio
 
-Perceba que a descrição feita acima são caracteristicas levandas em consideração na gestão dos processo de negócios.
-
-Este que é um processo de melhoria continua, veja:
-* Identificar os processos a serem modificados;
-* Analisar os processos existentes;
-* Planejar o novo processo;
-* Implantar o novo processo
-
-Veja que todas essas etapas são passos que podem ser feitos continuamento, para que a empresa através da melhoria interna consiga ser melhor que a concorrência.
-
-Mas para que isso seja feito como citado, é necessário conhecer os procesos e ter eles modelados.
-
-Mas isso em muitos casos não ocorre.
-
-### Reengenharia dos processo de negócios
-
-A reengenharia dos processos é algo que deve ser utilizado para promover mudanças rápidas nas estruturas dos processos. Este não é um processo que não visa melhoria continua, e sim, a reconstrução dos processos antigos para novos processos, isso em um curto espaço de tempo.
-
-Em um curto espaço de tempo é possível gerar muitos processos reestruturados, e isso pode fazer a empresa já sentir os ganhos de processos estruturados, porém como o processo é feito em muito pouco tempo, pode ocorrer de, haver resistência organizacional as mudanças.
+* A Visão de Processos é realizada usando o diagrama das extensões Eriksson Penker da modelagem UML. 
 
 ## Modelagem de processos de negócios
 
@@ -279,11 +277,22 @@ Nesta notação, são destacados os seguintes objetos de negócio:
 
 ### BPM
 
-* O que é ?
+* BPM é a abreviação de Business Process Management, que traduzido para o português significa Gerenciamento de Processos de Negócio.
+
+* BPM é uma abordagem de gerenciamento adaptável, desenvolvido com a finalidade de sistematizar e facilitar processos organizacionais individuais complexos, dentro e fora das empresas.
+
+* O BPM tem como intuito trazer a tona informações pertinentes de como os processos são executados para que melhorias possam ser realizadas e para que os processos possam ser gerenciados possibilitando uma melhor tomada de decisões e visão do negócio como um todo.
+
+* Frase de impacto: "Você só pode melhorar aquilo que pode gerenciar, só pode gerenciar aquilo que pode medir e só pode medir aquilo que realmente conhece como é executado."
 
 O BPM é a modelagem de processos de negócio, utilizado para visualizar e entender os processos, para que assim seja possível entender como o processo funciona. E com isso é possível melhorar, reestruturar e automatizar o processo. 
 
-### BPMN - Business Process Modeling Notation
+### BPMN
+
+Notação BPMN especifica o processo de negócio em um diagrama que é fácil de ler tanto para os usuários técnicos quanto para os usuários de negócios. É intuitivo e permite a representação de detalhes complexos do processo. BPMN serve como uma linguagem padrão, colocando um fim na lacuna de comunicação entre a modelagem do processo e sua execução. Por este motivo e considerado hoje a lingua franca para comunicação no mundo dos negócios.
+* Resumindo:
+  Desenvolver uma visão clara sobre o projeto de entendimento "universal"
+
 
 O BPMN é utilizado para desenhar processos de negócio. Utiliza dos conceitos do BPM com uma notação gráfica.
 
@@ -328,6 +337,7 @@ O BPMN é utilizado para desenhar processos de negócio. Utiliza dos conceitos d
         * Também deve ser utilizado a convergência para únificar os caminhos.
         * Gateway exclusivo: Apenas um dos caminhos de verificação será realizado, diferente do inclusivo.
         * Gateway complexo: É utilizado para tratar situações complexas, veja que, ele serve para ser usado principalmente quando há muitas entradas e combinações de gateways diferentes.
+
 
 ## Métodos ágeis
 Os métodos ágeis são uma alterativa as formas tradicionais de desenvolvimento de software, este formato de desenvolvimento de software surgiu em meio a crise enfrentada pelas empresas de desenvolvimento de software.
