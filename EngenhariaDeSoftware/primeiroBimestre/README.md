@@ -386,6 +386,11 @@ Ela deve conter os tópicos listados abaixo:
 
 "Como cliente quero verificar quais livros estão disponíveis para compra, para que possa seleciona-los e efetuar a compra"
 
+
+## Stakeholders
+
+Os stakeholders nada mais são que pessoas e as organizações podem ser afetadas por um projeto, de forma direta ou indireta, positivamente ou negativamente. Eles também são conhecidos como as partes interessadas no projeto.
+
 ## FAQ - Engenharia de software
 
 ![alt text](head.png "HEAD FAQ")
