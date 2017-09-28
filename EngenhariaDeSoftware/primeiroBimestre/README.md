@@ -36,19 +36,6 @@ Estes podem ser divididos em duas partes.
     * As específicações e decisões são ditas pelas prioridades do cliente;
     * Exemplos: Sistemas de tráfego aéreo, sistemas de monitoramento de trafego, entre outros.
 
-### Atividades de processo de software
-
-Esses são passos que a frente, dentro dos métodos demonstrados, serão melhores desenvolvidos e melhor explicados, este tópico é apenas uma introdução ao processo de software.
-
-* 1° - Especificação
-    * Passo onde os clientes e engenheiros definem o software que será produzido;
-* 2° - Desenvolvimento
-    * Nesta etapa o software é projetado e programado;
-* 3° - Validação
-    * Passo onde o software é validado, aqui é garantido que os requisitos levantados durante a especificação e desenvolvimento foram cumpridos;
-* 4° - Evolução
-    * Por fim a evolução, ela ocorre quando o software já está funcionando, porém o cliente precisa de mudanças e melhorias para que o sistema se adeque as novas formas de trabalho ou ao mercado.
-
 ### Problemas que podem afetar um software
 
 * Heterogeneidade
@@ -80,7 +67,102 @@ Porém há alguns fundamentos que são a base, e que devem ser utilizados em qua
 * 3° - Levar em consideração o desempenho e a segurança. Esses são tópicos listados como desafios da engenharia de software, e que devem sempre ter a atenção em um projeto;
 * 4° - Fazer a reutilização de software é muito importante, e deve ser feito sempre que possível.
 
+## O processo de software
+
+Um processo de software é um conjunto de passos necessários para a construção de um software.
+
+Existem diversos tipos de processos de software, que são utilizados para o desenvolvimento, mas, todos eles compartilham as seguintes características:
+
+<!-- EDVE  -->
+
+* Específicar: Nesta étapa os requisitos e especificações do software são realizados;
+* Desenvolvimento: É nesta fase que o software é projeto e desenvolvido;
+* Validar: Aqui é feito a validação do software, isso é, se ele possuí todos os requisitos leventados
+* Evoluir: Por fim a evolução ocorre, este passo normalmente é posto após a implantação do projeto. 
+
+O modelo de processo de desenvolvimento é apenas uma representação abstrata, assim, ela representa uma perspectiva em particular do processo.
+
+### Descrição do processo de software
+
+Ao falarmos sobre a descrição dos processos de software, estamos citando as atividades deste processos, mas esta descrição não abrange apenas as atividades mas também, os papeis, produtos e pré e pós condições, desta forma, a abrangência da descrição passa a ser:
+
+* Modelos de dados;
+* Interfaces de usuário;
+* Os papeis, suas atividades e importâncias (Aqui em específico, o tratamento é voltado para as pessoas que vão particicar dos processos descritos);
+* Pré e pós condições, este que descreve algo que ocorre antes e/ou depois da execução do processo.
+
+Os processos podem ser divididos em:
+
+* Planos
+    * Este tipo de processo é aquele em que as etapas estão bem definidas, mesmo antes da iniciação do projeto;
+
+* Ágeis
+    * Aqui o processo é feito de forma incremental, e nem todas as etapas estão definidas, já que elas vão sendo desenvolvidas durante a adição de incrementos ao projeto.
+
+#### Modelos de processos de software
+
+Há vários tipos de processos de software, dentre eles:
+
+* Modelo cascata
+    * São processos de desenvolvimento de software bastante ortodoxos. Mudanças são difíceis de serem feitas;
+    * Recomendado apenas para processos de software em que os requisitos são muito bem conhecidos;
+    * Todas as etapas são separadas e distintas;
+    
+Visualização do processo
+![alt text](cascata_1.png "CASCATA")
+
+* Desenvolvimento incremental
+    * Permite mudanças rápidas;
+    * Feedback do cliente é feito de forma mais rápida;
+        * Isso ocorre porque entre os incrementos o software vai se modelando, assim é possível o cliente visualizar como ele está ficando e operando.
+    * Possíbilidade de rapidez;
+    * Pouca visibilidade do processo;
+    * Pode ocorrer de o sistema ficar degradado com a adição de muitos incrementos.
+
+Visualização do processo
+![alt text](incremento_1.png "INCREMENTAL")
+
+* Desenvolvimento orientado a reúso
+    * Utiliza a abordagem de que os sistemas são integrados com componentes já existentes. (Este é um processo presenta a bastante tempo na WEB);
+
+Visualização do processo
+![alt text](reuso_1.png "REUSO")
+
+## Prototipação de software
+Um protótipo é uma versão inicial de um sistema, usada para demonstrar conceitos e testar opções de projeto.
+
+Estes podem ser utilizados para:
+* Facilitar a visualização do sistema para o usuário;
+* Modelar alguma função que será implementada;
+
+Com esta modelagem ganha-se:
+* Melhoria do uso de software;
+* Menor esforço para o desenvolvimento;
+* Melhoria na qualidade do projeto.
+
+## Modelo espiral de Boehm
+
+Esta é uma forma diferente de demonstar como o processo de software funciona. Cada loop do representa uma fase do processo. 
+
+O ponto importante da esperial é que nele não existem especificações fixas, a cada loop as definições são feitas de acordo com a necessidade.
+
+Outro ponto interessante é que os riscos são avaliados explicitamente, e com o decorrer do processo vão sendo resolvidos.
+
+Veja um exemplo de espiral abaixo
+![alt text](espiral_1.png "ESPIRAL")
+
 ## Rational Unified Process - RUP
+
+* O que é ?
+    * RUP é um processo de engenharia de software que proporciona uma abordagem estruturada para atribuir tarefas e responsabilidades dentro de uma organização
+
+* Objetivos
+    * O principal objetivo do RUP é assegurar a produção de software de alta qualidade que satisfaça as necessidade de seus usuários finais, respeitando prazo e custo
+
+* Características
+Ao invês de dar ênfase na produção de grandes volumes de documentação em papel, o RUP tem seu foco no desenvolvimento e na manutenção de modelos com uma rica representação visual do sistema em desenvolvimento
+    * Focado no usuário;
+    * Baseado em UML.
 
 O RUP é conhecido como uma metodologia que destaca-se por seguir as 'melhores práticas' de desenvolvimento de software. Entenda que as 'melhores práticas' no contexto de engenharia de software significa:
 
@@ -91,23 +173,121 @@ O RUP é conhecido como uma metodologia que destaca-se por seguir as 'melhores p
 * e-) Especificação do software baseado em modelagem visual;
 * f-) Verificação constante de qualidade.
 
+O RUP pode ser entendido também, como um processo genérico, derivado do trabalho em UML.
+
+Sua descrição neste caso, normalmente é feita por 3 perspectivas:
+
+* Uma perspectiva dinâmica - Que mostra fases no tempo;
+* Uma perspectiva estática - Que mostra atividades do processo;
+* Uma perspectiva prática - Que sugere boas práticas.
+
+O ciclo de vida do Processo Unificado está organizado em quatro fases de gerênciamento
+
+* Concepção - Estabelece o business case para o sistema
+    * Delimita o contexto;
+    * Identifica os riscos críticos;
+    * Construir um protótipo do sistema.
+* Elaboração - Desenvolve um entendimento da extensão do problema e da arquitetura do sistema
+    * Identificar e detalhas os casos de uso;
+    * Formular a arquitetura básica do sistema proposto;
+    * Identificar os riscos do desenvolvimento do projeto.
+* Construção - Projeta o sistema, programa e testa o sistema
+    * Aqui o desenvolvimento do projeto ocorre.
+* Transição - Implanta o sistema no seu ambiente de operação
+    * O foco desta etapa é transferir o produto para o cliente;
+    * Garantir o nível de qualidade esperado;
+    * Migração de dados
+    * É nesta etapa que os riscos são mais altos.
+
+* Workflows
+    * O RUP possúi diversos workflows, mas serão vistos apenas dois:
+        * Modelagem de negócios: Os processos de negócio são modelados por meio de casos de uso de negócios
+        * Requisitos: Atores que interagem com o sistema são identificados e casos de uso são desenvolvidos para modelas os requisitos do sistema.
 
 ## Processos de negócios
 
+Processos de neǵocios são conjuntos de atividades que no final geram um produto ou serviço para um certo grupo de clientes.
+Uma empresa é uma coleção de processos de négocio. Há casos que esta coleção de processos, está registrada em manuais, ou documentos, porém na maioria das vezes, eles estão no meio informal, sendo carregados apenas pelas pessoas que os executam. E isso acaba trazendo muitos problemas quando é necessário alguma mudança
+
+Porém para que a empresa consiga utilizar de sistemas de informação, e ganharem vantagens no mercado com isso, é necessário modificar os processos de negócio, mas quando isso não está documentado, esta se torna uma tarefa bastante dificil, assim antes de alterar os processos também é necessário alterar o comportamento das empresas, e das pessoas que fazem parte dela. 
+
+Perceba que a descrição feita acima são caracteristicas levandas em consideração na gestão dos processo de negócios.
+
+Este que é um processo de melhoria continua, veja:
+* Identificar os processos a serem modificados;
+* Analisar os processos existentes;
+* Planejar o novo processo;
+* Implantar o novo processo
+
+Veja que todas essas etapas são passos que podem ser feitos continuamento, para que a empresa através da melhoria interna consiga ser melhor que a concorrência.
+
+Mas para que isso seja feito como citado, é necessário conhecer os procesos e ter eles modelados.
+
+Mas isso em muitos casos não ocorre.
+
+### Reengenharia dos processo de negócios
+
+A reengenharia dos processos é algo que deve ser utilizado para promover mudanças rápidas nas estruturas dos processos. Este não é um processo que não visa melhoria continua, e sim, a reconstrução dos processos antigos para novos processos, isso em um curto espaço de tempo.
+
+Em um curto espaço de tempo é possível gerar muitos processos reestruturados, e isso pode fazer a empresa já sentir os ganhos de processos estruturados, porém como o processo é feito em muito pouco tempo, pode ocorrer de, haver resistência organizacional as mudanças.
+
 ## Modelagem de processos de negócios
 
-## Eriksson-Penker
+Um modelo de negócio é uma abstração do funcionamento do próprio negócio, visto de várias visões, de modo a gerar informações relevantes.
 
-## BPM
+Assim o processo de negócio também pode ser visto como, um conjunto de atividades, que é iniciado por um evento, que utiliza recursos e é dirigido por regras de negócio e entrega um resultado.
+
+Cada uma das visões pode ser representada utilizando um diagrama. Assim cada uma das estruturas ou situações do negócio podem ser demostradas e assim expressarem as relações entre os vários objetos do negócio.
+
+Os objetos de négocio são:
+
+* Objetivos
+    * O objetivo refere-se a, Para que o processo existe;
+    * Identifica uma ação de valor para o negócio.
+* Processos
+    * São atividades que devem ser executadas para atingir os Objetivos.
+* Recursos
+    * Os recursos são objetos de negócio que atuam ou são utilizados ou manipulados pelos Processos de negócio, que podem ser classificados como elementos físicos, abstratos e informacionais. Podendo ser elementos de entrada ou de saída.
+* Regras de negócio
+    * As regras de negócio podem ser vista sobre duas perspectivas:
+        * Negócio: Diretivas que visam influenciar ou guiar o comportamento do negócio. Tais diretivas existem como suporte a políticas do negócio, formuladas em resposta a riscos, ameaças ou oportunidades;
+        * Sistemas de informação: Uma sentença que define ou restringe algum aspecto do negócio (...) sua intenção é manter a estrutura do negócio, controlar ou influenciar algum aspecto do negócio.
+
+    * As regras de neǵocio tem essa divisão, pois passou a ser considerada muito importante para a comunidade de sistemas de informação, que passou a usa-la, como parâmetro no momento da construção de softwares, esses mais flexíveis e menos sensíveis a mudanças.
+
+OBS: Exemplos de recursos -  produto ou material (formulário de comandas, papel, caneta, etc.), pessoa (vendedor), informação (lista de livros a serem vendidos), serviço (motoboy), página web, servidor, banco de dados, etc.
+
+## Modelagem de processos
+
+Até aqui, foi falando da importância do controle e visualização dos processos de neǵocio, porém é necessário que estes sejam demonstrados, com notações que todos sejam capaz de visualizar. 
+
+Desta forma, serão demonstrados duas técnicas de Modelagem de processos de negócio, são elas:
+
+* Eriksson-Penker;
+* Bussiness Process Modeling and Notation (BPMN);
+
+### Eriksson-Penker
+
+A notação Eriksson-Penker apresenta os Processos de Negócio em uma visão de mais alto nível, sem detalhamento dos “passos” (atividade internas) assim como das regra de negócio embutidas.
+
+Nesta notação, são destacados os seguintes objetos de negócio:
+
+* Evento: É um acontecimento que dispara a execução de um processo de negócio;
+* Recursos: São os recursos utilizados ou manipulados pelos processos de neǵocio;
+* Objetivo: O objetivo é utilizado para específicar a importância daquele processo, ou, o porque ele exite no negócio; 
+* Saída: Representa a saída gerada pelas atividades do processo de negócio
+
+### BPM
 
 * O que é ?
 
-## BPMN - Business Process Modeling Notation
+O BPM é a modelagem de processos de negócio, utilizado para visualizar e entender os processos, para que assim seja possível entender como o processo funciona. E com isso é possível melhorar, reestruturar e automatizar o processo. 
 
-<!-- Explicar o que é -->
+### BPMN - Business Process Modeling Notation
+
+O BPMN é utilizado para desenhar processos de negócio. Utiliza dos conceitos do BPM com uma notação gráfica.
 
 * Elementos
-
     * Elementos de fluxos:
         São esses os elementos que definem quando inicia e quando termina um processo, as tarefas humanas ou de sistema, que estão envolvidas e os desvios
             * Tarefas;
@@ -138,14 +318,63 @@ O RUP é conhecido como uma metodologia que destaca-se por seguir as 'melhores p
 
 * Veja abaixo, uma representação completa dos elementos separados em grupo. (Imagem retirada do Heflo.com)
 
-
 ![alt text](elementos_bpmn.png "Elementos BPMN")
 
-## Métodos ágeis
+* Elementos do BPMN
+    * Gateways: É um direcionador de fluxo;
+        * Gateway paralelo: A paralelização de serviços do BPMN é possível com a utilização deste gateway, através dele, é possível fazer com que dois ou mais fluxos sejam executados ao mesmo tempo.
+        * OBS: Para fazer com que os fluxos sejam sincronizados novamente não esqueça de utilizar a convergência.
+        * Gateway inclusivo: Com este gateway é possível fazer uma combinação de caminhos, isso porque ao verificar, ele consegue assumir que mais de um valor é verdade, fazendo assim que haja uma unificação de caminhos;
+        * Também deve ser utilizado a convergência para únificar os caminhos.
+        * Gateway exclusivo: Apenas um dos caminhos de verificação será realizado, diferente do inclusivo.
+        * Gateway complexo: É utilizado para tratar situações complexas, veja que, ele serve para ser usado principalmente quando há muitas entradas e combinações de gateways diferentes.
 
+## Métodos ágeis
+Os métodos ágeis são uma alterativa as formas tradicionais de desenvolvimento de software, este formato de desenvolvimento de software surgiu em meio a crise enfrentada pelas empresas de desenvolvimento de software.
+
+Os processos ágeis incentivam a auto-organização e o trabalho em equipe, além de falar muito sobre a comunicação entre a equipe.
+
+Estas são formas de desenvolvimento de software, que visam a entrega rápida de produtos, sem deixar a qualidade de lado.
+
+As formas ágeis são bastante criticadas por deixarem de lado um grande conjunto de documentação, utilizada pelos métodos de desenvolvimento de softwares antigos.
+Porém o manifesto diz que, a documentação é menos importante que software funcionando, mas isso não significa que a documentação não deve existir.
+
+Ela apenas muda a forma como a documentação é vista, perceba que, nos projetos mais antigos a documentação era vista como forma de comunicação, nos métodos ágeis, ela é uma das formas de comunicação, assim com mais formas de comunicação a documentação diminuiu, porém não sumiu como muitos dizem.
+
+E este é o principal ponto dos métodos ágeis, ele foca muito em comunicação, por isso as equipes são pequenas, essas que fazem pequenas entregas incrementais. Tudo isso faz com que o processo se torne algo mais natural, fazendo com que o desenvolvimento de software seja mais rápido e efetivo.
+
+Mas quando devemos documentar ?
+
+Quando o benefício e o valor do que será documentado, é maior que o custo trago por aquela documentação.
 
 ### Users Stories
+Vale aqui lembra que, as User Stories, assim como qualquer outro método talvez não se adapte a todos os casos de desenvolvimento e levantamento de requisitos. 
 
+Objetivo
+
+As Users Stories, tem como objetivo facilitar o processo de levantamento de requisitos. Ela busca fazer isso de forma rápida e com muita interação dos usuários que irão utilizar o sistema.
+
+Características 
+
+O fato das Users Stories não encaixar em qualquer projeto se da por algumas características que ela apresenta, e além disso o seu objetivo.
+
+Este método trabalha na captura de informações diretamente com o usuário, e não foca muito em documentar todos os detalhes.  Aqui são gravados o que o usuário deseja fazer, e nada mais, como por exemplo detalhes de implementação, ou como o sistema deve se comportar.
+Outro fato interessante sobre esta forma de levantamento de requisitos é o quão fácil é seu aprendizado e aplicação, isso permite que todos os envolvidos possam criar as User Stories, sem a necessidade de um especialista fazendo a interface com o cliente e a equipe que desenvolve.
+
+Sua aplicação é feita principalmente quando as equipes são pequenas, e a comunicação com o usuário pode ser feita frequentemente.
+
+* Aplicação
+
+Sua forma de aplicação, como já citado, é bastante simples. Veja que as histórias devem ser curtas e diretas ao ponto. 
+Para a criação de uma história um paragrafo deve resolver o problema, caso não seja o suficiente, ela deve ser revista e caso necessário removida ou segmentada em outras pequenas histórias.
+
+Ela deve conter os tópicos listados abaixo:
+* Ator - Representa quem escreveu aquela história, ou, a quem ela atende;
+* Ação - Mostra a ação que o ator quer efetuar;
+* Funcionalidade - Mostra o resultado que o ator espera após a execução a execução da ação.
+* Um exemplo simples de descrição pode ser visto abaixo:
+
+"Como cliente quero verificar quais livros estão disponíveis para compra, para que possa seleciona-los e efetuar a compra"
 
 ## FAQ - Engenharia de software
 
