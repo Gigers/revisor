@@ -332,7 +332,7 @@ Os modificadores de acesso servem para definir qual serão as formas possíveis 
 
 Em java há quatro modificadores de acesso: <code>public, protected, default, private</code>
 
-Com excessão do <code>default</code> (Que não tem palavra reservada) todos os demais devem ser declarados de forma explicita, veja:
+Com excessão do <code>default</code> todos os demais devem ser declarados de forma explicita, veja:
 
 ```java
 	protected String nome;
