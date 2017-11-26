@@ -578,7 +578,7 @@ Calculadora.soma(123,312);
 // Veja que não foi necessário instânciar a classe para chamar o método.
 ```
 
-O <code>static</code> utilizado por métodos, deve sempre ser aplicado, em casos em que o método independe de outras partes da classe para funcionar.
+Recomenda-se o uso de <code>static</code> em método, quando ele independe de outras partes da classe (Atributos ou métodos);
 
 Os modificadores de comportamento podem ser utilizados juntamente aos modificadores de acesso, veja um exemplo:
 
