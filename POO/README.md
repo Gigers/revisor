@@ -175,23 +175,27 @@ pessoaDois = pessoaUm;
 
 System.out.println("Pessoa 1: " + pessoaUm.nome + "\n" + "Pessoa 2: " + pessoaDois.nome);
 ```
+```java
 Out:  
 
 Pessoa 1: João
 
 Pessoa 2: João
- 
+``` 
+
 ```java
 
 pessoaDois.nome = "Alfredo";
 
 System.out.println("Pessoa 1: " + pessoaUm.nome + "\n" + "Pessoa 2: " + pessoaDois.nome);
 ```
+```java
 Out:
 
 Pessoa 1: Alfredo
 
 Pessoa 2: Alfredo
+```
 
 O que ocorre nos tipos por referência é que, são passados endereços de memória e não o valor que está alocado, assim quando dois objetos apontam para o mesmo endereço (Exemplo visto acima), os dois serão alterados caso o conteúdo de memória para onde ele apontam seja alterado.
 
@@ -645,7 +649,9 @@ public static void main(String[] args){
     Classe.metodo();
 }
 ```
+```java
 Out: Olha! Um método static
+```java
 
 # Herança
 
@@ -978,7 +984,7 @@ A implementação da interface <code>Runnable</code> é a maneira recomendada pa
 * setName(String nome): Define um nome para a thread;
 * sleep(int X): Pausa a thread por um intervalo X de tempo
 
-# Classes genéricas
+# Tipos genéricas
 
 Antes de falarmos sobre as coleções em Java é interessante entender o que são os tipos genéricos. As classes genéricas surgiram para solucionar problemas relacionados a forma de armazenamento e utilização de grupos de dados de diversos tipos, isso porque, ao trabalhar com estes dados, erros ocorriam, onde um método aceitava <code>object</code> o que o tornava muito genérico, permitindo que qualquer objeto fosse aceito no método, e nem sempre o método aceito tinha as caracteristicas necessárias para utilizar as estruturas do método.
 
@@ -997,9 +1003,9 @@ public FruitSalad makeSalad(Basket b){
 ```
 O exemplo acima foi retirado de uma aula do Eduardo Guerra.
 
+O método acima pode parecer não ter nenhum problema, porém caso algum programador insira um objeto do tipo <code>Basket</code> e que não possua objetos do tipo <code>Fruit</code> erros irão ocorrem em tempo de execução.
 
-<!-- Explicar novamente -->
-<!-- Até então ao olhar o método não se percebe nenhum problema, porém perceba que dentro dela, veja que mesmo recebendo um tipo pouco específico que é o <code>Basket</code> ela faz o <code>casting</code> para <code>Fruit</code>, isso pode funcionar sem problemas, porém, imagine que este é um método encapsulado, e um programador ao ver este, percebe que ele recebe um tipo <code>Basket</code>, o fazendo entender que todos aqueles que herdam de <code>basket</code> poderão fazer a utilização sem problemas, e é neste ponto que está o problema, imagine se neste método é inserido uma cesta de legumes, o <code>casting</code> para <code>Fruit</code> apresentará problemas. -->
+Outro grande problema que ocorria bastante era quando coleções do tipo <code>Object</code> eram definidas, essa como todos sabem é a classe herdada por todos os objetos em Java, isso fazia que uma coleção deixasse qualquer objeto ser inserido, o que no momento de realizar alguma operação causava problemas, sendo necessários usos de cast e outros.
 
 Para resolver estes problemas surgiram os genéricos, estes que tem como principal objetivo "definir coleções de forma que estas contenham somente determinado tipo de objeto". Santos, Rafael.
 
@@ -1036,6 +1042,8 @@ public static void main(String[] args){
 
 Para realizar a leitura de uma classe que foi implementada com algum tipo genérico, é interessante utilizar a relação <code>é de alguma coisa</code>. Mesmo que de maneira informal, ao utilizar fica mais fácil vincular com o tipo genérico. Veja que pode ser dito que, a agenda <code>é de alguma coisa</code>.
 
+É interessante notar que, o entendimento dos <code>Generics</code> são importantes antes de entrar nas coleções, isso porque, elas foram as que mais se beneficiaram com esta adição. Isso porque os problemas citados acima de tipos <code>Object</code> foram resolvidos, trazendo mais qualidade e robustez a API de Collections. 
+
 # Coleções
 
 O Java possui em sua API uma quantidade consideravel de coleções e estruturas de dados para armazenar tipos e objetos.
@@ -1050,9 +1058,6 @@ Como todas as interfaces de coleções herdam de <code>Collection</code>, todas 
 * Pesquisar elementos;
 * Percorrer elementos;
 * Verificar quantidade de elementos.
-
-<!-- Rever -->
-<!-- OBS: Todas as coleções utilizam de tipos genéricos para trabalhar, desta forma será muito comum ver <code>List<Pessoa></code> ou algo parecido, isso porque como visto no tópico anterior é necessário específicar o tipo. -->
 
 ## Coleções VS Array
 
@@ -1165,6 +1170,7 @@ public class Pessoa implements Comparable<Pessoa>{
         Este passo é feito abaixo
     */
 
+	@Override
     public int compareTo(Pessoa p){
         return nome.compareTo(p.getNome());
     }
@@ -1208,10 +1214,14 @@ public class Start {
 ```
 
 Out: 
-
+```java
 Ana
+
 Felipe
+
 Pedro
+
+```
 
 Veja que a classe que será comparada teve de implementar a Interface Comparable, e,  a classe onde estava o método main, teve de importar a biblioteca <code>java.util.Collections</code>, isso para que fosse possível utilizar o <code>Collections.sort()</code>.
 
@@ -1262,7 +1272,7 @@ Da forma vista acima, a ordenação será feita da menor para a maior idade.
 
 OBS: A diferença entre <code>equals()</code> e <code>compareTo()</code> é que o <code>equals()</code> retorna um boolean, informando se o valor é ou não igual, e o <code>compareTo()</code>, retorna valores inteiros, que dizem se o valor é menor, maior ou igual. 
 
-Da mesma forma que o <code>compareTo</code> o <code>equals</code> também pode ser alterado pelo programador para fazer a comparação de um item específico, veja:
+Da mesma forma que o <code>compareTo</code> o <code>equals</code> também deve ser sobrescrito (No caso de classes) pelo programador para fazer a comparação de um atributo específico, veja:
 
 ```java
 public class Iguais {
@@ -1310,7 +1320,7 @@ public class Iguais {
 
 Perceba que, como argumento estou recebendo um elemento <code>Object</code>, isso ocorre porque estou sobrescrevendo um método da classe <code>Object</code> a qual todos herdam, caso eu mude este argumento não estarei sobrescrevendo e sim sobrecarregando o método.
 
-Para que o item fique com o mesmo tipo de dados, faço um <code>Cast</code>, e assim evito problemas, e em seguida faço as comparações.
+Para que o item fique com o mesmo tipo de dados, faço um <code>cast</code>, e em seguida faço as comparações.
 
 <!--  -->
 
