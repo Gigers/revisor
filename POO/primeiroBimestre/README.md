@@ -118,7 +118,12 @@ OBS: Os objetos são sempre por referência (Explicado mais a frente);
 
 OBS: Instânciar é o ato de criar o objeto.
 
-# Tipos primitivos
+# Tipos
+
+O Java sua forma de separar tipos, e é importante que esta seja entendida.
+
+## Tipos primitivos
+
 Tipos primitivos são os tipos básicos de dados, presente em qualquer linguagem de programação. Aqui não há referência, apenas valores, assim caso seja feito:
 
 ```java
@@ -135,7 +140,7 @@ Valor de b: 123
 
 Isto não ocorre nos tipos por referência, vistos no próximo tópico.
 
-## Tipos primitivos (Tipo por valor)
+### Tipos primitivos do Java (Tipo por valor)
 O Java possui 8 tipos primitivos, e são eles:
 
 ```java
@@ -156,7 +161,7 @@ Por que não usar o float ?
 
 O float é uma classe que deixou de ser utilizada em Java, o padrão é utilizar o double, isso porque muitos problemas de precisão começaram a surgir. Assim sendo recomendado o uso do double.
 
-# Tipos por referência
+## Tipos por referência
 
 São ponteiros que apontam para o endereço de memória ao qual o objeto em questão está alocado, perceba que estes são ponteiros de memória, e são utilizados de forma implicita.
 
@@ -190,7 +195,7 @@ Pessoa 2: Alfredo
 
 O que ocorre nos tipos por referência é que, são passados endereços de memória e não o valor que está alocado, assim quando dois objetos apontam para o mesmo endereço (Exemplo visto acima), os dois serão alterados caso o conteúdo de memória para onde ele apontam seja alterado.
 
-# Primitivos vs Referência
+## Primitivos vs Referência
 
 A principal diferência em utilizar as referências ao invês dos primitivos é que no caso dos valores por referência, que são objetos, é que estes tem métodos, que podem ser utilizados para outras conversões, ou até mesmo para facilitar algum outro processo.
 
@@ -539,17 +544,17 @@ Mudar apenas o tipo de retorno não ira caracterizar a sobrecarga, é necessári
 
 Além dos modificadores <code>public, protected, default, private</code>, existem alguns outros modificadores, aqui vou tratar do <code>final</code> e do <code>static</code>.
 
-Eles recebem este nome por modificar algum comportamento a quem está sendo atribuido, veja
+Eles recebem este nome por modificar algum comportamento a quem está sendo atribuido, veja:
 
 * final
 
-O <code>final</code> no âmbito das váriaveis de instância (Entenda como os atributos), ele define constantes, assim após a primeira atribuição, não é mais possível fazer modificações. 
+O <code>final</code> no âmbito das váriaveis de instância (Entenda como os atributos), define constantes, assim após a primeira atribuição, não é mais possível fazer modificações. 
 
-Perceba que o comportamento das váriaveis foi alterado, fazendo que elas aceitem apenas uma modificação.
+Perceba que o comportamento das váriaveis foi alterado, fazendo que elas aceitem apenas uma modificação, se tornando assim constante.
 
-OBS: Essa única modificação citada acima, só pode ser feita quando a váriavel que está com o <code>final</code> foi criada sem atribuição, caso ela seja criada com atribuição, nenhuma outra será permitida
+OBS: Essa única modificação citada acima, só pode ser feita quando a váriavel que está com o <code>final</code> foi criada sem atribuição, caso ela seja criada com atribuição, nenhuma outra será permitida.
 
-No caso de métodos, ele define que o método não pode ser sobrescrito nas subclasses.
+No caso de métodos, ele define que o método não pode ser <code>sobrescrito</code> nas subclasses.
 
 * static
 
@@ -558,15 +563,23 @@ O <code>static</code>, outro modificador de comportamento, quando utilizado nas 
 ```java
 static String[] nomes;
 ```
-Se houver algo parecido com o item acima, a variável terá o mesmo valor para todos os objetos. Assim, caso um objeto faça uma modificação neste objeto, todos os demais irão ver esta variável com o valor posto pelo outro objeto.
+
+a variável terá o mesmo valor para todos os objetos. Assim, caso um objeto faça uma modificação neste atributo, todos os demais objetos irão ver esta variável com o valor posto pelo outro objeto.
 
 Ele também pode ser usado em métodos, porém neste caso, ele fará com que o método possa ser chamado sem a necessídade da criação de um objeto da classe que o carrega, veja:
 
 ```java
 
+// Declarando classe com o método estático
+public class Calculadora{
+	public static Double soma(Double a, Double b){
+		return a + b;
+	}
+}
+
 // Neste exemplo a classe calculadora tem o método soma
 // Porém criar um objeto apenas para utilizar este método pode não ser interessante
-// Então este método irá passar a ser statico, para evitar o que ocorre abaixo
+// Então este método irá passar a ser estático, para evitar o que ocorre abaixo
 
 // Calculadora calculadora = new Calculadora();
 // calculadora.soma(123,321);
@@ -618,6 +631,9 @@ public class Classe{
 
 }
 ```
+
+<!-- Separação -->
+
 Para chamar este método basta usar:
 ```java
 public static void main(String[] args){
@@ -630,7 +646,7 @@ Out: Olha! Um método static
 # Herança
 
 Em orientação a objetos, a herança pode ser entendida como uma classe que herda  funcionalidade e características de outra.
-A relação disposta pela herança pode ser dito como <code>é um tipo de</code>
+A relação disposta pela herança pode ser dita como <code>é um tipo de</code>.
 
 Desta forma, é possível abstrair e entender o conceito de quando utilizar a herança.
 
@@ -640,7 +656,7 @@ Veja, acima foi dito que a herança é o ato de uma classe receber todos os mét
 
 Veja um exemplo:
 
-A classe funcionário é uma (Entende-se é um tipo de) pessoa, a representação da herança em código, pode ser vista em: 
+A classe funcionário é uma (Entende-se é um tipo de) pessoa, veja o código abaixo, que tenta fazer essa abstração, sem utilizar herança.
 
 ```java
 public class Pessoa{
@@ -652,7 +668,6 @@ public class Pessoa{
         this.nome = nome;
         this.idade = idade;
     }
-
 }
 
 public class Funcionario{
@@ -667,7 +682,8 @@ public class Funcionario{
     }
 }
 ```
-Perceba que não ficou natural está descrição, feita acima. No caso o funcionário <code>tem uma</code> pessoa, o que não é verdade, isso porque ele <code>é um tipo de</code>.
+
+Perceba que não ficou natural está descrição feita acima. No caso, pode-se entender que o funcionário <code>tem uma</code> pessoa, o que não é verdade, isso porque ele <code>é uma</code>(É um tipo de) pessoa.
 
 Veja que sintaxe pode até estar correta, porém a semântica não. Vamos resolver este problema utilizando herança.
 
@@ -698,7 +714,7 @@ Agora a relação foi alterada, e a classe passou a ter a semântica correta, de
 
 Este tipo de relação permite que de uma classe mais genérica seja criada, para que classes mais especializadas sejam criadas.
 
-Para que isto fique claro, imagine uma empresa que faz cadeiras. Seu modelo padrão é um formato de cadeira mais genérico possível, para que assim, outras cadeiras possam herdar essas características, e dai criar cadeias mais específicas.
+Para que isto fique claro, imagine uma empresa que faz cadeiras. Seu modelo padrão é um formato de cadeira mais genérico possível, para que assim, outras cadeiras possam herdar essas características, e dai criar cadeiras mais específicas.
 
 * Super
 
