@@ -1,6 +1,6 @@
 # POO - Fatec SJC (Revisão)
 
-Este é um documento que contém a revisão de toda a matéria de POO, apresentada no primeiro bimestre do segundo semestre de 2017.
+Este é um documento que contém a revisão de toda a matéria de POO, apresentada no primeiro e segundo bimestre do segundo semestre de 2017.
 
 # Paradigma de programação
 
