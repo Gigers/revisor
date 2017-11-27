@@ -389,7 +389,9 @@ Antes de ver encapsulamento é interessante citar o que é encapsular, esta pode
 
 O encapsulamento utiliza como base os modificadores de acesso, são eles que trazem os conceitos de formas de acesso, base para o encapsulamento.
 
-O encapsulamento de dados se remete, a ocultação dos dados de uma classe. Ao colocarmos o modificador de acesso <code>private</code> estamos fazendo o encapsulamento da informação, ou seja, a informação está oculta para acessos diretos, isso evita modificações sem uma ação especializada. 
+O encapsulamento é a capacidade de ocultar dados dentro de modelos (Entende-se classes), permitindo assim que somente operações especializadas ou dedicadas manipulem os dados ocultos.
+
+<!-- O encapsulamento de dados se remete, a ocultação dos dados de uma classe. Ao colocarmos o modificador de acesso <code>private</code> estamos fazendo o encapsulamento da informação, ou seja, a informação está oculta para acessos diretos, isso evita modificações sem uma ação especializada.  -->
 
 Perceba que esta é uma das principais vantanges da orientação a objetos, já que através dessa é possível criar programas mais claros, com menos riscos de problemas ou erros.
 
@@ -493,6 +495,8 @@ public class ContaBancaria{
 ``` 
 
 Perceba que através do set uma regra foi criada. Vale lembrar também que este exemplo se encaixa perfeitamente na situação vista no tópico de encapsulamento, isso porque é exatamente esse um dos benefícios tragos pelo encapsulamento, e ele pode ser visto aqui também. Perceba que para que está depositando o dinheiro não foi necessário saber como aplicar a regra de limite ou algo parecido.
+
+OBS: É importante ressaltar que, não basta definir gets e sets e dizer que o código foi encapsulado, é necessário que estes façam o controle de como o método irá interagir com o atributo, caso contrário, criar get/set sem regras é a mesma coisa que manter público.
 
 # Assinatura de métodos
 
@@ -712,9 +716,9 @@ public class Funcionario extends Pessoa{
  
 Agora a relação foi alterada, e a classe passou a ter a semântica correta, desta forma <code>Funcionário</code>, passou a <code>ser</code> uma pessoa, ao invês de <code>ter</code>.
 
-Este tipo de relação permite que de uma classe mais genérica seja criada, para que classes mais especializadas sejam criadas.
+Este tipo de relação permite que uma classe mais genérica seja criada, para que classes mais especializadas sejam criadas a partir desta.
 
-Para que isto fique claro, imagine uma empresa que faz cadeiras. Seu modelo padrão é um formato de cadeira mais genérico possível, para que assim, outras cadeiras possam herdar essas características, e dai criar cadeiras mais específicas.
+Para que isto fique claro, imagine uma empresa que faz cadeiras, seu modelo padrão é um formato de cadeira mais genérico possível (Com quatro pernas e encosto), desta forma, outras cadeiras poderão ser criadas a partir da genérica, utilizando suas características como base e criando suas próprias, gerando uma especialização (Entende-se uma cadeira para uso mais específico, como cadeira de praia).
 
 * Super
 
@@ -737,10 +741,12 @@ public class Carro{
 
     private String marca;
     private String modelo;
+	private String aroRodas;
 
-    public Carro(String marca, String modelo){
+    public Carro(String marca, String modelo, String aroRodas){
         this.marca = marca;
         this.modelo = modelo;
+		this.aroRodas = aroRodas;
     }
 
     public void andar(){
@@ -754,11 +760,11 @@ public class Carro{
 
 public class Ferrari extends Carro{
     
-    private String aroRodas;
+    private Integer quantidadeAirBag;
     
-    public Ferrari(String marca, String modelo, String aroRodas){
-        super(marca, modelo);
-        this.aroRodas = aroRodas;
+    public Ferrari(String marca, String modelo, String aroRodas, Integer quantidadeAirBag){
+        super(marca, modelo, aroRodas);
+        this.quantidadeAirBag = quantidadeAirBag;
     }
 
     // Aplicando o polimorfismo com a sobscrita de métodos
@@ -774,9 +780,9 @@ public class Ferrari extends Carro{
 }
 ```
 
-Perceba que os mesmo métodos da classe Carro, tomaram uma forma diferente, uma aplicação diferente. Isso básicamente é polimorfismo.
+Perceba que os mesmo métodos da classe Carro, tomaram uma forma diferente, a forma de fazer se tornou diferente. Isso basicamente é polimorfismo.
 
-Vale deixar claro que, isto não é sobrecarga de métodos, isso porque aqui faço a sobrescrita, sem mudar assinatura. Caso altere a assinatura, estareí criando um novo método, e não sobscrevendo.
+Vale deixar claro que, isto não é sobrecarga de métodos, isso porque aqui faço a sobrescrita, sem mudar assinatura. Caso altere a assinatura, estareí criando um novo método, e não sobrescrevendo.
 
 # Classe abstrata
 
@@ -786,9 +792,9 @@ Assim <code>classes abstratas</code> são classes moldes para outras classes.
 
 As classes abstratas, por serem modelos para outras classes não podem ser instânciadas, ou seja, não podem ser criados objetos dessas classes. 
 
-Desta forma para realizar a utilização das classes abstratas é necessário utilizar a herança. Com a utilização da classe abstrata os métodos filhos poderão (Opcionalmente) fazer polimorfismo e sobscrever os métodos herdados.
+Desta forma para realizar a utilização das classes abstratas é necessário utilizar a herança. Com a utilização da classe abstrata os métodos filhos poderão (Opcionalmente) fazer polimorfismo e sobrescrever os métodos herdados.
 
-Seu tipo de relação continua sendo <code>é um</code>.
+Seu tipo de relação continua sendo <code>é um tipo de</code>.
 
 Veja um exemplo:
 
@@ -821,7 +827,6 @@ public class Funcionario extends Pessoa {
 
 	private int id;
 	private String cargo;
-	private Pessoa pessoa;
 
 	// Para que haja a herança, deve-se utilizar o extends
 
@@ -830,15 +835,21 @@ public class Funcionario extends Pessoa {
 		// TODO Auto-generated constructor stub
 	}
 
+	public void baterCartao(){
+		// Ações
+	}
 }
 ```
+
+Perceba que o método <code>andar</code>não foi sobrescrito, já que como dito, esta é uma operação opcional.
+
 # Métodos abstratos
 
 Além das classes, os métodos também podem ser declarados como abstratos, neste caso o método não terá corpo nenhum, e obrigatóriamente a classe que carrega métodos abstratos deve ser abstrata.
 
-Com métodos abstratos as classes que herdarem a classe abstrata obrigatóriamente terá de implementar os métodos abstratos (Mesmo que seja para deixar eles em branco).
+Com métodos abstratos as classes que herdarem a classe abstrata obrigatóriamente terá de implementar (Sobrescrever) os métodos abstratos (Mesmo que seja para deixar eles em branco).
 
-Veja um exemplo, deste tipo de útilização dos abstratos
+Veja um exemplo, deste tipo de utilização dos métodos abstratos
 
 ```java
 
@@ -871,12 +882,12 @@ public class Funcionario extends Pessoa {
 
 	@Override
 	public void andar() {
-		// TODO Auto-generated method stub
+		// Ações feitas para andar
 
 	}
 }
 ```
-Veja que a classe <code>Funcionario</code> ao herdar de Pessoa, deve de implementar o método abstrato. Veja que no exemplo anteríor demonstrado nas <code>classes abstratas</code> hávia um método e ele nem precisou ser alterado, isso por não ser abstrato.
+Veja que a classe <code>Funcionario</code> ao herdar de Pessoa, deve de implementar o método abstrato. Veja que no exemplo anterior demonstrado, nas <code>classes abstratas</code> hávia um método e ele nem precisou ser alterado, isso por não ser abstrato.
 
 # Interface
 
@@ -884,7 +895,7 @@ Até aqui foi possível perceber que, as classes abstratas, podem ou não carreg
 
 Porém, há casos em que isso não é interessante, e no momento da herança, queremos que certo método seja sobrescrito. Para isso são utilizados as <code>interfaces</code>.
 
-A <code>Interface</code> pode ser entendida como um trato ou especificação, firmado por uma classe, onde estamos dizendo que, tudo descrito na Interface será implementado na classe que assumit o trato.
+A <code>Interface</code> pode ser entendida como um contrato ou especificação, firmado por uma classe, onde estamos dizendo que, tudo descrito na Interface será implementado na classe que assumir o trato.
 
 Ela trabalha de forma parecida com as classes abstratas, porém, tem todos os seus métodos abstratos, o que torna obrigatório sua implementação, como vimos anteriormente.
 
@@ -945,13 +956,115 @@ public class Pessoa implements Casamento {
 
 ```
 
-Perceba que, após a definição da Interface, a classe Pessoa, implementou a interface, e foi obrigado a implementar os métodos.
+Perceba que, após a definição da Interface, a classe Pessoa, implementou a interface, e foi obrigado a implementar os métodos. Com isso a classe que implementa pode definir o comportamento que melhor se adequa.
 
 OBS: As interfaces são muito usadas, principalmente para definir comportamentos ou especificações para a classe que a implementa.
 
-# Coleções - List
 
-<code>List</code> é uma interface que faz parte das coleções do Java. Essa é uma coleção ordenada que aceita elementos duplicados.
+# Threads
+Os primeiros programas a serem executados, eram feitos utilizando um único processo, assim o programa era executado de forma sequêncial, porém com o crescimento da quantidade de núcleos e consequentemente do poder computacional, tornou-se possível criar aplicações concorrentes, ou seja, aplicações que se dividem em vários subprocessos, esses que são executados em paralelo ao processo principal. Tornando assim o processo em diversos casos mais rápido.
+
+Em Java para realizar a criação de thread, existe duas formas:
+
+## Herança de Thread
+Esta é uma forma bastante simples de utilizar as thread, porém não é muito recomendada, pois, ao herdar, como visto no tópico de herança, várias caracteristicas são herdadas, o que não é necessário.
+
+## Implementando Runnable
+A implementação da interface <code>Runnable</code> é a maneira recomendada para aplicar as Threads, isso porque nela é trago apenas o necessário (Método run()), este que será sobrescrito, gerando polimorfismo.
+
+## Métodos das thread
+
+* setPriority(int prioridade): Define a prioridade da thread (Esta que vai de 1 a 10, sendo o padrão 5);
+* setName(String nome): Define um nome para a thread;
+* sleep(int X): Pausa a thread por um intervalo X de tempo
+
+# Classes genéricas
+
+Antes de falarmos sobre as coleções em Java é interessante entender o que são os tipos genéricos. As classes genéricas surgiram para solucionar problemas relacionados a forma de armazenamento e utilização de grupos de dados de diversos tipos, isso porque, ao trabalhar com estes dados, erros ocorriam, onde um método aceitava <code>object</code> o que o tornava muito genérico, permitindo que qualquer objeto fosse aceito no método, e nem sempre o método aceito tinha as caracteristicas necessárias para utilizar as estruturas do método.
+
+Veja como este problema pode ser representado:
+
+```java
+public FruitSalad makeSalad(Basket b){
+	FruitSalad fs = new FruitSalad();
+	while (b.hasItems()){
+		Fruit f = (Fruit) b.nextItem();
+		f.chop();
+		fs.add(f);
+	}
+	return fs;
+}
+```
+O exemplo acima foi retirado de uma aula do Eduardo Guerra.
+
+
+<!-- Explicar novamente -->
+<!-- Até então ao olhar o método não se percebe nenhum problema, porém perceba que dentro dela, veja que mesmo recebendo um tipo pouco específico que é o <code>Basket</code> ela faz o <code>casting</code> para <code>Fruit</code>, isso pode funcionar sem problemas, porém, imagine que este é um método encapsulado, e um programador ao ver este, percebe que ele recebe um tipo <code>Basket</code>, o fazendo entender que todos aqueles que herdam de <code>basket</code> poderão fazer a utilização sem problemas, e é neste ponto que está o problema, imagine se neste método é inserido uma cesta de legumes, o <code>casting</code> para <code>Fruit</code> apresentará problemas. -->
+
+Para resolver estes problemas surgiram os genéricos, estes que tem como principal objetivo "definir coleções de forma que estas contenham somente determinado tipo de objeto". Santos, Rafael.
+
+Com isso podemos criar coleções, classes e interfaces que são do tipo <code><E></code> (Tipo genérico). Este tipo, aqui dito como <code><E></code>, será definido somente no momento da declaração, ou seja, a classe/método/interface é criada sem saber qual tipo será recebido (Criada utilizando um tipo genérico).
+
+Veja o exemplo:
+
+```java
+public class Agenda<E>{
+	public void add(E e){
+		// Ações
+	}
+
+	public E get(){
+		// Ações
+	}
+}
+```
+Veja que a classe é criada de forma genérica, sem ter nenhum tipo vinculado. E com isso é possível evitar os erros listados acima.
+
+Ao declarar a classe vista acima é necessário especificar o tipo, veja:
+
+```java
+public static void main(String[] args){
+	Agenda<Contato> contatos = new Agenda<>();
+
+	// Com a específicação do tipo os métodos passar a aceitar o tipo especificado
+
+	// add(Contato e)
+
+	// get(); return Contato
+}
+```
+
+Para realizar a leitura de uma classe que foi implementada com algum tipo genérico, é interessante utilizar a relação <code>é de alguma coisa</code>. Mesmo que de maneira informal, ao utilizar fica mais fácil vincular com o tipo genérico. Veja que pode ser dito que, a agenda <code>é de alguma coisa</code>.
+
+# Coleções
+
+O Java possui em sua API uma quantidade consideravel de coleções e estruturas de dados para armazenar tipos e objetos.
+
+Essas são estruturas utilizadas para armazenar vários outros objetos, sendo todas de tamanho dinâmico. Para disponibilizar estas estruturas o Java utiliza da interface <code>Collection</code>, e dela as outras interfaces e implementações são providas.
+
+Como todas as interfaces de coleções herdam de <code>Collection</code>, todas apresentam os mesmos métodos básicos (Mesmo que a implementação interna seja modificada), e são eles:
+
+* Adicionar elemento;
+* Remover elemento;
+* Acessar elementos;
+* Pesquisar elementos;
+* Percorrer elementos;
+* Verificar quantidade de elementos.
+
+<!-- Rever -->
+<!-- OBS: Todas as coleções utilizam de tipos genéricos para trabalhar, desta forma será muito comum ver <code>List<Pessoa></code> ou algo parecido, isso porque como visto no tópico anterior é necessário específicar o tipo. -->
+
+## Coleções VS Array
+
+Deve-se utilizar os arrays no lugar das coleções quando:
+
+* O tamanho máximo de elementos já foi definido;
+* Requer mais desempenho;
+* Não haverá necessidade de alteração na estrutura.
+
+## List - Interface (Collection)
+
+<code>List</code> é uma interface que faz parte das coleções do Java. Essa é uma lista de objetos sequêncial que aceita elementos duplicados.
 
 Vou tratar de duas implementações da interface List, o <code>Vector</code> e o <code>ArrayList</code>, que apesar de serem implementados da mesma interface, e possuirem os mesmos métodos, apresentam pequenas diferenças.
 
@@ -970,14 +1083,49 @@ O ArrayList, é a implementação de um Array que é dimensionado dinâmicamente
 
 Esta característica do ArrayList, faz ele ser muito custoso para o processador e para a memória, isso porque a cada vez que o espaço tem que ser acrescido, um novo ArrayList é criado na memória
 
+Outro ponto interessante sobre o ArrayList é que ele é muito rápido em pesquisas, e que não é Thread-Safe.
+
 * Vector
 
 O Vector trabalha de forma muito parecida ao ArrayList, com a diferença, de que sua forma de realocação acaba sendo mais eficaz, isso porque quando estiver chegando em seu limite ele duplica, assim caso haja 10 espaços, ele irá <code>duplicar</code> para 20, e assim por diante.
 
-Por fim é possível perceber que o Vector acaba tendo um pouco mais de desempenho do que o ArrayList, e ainda o Vector é thread-safe, o que permite ele trabalhar com thread.
+Por fim é possível perceber que o Vector acaba tendo um pouco mais de desempenho do que o ArrayList, e ainda o Vector é thread-safe, o que permite ele trabalhar com thread, e este é um ponto que pode tornar o Vector um pouco mais lento que o ArrayList.
 
 Aqui vale deixar claro que, tudo irá depender da sua necessídade.
 
+## Set - Interface (Collection)
+
+<code>Set</code> que é um conjunto de objetos que não é sequêncial, onde não pode haver elementos repetidos.
+
+Como esta é a interface que faz a representação de um conjunto, a noção de ordem na inserção dos elementos não existe, isso justifica o ponto citado acima que diz que, as implementações da interface <code>Set</code> não tem uma ordem.
+
+Ao adicionar um elemento repetido, o elemento equivalente que estava presente na coleção dará lugar ao novo objeto.
+
+* HashSet
+	* Os elementos não ficam ordenados;
+* TreeSet
+	* Os elementos ficarão ordenados independe da ordem que forem adicionados.
+
+## Queue - Interface (Collection)
+
+<code>Queue</code> oferece operações de filas (FIFO), ou filas com prioridades.
+
+## Map - Interface (Não pertence a Collection)
+
+Mesmo que a interface <code>Map</code> não extenda a interface de <code>Collection</code> é considerado que ela faz parte das <code>Collections</code> do Java.
+
+<code>Map</code> representa um grupo de objetos que possui um identificador/chave associado a cada objeto dentro desta coleção.
+
+Ao criar o Map, ele possui dois tipos genéricos <code>Map<K, V></code>, este K e V são tipos genéricos. Os Map podem ser comparados aos Arrays no sentido de haver um índice, porém, o tipo do indice diferente do array que era apenas numérico, poderá ser definido pelo programador.
+
+Caso haja chave repetida, o elemento novo será posto no lugar do antigo (Presente no Map)
+
+* HashMap
+	* Não sincronizado e não ordenado
+* HashTable
+	* igual ao HashMap, porém é sincronizado
+* TreeMap
+	* Não sincroniza, mas é ordenado
 
 # Comparação de objetos - compareTo e equals
 
