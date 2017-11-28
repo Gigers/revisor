@@ -1345,11 +1345,11 @@ Com o aumento da quantidade de funcionalidades de um programa, passa ser interes
 
 Aqui irei demonstrar uma das formas de fazer a persistência, que é com a utilização de um recurso do Java, chamado de <code>Serialização</code>
 
-A serialização é a técnica utilizada para salver o estado atual dos objetos em arquivos binários, sendo assim este estado poderá ser recuperado posteriormente, ficando da mesma forma que estava quando foi serializado.
+A serialização é a técnica utilizada para salvar o estado atual dos objetos em arquivos binários, sendo assim este estado poderá ser recuperado posteriormente, retornando a forma que estava quando foi serializado.
 
-Para realizar a serialização, é necessário implementar a Interface <code>Serializable</code>.
+Para realizar a serialização, é necessário que a classe que será serializada implemente a Interface <code>Serializable</code>.
 
-Um ponto importante sobre a serialização é que, caso haja algum elemento que não precise, ou não possa ser serializado, então o modificador de comportamento <code>transient</code>, deve ser atribuido para o atributo em questão, veja:
+Um ponto importante sobre a serialização é que, caso haja algum elemento que não precise, ou não possa ser serializado, então o modificador de comportamento <code>transient</code>, deve ser utilizado no atributo em questão, veja:
 
 ```java
 public class Pessoa implements Serializable{
@@ -1358,9 +1358,9 @@ public class Pessoa implements Serializable{
     private transient List<Pessoa> pessoas = new ArrayList<>();
 }
 ```
-Na serialização podem haver erros com as verões dos arquivos serializados, assim fique atento as verões.
+Na serialização podem haver erros com as versões dos arquivos serializados, assim fique atento as versões.
 
-OBS: Se necessário serializar objetos, que tenham como variáveis de instância outros objetos, então as classes dos objetos usados como variáveis também devem implementar a interface <code>Serializable</code>.
+OBS: Se necessário serializar objetos, que tenham como atributos outros objetos, então as classes dos objetos usados como atributos também devem implementar a interface <code>Serializable</code>.
 
 # Exceções
 
@@ -1454,11 +1454,12 @@ OBS: Um único try pode ter vários catchs.
 
 # Escrita em arquivos
 
-Também é possível escrever em arquivos de texto, este é um processo semelhante a escrita em arquivos de texto, porém aqui os dados não são transformados em binários, e não há a necessidade por parte das classes implementando Interfaces. 
+Também é possível escrever em arquivos de texto, este é um processo semelhante a escrita de objetos em arquivos (Serialização), porém aqui os dados não são transformados em binários, e não há a necessidade por parte das classes implementar alguma Interface. 
 
-Isso ocorre pela simplicidade com a qual é feita a leitura e escrita desdes dados, aqui não é possível salvar o objeto todo, mas sim o conteúdo de cada uma de seus atributos.
 
-Para criar arquivos é possível fazer
+Isso ocorre pela simplicidade com a qual é feita a leitura e escrita desdes dados, aqui não é possível salvar o objeto todo (Seu estado), mas sim o conteúdo de cada uma de seus atributos, ou até mesmo, textos inseridos pelo usuário.
+
+Uma forma de se criar arquivos é realizando o seguinte passo:
 
 ```java
 public class Dados {
@@ -1481,7 +1482,6 @@ public class Dados {
 	public void setDados2(String dados2) {
 		this.dados2 = dados2;
 	}
-
 }
 ```
 
@@ -1520,7 +1520,7 @@ public class Start {
 ```
 Veja que este também precisou utilizar do try-catch, isso porque podem haver erros, e para poder trata-los, foi utilizado o try-catch.
 
-No lugar do <code>FileWriter</code> é possível utilizar o <code>BufferedWriter</code>, que acaba tendo um pouco mais de desempenho que o <code>FileWriter</code> normal.
+No lugar do <code>FileWriter</code> é possível utilizar o <code>BufferedWriter</code>, que acaba tendo um pouco mais de desempenho que o <code>FileWriter</code> normal, isso em casos, onde há pequenas quantidades de textos a serem escritos.
 
 E da mesma forma que a escrita foi feita a leitura também pode ser realizada. Seguindo a mesma hierarquia.
 
@@ -1555,4 +1555,4 @@ public class Builder {
 }
 ```
 
-Vale lembrar que a mesma implementação feita para este item, para o <code>StringBuffer</code>
+Vale lembrar que a mesma implementação feita para este item, vale para o <code>StringBuffer</code>
