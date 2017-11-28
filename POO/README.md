@@ -250,7 +250,7 @@ int a[] = {1,2,3,4,5};
 // for comum
 // Que utiliza de um sentinela para passar pelos indices do array
 for(int i = 0; i < sizeof(a) / sizeof(int); i++){
-    printf("a[i]\n");
+    printf("%d\n", a[i]);
 }
 ```
 <!-- Separação -->
@@ -651,7 +651,7 @@ public static void main(String[] args){
 ```
 ```java
 Out: Olha! Um método static
-```java
+```
 
 # Herança
 
@@ -700,8 +700,8 @@ Veja que sintaxe pode até estar correta, porém a semântica não. Vamos resolv
 ```java
 public class Pessoa{
 
-    private String nome;
-    private int idade;
+    protected String nome;
+    protected int idade;
 
     public Pessoa(String nome, int idade){
         this.nome = nome;
@@ -893,7 +893,7 @@ public class Funcionario extends Pessoa {
 	}
 }
 ```
-Veja que a classe <code>Funcionario</code> ao herdar de Pessoa, deve de implementar o método abstrato. Veja que no exemplo anterior demonstrado, nas <code>classes abstratas</code> hávia um método e ele nem precisou ser alterado, isso por não ser abstrato.
+Veja que a classe <code>Funcionario</code> ao herdar de Pessoa, teve de implementar o método abstrato. Veja que no exemplo anterior demonstrado, nas <code>classes abstratas</code> hávia um método e ele nem precisou ser alterado, isso por não ser abstrato.
 
 # Interface
 
@@ -973,7 +973,7 @@ Os primeiros programas a serem executados, eram feitos utilizando um único proc
 Em Java para realizar a criação de thread, existe duas formas:
 
 ## Herança de Thread
-Esta é uma forma bastante simples de utilizar as thread, porém não é muito recomendada, pois, ao herdar, como visto no tópico de herança, várias caracteristicas são herdadas, o que não é necessário.
+Esta é uma forma bastante simples de utilizar as thread, porém não é muito recomendada, pois, ao herdar, como visto no tópico de herança, todas as caracteristicas são herdadas, o que não é necessário.
 
 ## Implementando Runnable
 A implementação da interface <code>Runnable</code> é a maneira recomendada para aplicar as Threads, isso porque nela é trago apenas o necessário (Método run()), este que será sobrescrito, gerando polimorfismo.
