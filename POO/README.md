@@ -1116,9 +1116,14 @@ Como esta é a interface que faz a representação de um conjunto, a noção de 
 Ao adicionar um elemento repetido, o elemento equivalente que estava presente na coleção dará lugar ao novo objeto.
 
 * HashSet
-	* Os elementos não ficam ordenados;
+	* Os elementos não ficam ordenados (Não há sequência);
+	* Utiliza o hashCode;
+	* Algoritimo de espalhamento;
+	* Não ordenado em relação a sequência.
 * TreeSet
-	* Os elementos ficarão ordenados independe da ordem que forem adicionados.
+	* Os elementos ficarão ordenados independe da ordem que forem adicionados;
+	* Conjunto ordenado (Ordem crescente, etc);
+	* Ordem pelo método Comparable<T>;
 
 ## Queue - Interface (Collection)
 
@@ -1135,11 +1140,15 @@ Ao criar o Map, ele possui dois tipos genéricos <code>Map<K, V></code>, este K 
 Caso haja chave repetida, o elemento novo será posto no lugar do antigo (Presente no Map)
 
 * HashMap
-	* Não sincronizado e não ordenado
+	* Não sincronizado e não ordenado (Os elementos não ficam em sequência);
+	* Mais rápido que o TreeMap;
+	* Velocidade: O(1).
 * HashTable
 	* igual ao HashMap, porém é sincronizado
+	
 * TreeMap
-	* Não sincroniza, mas é ordenado
+	* Não sincroniza, mas é ordenado;
+	* Chaves podem ser ordenadas;
 
 # Comparação de objetos - compareTo e equals
 
