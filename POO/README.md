@@ -201,8 +201,17 @@ O que ocorre nos tipos por referência é que, são passados endereços de memó
 
 ## Primitivos vs Referência
 
-A principal diferência em utilizar as referências ao invês dos primitivos é que no caso dos valores por referência, que são objetos, é que estes tem métodos, que podem ser utilizados para outras conversões, ou até mesmo para facilitar algum outro processo.
+A principal diferença em utilizar as referências ao invês dos primitivos é que no caso dos valores por referência, que são objetos, é que estes tem métodos, que podem ser utilizados para outras conversões, ou até mesmo para facilitar algum outro processo.
 
+Um pequeno exemplo disso, é a diferença entre int e Integer, ambos atribuidos a mesma função, a utilização de números inteiros, só que o Integer é um objeto, e o int, um dado primitivo. É bem visto isso na utilização de Arrays (que aceita apenas objetos):
+```
+ List<Integer> listaDeInteiros = new ArrayList<Integer>();     // Isso é completamente possível, já que Integer é um objeto
+
+
+ List<int> listaDeInteiros = new ArrayList<int>(); // Isso voltará um erro, já que não é possível armazenar dados primitivos em uma array 
+```
+ Observação: Isso também é atribuido ao empacotamento, que será descrito abaixo. 
+ 
 # Empacotamento
 
 Esta é a técnica utilizada quando há a necessidade de tratar um tipo primitivo como um objeto (variáveis por referência). Esta técnica é feita utilizando as classes que representam os tipos primitivos.
@@ -1554,5 +1563,4 @@ public class Builder {
 
 }
 ```
-
 Vale lembrar que a mesma implementação feita para este item, vale para o <code>StringBuffer</code>
