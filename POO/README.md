@@ -1150,6 +1150,8 @@ Caso haja chave repetida, o elemento novo será posto no lugar do antigo (Presen
 	* Não sincroniza, mas é ordenado;
 	* Chaves podem ser ordenadas;
 
+OBS: Para realizar a manipulação das coleções é interessante utilizar a classe Collections, esta que tem vários métodos abstratos para a manipulação de coleções.
+
 # Comparação de objetos - compareTo e equals
 
 Executar ações para realizar a ordenação de objetos é algo comum, e a forma de ordenação de vários tipos já foram definidos, como por exemplo, os números que se ordenam do menor para o maior.
