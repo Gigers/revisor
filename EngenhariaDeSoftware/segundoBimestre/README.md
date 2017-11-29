@@ -252,7 +252,7 @@ Isso faz com que o processo seja entendido de uma melhor forma já que, ao pensa
 Seu grande problema é que ela observa padrões utilizados, e que podem não ter relevância no processo.
 
 
-## Métodologia ágeis;
+## Métodologia ágeis
 
 Métodologia ágeis são técnicas de desenvolvimento para que seja possível entregar o produto no prazo correto, com qualidade, e o mais importante de todos, garantir a satisfação do cliente.
 
@@ -263,16 +263,13 @@ Métodologia ágeis são técnicas de desenvolvimento para que seja possível en
 		· Adaptive Software Development (ASD) 
 		· The Crystal family
 		
-## Modelagem de caso de uso;
+## Modelagem de caso de uso
 
 
-## Users stories (Levantamento, pesos);
+## Users stories (Levantamento, pesos)
 
 
-## Notação UML (Classes, Relações, associações, MVC);
-
-
-## Notação Crow's foot.
+## Notação UML (Classes, Relações, associações, MVC)
 
 Antes de mais nada, é extremamente importante citar nossos objetivos em descrever as notações UML, e quais seriam eles?
  Responder as seguintes perguntas:
@@ -392,5 +389,6 @@ Na prática, agregação é usada raramente.
 
 Restrições: 
  <img http://slideplayer.com.br/slide/1595791/5/images/42/Restri%C3%A7%C3%B5es+em+associa%C3%A7%C3%B5es.jpg </img>
- 
+
 ## Notação Crow's foot.
+
