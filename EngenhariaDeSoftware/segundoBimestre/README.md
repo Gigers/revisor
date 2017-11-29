@@ -59,7 +59,60 @@ OBS: Um ponto importante sobre os requisitos é que, uma boa prática para fazer
 * Requisitos de proteção:
 
 ## Métodologia ágeis;
+
+Métodologia ágeis são técnicas de desenvolvimento para que seja possível entregar o produto no prazo correto, com qualidade, e o mais importante de todos, garantir a satisfação do cliente.
+
+* Existem inúmeros métodos diferentes, os mais importantes são:
+		· eXtreme Programming (XP)
+		· Scrum 
+		· Dynamic Systems Development Method (DSDM) 
+		· Adaptive Software Development (ASD) 
+		· The Crystal family
+		
+	
 ## Modelagem de caso de uso;
 ## Users stories (Levantar, pesos);
 ## Notação UML (Classes, Relações, associações, MVC);
+
+Antes de mais nada, é extremamente importante citar nossos objetivos em descrever as notações UML, e quais seriam eles?
+ Responder as seguintes perguntas:
+ 
+  	 ** Em um nível alto de abstração, que objetos constituem o sistema em questão?
+
+	 ** Quais são as classes candidatas?
+
+	 ** Como as classes do sistema estão relacionadas entre si?
+
+	 ** Quais são as responsabilidades de cada classe?
+	 
+* Classes
+ A Classe descreve seus objetivos através de atributos e operações
+
+	 **Atributos correspondem às informações que um objeto armazena.
+	 **Operações correspondem às ações que um objeto sabe realizar.
+	exemplo:
+	<img> link da imagem</img>
+* Associações
+ É utilizada para representar a relação entre objetos.
+ Na UML associações são representadas por linhas, que ligam as classes cujos objetos se relacionam
+ 	exemplo:
+	<img> link da imagem </img>
+	
+* Multiplicidades
+Representam a quantidade de objetos aos quais outro objeto pode se associar, ou seja, demonstra os limites inferiores e superiores.
+	exemplo:
+	**Nome: Apenas um
+	Simbologia na UML: 1..1 (ou 1)
+	**Nome: Zero ou muitos
+	Simbologia na UML: 0..* (ou *)
+	**Nome: Um ou Muitos
+	Simbologia na UML: 1..*
+	**Nome: Zero ou um
+	Simbologia na UML: 0..1
+	**Nome: Intervalo Específico 
+	Simbologia na UML: 1¹..1¹
+	
+
+	
+	
 ## Notação Crow's foot.
