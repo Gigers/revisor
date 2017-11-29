@@ -96,7 +96,9 @@ Antes de mais nada, é extremamente importante citar nossos objetivos em descrev
  É utilizada para representar a relação entre objetos.
  Na UML associações são representadas por linhas, que ligam as classes cujos objetos se relacionam
  	exemplo:
-	<img>https://image.slidesharecdn.com/uml-110118194505-phpapp01/95/uml-60-728.jpg?cb=1295379937</img>
+
+<img>https://image.slidesharecdn.com/uml-110118194505-phpapp01/95/uml-60-728.jpg?cb=1295379937</img>
+
 	
 * Multiplicidades
 Representam a quantidade de objetos aos quais outro objeto pode se associar, ou seja, demonstra os limites inferiores e superiores.
@@ -112,6 +114,7 @@ Representam a quantidade de objetos aos quais outro objeto pode se associar, ou 
 	**Nome: Intervalo Específico 
 	Simbologia na UML: 1¹..1¹
 	
+
 	exemplo na prática:
 	
 	Cliente 1 -----------> 0..* Pedido
