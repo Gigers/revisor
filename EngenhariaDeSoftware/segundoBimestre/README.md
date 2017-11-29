@@ -151,5 +151,7 @@ Define-se o grau de uma associação como a quantidade de classes envolvidas na 
 Existem as associações binárias (as mais comuns), mas também existem as ternárias, que o grau de associação equivale a três
 	exemplo:
 	<img>http://jkolb.com.br/wp-content/uploads/2014/01/naria.png</img>
+	
+* Associações reflexivas
 
 ## Notação Crow's foot.
