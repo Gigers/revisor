@@ -244,7 +244,7 @@ Isso faz com que o processo seja entendido de uma melhor forma já que, ao pensa
 Seu grande problema é que ela observa padrões utilizados, e que podem não ter relevância no processo.
 
 
-## Métodologia ágeis;
+## Métodologia ágeis
 
 Métodologia ágeis são técnicas de desenvolvimento para que seja possível entregar o produto no prazo correto, com qualidade, e o mais importante de todos, garantir a satisfação do cliente.
 
@@ -255,52 +255,62 @@ Métodologia ágeis são técnicas de desenvolvimento para que seja possível en
 		· Adaptive Software Development (ASD) 
 		· The Crystal family
 		
-## Modelagem de caso de uso;
+## Modelagem de caso de uso
 
 
-## Users stories (Levantamento, pesos);
+## Users stories (Levantamento, pesos)
 
 
-## Notação UML (Classes, Relações, associações, MVC);
+
+## Notação UML (Classes, Relações, associações, MVC)
 
 Antes de mais nada, é extremamente importante citar nossos objetivos em descrever as notações UML, e quais seriam eles?
  Responder as seguintes perguntas:
  
-  	 ** Em um nível alto de abstração, que objetos constituem o sistema em questão?
+  	 Em um nível alto de abstração, que objetos constituem o sistema em questão?
 
-	 ** Quais são as classes candidatas?
+	 Quais são as classes candidatas?
 
-	 ** Como as classes do sistema estão relacionadas entre si?
+	 Como as classes do sistema estão relacionadas entre si?
 
-	 ** Quais são as responsabilidades de cada classe?
+	 Quais são as responsabilidades de cada classe?
 	 
 * Classes
+
  A Classe descreve seus objetivos através de atributos e operações
 
-	 **Atributos correspondem às informações que um objeto armazena.
-	 **Operações correspondem às ações que um objeto sabe realizar.
+	 Atributos correspondem às informações que um objeto armazena.
+	 Operações correspondem às ações que um objeto sabe realizar.
+	
 	exemplo:
 	<img> link da imagem</img>
 * Associações
+
  É utilizada para representar a relação entre objetos.
  Na UML associações são representadas por linhas, que ligam as classes cujos objetos se relacionam
  	exemplo:
 
 <img>https://image.slidesharecdn.com/uml-110118194505-phpapp01/95/uml-60-728.jpg?cb=1295379937</img>
 
-	
 * Multiplicidades
+
 Representam a quantidade de objetos aos quais outro objeto pode se associar, ou seja, demonstra os limites inferiores e superiores.
+
 	exemplo:
-	**Nome: Apenas um
+	
+	Nome: Apenas um
 	Simbologia na UML: 1..1 (ou 1)
-	**Nome: Zero ou muitos
+	
+	Nome: Zero ou muitos
 	Simbologia na UML: 0..* (ou *)
-	**Nome: Um ou Muitos
+	
+	Nome: Um ou Muitos
 	Simbologia na UML: 1..*
-	**Nome: Zero ou um
+	
+	Nome: Zero ou um
 	Simbologia na UML: 0..1
-	**Nome: Intervalo Específico 
+	
+	Nome: Intervalo Específico 
 	Simbologia na UML: 1¹..1¹
 	
 
@@ -320,17 +330,20 @@ Representam a quantidade de objetos aos quais outro objeto pode se associar, ou 
 	
 
 * Participação
+
  Indica a necessidade de uma associação entre objetos, sendo obrigatória ou opcional
   **Se o valor mínimo da multiplicidade de uma associação é igual a 1 (um), significa que a participação é obrigatória
   Caso contrário, a participação é opcional. 
 
 * Acessórios para associações
-	**A UML define três recursos de notação para associações:
-		** Nome da associação: fornece algum significado semântico a mesma.
-		** Direção de leitura: indica como a associação deve ser lida
-		** Papel: para representar um papel específico em uma associação.
+
+	* A UML define três recursos de notação para associações:
+		* Nome da associação: fornece algum significado semântico a mesma.
+		* Direção de leitura: indica como a associação deve ser lida
+		* Papel: para representar um papel específico em uma associação.
 		
 * Classe Associativa
+
 Classe que está ligada a uma associação,  em vez  de estar ligada a outras classes.
 Usada quando duas ou mais classes estão  associadas, e é necessário manter  informações sobre esta associação.
 	exemplo: 
@@ -338,6 +351,7 @@ Usada quando duas ou mais classes estão  associadas, e é necessário manter  i
 
 
 * Associações n-árias
+
 Define-se o grau de uma associação como a quantidade de classes envolvidas na mesma. 
 É utilizado como notação, um losango.
 Existem as associações binárias (as mais comuns), mas também existem as ternárias, que o grau de associação equivale a três
@@ -360,12 +374,11 @@ São assimétricas, no sentido de que, se um objeto A é parte de um objeto B, o
 
 Suas diferenças:
 
-	** Destruição de objetos: Na agregação, a destruição de um objeto todo  não implica necessariamente na destruição do  objeto parte. 
-	** Pertinência: Na composição, os objetos parte pertencem a  um único todo. 
+	Destruição de objetos: Na agregação, a destruição de um objeto todo  não implica necessariamente na destruição do  objeto parte. 
+	Pertinência: Na composição, os objetos parte pertencem a  um único todo. 
 	Em uma agregação, pode ser que um mesmo  objeto participe como componente de vários  outros objetos. 
 	
 Na prática, agregação é usada raramente.
-
 
 Restrições: 
  <img http://slideplayer.com.br/slide/1595791/5/images/42/Restri%C3%A7%C3%B5es+em+associa%C3%A7%C3%B5es.jpg </img>
