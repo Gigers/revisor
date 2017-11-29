@@ -263,9 +263,6 @@ Métodologia ágeis são técnicas de desenvolvimento para que seja possível en
 
 ## Notação UML (Classes, Relações, associações, MVC);
 
-
-## Notação Crow's foot.
-
 Antes de mais nada, é extremamente importante citar nossos objetivos em descrever as notações UML, e quais seriam eles?
  Responder as seguintes perguntas:
  
@@ -372,5 +369,5 @@ Na prática, agregação é usada raramente.
 
 Restrições: 
  <img http://slideplayer.com.br/slide/1595791/5/images/42/Restri%C3%A7%C3%B5es+em+associa%C3%A7%C3%B5es.jpg </img>
- 
+
 ## Notação Crow's foot.
