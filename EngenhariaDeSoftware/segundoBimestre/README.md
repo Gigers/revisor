@@ -129,6 +129,12 @@ Diz-se sobre as normas, leis, regras ou padrões que o sistema deve atender.
 
 Dentro dos requisitos é necessário que haja uma meta a ser alcançada por eles, seja um sistema simples de utilizar, ou um sistema seguro, etc.
 
+### Requisitos de domínio
+
+Estes são os requisitos do ambiente onde o software será implementado. Estes requisitos são vitais para o software resolver o problema do cliente, por isso importante que seja levado em consideração estes requisitos.
+
+Eles irão gerar requisitos que refletem no ambiente (Entende-se dominio).
+
 ### Documento de requisitos de software
 É a declaração oficial do que é demandado dos desenvolvedores do sistema. Este é um documento que define <code>O QUE</code> o sistema deve fazer e não <code>COMO</code>.
 
