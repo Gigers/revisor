@@ -29,8 +29,6 @@ Abaixo são descritos as caracaterísticas dos requisitos. Lembrando que, estes 
 * Consistentes:
 	* O requisito deve ser claro, evitando geração de ambiguidade.
 
-## Requisitos de sistemas
-
 ## Requisitos funcionais
 
 * Requisitos funcionais
@@ -181,13 +179,7 @@ Os processos utilizados na engenharia de requisitos pode variar bastante, porém
 * Priorização e negociação de requisitos;
 * Especificação de requisitos.
 
-Veja abaixo um detalhamento destas etapas
-
-A elicitação e análise dos requisitos inclui um processo interno onde é feito
-* 1° - Descoberta dos requisitos;
-* 2° - Classificação e organizaão de requisitos;
-* 3° - Priorização e negociação de requisitos;
-* 4° - Especificação de requisitos.
+Os passos feitos pela engenharia de requisitos pode ser visto abaixo:
 
 * Elicitação de requisitos e análise de requisitos:
     * Este é o processo que envolve os stakeholders (Os interessados no sistema);
