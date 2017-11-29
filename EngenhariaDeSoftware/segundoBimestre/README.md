@@ -154,4 +154,28 @@ Existem as associações binárias (as mais comuns), mas também existem as tern
 	
 * Associações reflexivas
 
+Associação que representa ligações entre objetos que pertencem a uma mesma classe.
+Não indica que um objeto se associa a ele próprio.
+A definição de papéis é importante para evitar ambigüidades na leitura da associação.
+Cada objeto tem um papel distinto na associação.
+ exemplo de imagem
+ 
+* Agregações e Composições
+
+São assimétricas, no sentido de que, se um objeto A é parte de um objeto B, o objeto B não pode ser parte do objeto A
+
+<img> https://image.slidesharecdn.com/uml-1224796513413197-9/95/uml-9-728.jpg?cb=1224771311 </img>
+
+Suas diferenças:
+
+	** Destruição de objetos: Na agregação, a destruição de um objeto todo  não implica necessariamente na destruição do  objeto parte. 
+	** Pertinência: Na composição, os objetos parte pertencem a  um único todo. 
+	Em uma agregação, pode ser que um mesmo  objeto participe como componente de vários  outros objetos. 
+	
+Na prática, agregação é usada raramente.
+
+
+Restrições: 
+ <img http://slideplayer.com.br/slide/1595791/5/images/42/Restri%C3%A7%C3%B5es+em+associa%C3%A7%C3%B5es.jpg </img>
+ 
 ## Notação Crow's foot.
