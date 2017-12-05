@@ -106,7 +106,7 @@ public class Pessoa{
 
 Gerando este construtor é possível criar um objeto já com os atributos preenchidos, como é visto acima.
 
-OBS: O <code>this</code> utilizado acima é uma auto referência, ou seja, quando está escrito <code>this.nome</code> significa que estou tratando do atributo <code>nome</code> da própria classe. 
+OBS: O <code>this</code> utilizado acima é uma auto referência, ou seja, quando está escrito <code>this.nome</code> significa que o atributo <code>nome</code> da própria classe está recebendo o valor do parâmetro nome, que foi passado no construtor da classe Pessoa. 
 
 # Objetos
 
@@ -116,15 +116,19 @@ Após instânciar o objeto é possível utilizar os métodos e atributos definid
 
 OBS: Os objetos são sempre por referência (Explicado mais a frente);
 
-OBS: Instânciar é o ato de criar o objeto.
+OBS: Instânciar é o ato de criar o objeto, abaixo um objeto pessoa será criado com o construtor explicado anteriormente:
+
+```java
+Pessoa pessoa = new Pessoa("Gigers",20);
+```
 
 # Tipos
 
-O Java sua forma de separar tipos, e é importante que esta seja entendida.
+O Java possui sua forma de separar tipos, e é importante que esta seja entendida.
 
 ## Tipos primitivos
 
-Tipos primitivos são os tipos básicos de dados, presente em qualquer linguagem de programação. Aqui não há referência, apenas valores, assim caso seja feito:
+Tipos primitivos são os tipos básicos de dados, presentes em qualquer linguagem de programação. Aqui não há referência, apenas valores, assim caso seja feito:
 
 ```java
 int a = 123;
@@ -145,15 +149,15 @@ O Java possui 8 tipos primitivos, e são eles:
 
 ```java
 	boolean
-	short
+	byte
+	char
+	double
+	float
 	int 
 	long
-	float
-	double
-	char
-	byte
+	short
 ```
-Todos esses tipos são básicos e apresentam apenas valores (Nenhuma referência).
+Todos esses tipos são básicos (primitivos) e apresentam apenas valores (Nenhuma referência).
 
 ### Dica
 
@@ -203,7 +207,7 @@ O que ocorre nos tipos por referência é que, são passados endereços de memó
 
 A principal diferença em utilizar as referências ao invês dos primitivos é que no caso dos valores por referência, que são objetos, é que estes tem métodos, que podem ser utilizados para outras conversões, ou até mesmo para facilitar algum outro processo.
 
-Um pequeno exemplo disso, é a diferença entre int e Integer, ambos atribuidos a mesma função, a utilização de números inteiros, só que o Integer é um objeto, e o int, um dado primitivo. É bem visto isso na utilização de Arrays (que aceita apenas objetos):
+Um pequeno exemplo disso, é a diferença entre int e Integer, ambos atribuidos a mesma função, a utilização de números inteiros, só que o Integer é um objeto, e o int, um dado primitivo. Isto é bem visto na utilização de Arrays (que aceita apenas objetos):
 ```
  List<Integer> listaDeInteiros = new ArrayList<Integer>();     // Isso é completamente possível, já que Integer é um objeto
 
@@ -246,7 +250,7 @@ Desta forma a matriz passa a ser um ponteiro para ponteiro.
 
 ## Matrizes multidimensionais
 
-Em java pode existir matrizes com quantas dimensões forem necessárias.
+Em java podem existir matrizes com quantas dimensões forem necessárias.
 
 # for e o for-each
 
@@ -341,7 +345,7 @@ for(int i = 0; i < a.length; i += 2){
 int arr[] = {1,2,3};
 
 for(int i = 0; i < arr.length; i += 2)
-	System.out.println(arr[i]);
+	System.out.println(arr[i+1]);
 ```
 
 # Modificadores de acesso
@@ -361,7 +365,7 @@ Com excessão do <code>default</code> todos os demais devem ser declarados de fo
 
 ## Acessos de cada um dos tipos
 
-O tipo <code>default</code> permite acesso apenas pela classe que o criou e pelas classes presentes no mesmo pacote, por isso é coonhecido por <code>package-private</code>.
+O tipo <code>default</code> permite acesso apenas pela classe que o criou e pelas classes presentes no mesmo pacote, por isso é conhecido por <code>package-private</code>.
 
 Já quando é declarado como <code>public</code>, todos de todos os lugares tem acesso ao atributo declarado desta forma.
 
@@ -392,7 +396,7 @@ Em resumo temos que:
 * Pacote: Não tem acesso;
 * Subclasse: Não tem acesso;
 
-OBS: No caso do private, caso seja necessário que algum atributo com este modificador de acesso seja acessado ou modificado por outrem, é necessário disponibilizar métodos para fazer isso. (Esses por convensão são os métodos gets e sets, vistos mais a frente).
+OBS: No caso do private, quando alguma consulta ou alteração de atributos com este modificador de acesso precisa ser executado por outrem, é necessário disponibilizar métodos para fazer isso. (Esses por convenção são os métodos gets e sets, vistos mais a frente).
 
 <!-- Um dos pilares de OO -->
 <!-- Verificar no livro do Rafael -->
@@ -441,7 +445,7 @@ Com isso é possível perceber que esta ação de ocultar os dados e disponibili
 
 Com a aplicação dos modificadores de acesso, pode ocorrer de, certos atributos ficarem disponíveis apenas para a classe, mas, pode haver a necessidade de alteração e consulta a este atributo por parte de operações externas a classe
 
-Neste caso será necessário criar métodos especificos para o acesso e modificação destes atributos, por convensão da comunidade Java esses métodos são os <code>gets</code> e <code>sets</code>
+Neste caso será necessário criar métodos especificos para o acesso e modificação destes atributos, por convenção da comunidade Java esses métodos são os <code>gets</code> e <code>sets</code>
 
 Os gets são métodos que retornam o valor de uma variável encapsulada. E os sets são métodos utilizados para atribuir/alterar o valor de alguma váriavel encapsulada, quando necessário.
 
@@ -452,8 +456,8 @@ Veja abaixo um exemplo:
 // Classe Pessoa
 
 /*
-No caso do uso do private, ele modifica a forma de visualização, 
-permitindo apenas a classe que o cria de acessar, como visto anteriormente.
+No caso do uso do private, ele modifica a forma de visualização dos atributos/métodos, 
+permitindo apenas a classe que o cria visualiza-los, como visto anteriormente.
 */
 
 private String nome;
@@ -463,7 +467,9 @@ private double altura;
 
 public void setNome(String nome){
     
-    // O this serve para referênciar a própria classe
+    /*O this serve para referênciar a própria classe,
+	o nome que está nesta classe está recebendo o nome que foi passado como parâmetro
+	*/
     this.nome = nome;
 }
 
@@ -507,7 +513,7 @@ public class ContaBancaria{
 }
 ``` 
 
-Perceba que através do set uma regra foi criada. Vale lembrar também que este exemplo se encaixa perfeitamente na situação vista no tópico de encapsulamento, isso porque é exatamente esse um dos benefícios tragos pelo encapsulamento, e ele pode ser visto aqui também. Perceba que para que está depositando o dinheiro não foi necessário saber como aplicar a regra de limite ou algo parecido.
+Perceba que através do set uma regra foi criada. Vale lembrar também que este exemplo se encaixa perfeitamente na situação vista no tópico de encapsulamento, isso porque é exatamente esse um dos benefícios tragos pelo encapsulamento, e ele pode ser visto aqui também. Perceba que para quem está depositando o dinheiro não foi necessário saber como aplicar a regra de limite ou algo parecido.
 
 OBS: É importante ressaltar que, não basta definir gets e sets e dizer que o código foi encapsulado, é necessário que estes façam o controle de como o método irá interagir com o atributo, caso contrário, criar get/set sem regras é a mesma coisa que manter público.
 
@@ -555,7 +561,7 @@ public void metodo(Integer args, String args2){
 
 Veja que apenas o argumento mudou mas assim a JVM será capaz de escolher qual método será utilizado de acordo com a quantidade de argumentos e seus tipos.
 
-Mudar apenas o tipo de retorno não ira caracterizar a sobrecarga, é necessário variar nos argumentos. 
+Mudar apenas o tipo de retorno não ira caracterizar a sobrecarga, é necessário variar os argumentos. 
 
 # Modificadores de comportamento
 
@@ -573,9 +579,11 @@ OBS: Essa única modificação citada acima, só pode ser feita quando a váriav
 
 No caso de métodos, ele define que o método não pode ser <code>sobrescrito</code> nas subclasses.
 
+Classes com este modificador de comportamento não podem ser herdadas (Herança será abordada mais a frente).
+
 * static
 
-O <code>static</code>, outro modificador de comportamento, quando utilizado nas váriaveis de instância, fazem com que o mesmo valor seja definido para todos os objetos, assim se houver:
+O <code>static</code>, outro modificador de comportamento, quando utilizado nas váriaveis de instância, faz com que o mesmo valor seja definido para todos os objetos, assim se houver:
 
 ```java
 static String[] nomes;
@@ -608,7 +616,7 @@ Calculadora.soma(123,312);
 // Veja que não foi necessário instânciar a classe para chamar o método.
 ```
 
-Recomenda-se o uso de <code>static</code> em método, quando ele independe de outras partes da classe (Atributos ou métodos);
+Recomenda-se o uso de <code>static</code> em métodos, quando ele independe de outras partes da classe (Atributos ou métodos);
 
 Os modificadores de comportamento podem ser utilizados juntamente aos modificadores de acesso, veja um exemplo:
 
@@ -862,7 +870,7 @@ Perceba que o método <code>andar</code>não foi sobrescrito, já que como dito,
 
 Além das classes, os métodos também podem ser declarados como abstratos, neste caso o método não terá corpo nenhum, e obrigatóriamente a classe que carrega métodos abstratos deve ser abstrata.
 
-Com métodos abstratos as classes que herdarem a classe abstrata obrigatóriamente terá de implementar (Sobrescrever) os métodos abstratos (Mesmo que seja para deixar eles em branco).
+Com métodos abstratos as classes que herdarem a classe abstrata obrigatóriamente terão de implementar (Sobrescrever) os métodos abstratos (Mesmo que seja para deixar eles em branco).
 
 Veja um exemplo, deste tipo de utilização dos métodos abstratos
 
@@ -902,7 +910,7 @@ public class Funcionario extends Pessoa {
 	}
 }
 ```
-Veja que a classe <code>Funcionario</code> ao herdar de Pessoa, teve de implementar o método abstrato. Veja que no exemplo anterior demonstrado, nas <code>classes abstratas</code> hávia um método e ele nem precisou ser alterado, isso por não ser abstrato.
+Veja que a classe <code>Funcionario</code> ao herdar Pessoa, teve de implementar o método abstrato. No exemplo anterior demonstrado, nas <code>classes abstratas</code> havia um método, ele não precisou ser alterado, por não ser abstrato.
 
 # Interface
 
@@ -916,7 +924,7 @@ Ela trabalha de forma parecida com as classes abstratas, porém, tem todos os se
 
 Além dessa há algumas outras diferenças, e são elas:
 * Todos os métodos dentro da interface são: <code>abstract, public</code>, isso implicitamente, assim ao criar um método dentro da interface, ele já recebe estes atributos, e ainda, são métodos sem corpo algum
-* E os atributos declarados dentro da interface, são <code>public, static, final</code>
+* Os atributos declarados dentro da interface, são <code>public, static, final</code>
 
 Veja um exemplo de implementação de uma interface
 
@@ -977,12 +985,12 @@ OBS: As interfaces são muito usadas, principalmente para definir comportamentos
 
 
 # Threads
-Os primeiros programas a serem executados, eram feitos utilizando um único processo, assim o programa era executado de forma sequêncial, porém com o crescimento da quantidade de núcleos e consequentemente do poder computacional, tornou-se possível criar aplicações concorrentes, ou seja, aplicações que se dividem em vários subprocessos, esses que são executados em paralelo ao processo principal. Tornando assim o processo em diversos casos mais rápido.
+Os primeiros programas a serem executados, eram feitos utilizando um único processo, assim o programa era executado de forma sequêncial, porém, com o crescimento da quantidade de núcleos e consequentemente do poder computacional, tornou-se possível criar aplicações concorrentes, ou seja, aplicações que se dividem em vários subprocessos, esses que são executados em paralelo ao processo principal. Tornando assim o processo em diversos casos mais rápido.
 
-Em Java para realizar a criação de thread, existe duas formas:
+Em Java para realizar a criação de thread, existem duas formas:
 
 ## Herança de Thread
-Esta é uma forma bastante simples de utilizar as thread, porém não é muito recomendada, pois, ao herdar, como visto no tópico de herança, todas as caracteristicas são herdadas, o que não é necessário.
+Esta é uma forma bastante simples de utilizar thread, porém, não é muito recomendada, pois, ao herdar, como visto no tópico de herança, todas as caracteristicas são herdadas, o que não é necessário.
 
 ## Implementando Runnable
 A implementação da interface <code>Runnable</code> é a maneira recomendada para aplicar as Threads, isso porque nela é trago apenas o necessário (Método run()), este que será sobrescrito, gerando polimorfismo.
@@ -1018,7 +1026,7 @@ Outro grande problema que ocorria bastante era quando coleções do tipo <code>O
 
 Para resolver estes problemas surgiram os genéricos, estes que tem como principal objetivo "definir coleções de forma que estas contenham somente determinado tipo de objeto". Santos, Rafael.
 
-Com isso podemos criar coleções, classes e interfaces que são do tipo <code><E></code> (Tipo genérico). Este tipo, aqui dito como <code><E></code>, será definido somente no momento da declaração, ou seja, a classe/método/interface é criada sem saber qual tipo será recebido (Criada utilizando um tipo genérico).
+Com isso podemos criar coleções, classes e interfaces que são do tipo <code>< E ></code> (Tipo genérico). Este tipo, aqui dito como <code>< E ></code>, será definido somente no momento da declaração, ou seja, a classe/método/interface é criada sem saber qual tipo será recebido (Criada utilizando um tipo genérico).
 
 Veja o exemplo:
 
@@ -1041,7 +1049,7 @@ Ao declarar a classe vista acima é necessário especificar o tipo, veja:
 public static void main(String[] args){
 	Agenda<Contato> contatos = new Agenda<>();
 
-	// Com a específicação do tipo os métodos passar a aceitar o tipo especificado
+	// Com a específicação do tipo os métodos passam a aceitar o tipo especificado
 
 	// add(Contato e)
 
@@ -1109,7 +1117,7 @@ Aqui vale deixar claro que, tudo irá depender da sua necessídade.
 
 ## Set - Interface (Collection)
 
-<code>Set</code> que é um conjunto de objetos que não é sequêncial, onde não pode haver elementos repetidos.
+<code>Set</code> é um conjunto de objetos que não é sequêncial, onde não pode haver elementos repetidos.
 
 Como esta é a interface que faz a representação de um conjunto, a noção de ordem na inserção dos elementos não existe, isso justifica o ponto citado acima que diz que, as implementações da interface <code>Set</code> não tem uma ordem.
 
@@ -1156,9 +1164,9 @@ OBS: Para realizar a manipulação das coleções é interessante utilizar a cla
 
 Executar ações para realizar a ordenação de objetos é algo comum, e a forma de ordenação de vários tipos já foram definidos, como por exemplo, os números que se ordenam do menor para o maior.
 
-Porém isso não ocorre automaticamente nos objetos, primeiro que, como citado no inicio, ao criarmos um objeto, estamos criando uma estrutura de dados nova, e assim o Java não consegue compreender qual critério ele deve utilizar para fazer a comparação, e definir qual será a ordem.
+Isso não ocorre automaticamente nos objetos, primeiro que, como citado no inicio, ao criarmos um objeto, estamos criando uma estrutura de dados nova, e assim o Java não consegue compreender qual critério ele deve utilizar para fazer a comparação, e definir qual será a ordem.
 
-Para fazer isso em Java é necessário a utiliação da Interface Comparable.
+Para fazer isso em Java é necessário a utilização da Interface Comparable.
 
 Abaixo, será feito um exemplo de como comparar e definir a ordem dos elementos de um ArrayList.
 
@@ -1186,7 +1194,7 @@ public class Pessoa implements Comparable<Pessoa>{
 
     /*
         Após implementar a interface Comparable
-        é necessário descrever o método compareTo().
+        é necessário sobrescrever o método compareTo(), pois a interface comparable foi definida.
         Este passo é feito abaixo
     */
 
@@ -1384,11 +1392,11 @@ OBS: Se necessário serializar objetos, que tenham como atributos outros objetos
 
 # Exceções
 
-Durante a execução de um programa muitos erros podem ocorrer, para tratar isso, existem as exeções. Essas são formas de manipular problemas e de dizer ao programa o que fazer quando encontrar certos tipos de erros.
+Durante a execução de um programa muitos erros podem ocorrer, para tratar isso, existem as exceções. Essas são formas de manipular problemas e de dizer ao programa o que fazer quando encontrar certos tipos de erros.
 
-Todas as exeções são heranças da classe <code>Exception</code>.
+Todas as exceções são heranças da classe <code>Exception</code>.
 
-Para capturar a exeção e aplicar o tratamento correto é possível utilizar o <code>Try-Catch</code>.
+Para capturar a exceção e aplicar o tratamento correto é possível utilizar o <code>Try-Catch</code>.
 
 Um exemplo de utilização de Try-Catch, pode ser feito com a serialização, veja:
 
@@ -1474,10 +1482,10 @@ OBS: Um único try pode ter vários catchs.
 
 # Escrita em arquivos
 
-Também é possível escrever em arquivos de texto, este é um processo semelhante a escrita de objetos em arquivos (Serialização), porém aqui os dados não são transformados em binários, e não há a necessidade por parte das classes implementar alguma Interface. 
+Também é possível escrever em arquivos de texto, este é um processo semelhante a escrita de objetos em arquivos (Serialização), porém, aqui os dados não são transformados em binários, e não há a necessidade por parte das classes implementar alguma Interface. 
 
 
-Isso ocorre pela simplicidade com a qual é feita a leitura e escrita desdes dados, aqui não é possível salvar o objeto todo (Seu estado), mas sim o conteúdo de cada uma de seus atributos, ou até mesmo, textos inseridos pelo usuário.
+Isso ocorre pela simplicidade com a qual é feita a leitura e escrita destes dados, aqui não é possível salvar o objeto todo (Seu estado), mas sim o conteúdo de cada um de seus atributos, ou até mesmo, textos inseridos pelo usuário.
 
 Uma forma de se criar arquivos é realizando o seguinte passo:
 
