@@ -27,6 +27,10 @@ Há outros conceitos que também tem grande importância na área de banco de da
     * Conjunto de informações de um banco de dados em um dado momento;
     * Sempre sofre alterações.
 
+* Instância VS. Esquema
+    * Esquema: FUNCIONARIO(nome, salario)
+    * Instância: Ana Maria, 2.500 
+
 ### Abstração de dados
 
 Para que seja possível utilizar um banco de dados, ou um SGBD, é importante que o modelo de dados seja conhecido, ou seja, que a estrutura a qual o dado está armazenado, isso é feito principalmente através de representações em modelos conceituais da estrutura e dos dados.
@@ -87,6 +91,45 @@ Modelo de dados abstratos, que descreve a estrutura de um banco de dados, e essa
 
 ![Modelo conceitual](modelos/conceitual_1.PNG)
 
+Dentro deste modelo há alguns conceitos que devem ficar bastante claros, para que haja facilidade no processo de modelagem dos dados.
+* Entidade
+    * Entidade forte:
+        * São as entidades que conseguem existir no modelo de forma idependente.
+    * Entidade fraca:
+        * Essas são entidades que necessáriamente dependem de alguma outra entidade e/ou relação para existir.
+    * Atributo:
+        * É uma propriedade que descreve uma entidade.
+* Atributos
+    * Existem alguns tipos de atributos, são eles
+        * Simples
+        * Compostos
+            * Atributos que são constituidos por outros atributos.
+        * Univalorados
+        * Multivalorados
+            * Valores que podem assumir mais de um valor
+        * Armazenados
+        * Derivados
+            * Valores que são resultantes de cálculos ou valores de outros atributos
+    * Atributo chave
+        * Valor único de identificação de uma instância, dentro de uma entidade.
+        * No caso da entidade fraca, o atributo chave é nomeado `chave parcial`. Quando houver chave parcial, será necessário haver uma chave primária, de alguma entidade forte.
+    * Restrição de unicidade
+        * Proíbe que duas entidades, em um mesmo conjunto entidade, tenham o mesmo atributo chave.
+* Relacionamentos
+    * Os relacionamentos representam as associações existentes entre as entidades.
+    * Grau
+        * O grau de um relacionamento é o número de tipos de entidade participantes do relacionamento, pondendo ser:
+            * Binário (Grau dois);
+            * Ternário (Grau três);
+            * n-ário (Grau n).
+    * Atributos
+        * Os atributos nos relacionamentos são usados para descrever uma relação (Associação) entre as entidades envolvidas.
+* Cardinalidade
+    * A cardinalidade indica a quantidade de instâncias de relacionamento nas quais uma instância de entidade pode participar.
+        * 1:1 (um para um);
+        * 1:N (um para muitos);
+        * M:N (muitos para muitos)
+
 ### Modelo lógico
 
 Modelo de dados que representa a estrutura de dados de um banco de dados conforme vista pelo usuário do SGBD. Este é um modelo que depende do SGBD que está sendo utilizado
@@ -137,7 +180,6 @@ DEPTO_LOCS(numero_depto, localizacao)
 Outro exemplo:
 
 ```
-
 FUNC_PROJ(Ident, fnome, pnumero, horas)
 ```
 
@@ -208,3 +250,5 @@ OBS: Foi dito que as formas normais server para garantir a qualidade do projeto,
 
 - (?) Nas normalizações, os atributos multivalorados sempre serão removidos ?
     - Não se pode ter atributos multivalorados no modelo relacional.
+
+- (?) Relacionamento recursivo é o mesmo que auto-relacionamento ?
