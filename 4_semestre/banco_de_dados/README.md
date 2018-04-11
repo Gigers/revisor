@@ -27,7 +27,7 @@ Há outros conceitos que também tem grande importância na área de banco de da
     * Conjunto de informações de um banco de dados em um dado momento;
     * Sempre sofre alterações.
 
-* Instância VS. Esquema
+* Instância X Esquema - (Exemplos)
     * Esquema: FUNCIONARIO(nome, salario)
     * Instância: Ana Maria, 2.500 
 
@@ -77,7 +77,10 @@ As características citadas acima sobre o SGBD, trazem várias vantagens para qu
 
 ### Banco de dados X SGBD
 
-## Chave primária X Chave estrangeira
+### Sistema de banco de dados X Sistema gerenciador de banco de dados
+
+## ACID
+
 
 ## Modelos de dados
 
@@ -114,7 +117,7 @@ Dentro deste modelo há alguns conceitos que devem ficar bastante claros, para q
         * Valor único de identificação de uma instância, dentro de uma entidade.
         * No caso da entidade fraca, o atributo chave é nomeado `chave parcial`. Quando houver chave parcial, será necessário haver uma chave primária, de alguma entidade forte.
     * Restrição de unicidade
-        * Proíbe que duas entidades, em um mesmo conjunto entidade, tenham o mesmo atributo chave.
+        * Proíbe que duas entidades, em um mesmo conjunto entidade, tenham o mesmo atributo chave (Este é um conceito aplicado com a utilização do `atributo chave`.
 * Relacionamentos
     * Os relacionamentos representam as associações existentes entre as entidades.
     * Grau
@@ -129,6 +132,18 @@ Dentro deste modelo há alguns conceitos que devem ficar bastante claros, para q
         * 1:1 (um para um);
         * 1:N (um para muitos);
         * M:N (muitos para muitos)
+
+#### Atributo chave
+
+Durante os tópicos do modelo conceitual, foi citado o `atributo chave`, este é um conceito bastante importante. Veja que este atributo chave, pode ser representado de duas formas
+
+* Chave primária
+    * Esta é uma chave que deve ser única no banco de dados, ele é utilizado para fazer a identificação de uma única instância de dados;
+
+* Chave estrangeira
+    * Este é uma chave primária, porém em uma outra tabela, desta forma ela cria um relacionamento entre as entidades.
+
+<!-- Verificar com a validade dessas afirmações. -->
 
 ### Modelo lógico
 
@@ -242,13 +257,17 @@ OBS: Foi dito que as formas normais server para garantir a qualidade do projeto,
 * Junção sem perdas;
 * Preserva as dependências funcionais.
 
+## DDL e DML
+
 ## SQL - Structured Query Language
 
 <!-- Será adicionado depois -->
 
 ## Dúvidas
 
-- (?) Nas normalizações, os atributos multivalorados sempre serão removidos ?
+- (?) Nas normalizações, os atributos multivalorados sempre serão removidos (Transformados em tabela) ?
     - Não se pode ter atributos multivalorados no modelo relacional.
 
 - (?) Relacionamento recursivo é o mesmo que auto-relacionamento ?
+
+- (?) Chave estrangeira é a mesma coisa que chave parcial ?
