@@ -4,7 +4,7 @@ Matéria de projetos e modelagens de banco de dados
 
 ## Visão geral
 
-Banco de dados é uma coleção de dados. E neste contexto, os dados são fatos do mundo real que precisam ser armazenados.
+De acordo com Heuser, `bancos de dados são um conjunto de dados integrados, que tem por objetivo atender a uma comunidade de usuários`. E neste contexto, os dados são fatos do mundo real que precisam ser armazenados.
 
 Veja que, definir um banco de dados, é criar as estruturas para armazenamento dos dados e especificar as restrições que devem ser impostas aos dados.
 
@@ -18,7 +18,7 @@ Ao falarmos sobre os bancos de dados, é importante ter alguns conceitos bem def
 E lembre-se: `Armazenando informação perdemos a informação !`. Nunca armazene informações e sim dados, isso porque você estará perdendo as informações armazenadas com o tempo, um exemplo simples, o armazenamento da idade de uma pessoa deve ser feito utilizando a data de seu nascimento, e não quantos anos tem direto, pois os anos passam e esta pessoa muda de idade, mas não a data que nasceu.
 
 Há outros conceitos que também tem grande importância na área de banco de dados:
-* Esquemas
+* Esquemas (Estrutura)
     * Definição dos tipos de dados que estão armazenados ou estarão armazenados no banco de dados;
     * É difícil apresentar mudanças.
 
@@ -33,7 +33,7 @@ Há outros conceitos que também tem grande importância na área de banco de da
 
 ### Abstração de dados
 
-Para que seja possível utilizar um banco de dados, ou um SGBD, é importante que o modelo de dados seja conhecido, ou seja, que a estrutura a qual o dado está armazenado, isso é feito principalmente através de representações em modelos conceituais da estrutura e dos dados.
+Para que seja possível utilizar um banco de dados, ou um SGBD, é importante que o modelo de dados seja conhecido, ou seja, que a estrutura a qual o dado será armazenado seja conhecida, isso é feito principalmente através de representações em modelos conceituais da estrutura e dos dados (Demonstrados nos próximos tópicos).
 
 ### Usuários de um banco de dados
 
@@ -47,13 +47,70 @@ Para que seja possível utilizar um banco de dados, ou um SGBD, é importante qu
     * Fazem acesso ao banco de dados através da DML.
 * Administrador de banco de dados:
     * Faz o controle total dos dados e dos programas que os acessam;
-    * São esses os usuários que fazem a definição e controle da estrutura conceitual, de armazenamento dos dados, além de fazerem modificações e organizações no modelo físico do banco de dados. 
+    * São esses os usuários que fazem a definição e controle da estrutura conceitual, de armazenamento dos dados, além de fazerem modificações e organizações no modelo físico (Estrutura) do banco de dados. 
 
-## SGBD
+## Sistemas de arquivos
 
-É uma coleção de programas que permite que os dados armazenados podem ser gerênciados e manipulados
+Esta foi uma das primeiras formas encontradas para realizar o armazenamento das informações, aqui os programas que fazem o armazenamento contém todas as funcionalidades de controle e manipulação dos dados.
 
-Os SGBDs trazem independência entre os dados e os programas que farão a leitura desses. Isso porque todo o controle e formas de armazenamento passarão a ser controlados pelo SGBD, em um passado pouco distante os programas e os dados eram fortemente acoplado, isso porque todos os dados eram estruturados seguindo a lógica definida pelo programa, com isso, quando outro programa fosse fazer as leituras, era necessário a adequação da lógica de leitura e aquisição para a estrutura dos dados.
+Veja que este tipo de sistema criava sistemas isolados dentro de uma mesma empresa, ou seja, havia sistemas de áreas relacionadas que trabalhavam de forma separada, sem nenhuma ligação, veja a representação abaixo.
+
+![Sistemas isolados](imgs/sistemas-isolados.png).
+
+Perceba que as áreas fazem a manipulação do mesmo dado (Produto), porém sem haver comunicação entre elas, com este tipo de sistema gera-se redundância de dados. 
+
+Veja que, redundância ocorre quando o dado está representado no sistema várias vezes, como exemplo há o Produto, que está em dois lugares diferentes, mesmo se tratando do mesmo produto.
+
+* Desvantagens do sistema de arquivos
+    * Inconsistência e redundância dos dados
+        * Duplicação de informação;
+        * Maior custo de armazenamento;
+        * Inconsistência dos dados (Por conta da redundância pode gerar incosistência).
+    * Dificuldade de acesso aos dados
+        * Não permite acesso/manipulação eficiente dos dados;
+        * Acesso não previsto
+            * Este é um grande problema presente nos sistemas de arquivos, a lógica dos dados era feita pensando no programa, e não na melhor forma de manipulação, assim quando um novo programa precisava utilizar os dados já existentes surgiam muitos problemas, já que a estrutura do program teria de ser alterada para começar a acessar os dados antigos.
+        * Por exemplo: Listar o nome de um cliente X que gasta mais de 2.500 reais, era praticamente impossível, já que mesmo estando armazenado havia problemas para a manipulação.
+    * Isolamento dos dados
+        * As formas de restringir acesso aos dados eram limitadas.
+    * Problemas de integridade
+        * Há uma grande dificuldade em realizar as restrições de integridade, os programas que fazem o uso dos dados devem garantir a integridade, e isto é um grande problema, uma vez que, nem sempre essa garantia será seguida.
+    * Problemas de atomicidade
+        * Operações atômicas, ou ocorrem por inteiro ou não ocorrem.
+        * Exemplo: Uma transferência bancária, há apenas duas possíbilidades sucesso ou falha, assim a operação ou ocorre por inteiro, com sucesso, ou não há transferência.
+    * Problemas de acesso concorrente
+        * Não há controle do acesso concorrente, caso multiplos usuários acessem os dados simultâneamente, a integridade dos dados poderá ser comprometida.
+
+### Tipos de redundância
+
+Acima foi citado que os sistemas de arquivos geram redundância, porém nem sempre a redundância é algo ruim, há sistemas que criam redundância para aumentar a confiabilidade e disponibilidade dos dados, abaixo são listados dois tipos de redundância.
+
+* Redundância controlada de dados
+    * Neste caso o *software* é desenvolvido para manter a sincronia entre os dados. Exemplo: Sistemas distribuidos (Aqui há várias instâncias do mesmo dado separadas em diferentes locais)
+
+* Redundância não controlada de dados
+    * A responsabilidade em manter a sincronia dos dados é do usuário e não do *software*. Exemplo: O sistema isolado demonstrado acima.
+    * Problemas deste tipo de redundância:
+        * Entrada repetida do mesmo dado;
+        * Incosistência de dados.
+    * Solução:
+        * Para resolver este tipo de problema faz-se necessário o compartilhamento dos dados
+
+Ao realizar o compartilhamento dos dados, o problema de redundância não controlada dos dados é resolvido, uma vez que os dados estarão centralizados e poderão ser utilizados por diversos sistemas, veja abaixo:
+
+![Sistemas integrados com dados compartilhados](imgs/sistema-integrados.PNG)
+
+Veja que, todas as áreas que fazem o uso do Produto estarão acessando a mesma informação, assim quando uma área modificar estes dados, as demais saberão e poderão tomar decisão mais acertivas.
+
+## Sistema gerenciador de banco de dados (SGBD)
+
+Este é um sistema de incorpora as funções de definição, recuperação e alteração de dados em um banco de dados.
+
+Os SGBDs trazem independência entre os dados e os programas que farão a leitura desses. Isso porque todo o controle e formas de armazenamento passarão a ser controlados pelo SGBD, isso evita problemas citados no tópico de sistemas de arquivos onde os programas e dados eram fortemente acoplado, isso porque todos os dados eram estruturados seguindo a lógica definida pelo programa, com isso, quando outro programa fosse fazer as leituras, era necessário a adequação da lógica de leitura e aquisição para a estrutura dos dados.
+
+### Objetivos do SGBD
+
+O SGDB tem por objetivo, isolar os usuários dos detalhes mais internos do banco de dados (Abstração dos dados), além de prover independência entre os dados e as aplicações.
 
 ### Vantagens
 
@@ -75,12 +132,25 @@ As características citadas acima sobre o SGBD, trazem várias vantagens para qu
 
 * Flexibilidade e disponibilidade dos dados.
 
-### Banco de dados X SGBD
+## Sistemas de banco de dados
 
-### Sistema de banco de dados X Sistema gerenciador de banco de dados
+De acordo com Date `O sistema de banco de dados é basicamente um sistema de manutenção de registros por computadores, ou seja, um sistema cujo objetivo global é manter as informações e torná-las disponíveis quando solicitado`.
 
-## ACID
+### Ambiente de um sistema de banco de dados
 
+Um sistema de banco de dados é composto por:
+* 1° - Usuários que fazem a utilização dos programas de aplicação;
+* 2° - Programas de aplicação (Que fazem acesso aos dados);
+* SGBD 
+    * 3° - Programas de processamento de consulas;
+    * 4° - Programa de acesso aos dados;
+* Banco de dados
+    * Definição dos dados;
+    * Dados armazenados
+
+A estrutura descrita acima, pode ser visualizada na imagem abaixo:
+
+![Sistema de banco de dados](imgs/sistema-db.png)
 
 ## Modelos de dados
 
@@ -143,7 +213,26 @@ Durante os tópicos do modelo conceitual, foi citado o `atributo chave`, este é
 * Chave estrangeira
     * Este é uma chave primária, porém em uma outra tabela, desta forma ela cria um relacionamento entre as entidades.
 
-<!-- Verificar com a validade dessas afirmações. -->
+#### Modelo conceitual estendido
+
+O modelo conceitual estendido representa um modelo mais acutado, capaz de expressar propriedades e restrições de dados com mais precisão.
+
+Esta é uma forma que permite expressar estruturas de hierarquia e especialização.
+
+* Especialização
+    * Processo de definir um conjunto de subtipos (ou subclasses) de um tipo entidade (supertipo ou superclasse), a partir das características que distinguem subconjuntos de entidades individuais.
+
+    * Algumas formas de restrição são aplicadas na especialização:
+        * Restrição de disjunção (d): Haverá apenas um subtipo equivalente para o tipo entidade, isso no momento do relacionamento. Para que fique claro, lembre desta restrição como um `OU`, assim em uma relação de funcionários por exemplo, ele não poderá ser engenheiro e secretário, apenas um `OU` outro. Neste caso pode acontecer de, não haver atributos vinculados no subtipo, apenas alguma nova ligação (considerado comportamento);
+
+* Generalização
+    * Processo inverso da abstração, no qual as diferenças entre vários tipos entidades são suprimidas na criação de um supertipo.
+    * Este é um tipo que pode ser vinculado a uma herança, onde há no supertipo, as características gerais, e nos subtipos há características próprias, que se juntam as características do supertipo.
+
+* Agregação
+    * É uma abstração que permite a construção de objetos a partir de seus componentes. Veja que aqui o processo feito é a junção de dois objetos já relacionados, e partindo desta junção um outro objeto é criado.
+
+* Entidade associativa
 
 ### Modelo lógico
 
@@ -160,6 +249,8 @@ Este é o modelo que representa análise e aplicação do modelo lógico.
 ### Modelo relacional
 
 ### Mapeamento MER -> Relacional
+
+#### Regras de integridade
 
 ## Dependências funcionais
 
