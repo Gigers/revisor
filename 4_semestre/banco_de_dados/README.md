@@ -386,97 +386,87 @@ OBS: Lembre-se *null* não é o valor zero e também não é um caracter de espa
 
 ## Formas normais
 
-`A qualidade de um projeto de banco de dados pode ser medida a partir da verificação da forma normal que ele alcança.`. Marques Peres, Sarajane.
+`A qualidade de um projeto de banco de dados pode ser medida a partir da verificação da forma normal que ele alcança`. Marques Peres, Sarajane.
 
-`Definição - Normalização`: O processo de normalização é dirigido pela informação referente às dependências funcionais e às chaves dos esquemas de relação. Este é um processo de análise e adequação dos esquemas de relações com o objetivo de minimizar redundâncias e anomalias de inserção e alteração.
+`Normalização é um processo a partir do qual se aplicam regras a todas as tabelas do banco de dados com o objetivo de evitar falhas no projeto, como redundância de dados e mistura de diferentes assuntos numa mesma tabela`. Vanessa, Izabela.
 
-Neste processo de normalização ocorre o processo de decomposição de relações que não seguem certas condições. Este processo de decomposição, cria relações menores, para que assim as condições sejam satisfeitas.
+A normalização é um conceito que se baseia em formas normais. Porém, o que são formas normais ?
+
+    Uma forma normal é uma regra que deve ser obedecida por uma tabela.
+
+Com a utilização da normalização é possível eliminar:
+* Redundância;
+* Atributo multivalorado;
+* Grupo repetitivo;
+    - Conjunto de atributos de uma entidade que ocorre várias vezes para cada ocorrência da Entidade.
+* Dependência funcional parcial;
+    - Ocorre quando um atributo depende apenas de parte de uma chave primária composta;
+* Dependencia funcional transitiva.
+    - Ocorre quando um atributo além de depender da chave primária da tabela, depende de outra coluna ou conjunto de colunas da tabela.
 
 A forma normal atribuida a algum projeto de banco de dados, está ligado a relação que tenha a menor forma normal.
 
-### Primeira forma normal (1NF)
-Não permite relações dentro de relações, ou relações com valores de atributos dentro das tuplas.
+`Ao projetar um banco de dados, se temos um modelo de entidades e relacionamentos e a partir dele construirmos o modelo relacional seguindo as regras de transformação corretamente, o modelo relacional resultante estará, provavelmente, normalizado. Mas, nem sempre os modelos que nos deparamos são implementados dessa forma e, quando isso acontece, o suporte ao banco de dados é dificultado.`. Vanessa, Izabela.
 
-**Requer**: Valores atômicos.
+Para qualquer um dos casos citados pela Izabela, sendo o primeiro, o modelo relacional resultante de um mapeamento utilizando os sete passos, ou por conta de um modelo que não foi construido seguindo os padrões até aqui demonstrados faz-se necessário o uso da normalização, seja para confirmar a consistência do banco de dados (Quando há o primeiro caso), ou quando é necessário normalizar o modelo (Quando há o segundo caso).
 
-Veja um exemplo de normalização para 1NF.
+Sendo assim será demonstrado as regras que devem ser aplicadas para que se tenha, bancos de dados mais íntegros, sem redundâncias e inconsistências.
 
-A tabela abaixo não está na forma 1NF
-```
-DEPTO(numero, nome, gident, localizacoes)
-```
+### Primeira forma normal (1FN) - Elimitar grupos repetitivos/não conter tabelas aninhadas
+
+`Todos os atributos de uma tabela devem ser atômicos, ou seja, a tabela não deve conter grupos e nem atributos com mais de um valor. Para deixar nesta forma normal, é preciso identificar a chave primária da tabela, identificar a(s) coluna(s) que tem(êm) dado repetido e, por fim, criar uma relação entre a tabela principal e a tabela secundária`. Vanessa, Izabela.
+
+Perceba que, em resumo o que foi dito pela Vanessa nada mais é que, a primeira forma normal exige que os atributos sejam atômicos.
+
+Veja um exemplo de normalização para 1FN.
+
+A tabela abaixo não está na forma 1FN
+
+    DEPTO(numero, nome, gident, localizacoes)
 
 Perceba que o localizacoes é um atributo multivalorado, e a primeira forma normal requer atributos atômicos, para resolver o problema, será realizado a decomposição (Assim como citado anteriormente).
 
-```
-DEPTO(numero, nome, gident)
-DEPTO_LOCS(numero_depto, localizacao)
-```
+    DEPTO(numero, nome, gident)
+    DEPTO_LOCS(numero_depto, localizacao)
 
 Outro exemplo:
 
-```
-FUNC_PROJ(Ident, fnome, pnumero, horas)
-```
+    FUNC_PROJ(Ident, fnome, pnumero, horas)
 
-Neste caso o pnumero e horas são atributos aninhados, o que também não é permitido da 1NF, para resolver isso a entidade será decomposta
+Neste caso o pnumero e horas são atributos aninhados, o que também não é permitido da 1FN, para resolver isso a entidade será decomposta
 
-```
-FUNC_PROJ1(Ident, fnome)
-FUNC_PROJ2(Ident, pnumero, horas)
-```
+    FUNC_PROJ1(Ident, fnome)
+    FUNC_PROJ2(Ident, pnumero, horas)
 
 Pronto, entidade novas criadas para resolver o problema. O ponto interessante é que, cada uma das entidades ficaram com suas devidas características, isso porque antes o funcionário carregava consigo características de seu relacionamento com o projeto, o que não ocorre mais, já que há uma tabela apenas para descrever este relacionamento. 
 
-### Segunda forma normal (2NF)
+### Segunda forma normal (2FN) - Eliminar dependência parcial
 
-Esta é uma forma normal que é baseada no conceito **atributo primo** e **dependência funcional total**.
+Para estar na segunda forma normal, é necessário antes estar na primeira forma normal. 
 
-Um esquema de relação R está em 2NF se todo atributo não primo A em R tem dependência funcional total da chave primária.
-
-Por exemplo:
-
-```
-FUNC_PROJ(func_ident, proj_numero, horas, func_nome, proj_nome, proj_localizacao)
-```
-
-Para resolver novas entidades foram criadas:
-
-```
-FP1(func_ident, proj_horas)
-FP2(func_ident, func_nome)
-FP3(proj_numero, proj_nome, proj_localizacao)
-```
-
-- Atributo primo = Um atributo é primo quando ele é membro de alguma chave candidata em uma tabela R, caso contrário ele é considerado não primo.
-    - Exemplo de atributo primo:
-        ```
-            FUNC_PROJ2(Ident, pnumero, horas)
-        ```
-        Atributos primos: Ident, pnumero
-
-- Dependência funcional total = É uma dependência funcional X -> Y, quando ao remover o atributo A de X, a dependência deixa de valer
-- Dependência parcial = É uma dependência funcional parcial se para algum atributo A em X, e (X - A) -> Y. Ou seja mesmo removendo um atributo A de X, a dependência ainda vale.
+`Todos os atributos não chaves da tabela devem depender unicamente da chave primária (não podendo depender apenas de parte dela, em caso de chave composta). Para deixar na segunda forma normal, é preciso identificar as colunas que não são funcionalmente dependentes da chave primária da tabela e, em seguida, remover essa coluna da tabela principal e criar uma nova tabela com esses dados`. adaptado de: Vanessa, Izabela. 2011.
 
 Por exemplo:
 
-{func_ident, proj_numero} -> horas, func_nome, proj_nome, proj_localizacao
+    ALUNOS_CURSOS(id_aluno, id_curso, nota, descricao_curso)
 
-```
-{func_ident, proj_numero} -> horas. Aqui caso eu faça a remoção de proj_numero, perco o acesso as horas, fazendo assim que esta seja uma dependência funcional total
-```
+Nesta tabela, o atributo `descricao_curso`, depende apenas do `id_curso`, sendo assim será criado uma tabela para armazenar essas informações.
 
-```
-{func_ident, proj_numero} -> func_nome. Aqui caso eu faça a remoção de proj_numero, ainda assim vou conseguir realizar o acesso a func_nome, desta forma, esta é uma dependência funcional parcial.
-```
+    ALUNOS_CURSOS(id_aluno, id_curso, nota)
+    CURSOS(id_curso, descricao_curso)
 
-### Terceira forma normal - Ideal em projetos de banco de dados. (3NF)
 
-### Boyce-Codd Normal Form
+### Terceira forma normal - Ideal em projetos de banco de dados. (3NF) - Eliminar dependência funcional transitiva
 
-OBS: Foi dito que as formas normais server para garantir a qualidade do projeto, porém nem sempre essa é a melhor forma, deve-se levar em conta também as seguintes propriedades:
-* Junção sem perdas;
-* Preserva as dependências funcionais.
+Para que o modelo esteja nesta forma normal, é necessário que os atributos não sejam dependentes que chaves que não a primária. Para resolver este problema, é preciso identificar as colunas que são dependentes das outras colunas não chave e extraí-las para outra tabela. Veja um exemplo
+
+    FUNCIONARIOS(id, nome, id_cargo, descricao_cargo)
+
+
+Veja que, o atributo `descricao_cargo` depende exclusivamente de `id_cargo`, que é um atributo não chave, e assim será necessário criar uma nova tabela com esses atributos.
+
+    FUNCIONARIOS(id, nome, id_cargo)
+    CARGOS(id_cargo, descricao)
 
 ## DDL e DML
 
@@ -492,3 +482,11 @@ OBS: Foi dito que as formas normais server para garantir a qualidade do projeto,
 - (?) Relacionamento recursivo é o mesmo que auto-relacionamento ?
 
 - (?) Chave estrangeira é a mesma coisa que chave parcial ?
+
+- (?) O que são atributos aninhados ?
+
+- (?) Caso haja não haja chave primária composto, a forma normal pode partir da 1FN para a 3FN ?
+
+## Referências bibliográficas
+
+Pet news. (2018). Normalização de Bancos de Dados Relacionais. [online] Available at: http://www.dsc.ufcg.edu.br/~pet/jornal/maio2011/materias/recapitulando.html [Acessado em 14 Abril de 2018].
