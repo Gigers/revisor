@@ -21,11 +21,20 @@ Há outros conceitos que também tem grande importância na área de banco de da
 * Esquemas (Estrutura)
     * Definição dos tipos de dados que estão armazenados ou estarão armazenados no banco de dados;
     * É difícil apresentar mudanças.
+Exemplo de esquema.
+![Tabela clientes](imgs/esquema.PNG)
+
+Veja que a tabela clientes representa a estrutura e os tipos de dados que serão armazenados.
 
 * Instâncias (Estado)
     * São os dados e informações de um banco de dados;
     * Conjunto de informações de um banco de dados em um dado momento;
     * Sempre sofre alterações.
+
+Exemplo de instância
+![Instâncias](imgs/instancia.PNG)
+
+Cada registro na tabela acima, representa uma instância de cliente.
 
 * Instância X Esquema - (Exemplos)
     * Esquema: FUNCIONARIO(nome, salario)
@@ -55,7 +64,7 @@ Esta foi uma das primeiras formas encontradas para realizar o armazenamento das 
 
 Veja que este tipo de sistema criava sistemas isolados dentro de uma mesma empresa, ou seja, havia sistemas de áreas relacionadas que trabalhavam de forma separada, sem nenhuma ligação, veja a representação abaixo.
 
-![Sistemas isolados](imgs/sistemas-isolados.png).
+![Sistemas isolados](imgs/sistemas-isolados.PNG).
 
 Perceba que as áreas fazem a manipulação do mesmo dado (Produto), porém sem haver comunicação entre elas, com este tipo de sistema gera-se redundância de dados. 
 
@@ -104,7 +113,7 @@ Veja que, todas as áreas que fazem o uso do Produto estarão acessando a mesma 
 
 ## Sistema gerenciador de banco de dados (SGBD)
 
-Este é um sistema de incorpora as funções de definição, recuperação e alteração de dados em um banco de dados.
+Este é um sistema de incorpora as funções de definição, recuperação e alteração de dados em um banco de dados. Pode ser definido também como: `Sistema constituído por um conjunto de dados associados a um conjunto de programas para acesso a esses dados.`. Koth & Silberschatz.
 
 Os SGBDs trazem independência entre os dados e os programas que farão a leitura desses. Isso porque todo o controle e formas de armazenamento passarão a ser controlados pelo SGBD, isso evita problemas citados no tópico de sistemas de arquivos onde os programas e dados eram fortemente acoplado, isso porque todos os dados eram estruturados seguindo a lógica definida pelo programa, com isso, quando outro programa fosse fazer as leituras, era necessário a adequação da lógica de leitura e aquisição para a estrutura dos dados.
 
@@ -150,17 +159,17 @@ Um sistema de banco de dados é composto por:
 
 A estrutura descrita acima, pode ser visualizada na imagem abaixo:
 
-![Sistema de banco de dados](imgs/sistema-db.png)
+![Sistema de banco de dados](imgs/sistema-db.PNG)
 
 ## Modelos de dados
 
 O modelo de dados (BD) é basicamente um conjunto de conceitos utilizados para descrever um banco de dados.
 
-Pode ser definido também como, `Descrição formal da estrutura de um banco de dados`. (Heuser, 2004.)
+Pode ser definido também como, `Descrição formal da estrutura de um banco de dados`. (Heuser, 2004).
 
-### Modelo conceitual (MER)
+### Modelo entidade-relacionamento (Conceitual)
 
-Modelo de dados abstratos, que descreve a estrutura de um banco de dados, e essa independe do Sistema gerenciador de banco de dados (SGBD).
+Modelo de dados abstratos, que descreve a estrutura de um banco de dados, e essa independe do sistema gerenciador de banco de dados (SGBD).
 
 ![Modelo conceitual](modelos/conceitual_1.PNG)
 
@@ -188,6 +197,7 @@ Dentro deste modelo há alguns conceitos que devem ficar bastante claros, para q
         * No caso da entidade fraca, o atributo chave é nomeado `chave parcial`. Quando houver chave parcial, será necessário haver uma chave primária, de alguma entidade forte.
     * Restrição de unicidade
         * Proíbe que duas entidades, em um mesmo conjunto entidade, tenham o mesmo atributo chave (Este é um conceito aplicado com a utilização do `atributo chave`.
+
 * Relacionamentos
     * Os relacionamentos representam as associações existentes entre as entidades.
     * Grau
@@ -196,12 +206,27 @@ Dentro deste modelo há alguns conceitos que devem ficar bastante claros, para q
             * Ternário (Grau três);
             * n-ário (Grau n).
     * Atributos
-        * Os atributos nos relacionamentos são usados para descrever uma relação (Associação) entre as entidades envolvidas.
-* Cardinalidade
+        * Os atributos nos relacionamentos são usados para descrever uma relação (Associação) entre as entidades envolvidas.   
+
+* Auto-relacionamento:
+	* Normalmente um relacionamento associa entidades diferentes. Porém há casos especiais em que o relacionamento entra na mesma entidade, nestas situações surge o conceito de PAPEL que identificará o relacionamento.
+
+* Cardinalidade (Mínina, Máxima)
     * A cardinalidade indica a quantidade de instâncias de relacionamento nas quais uma instância de entidade pode participar.
-        * 1:1 (um para um);
-        * 1:N (um para muitos);
-        * M:N (muitos para muitos)
+    * Cardinalidade máxima: É o número máximo de ocorrências de entidade associadas à uma ocorrência da entidade em questão através de relacionamento.
+    * Apenas duas cardinalidades máximas são de nosso interesse, as:
+        * de valor 1; 
+        * de valor n.
+    * Utilizada para classificar relacionamentos binários
+        * Classificamos os relacionamentos binários em:
+            * 1:1 (um para um);
+            * 1:N (um para muitos);
+            * M:N (muitos para muitos).    
+	* Cardinalidade Mínima
+		* Número mínimo de ocorrências de entidades que são associadas a uma determinada ocorrência de uma entidade através de um relacionamento.
+		Consideram-se apenas duas cardinalidades:
+            * Cardinalidade Mínima 1 = associação obrigatória;
+            * Cardinalidade Mínima 0 = associação opcional.
 
 #### Atributo chave
 
@@ -233,12 +258,28 @@ Esta é uma forma que permite expressar estruturas de hierarquia e especializaç
     * É uma abstração que permite a construção de objetos a partir de seus componentes. Veja que aqui o processo feito é a junção de dois objetos já relacionados, e partindo desta junção um outro objeto é criado.
 
 * Entidade associativa
+    * Um relacionamento é uma associação entre tabelas
+    * Na modelagem entidade-relacionamento não é permitido
+        - Associar uma entidade com um relacionamento;
+        - Associar dois relacionamentos entre si. 
 
-### Modelo lógico
+Para entender melhor a entidade associativa, veja a figura abaixo:
+![Entidade associativa](modelos/associativa.PNG)
+
+* Modelo com Aspecto Temporal
+	* Um banco de dados é dito temporal quando é capaz de armazenar dados passados, presentes e futuros sobre os objetos de interesse para um negócio.
+
+### Modelo lógico (Relacional)
 
 Modelo de dados que representa a estrutura de dados de um banco de dados conforme vista pelo usuário do SGBD. Este é um modelo que depende do SGBD que está sendo utilizado
 
 ![Modelo lógico](modelos/logico_1.PNG)
+
+Um modelo lógico de um banco de dados relacional deve definir quais as tabelas que o banco de dados contém e, para cada tabela, quais os nomes das colunas. 
+
+Funcionário(id_funcionario, nome, cargo, id_empresa) `id_empresa referencia Empresa`
+
+Empresa(id_empresa, nome)
 
 ### Modelo físico
 
@@ -246,13 +287,102 @@ Este é o modelo que representa análise e aplicação do modelo lógico.
 
 ![Modelo físico](modelos/fisico.PNG)
 
-### Modelo relacional
+### Transformação do Modelo entidade-relacionamento (Nivel Conceitual) para o Modelo Relacional (Modelo Lógico)
 
-### Mapeamento MER -> Relacional
+A transformação do modelo entidade-relacionamento para o modelo lógico, representa a transição entre passos de um projeto de banco de dados.
 
-#### Regras de integridade
+Assim, é importante garantir que as informações contidas no modelo entidade-relacionamento sejam representadas corretamente no modelo relacional (Lógico). Para que haja esta garantia, existem algumas diretrizes que devem ser seguidas.
 
-## Dependências funcionais
+Veja que, para um único modelo conceitual, existem `N` modelos relacionais, isso porque esta transformação depende da abstração do projeto e dos conceitos envolvidos. Muitas ferramentas já automatizam esta etapa, porém é importante saber como realizá-la, pois qualquer definição equivocada do modelo relacional, afeta a estrutura de todo o projeto.
+
+#### Os sete passos
+
+De acordo com Elmasri & Navathe, para realizar o mapeamento do modelo conceitual para o relacional, são necessários sete passos:
+
+* 1° - Mapear conjuntos de entidades "Fortes";
+    * Para cada conjuntos de entidade forte `E` no modelo conceitual, cria-se uma tabela `R` que inclui todos os atributos de `E`;
+    * O atributo identificador de `E` passa a ser a chave primária de `R`;
+    * Caso exista atributos compostos, inclua todos os atributos elementares que compõem o atributo composto.
+
+* 2° - Mapear conjuntos de entidades "Fracas";
+    * Para cada entidade fraca `F` no modelo conceitual que tenha como entidade proprietária (Forte) `E`:
+        * Criar uma tabela `R` e incluir todos os atributos de `F`;
+        * Incluir o atributo da chave primária da tabela proprietária `E`.
+    * Lembre-se, a chave primária de `R` é a compinação da chave primária de `E` e da chave primária de `F`.
+
+* 3° - Mapear conjuntos de relacionamento binário 1:1;
+    * Identificar as tabelas das entidades participantes do relacionamento `R`;
+    * Escolher uma das tabelas e incluir como chave entrangeira, a chave primária da outra tabela;
+    * Incluir todos os atributos do `relacionamento` na relação escolhida para receber a chave.
+
+* 4° - Mapear conjuntos de relacionamento binário 1:N;
+    * Identificar a tabela `S` que representa a entidade do lado com cardinalidade n;
+    * Incluir como chave estrangeira em `S` a chave primária da tabela que representa a entidade do lado com cardinalidade 1;
+    * Incluir os atributos do relacionamento em `S`.
+
+* 5° - Mapear conjuntos de relacionamentos binário M:N;
+    * Para cada relacionamento `R` de M:N:
+        * Criar uma nova tabela para representar `R`;
+        * Incluir como chave estrangeira as chaves primárias das tabelas que participam em `R`. Estas chaves combinadas formarão a chave primária da nova tabela (`R`);
+        * Incluir também eventuais atributos de `R` (Atributos do relacionamento que liga as entidades);
+
+* 6° - Mapear conjuntos de relacionamentos N > 2 (Não binários);
+    * Para cada relacionamento `R` (n > 2):
+        * Criar uma nova tabela `S` para representar `R`;
+        * Incluir como chaves estrangeiras as chaves primárias das tabelas que representam as entidades participantes;
+        * Incluir eventuais atributos de `R`;
+        * A chave primária de `S` é normalmente a combinação das chaves estrangeiras.
+
+* 7° - Mapear atributos multivalorados.
+    * Para cada atributo multivalorado `A`, criar uma nova tabela `R`, incluindo um atributo correspondendo a `A` mais a chave primária `K` da tabela que tem `A` como atributo;
+    * A chave primária de `R` é a combinação de `A` e `K`.
+
+Porém além dos casos descritos acima, o modelo pode conter generalizações e especializações, assim, faz-se necessário a utilização de um passo a mais
+
+Para casos em que há generalização/especialização, há três alternativas para o mapeamento:
+
+* 1° - Tabela única para entidade genérica e suas especializações;
+    * Neste caso cria-se uma coluna para identificar o tipo da entidade, e todos os atributos de cada tipo ficarão na mesma tabela
+
+Exemplo:
+![Alternativa 1](imgs/alternativa_1.PNG)
+
+* 2° - Tabela para a entidade genérica e as entidades especializadas;
+    * Nesta alternativa cria-se tabelas para cada uma das especializações, e essas são ligadas com a tabela especializada/generalizada utilizando a chave primária da mesma;
+
+Exemplo:
+![Alternativa 2](imgs/alternativa_2.PNG)
+
+* 3° - Tabelas apenas para as entidades especializadas.
+    * Por fim, nesta alternativa, cria-se tabelas apenas para as especializações
+
+Exemplo
+![Alternativa 3](imgs/alternativa_3.PNG)
+
+OBS: Esta alternativa não se aplica para especializações parciais
+
+Para lembrar:
+* Generalização/Especialização total: Toda instância da super-classe precisa estar associada a uma instância correspondente de alguma sub-classe;
+* Generalização/Especialização parcial: Pode haver instância da super-clase sem uma instância correspondente em nenhuma sub-classe
+
+#### Regras de integridade/restrições do modelo relacional
+
+* Integridade de identidade (ou entidade)
+    * A chave primária não pode conter um valor nulo (*null*) e identifica exclusivamente cada linha de dados em uma tabela.
+ 
+* Integridade referencial
+    * Se uma determinada tabela `A` possui uma chave estrangeira, a qual é chave primária em outra tabela `B`, então ela deve ser:
+        * Igul a um valor de chave primária existente em `B`; ou
+        * ser nula (*null*)
+    
+    * Isso ocorre porque não pode existir na chave estrangeira, um valor que não exista na tabela na qual ela é chave primária.
+
+* Integridade de domínio
+    * O valor de um campo deve obedecer a uma definição de valores admitidos para coluna, como tamanho em caracteres, tipo de valores (Número, data, varchar, etc)
+
+As regras citadas acima são regras que representam a garantia de que as tabelas guardam informações compatíveis. Por isso são de extrema importância para a confiabilidade das informações contidas no banco de dados.
+
+OBS: Lembre-se *null* não é o valor zero e também não é um caracter de espaço, ou em branco, é simplesmente a não-existência de conteúdo neste campo.
 
 ## Formas normais
 
