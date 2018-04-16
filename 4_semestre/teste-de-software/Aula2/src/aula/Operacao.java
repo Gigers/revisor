@@ -18,4 +18,8 @@ public class Operacao {
 	public double divisao(int a, int b) {
 		return a / b;
 	}
+	
+	public boolean isPar(int nro) {
+		return nro % 2 == 0;
+	}
 }
