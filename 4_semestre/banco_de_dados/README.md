@@ -412,7 +412,7 @@ Para qualquer um dos casos citados pela Izabela, sendo o primeiro, o modelo rela
 
 Sendo assim será demonstrado as regras que devem ser aplicadas para que se tenha, bancos de dados mais íntegros, sem redundâncias e inconsistências.
 
-### Primeira forma normal (1FN) - Elimitar grupos repetitivos/não conter tabelas aninhadas
+### Primeira forma normal (1FN) - Eliminar grupos repetitivos/não conter tabelas aninhadas
 
 `Todos os atributos de uma tabela devem ser atômicos, ou seja, a tabela não deve conter grupos e nem atributos com mais de um valor. Para deixar nesta forma normal, é preciso identificar a chave primária da tabela, identificar a(s) coluna(s) que tem(êm) dado repetido e, por fim, criar uma relação entre a tabela principal e a tabela secundária`. Vanessa, Izabela.
 
@@ -444,7 +444,7 @@ Pronto, entidade novas criadas para resolver o problema. O ponto interessante é
 
 Para estar na segunda forma normal, é necessário antes estar na primeira forma normal. 
 
-`Todos os atributos não chaves da tabela devem depender unicamente da chave primária (não podendo depender apenas de parte dela, em caso de chave composta). Para deixar na segunda forma normal, é preciso identificar as colunas que não são funcionalmente dependentes da chave primária da tabela e, em seguida, remover essa coluna da tabela principal e criar uma nova tabela com esses dados`. adaptado de: Vanessa, Izabela. 2011.
+`Todos os atributos não chaves da tabela devem depender unicamente da chave primária (não podendo depender apenas de parte dela). Para deixar na segunda forma normal, é preciso identificar as colunas que não são dependentes da chave primária da tabela e, em seguida, remover essa coluna da tabela principal e criar uma nova tabela com esses dados`. adaptado de: Vanessa, Izabela. 2011.
 
 Por exemplo:
 
