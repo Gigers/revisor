@@ -22,7 +22,7 @@ Há outros conceitos que também tem grande importância na área de banco de da
     * Definição dos tipos de dados que estão armazenados ou estarão armazenados no banco de dados;
     * É difícil apresentar mudanças.
 Exemplo de esquema.
-![Tabela clientes](imgs/esquema.PNG)
+![Tabela clientes](imagens/esquema.PNG)
 
 Veja que a tabela clientes representa a estrutura e os tipos de dados que serão armazenados.
 
@@ -32,13 +32,13 @@ Veja que a tabela clientes representa a estrutura e os tipos de dados que serão
     * Sempre sofre alterações.
 
 Exemplo de instância
-![Instâncias](imgs/instancia.PNG)
+![Instâncias](imagens/instancia.PNG)
 
 Cada registro na tabela acima, representa uma instância de cliente.
 
 * Instância X Esquema - (Exemplos)
     * Esquema: FUNCIONARIO(nome, salario)
-    * Instância: Ana Maria, 2.500 
+    * Instância: Ana Maria, 2.500
 
 ### Abstração de dados
 
@@ -56,7 +56,7 @@ Para que seja possível utilizar um banco de dados, ou um SGBD, é importante qu
     * Fazem acesso ao banco de dados através da DML.
 * Administrador de banco de dados:
     * Faz o controle total dos dados e dos programas que os acessam;
-    * São esses os usuários que fazem a definição e controle da estrutura conceitual, de armazenamento dos dados, além de fazerem modificações e organizações no modelo físico (Estrutura) do banco de dados. 
+    * São esses os usuários que fazem a definição e controle da estrutura conceitual, de armazenamento dos dados, além de fazerem modificações e organizações no modelo físico (Estrutura) do banco de dados.
 
 ## Sistemas de arquivos
 
@@ -64,9 +64,9 @@ Esta foi uma das primeiras formas encontradas para realizar o armazenamento das 
 
 Veja que este tipo de sistema criava sistemas isolados dentro de uma mesma empresa, ou seja, havia sistemas de áreas relacionadas que trabalhavam de forma separada, sem nenhuma ligação, veja a representação abaixo.
 
-![Sistemas isolados](imgs/sistemas-isolados.PNG).
+![Sistemas isolados](imagens/sistemas-isolados.PNG).
 
-Perceba que as áreas fazem a manipulação do mesmo dado (Produto), porém sem haver comunicação entre elas, com este tipo de sistema gera-se redundância de dados. 
+Perceba que as áreas fazem a manipulação do mesmo dado (Produto), porém sem haver comunicação entre elas, com este tipo de sistema gera-se redundância de dados.
 
 Veja que, redundância ocorre quando o dado está representado no sistema várias vezes, como exemplo há o Produto, que está em dois lugares diferentes, mesmo se tratando do mesmo produto.
 
@@ -107,7 +107,7 @@ Acima foi citado que os sistemas de arquivos geram redundância, porém nem semp
 
 Ao realizar o compartilhamento dos dados, o problema de redundância não controlada dos dados é resolvido, uma vez que os dados estarão centralizados e poderão ser utilizados por diversos sistemas, veja abaixo:
 
-![Sistemas integrados com dados compartilhados](imgs/sistema-integrados.PNG)
+![Sistemas integrados com dados compartilhados](imagens/sistema-integrados.PNG)
 
 Veja que, todas as áreas que fazem o uso do Produto estarão acessando a mesma informação, assim quando uma área modificar estes dados, as demais saberão e poderão tomar decisão mais acertivas.
 
@@ -150,7 +150,7 @@ De acordo com Date `O sistema de banco de dados é basicamente um sistema de man
 Um sistema de banco de dados é composto por:
 * 1° - Usuários que fazem a utilização dos programas de aplicação;
 * 2° - Programas de aplicação (Que fazem acesso aos dados);
-* SGBD 
+* SGBD
     * 3° - Programas de processamento de consulas;
     * 4° - Programa de acesso aos dados;
 * Banco de dados
@@ -159,7 +159,7 @@ Um sistema de banco de dados é composto por:
 
 A estrutura descrita acima, pode ser visualizada na imagem abaixo:
 
-![Sistema de banco de dados](imgs/sistema-db.PNG)
+![Sistema de banco de dados](imagens/sistema-db.PNG)
 
 ## Modelos de dados
 
@@ -215,7 +215,7 @@ Dentro deste modelo há alguns conceitos que devem ficar bastante claros, para q
     * A cardinalidade indica a quantidade de instâncias de relacionamento nas quais uma instância de entidade pode participar.
     * Cardinalidade máxima: É o número máximo de ocorrências de entidade associadas à uma ocorrência da entidade em questão através de relacionamento.
     * Apenas duas cardinalidades máximas são de nosso interesse, as:
-        * de valor 1; 
+        * de valor 1;
         * de valor n.
     * Utilizada para classificar relacionamentos binários
         * Classificamos os relacionamentos binários em:
@@ -261,7 +261,7 @@ Esta é uma forma que permite expressar estruturas de hierarquia e especializaç
     * Um relacionamento é uma associação entre tabelas
     * Na modelagem entidade-relacionamento não é permitido
         - Associar uma entidade com um relacionamento;
-        - Associar dois relacionamentos entre si. 
+        - Associar dois relacionamentos entre si.
 
 Para entender melhor a entidade associativa, veja a figura abaixo:
 ![Entidade associativa](modelos/associativa.PNG)
@@ -275,7 +275,7 @@ Modelo de dados que representa a estrutura de dados de um banco de dados conform
 
 ![Modelo lógico](modelos/logico_1.PNG)
 
-Um modelo lógico de um banco de dados relacional deve definir quais as tabelas que o banco de dados contém e, para cada tabela, quais os nomes das colunas. 
+Um modelo lógico de um banco de dados relacional deve definir quais as tabelas que o banco de dados contém e, para cada tabela, quais os nomes das colunas.
 
 Funcionário(id_funcionario, nome, cargo, id_empresa) `id_empresa referencia Empresa`
 
@@ -345,19 +345,19 @@ Para casos em que há generalização/especialização, há três alternativas p
     * Neste caso cria-se uma coluna para identificar o tipo da entidade, e todos os atributos de cada tipo ficarão na mesma tabela
 
 Exemplo:
-![Alternativa 1](imgs/alternativa_1.PNG)
+![Alternativa 1](imagens/alternativa_1.PNG)
 
 * 2° - Tabela para a entidade genérica e as entidades especializadas;
     * Nesta alternativa cria-se tabelas para cada uma das especializações, e essas são ligadas com a tabela especializada/generalizada utilizando a chave primária da mesma;
 
 Exemplo:
-![Alternativa 2](imgs/alternativa_2.PNG)
+![Alternativa 2](imagens/alternativa_2.PNG)
 
 * 3° - Tabelas apenas para as entidades especializadas.
     * Por fim, nesta alternativa, cria-se tabelas apenas para as especializações
 
 Exemplo
-![Alternativa 3](imgs/alternativa_3.PNG)
+![Alternativa 3](imagens/alternativa_3.PNG)
 
 OBS: Esta alternativa não se aplica para especializações parciais
 
@@ -369,12 +369,12 @@ Para lembrar:
 
 * Integridade de identidade (ou entidade)
     * A chave primária não pode conter um valor nulo (*null*) e identifica exclusivamente cada linha de dados em uma tabela.
- 
+
 * Integridade referencial
     * Se uma determinada tabela `A` possui uma chave estrangeira, a qual é chave primária em outra tabela `B`, então ela deve ser:
         * Igul a um valor de chave primária existente em `B`; ou
         * ser nula (*null*)
-    
+
     * Isso ocorre porque não pode existir na chave estrangeira, um valor que não exista na tabela na qual ela é chave primária.
 
 * Integridade de domínio
@@ -438,11 +438,11 @@ Neste caso o pnumero e horas são atributos aninhados, o que também não é per
     FUNC_PROJ1(Ident, fnome)
     FUNC_PROJ2(Ident, pnumero, horas)
 
-Pronto, entidade novas criadas para resolver o problema. O ponto interessante é que, cada uma das entidades ficaram com suas devidas características, isso porque antes o funcionário carregava consigo características de seu relacionamento com o projeto, o que não ocorre mais, já que há uma tabela apenas para descrever este relacionamento. 
+Pronto, entidade novas criadas para resolver o problema. O ponto interessante é que, cada uma das entidades ficaram com suas devidas características, isso porque antes o funcionário carregava consigo características de seu relacionamento com o projeto, o que não ocorre mais, já que há uma tabela apenas para descrever este relacionamento.
 
 ### Segunda forma normal (2FN) - Eliminar dependência parcial
 
-Para estar na segunda forma normal, é necessário antes estar na primeira forma normal. 
+Para estar na segunda forma normal, é necessário antes estar na primeira forma normal.
 
 `Todos os atributos não chaves da tabela devem depender unicamente da chave primária (não podendo depender apenas de parte dela). Para deixar na segunda forma normal, é preciso identificar as colunas que não são dependentes da chave primária da tabela e, em seguida, remover essa coluna da tabela principal e criar uma nova tabela com esses dados`. adaptado de: Vanessa, Izabela. 2011.
 
