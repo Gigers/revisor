@@ -6,6 +6,7 @@ Repo para criação de revisões comunitárias, das matérias da Fatec SJC
 
 * Weslei Luiz (@magaum);
 * Felipe Menino (@M3nin0);
+* Filipe Meneses (@filipemeneses);
 * Vinicius Lelis (@ViniciusLeelis);
 * Guilherme Pinto (@Guillhermegpp);
 * Mauricio Kiyoshi (@kyassunaga).
