@@ -1,0 +1,44 @@
+Exercício 1 – Qual é a sequência de letras ao executar a classe de teste Primeiro ?
+R: d - b - f - a - b - g - a - c
+
+Exercício 2 – Por que os métodos anotados com @BeforeClass e @AfterClass precisam ser estáticos ? 
+R: Pois, no caso do BeforeClass, ele é chamado antes de todos os métodos, até mesmo antes do método construtor.
+E o AfterClass é chamado depois de todas as execuções, ou seja, até mesmo da execução do objeto da classe.
+
+Exercício 3 – Por que o método b(), da classe de teste Segundo, apresenta um resultado azul e o método c() um resultado verde? 
+R: Pois o método b não retorna a exceção que é esperada pelo teste, e no caso do método c, a exceção é retornada
+
+Exercício 4 – O método e(), da classe de teste Segundo, apresenta um resultado vermelho. Qual é a alteração 
+necessária no método de teste e() para que o resultado seja verde? 
+
+R: Será necessário inserir um expected na marcação do @Test, assim o teste ficará
+
+@Test(expected = Exception.class)
+public void e() throws Exception {
+	assertEquals(2, a.n(2, 2), 0);
+}
+
+Exercício 5 – Programar um método de teste para testar o método o(), da classe A. O resultado do teste deverá ser verde
+
+R: 
+
+@Test
+public void testO() {
+ assertNull(a.o());
+}
+
+Exercício 6 – Programar um método de teste para testar o método p(), da classe A. O resultado do teste deverá 
+ser verde. Observação: use o método assertSame da classe org.junit.Assert
+
+@Test
+public void testP() {
+ assertSame(a.p(), "oi");
+}
+
+Exercício 7 – Qual é o motivo dos métodos assertEquals e assertSame produzirem resultados diferentes nos 
+teste dos métodos f() e g() da classe Segundo ?
+
+R: Ocorre isso porque, no caso do assertEquals, é verificado se os dois objetos são iguais, para isso é utilizado o método 
+equals do objeto, que foi sobrescrito para verificar se o atributo nome é igual, e assim indicar se os objetos são iguais ou não, 
+o que neste caso é verdadeiro, já no caso do assertSame, é verificado se os dois objetos tem a mesma referência em memória 
+que é o que não ocorre.

@@ -2,7 +2,13 @@
 
 Repo para criação de revisões comunitárias, das matérias da Fatec SJC
 
+# Colaboradores
 
-# Colabore
+* Weslei Luiz (@magaum);
+* Felipe Menino (@M3nin0);
+* Filipe Meneses (@filipemeneses);
+* Vinicius Lelis (@ViniciusLeelis);
+* Guilherme Pinto (@Guillhermegpp);
+* Mauricio Kiyoshi (@kyassunaga).
 
-Faça um fork e começe a ajudar =D  
+Obrigado a todos que vem colaborando com o projeto.
