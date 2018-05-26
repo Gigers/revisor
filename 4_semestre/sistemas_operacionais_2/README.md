@@ -379,14 +379,23 @@ apt-get install openssh-client openssh-server -y
 
 Para acessar a maquina com IP dinâmico
 
-1. Ative o servidor DHCP
-2. Configure para modo `Host-only Adapter`
+1. Abra as configurações do Virtual Box
+2. Ative o servidor DHCP
+3. Configure para modo `Host-only Adapter`
+4. Configure o servidor DHCP:
+
+```
+Server Address: 192.168.50.100
+Server Mask: 255.255.255.0
+Lower Address Bound: 192.168.50.101
+Upper Address Bound: 192.168.50.254
+```
 
 ![Host-only Adapter](imagens/ativando_dhcp.gif)
 
 ![Host-only Adapter](imagens/trocando_rede.gif)
 
-3. Renove o IP:
+5. Renove o IP:
 
 > Encontre o ID do adaptador com `ip a`
 
@@ -394,7 +403,7 @@ Para acessar a maquina com IP dinâmico
 ifdown enp0s3 && ifup enp0s3
 ```
 
-4. Identifique o IP da maquina
+6. Identifique o IP da maquina
 ```
 ip a
 ```
