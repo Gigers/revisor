@@ -479,6 +479,23 @@ Veja que, o atributo `descricao_cargo` depende exclusivamente de `id_cargo`, que
 ## Operadores de conjunto
 
 ## View
+ View é uma tabela virtual baseada no conjunto de resultados de uma consulta SQL.
+ Mostra sempre resultados de dados atualizados, pois o motor do banco de dados recria os dados toda vez que um usuário consulta a visão.
+ 
+ * Uso do View:
+ Evita que usuários não autorizados tenham acesso a todos os dados de uma tabela
+ Os dados não estão fisicamente armazenados
+ Evita redundâncias
+ 
+ 
+ ** Sintaxe do VIEW
+
+ CREATE (OR REPLACE, FORCE, NOFORCE) VIEW (NOME)
+ AS SELECT (COLUNAS) (APELIDO)
+ FROM (TABELA)
+ WHERE (CONDIÇÕES);
+ 
+
 
 ## Trigger
 
@@ -518,13 +535,13 @@ FINALIZANDO O ARQUIVO
 
 Por exemplo: Você está criando um banco de dados para uma escola, após criar a tabela "PROFESSORES" você quer que sempre que seja inserido um novo "PROFESSOR" nesta tabela, a mensagem "Professor inserido com sucesso" seja exibida.
 
-**CREATE OR REPLACE TRIGGER PROF_MSG
+CREATE OR REPLACE TRIGGER PROF_MSG
 BEFORE INSERT
 ON PROFESSORES
 FOR EACH ROW 
 BEGIN
 DBMS_OUTPUT.PUT_LINE('Professor inserido com sucesso');
-END;**
+END;
 
 
 
