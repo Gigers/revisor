@@ -470,6 +470,81 @@ Veja que, o atributo `descricao_cargo` depende exclusivamente de `id_cargo`, que
 
 ## DDL e DML
 
+## Junções
+
+## Funções de grupo
+
+## Subconsulta
+
+## Operadores de conjunto
+
+## View
+ View é uma tabela virtual baseada no conjunto de resultados de uma consulta SQL.
+ Mostra sempre resultados de dados atualizados, pois o motor do banco de dados recria os dados toda vez que um usuário consulta a visão.
+ 
+ * Uso do View:
+ Evita que usuários não autorizados tenham acesso a todos os dados de uma tabela
+ Os dados não estão fisicamente armazenados
+ Evita redundâncias
+ 
+ 
+ ** Sintaxe do VIEW
+
+ CREATE (OR REPLACE, FORCE, NOFORCE) VIEW (NOME)
+ AS SELECT (COLUNAS) (APELIDO)
+ FROM (TABELA)
+ WHERE (CONDIÇÕES);
+ 
+
+
+## Trigger
+
+Trigger basicamente é um gatilho, utilizado geralmente em um arquivo separado do banco de dados para definir determinadas características na hora de executar alguma consulta de forma automática.
+* Uso do trigger:
+- Validação de Dados
+- Verificação de integridade dos dados
+- Arquivamento de registros excluidos
+
+## SINTAXE DO TRIGGER
+ **CREATE (OR REPLACE) TRIGGER NOME_DO_TRIGGER** 
+Acima você pode definir se deseja criar ou substituir um trigger existente
+
+**(BEFORE OU AFTER)** 
+Acima você pode definir se deseja que o comando seja executado antes ou depois de executada determinada ação
+
+**INSERT OR DELETE OR UPDATE** 
+Acima você define que ação deve ser executada para que seja disparado o trigger
+
+**ON TABEL_NOME** 
+ACIMA VOCÊ DEFINE EM QUAL TABELA SERÁ EXECUTADO DETERMINADO TRIGGER
+
+**FOR EACH ROW** 
+ACIMA VOCÊ DEFINE QUE O CÓDIGO CONTIDO SERÁ EXECUTADO PARA CADA LINHA
+
+**WHEN** 
+ACIMA VOCÊ DEFINE A CONDIÇÃO EX: WHEN(ALUNO_IDADE > 19)
+
+**DECLARE**
+  AQUI VOCÊ DECLARA VARIÁVEIS PARA UTILIZAR NO TRIGGER EX: DECLARE IDADE NUMBER;
+  
+**BEGIN**
+  AQUI É O CORPO DO TRIGGER, ONDE É INSERIDO OS COMANDOS PL/SQL
+  
+**END;** 
+FINALIZANDO O ARQUIVO 
+
+Por exemplo: Você está criando um banco de dados para uma escola, após criar a tabela "PROFESSORES" você quer que sempre que seja inserido um novo "PROFESSOR" nesta tabela, a mensagem "Professor inserido com sucesso" seja exibida.
+
+CREATE OR REPLACE TRIGGER PROF_MSG
+BEFORE INSERT
+ON PROFESSORES
+FOR EACH ROW 
+BEGIN
+DBMS_OUTPUT.PUT_LINE('Professor inserido com sucesso');
+END;
+
+
+
 ## SQL - Structured Query Language
 
 <!-- Será adicionado depois -->
