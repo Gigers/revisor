@@ -832,57 +832,76 @@ FROM
 
 ### Funções de grupo
 
+As funções de grupo atuam sobre um grupo de linhas, trazendo diversos tipos de resultados. As principais funções de grupo são:
 
+- AVG: Retorna a média dos valores presente no grupo de linhas especificados;
+- COUNT: Conta os elementos no conjunto especificado;
+- MIN: Retorna o valor mínimo presente no conjunto;
+- MAX: Retorna o valor máximo presente no conjunto.
+
+Junto a estes, é necessário realizar a utilização do `GROUP BY`, esta que é uma cláusula que permite que o resultado das funções de grupo sejam feitos levando em consideração algum grupo de colunas especificados.
 
 ### Subconsulta
 
+Como é sabido, cada consulta retorna uma nova tabela, as subconsultas trabalham sobre este conceito, nelas, valores e resultados de junções, ou aplicação de função de grupo, podem sem comparados com outros resultados de outras consultas.
+
+Para que se fique claro, veja o exemplo abaixo, da aplicação de uma subconsulta:
+
+```sql
+SELECT
+    a.nome
+FROM
+    tabelaA a,
+    (SELECT * FROM tabelaB) b
+WHERE
+    a.nome = b.nome
+```
+
+Perceba que, dentro de uma consulta há outra, este conceito permite que diversas formas de consultar os dados sejam feitas.
 
 ## Trigger
 
-Trigger basicamente é um gatilho, utilizado geralmente em um arquivo separado do banco de dados para definir determinadas características na hora de executar alguma consulta de forma automática.
-* Uso do trigger:
-- Validação de Dados
-- Verificação de integridade dos dados
-- Arquivamento de registros excluidos
+Trigger basicamente é um gatilho, que é ativo quando uma determinada ação ocorre dentro do banco de dados. Esta ação pode ser definida no momento da criação da trigger.
 
-## SINTAXE DO TRIGGER
- **CREATE (OR REPLACE) TRIGGER NOME_DO_TRIGGER** 
-Acima você pode definir se deseja criar ou substituir um trigger existente
+O uso da trigger é muito importante e facilita diversas atividades, desde a geração de histórico até mesmo a auditoria, com elas é possível fazer coisas como:
 
-**(BEFORE OU AFTER)** 
-Acima você pode definir se deseja que o comando seja executado antes ou depois de executada determinada ação
+- Validação de Dados;
+- Verificação de integridade dos dados;
+- Arquivamento de registros excluidos.
 
-**INSERT OR DELETE OR UPDATE** 
-Acima você define que ação deve ser executada para que seja disparado o trigger
+`Sintaxe das triggers`
 
-**ON TABEL_NOME** 
-ACIMA VOCÊ DEFINE EM QUAL TABELA SERÁ EXECUTADO DETERMINADO TRIGGER
-
-**FOR EACH ROW** 
-ACIMA VOCÊ DEFINE QUE O CÓDIGO CONTIDO SERÁ EXECUTADO PARA CADA LINHA
-
-**WHEN** 
-ACIMA VOCÊ DEFINE A CONDIÇÃO EX: WHEN(ALUNO_IDADE > 19)
-
-**DECLARE**
-  AQUI VOCÊ DECLARA VARIÁVEIS PARA UTILIZAR NO TRIGGER EX: DECLARE IDADE NUMBER;
-  
-**BEGIN**
-  AQUI É O CORPO DO TRIGGER, ONDE É INSERIDO OS COMANDOS PL/SQL
-  
-**END;** 
-FINALIZANDO O ARQUIVO 
+```sql
+CREATE (OR REPLACE) TRIGGER NOME_DO_TRIGGER
+    -- Acima você pode definir se deseja criar ou substituir um trigger existente
+(BEFORE OU AFTER)
+-- Acima você pode definir se deseja que o comando seja executado antes ou depois de executada determinada ação
+INSERT OR DELETE OR UPDATE 
+-- Acima você define que ação deve ser executada para que seja disparado o trigger
+    ON TABEL_NOME 
+    -- ACIMA VOCÊ DEFINE EM QUAL TABELA SERÁ EXECUTADO DETERMINADO TRIGGER
+    FOR EACH ROW 
+    -- ACIMA VOCÊ DEFINE QUE O CÓDIGO CONTIDO SERÁ EXECUTADO PARA CADA LINHA
+    WHEN
+        -- ACIMA VOCÊ DEFINE A CONDIÇÃO EX: WHEN(ALUNO_IDADE > 19)
+    DECLARE
+        -- AQUI VOCÊ DECLARA VARIÁVEIS PARA UTILIZAR NO TRIGGER EX: DECLARE IDADE NUMBER;
+    BEGIN
+        -- AQUI É O CORPO DO TRIGGER, ONDE É INSERIDO OS COMANDOS PL/SQL
+    END;
+```
 
 Por exemplo: Você está criando um banco de dados para uma escola, após criar a tabela "PROFESSORES" você quer que sempre que seja inserido um novo "PROFESSOR" nesta tabela, a mensagem "Professor inserido com sucesso" seja exibida.
 
+```sql
 CREATE OR REPLACE TRIGGER PROF_MSG
 BEFORE INSERT
-ON PROFESSORES
-FOR EACH ROW 
-BEGIN
-DBMS_OUTPUT.PUT_LINE('Professor inserido com sucesso');
-END;
-
+    ON PROFESSORES
+        FOR EACH ROW 
+        BEGIN
+            DBMS_OUTPUT.PUT_LINE('Professor inserido com sucesso');
+        END;
+```
 
 ## Sobre o SGBD utilizado
 
