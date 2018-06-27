@@ -558,10 +558,10 @@ Para que se tenha um exeplo real, levaremos em consideração a seguinte tabela:
 Caso queira-se recuperar todas as informações presentes nesta tabela, o `select` deverá ser utilizado, veja:
 
 ```sql
-    SELECT 
-        *
-    FROM
-        tabela;
+SELECT 
+    *
+FROM
+    tabela;
 ```
 
 
@@ -571,11 +571,11 @@ Perceba que, no `select` é possível fazer a utilização de operadores arimét
 
 
 ```sql
-    SELECT
-        Nome,
-        Salario + 100
-    FROM
-        tabela;
+SELECT
+    Nome,
+    Salario + 100
+FROM
+    tabela;
 ```
 
 
@@ -584,13 +584,13 @@ Porém apenas esta seleção básica pode não resolver o problema. Para isso é
 Seu funcionamento não é muito complicado, assim será feito um exemplo prático com o mesmo, neste irei filtrar os funcionários pelo salário, buscando apenas aqueles que ganham acima de R$ 3000.
 
 ```sql
-    SELECT
-        Nome,
-        Salario
-    FROM
-        tabela
-    WHERE
-        Salario > 3000;
+SELECT
+    Nome,
+    Salario
+FROM
+    tabela
+WHERE
+    Salario > 3000;
 ```
 
 
@@ -730,14 +730,108 @@ Veja que os códigos são equivalentes, porém, a escrita tornou-se mais simples
 
 OBS: Caso quira-se juntar tabelas com `Natural Join` e não haja campos de atributos relevantes iguais, não ocorrerá erros, e sim um resultado com diversos valores duplicados. (Isto no caso do Oracle, que tentará fazer uma junção mesmo não tendo atributos de mesmo nome).
 
-
 #### Self-Joins
 
+Os `Self joins` são usados para realizar o relacionamento de uma tabela com ela mesma, logicamente, com o atributo comparador diferente. Este é um tipo de junção muito útil quando há na tabela um auto-relacionamento.
+
+Para que se entenda, veja a tabela abaixo:
+
+| ID | Nome        | Cargo          | Salario | CHEFE |
+|----|-------------|----------------|---------|-------|
+| 1  | Bob esponja | Gerente        | 50.00   | NULL  |
+| 2  | Aninha      | Desenvolvedora | 150.00  | 1     |
+| 3  | Pedrinho    | Desenvolvedor  | 150.00  | 1     |
+
+Nela há um auto-relacionamento, onde a tabela faz referência a ela mesma, isto no campo `CHEFE`.
+
+Caso seja necessário saber o cargo do chefe dos funcionários, um `Self Join` é uma boa solução, veja:
+
+```sql
+SELECT
+    f1.nome,
+    f1.cargo
+FROM
+    funcionario f1
+INNER JOIN
+    funcionario f2
+ON
+    f1.id = f2.chefe;
+```
+
+Perceba que é uma junção com a própria tabela, porém em um campo diferente.
 
 ### Operadores de conjunto
 
+Estes são operadores que permite ao desenvolvedor aplicar junções parecidas com as dos conjuntos, visto em matemática. Neste usa-se dois tabelas, para gerar uma terceira.
+
+Há algumas regras na aplicação destes operadores, mas aqui irei citar apenas alguns:
+
+- As colunas a serem juntadas devem ter as mesmas dimensões;
+- As colunas devem possuir os mesmos tipos de dados;
+- Os nomes representados no resultado, serão os da primeira coluna especificada.
+
+As regras citadas acima são as mais relevantes para a aplicação prática dos operadores. Lembre-se, aqui a junção é feita com base nas colunas originais, logo a junção é dita `Vertical`, ou seja, uma junção de linhas.
+
+Com as definições feitas, veja quais são estes operadores:
+
+#### UNION (União)
+
+Este é um operador que permite a reunião de dois conjuntos (Desde que estes sigam as regras citadas acima).
+
+Seu uso é exemplificado abaixo:
+
+```sql
+SELECT
+    nome
+FROM
+    tabelaA
+UNION
+SELECT
+    nome
+FROM
+    tabelaB;
+```
+
+O resultado de um `UNION` é um conjunto, ou seja, sem elementos repetidos, mas caso queira-se a exibição de elementos duplicados, pode-se utilizar o `UNION ALL`, que funciona da mesma forma, porém exibe todos os elementos.
+
+O `UNION ALL` pode ser mais rápido, pois ele não realiza um **sort** para a remoção das duplicatas.
+
+#### Intersect (Intersecção)
+
+O operador intersect, cria um conjunto com os elementos que fazem a intersecção nos dois conjuntos selecionados, veja:
+
+```sql
+SELECT
+    idade
+FROM
+    tabelaA
+INTERSECT
+SELECT
+    idade
+FROM
+    tabelaB;
+```
+
+Ele fará o retorno somente dos elementos que fazem intersecção.
+
+#### MINUS (Diferença)
+
+Por fim, o minus é um operador que faz o retorno apenas da diferença entre os conjuntos.
+
+```sql
+SELECT
+    idade
+FROM
+    tabelaA
+MINUS
+SELECT
+    idade
+FROM
+    tabelaB;
+```
 
 ### Funções de grupo
+
 
 
 ### Subconsulta
