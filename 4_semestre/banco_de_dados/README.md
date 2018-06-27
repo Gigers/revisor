@@ -563,9 +563,11 @@ Caso queira-se recuperar todas as informações presentes nesta tabela, o `selec
         tabela;
 </code>
 
+
 Veja que este não é um processo muito complicado de ser realizado.
 
 Perceba que, no `select` é possível fazer a utilização de operadores ariméticos. [+ - * /]. Para exemplificar seu uso, será feito a seleção dos dados, com um aumento de 100 reais no salário de cada linha da tabela.
+
 
 <code>
     SELECT
@@ -574,6 +576,7 @@ Perceba que, no `select` é possível fazer a utilização de operadores arimét
     FROM
         tabela;
 </code>
+
 
 Porém apenas esta seleção básica pode não resolver o problema. Para isso é possível ainda com o `select` filtrar e classificar os dados, com a simples utilização de um novo comando junto ao `select`, o `where`
 
@@ -588,6 +591,7 @@ Seu funcionamento não é muito complicado, assim será feito um exemplo prátic
     WHERE
         Salario > 3000;
 </code>
+
 
 No exemplo acima o comparador binário `>` foi utilizado, mas é possível utilizar também:
 
@@ -615,6 +619,7 @@ FROM
     tabelaB
 </code>
 
+
 Neste caso no momento da junção será realizado a multiplicação de todos os elementos da `tabelaA` com a `tabelaB`, gerando assim um produto cartesiano.
 
 `Exemplo CORRETO!`
@@ -629,18 +634,84 @@ WHERE
     tabelaA.id = tabelaB.id;
 </code>
 
+
 Veja que isto ocorre pois os produtos cartesianos aparecem quando a condição de junção (where) é inválida ou simplesmente não é específicada.
 
 ### Junções
+
+Além da junção de produto cartesiano demonstrado anteriormente, existem alguns tipos que são interessantes de serem compreendidos.
+
+#### Junção interna (Inner Join)
+
+As junções internas, ou **inner joins** são caracterizadas por uma seleção que retorna apenas os dados que atendem a verificação de ligação nas duas tabelas que estão sendo 'juntadas'.
+
+Esta é a principal caracaterística deste tipo de junção.
+
+Para implementar junções deste tipo é possível utilizar o próprio comando `INNER JOIN`, veja um exemplo, onde será feito a união da tabelaA e da tabelaB.
+
+<code>
+SELECT
+    a.nome,
+    b.nome
+FROM
+    tabelaA a
+INNER JOIN
+    tabelaB b
+ON
+    a.id = b.id;
+</code>
+
+Veja que, a característica descrita anteriormente é válida, assim, somente as linhas que tiverem alguma ligação serão exibidas na nova tabela que está sendo gerada.
+
+#### Junção externa (Outer Join)
+
+Diferente das junções internas, as externas não exigem que haja uma ligação entre os elementos que estão sendo 'juntados'. Porém a permanência dos itens na tabela virtual que está sendo criada depende do lado que foi admitido que os elementos não tenham correspondência.
+
+##### Left Outer Join
+
+Neste caso a primeira tabela especificada no momento do `select` terá todos os seus elementos persistidos, mesmo aqueles que não tem qualquer ligação com os elementos da segunda tabela especificada, gerando assim um resultado, com todos os elementos da tabela A (Primeira a ser declarada), mais os elementos da tabela B (Segunda a ser declarada) que tem alguma correspondência em A.
+
+##### Right Outer Join
+
+Esta é a operação inversa da citada anteriormente, aqui a tabela levada em consideração é a segunda a ser declarada no `select`, desta forma, na tabela gerada como resultado, todos os elementos de B (Segunda tabela a ser declarada) serão mantidos mesmo que não tenham correspondência com A, e também os elementos de A, estes que são somente aqueles que tem alguma ligação com B.
+
+##### Full Outer Join
+
+No caso deste junção, todos os elementos de todas as tabelas serão mantidos, tendo ligação ou não, e aqui, os elementos que não tem ligação entre as tabelas que estão sendo 'juntadas', recebem campos com valores null, nos locais onde haveria uma chave de ligação, por exemplo.
+
+#### Junção idêntica (Equi Join)
+
+Esta é uma junção que é feita utilizando o operador de igualdade (`=`), assim, toda e qualquer junção que é relacionada com o operador de igualdade pode ser considerada uma junção `Equi Join`. Neste as tabelas tem algum tipo de ligação, equivalência.
+
+#### Junção não-identica (Non Equi Join)
+
+Ao contrário das `Equi Joins`, as `Non Equi Joins` utilizam como operador para fazer as junções, qualquer operador que não o de igualdade, sendo assim:
+
+- `>` (Maior que);
+
+- `>=` (Maior igual);
+
+- `<` (Menor que);
+
+- `<=` (Menor igual);
+
+- `<>` (Menor maior que)
+
+Neste tipo de junção, as tabelas não tem uma equivalência direta, e sim, valores que diferem e podem ser comparados, sendo maior, menor, etc.
+
+#### Natural Joins
+
+
+
+#### Self-Joins
+
+### Operadores de conjunto
 
 
 ### Funções de grupo
 
 
 ### Subconsulta
-
-
-### Operadores de conjunto
 
 
 ## Trigger
