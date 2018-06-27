@@ -468,19 +468,41 @@ Veja que, o atributo `descricao_cargo` depende exclusivamente de `id_cargo`, que
     FUNCIONARIOS(id, nome, id_cargo)
     CARGOS(id_cargo, descricao)
 
-## DDL e DML
+## Structured Query Language (SQL)
 
-## Junções
+O Structured Query Language (SQL) é a linguagem padrão para os bancos de dados relacionais, neste tópico, alguns aspectos desta serão tratados.
 
-## Funções de grupo
+## Tipos de comandos SQL
 
-## Subconsulta
+Os comandos em SQL podem ser divididos em categorias, sendo algumas delas (Tratadas durante as aulas):
+- Data Definition Language (DDL)
+    - Esta é a linguagem SQL que será utilizada para realizar a criação e definição das estruturas que serão utilizadas para o armazenamento dos dados.
 
-## Operadores de conjunto
+- Data Manipulation Language  (DML)
+    - Esta é a linguagem SQL que será utilizada para fazer a manipulação dos dados que estão armazenados.
+    
+- Data Query Language (DQL)
+    - Utilizada para realizar a recuperação dos dados que estão armazenados.
 
-## View
- View é uma tabela virtual baseada no conjunto de resultados de uma consulta SQL.
- Mostra sempre resultados de dados atualizados, pois o motor do banco de dados recria os dados toda vez que um usuário consulta a visão.
+- Data Control Language (DCL)
+    - Esta é utilizada para realizar o controle de acesso aos dados
+
+A tabela abaixo faz o descritivo destas categorias e de algumas outras:
+
+![categorias sql](imagens/categorias-sql.PNG)
+
+Com estes conceitos básicos definidos, é possível começar a realizar a seleção por dados dentro de um SGBD, os próximos tópicos irão abordar tanto a criação de tabelas, sua manipulação e recuperaão de dados.
+
+
+## Definição de dados :warning:
+
+Este tópico ainda está em construção. Caso queira, você pode ajudar a escrever ele. :bowtie:
+
+### View
+
+View é uma tabela virtual baseada no conjunto de resultados de uma consulta SQL.
+
+Mostra sempre resultados de dados atualizados, pois o motor do banco de dados recria os dados toda vez que um usuário consulta a visão.
  
  * Uso do View:
  Evita que usuários não autorizados tenham acesso a todos os dados de uma tabela
@@ -488,13 +510,137 @@ Veja que, o atributo `descricao_cargo` depende exclusivamente de `id_cargo`, que
  Evita redundâncias
  
  
- ** Sintaxe do VIEW
+* Sintaxe do VIEW
 
- CREATE (OR REPLACE, FORCE, NOFORCE) VIEW (NOME)
- AS SELECT (COLUNAS) (APELIDO)
- FROM (TABELA)
- WHERE (CONDIÇÕES);
- 
+<code>
+    CREATE (OR REPLACE, FORCE, NOFORCE) VIEW (NOME) AS 
+        SELECT 
+            (COLUNAS) (APELIDO)
+        FROM 
+            (TABELA)
+        WHERE (CONDIÇÕES);
+</code>
+
+## Manipulação de dados :warning:
+
+Este tópico ainda está em construção. Caso queira, você pode ajudar a escrever ele. :bowtie:
+
+## Consulta de dados
+
+Estas são as formas utilizadas para realizar a consulta dos dados que estão armazenados na base dados. Neste tópico será feito o uso de diversos comandos para a manipulação dos dados
+
+### Selects
+
+Esta é a forma de recuperar os dados **'base'**, e será utilizada por todos as demais formas que aqui serão apresentadas. O conceito do `select` é bastante simples, recuperar os dados, através de específicações de **projeção**, **seleção** e **junção**.
+
+Tem-se que:
+
+- Projeção: Lista coluna de uma tabela;
+- Seleção: Escolhe as linhas de uma tabela;
+- Junção: Faz a junção de duas tabelas.
+
+Para realizar a utilização deste em um SGBD é bastante simples, a sintaxe é apresentada abaixo:
+
+<code>
+SELECT * {coluna / expressão [apelido], ...}
+FROM tabela;
+</code>
+
+Para que se tenha um exeplo real, levaremos em consideração a seguinte tabela:
+
+| Nome  | Cargo          | Salario |
+|-------|----------------|---------|
+| João  | Programador    | 2500    |
+| Maria | Desenvolvedora | 3200    |
+
+
+Caso queira-se recuperar todas as informações presentes nesta tabela, o `select` deverá ser utilizado, veja:
+
+<code>
+    SELECT 
+        *
+    FROM
+        tabela;
+</code>
+
+Veja que este não é um processo muito complicado de ser realizado.
+
+Perceba que, no `select` é possível fazer a utilização de operadores ariméticos. [+ - * /]. Para exemplificar seu uso, será feito a seleção dos dados, com um aumento de 100 reais no salário de cada linha da tabela.
+
+<code>
+    SELECT
+        Nome,
+        Salario + 100
+    FROM
+        tabela;
+</code>
+
+Porém apenas esta seleção básica pode não resolver o problema. Para isso é possível ainda com o `select` filtrar e classificar os dados, com a simples utilização de um novo comando junto ao `select`, o `where`
+
+Seu funcionamento não é muito complicado, assim será feito um exemplo prático com o mesmo, neste irei filtrar os funcionários pelo salário, buscando apenas aqueles que ganham acima de R$ 3000.
+
+<code>
+    SELECT
+        Nome,
+        Salario
+    FROM
+        tabela
+    WHERE
+        Salario > 3000;
+</code>
+
+No exemplo acima o comparador binário `>` foi utilizado, mas é possível utilizar também:
+
+- `=` (Igual);
+
+- `>` (Maior que);
+
+- `>=` (Maior igual);
+
+- `<` (Menor que);
+
+- `<=` (Menor igual);
+
+- `<>` (Menor maior que)
+
+O `where`, pode também ser utilizado para realizar a junção de tabelas, mas neste processo é importante que se tenha atenção, pois discuidos no momento da junção utilizando o `where`, pode gerar os chamados produtos cartesianos, veja abaixo um exemplo que causa problemas e em seguida, um exemplo com a forma correta de se realizar junções com o `where`.
+
+`Exemplo ERRADO!`
+
+<code>
+SELECT
+    *
+FROM
+    tabelaA,
+    tabelaB
+</code>
+
+Neste caso no momento da junção será realizado a multiplicação de todos os elementos da `tabelaA` com a `tabelaB`, gerando assim um produto cartesiano.
+
+`Exemplo CORRETO!`
+
+<code>
+SELECT 
+    *
+FROM
+    tabelaA,
+    tabelaB
+WHERE
+    tabelaA.id = tabelaB.id;
+</code>
+
+Veja que isto ocorre pois os produtos cartesianos aparecem quando a condição de junção (where) é inválida ou simplesmente não é específicada.
+
+### Junções
+
+
+### Funções de grupo
+
+
+### Subconsulta
+
+
+### Operadores de conjunto
 
 
 ## Trigger
@@ -544,24 +690,23 @@ DBMS_OUTPUT.PUT_LINE('Professor inserido com sucesso');
 END;
 
 
+## Sobre o SGBD utilizado
 
-## SQL - Structured Query Language
+Conforme já explicado no documento, os *softwares* utilizados para a gerência dos bancos de dados são os SGBDs, isso é feito por conta de inumeras vantagens. Durante as aulas de banco de dados, o SGBD padrão utilizado foi o Oracle 11G Express. Aqui será feito uma pequena descrição de sua forma de armazenamento.
 
-<!-- Será adicionado depois -->
+"O Oracle aloca espaço físico para os `bancos de dados`, utilizando definições hierarquicas". Pasquini, Juliana.
 
-## Dúvidas
+Abaixo há a explicação dos níveis hierarquicos citados pela professora durante as aulas.
 
-- (?) Nas normalizações, os atributos multivalorados sempre serão removidos (Transformados em tabela) ?
-    - Não se pode ter atributos multivalorados no modelo relacional.
+- Bancos de dados: Uma coleção lógica de dados compartilhados armazenados em `tablespaces`;
+    - Tablespace: Repositório lógico para dados físicamente agrupados;
+        - Arquivos de dados: Arquivo de dados físico pertencendo a uma única `tablespace`.
 
-- (?) Relacionamento recursivo é o mesmo que auto-relacionamento ?
+A estrutura descrita pode ser visualizada na figura abaixo: 
 
-- (?) Chave estrangeira é a mesma coisa que chave parcial ?
+![Hierarquia Oracle](imagens/oracle_hierarquia.PNG)
 
-- (?) O que são atributos aninhados ?
-
-- (?) Caso haja não haja chave primária composto, a forma normal pode partir da 1FN para a 3FN ?
 
 ## Referências bibliográficas
 
-Pet news. (2018). Normalização de Bancos de Dados Relacionais. [online] Available at: http://www.dsc.ufcg.edu.br/~pet/jornal/maio2011/materias/recapitulando.html [Acessado em 14 Abril de 2018].
+Pet news. (2018). Normalização de Bancos de Dados Relacionais. [online] Available at: http://www.dsc.ufcg.edu.br/~pet/jornal/maio2011/materias/recapitulando.html [Acessado em 14 Abril de 2018]
