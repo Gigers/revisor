@@ -512,14 +512,14 @@ Mostra sempre resultados de dados atualizados, pois o motor do banco de dados re
  
 * Sintaxe do VIEW
 
-<code>
-    CREATE (OR REPLACE, FORCE, NOFORCE) VIEW (NOME) AS 
-        SELECT 
-            (COLUNAS) (APELIDO)
-        FROM 
-            (TABELA)
-        WHERE (CONDIÇÕES);
-</code>
+```sql
+CREATE (OR REPLACE, FORCE, NOFORCE) VIEW (NOME) AS 
+    SELECT 
+        (COLUNAS) (APELIDO)
+    FROM 
+        (TABELA)
+    WHERE (CONDIÇÕES);
+```
 
 ## Manipulação de dados :warning:
 
@@ -541,12 +541,13 @@ Tem-se que:
 
 Para realizar a utilização deste em um SGBD é bastante simples, a sintaxe é apresentada abaixo:
 
-<code>
+```sql
 SELECT * {coluna / expressão [apelido], ...}
 FROM tabela;
-</code>
+```
 
 Para que se tenha um exeplo real, levaremos em consideração a seguinte tabela:
+
 
 | Nome  | Cargo          | Salario |
 |-------|----------------|---------|
@@ -556,12 +557,12 @@ Para que se tenha um exeplo real, levaremos em consideração a seguinte tabela:
 
 Caso queira-se recuperar todas as informações presentes nesta tabela, o `select` deverá ser utilizado, veja:
 
-<code>
+```sql
     SELECT 
         *
     FROM
         tabela;
-</code>
+```
 
 
 Veja que este não é um processo muito complicado de ser realizado.
@@ -569,20 +570,20 @@ Veja que este não é um processo muito complicado de ser realizado.
 Perceba que, no `select` é possível fazer a utilização de operadores ariméticos. [+ - * /]. Para exemplificar seu uso, será feito a seleção dos dados, com um aumento de 100 reais no salário de cada linha da tabela.
 
 
-<code>
+```sql
     SELECT
         Nome,
         Salario + 100
     FROM
         tabela;
-</code>
+```
 
 
 Porém apenas esta seleção básica pode não resolver o problema. Para isso é possível ainda com o `select` filtrar e classificar os dados, com a simples utilização de um novo comando junto ao `select`, o `where`
 
 Seu funcionamento não é muito complicado, assim será feito um exemplo prático com o mesmo, neste irei filtrar os funcionários pelo salário, buscando apenas aqueles que ganham acima de R$ 3000.
 
-<code>
+```sql
     SELECT
         Nome,
         Salario
@@ -590,7 +591,7 @@ Seu funcionamento não é muito complicado, assim será feito um exemplo prátic
         tabela
     WHERE
         Salario > 3000;
-</code>
+```
 
 
 No exemplo acima o comparador binário `>` foi utilizado, mas é possível utilizar também:
@@ -611,20 +612,20 @@ O `where`, pode também ser utilizado para realizar a junção de tabelas, mas n
 
 `Exemplo ERRADO!`
 
-<code>
+```sql
 SELECT
     *
 FROM
     tabelaA,
     tabelaB
-</code>
+```
 
 
 Neste caso no momento da junção será realizado a multiplicação de todos os elementos da `tabelaA` com a `tabelaB`, gerando assim um produto cartesiano.
 
 `Exemplo CORRETO!`
 
-<code>
+```sql
 SELECT 
     *
 FROM
@@ -632,7 +633,7 @@ FROM
     tabelaB
 WHERE
     tabelaA.id = tabelaB.id;
-</code>
+```
 
 
 Veja que isto ocorre pois os produtos cartesianos aparecem quando a condição de junção (where) é inválida ou simplesmente não é específicada.
@@ -649,7 +650,7 @@ Esta é a principal caracaterística deste tipo de junção.
 
 Para implementar junções deste tipo é possível utilizar o próprio comando `INNER JOIN`, veja um exemplo, onde será feito a união da tabelaA e da tabelaB.
 
-<code>
+```sql
 SELECT
     a.nome,
     b.nome
@@ -659,7 +660,7 @@ INNER JOIN
     tabelaB b
 ON
     a.id = b.id;
-</code>
+```
 
 Veja que, a característica descrita anteriormente é válida, assim, somente as linhas que tiverem alguma ligação serão exibidas na nova tabela que está sendo gerada.
 
@@ -701,9 +702,37 @@ Neste tipo de junção, as tabelas não tem uma equivalência direta, e sim, val
 
 #### Natural Joins
 
+O Natural join é uma forma facilitada de se escrever `INNER JOIN`, neste não é preciso especificar os atributos que serão utilizados no momento da junção, porém, neste espera-se que, os nomes dos atributos que deverão ser utilizados na comparação sejam idênticos.
+
+Veja o exemplo abaixo:
+
+```sql
+-- Código com INNER JOIN
+SELECT
+    a.nome
+FROM
+    tabelaA a
+INNER JOIN
+    tabelaB b
+ON
+    a.id = b.id;
+```
+
+```sql
+-- Código com Natural Join
+SELECT
+    a.nome
+FROM
+    tabelaA a NATURAL JOIN tabelaB b;
+```
+
+Veja que os códigos são equivalentes, porém, a escrita tornou-se mais simples.
+
+OBS: Caso quira-se juntar tabelas com `Natural Join` e não haja campos de atributos relevantes iguais, não ocorrerá erros, e sim um resultado com diversos valores duplicados. (Isto no caso do Oracle, que tentará fazer uma junção mesmo não tendo atributos de mesmo nome).
 
 
 #### Self-Joins
+
 
 ### Operadores de conjunto
 
