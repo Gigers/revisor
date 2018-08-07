@@ -43,7 +43,7 @@ Alguns bancos NoSQL com ACID:
 Formas de interagir com  o MongoDB:
 
 - MongoDB - Shell;
-- MongoDB - Post;
+- MongoDB - Post.
 
 ## Informativos
 
