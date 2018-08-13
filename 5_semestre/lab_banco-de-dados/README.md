@@ -6,4 +6,5 @@ Anotações das aulas de laboratório de bancos de dados.
 
 Durante as anotações de aulas, pontos importantes da matéria foram marcados, abaixo uma lista com as legendas do significado de cada marcação feita no documento:
 
-- :bomb: Provavel conteúdo de prova.
+- :bomb: Provavel conteúdo de prova;
+- :shell: Conceito importante para aprender.
