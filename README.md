@@ -9,6 +9,7 @@ Repo para criação de revisões comunitárias, das matérias da Fatec SJC
 * Filipe Meneses (@filipemeneses);
 * Vinicius Lelis (@ViniciusLeelis);
 * Guilherme Pinto (@Guillhermegpp);
+* Rodrigo dos Santos (@Krod);
 * Mauricio Kiyoshi (@kyassunaga).
 
 Obrigado a todos que vem colaborando com o projeto.
