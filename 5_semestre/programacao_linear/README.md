@@ -2,7 +2,7 @@
 
 Este repositório guarda exercícios resolvidos de programação linear utilizando Python.
 
-## Modelagem (1° Conteúdo)
+## Modelagem
 
 Diversos exercícios de modelagem serão realizados, então para iniciar, uma definição de modelos de computadores é apresentada abaixo:
 
@@ -18,6 +18,21 @@ Para a criação de um modelo, é recomendado que os passos abaixo sejam seguido
 Com estes conceitos básicos, verifique os exercícios realizados (Estes seguem o livro A recomendado abaixo).
 
 `OBS`: Os exercícios resolvidos em Python utilizam a biblioteca puLP e quando necessário resolver o GLPK
+
+## Resolução do modelo
+
+Neste processo deseja-se pesquisar os valores ótimos da função objetivo. 
+
+Para facilitar este processo, algumas etapas foram descritas, estas listadas abaixo:
+
+- 1° - Enumerar todas as equações (Bottom-Up)
+ - Aqui as equações são todas aquelas levantadas na modelagem, incluindo as restrições.
+- 2° - Utilizar as equações para traçar as retas
+ - Se necessário transformar as inequações em equações
+ - Também realizar testes com pontos aleatórios presentes na restrição.
+
+> Caso o grafico esteja com problema de escala, utilize a intersecção Z das retas.
+
 
 ## Leituras recomendadas (Caso você tenha mais recomendações, faça a adição aqui =D)
 
