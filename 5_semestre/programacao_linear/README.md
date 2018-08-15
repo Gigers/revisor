@@ -34,7 +34,7 @@ Para facilitar este processo, algumas etapas foram descritas, estas listadas aba
 > Caso o grafico esteja com problema de escala, utilize a intersecção Z das retas.
 
 
-## Leituras recomendadas (Caso você tenha mais recomendações, faça a adição aqui =D)
+#### Leituras recomendadas :bookmark_tabs: (Caso você tenha mais recomendações, faça a adição aqui =D)
 
 - (A) Pesquisa Operacional na tomada de decisões;
 
