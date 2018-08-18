@@ -1,8 +1,8 @@
-# Revisões
+# Revisões :eyes:
 
-Repo para criação de revisões comunitárias, das matérias da Fatec SJC
+Repo para criação de revisões comunitárias das matérias da Fatec SJC
 
-# Colaboradores
+# Colaboradores :construction_worker:
 
 * Weslei Luiz (@magaum);
 * Felipe Menino (@M3nin0);
