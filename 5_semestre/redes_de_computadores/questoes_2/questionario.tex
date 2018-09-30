@@ -1,0 +1,191 @@
+% Esta template foi adaptado retirado de: https://www.overleaf.com/18680340cssjcshywjxx#/70316020/
+% Obrigado pelo material
+
+\documentclass[answers]{exam}
+
+%% Language and font encodings
+\usepackage[english]{babel}
+\usepackage[utf8x]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[normalem]{ulem}
+
+%% Sets page size and margins
+\usepackage[a4paper,margin=2cm]{geometry}
+
+%% Useful packages
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{paralist}
+\setlength\FrameSep{4pt}
+
+\newcommand{\answer}[1] {
+	\begin{framed}
+		#1	
+	\end{framed}	
+}
+
+\newcommand{\questao}[2]{
+	\question[1]{#1}
+	\answer{#2}
+}
+
+\begin{document}
+	\begin{questions}
+		\questao{O que é topologia física e lógica ?}{
+			\begin{itemize}
+				\item Topologia física: É um diagrama que mostra como seus elementos estão conectados físicamente. Esses elementos são chamados de nós, estes que podem ser computadores, impressoras, câmeras ou qualquer outro equipamento capaz de se conectar a rede.
+				\item Topologia lógica: Representa o modo como esses nós se comunicam, independente de como estão conectados físicamente.
+			\end{itemize}					
+		}
+		\questao{Quais as principais topologias físicas existentes ?}{
+			Barramento, estrela, anel, árvore e malha
+		}
+		\questao{Caracterize cada topologia física: Barramento, Anel, Estrela, Árvore e Malha}{
+			\begin{itemize}
+				\item Barramento: 
+					\begin{itemize}
+						\item Possui um cabo interligando todas as máquinas em série, este denominado cabo coaxial e pose ser fino ou grosso;
+						% Verificar se são realmente terminadores físicos !
+						\item Necessita de terminadores físicos nas pontas do cabo para fechar o circuito.
+					\end{itemize}
+				\item Anel
+					\begin{itemize}
+						\item O mecanismo de controle de acesso ao meio físico é via token, ou seja, um sinal que circula no anel e a máquina que estiver de posse desse \textit{token}, tem autorização de realizar comunicação na rede.
+					\end{itemize}
+				\item Estrela
+					\begin{itemize}
+						\item Caracteriza-se por possuir concentradores (hub ou switch) interligando nós;
+						\item Utiliza cabos de par trançado (TP) ou \textit{Twisted Pair} e conectores RJ-45.
+					\end{itemize}
+				\item Árvore
+					\begin{itemize}
+						\item Possui as mesmas características da topologia estrela, mas, composta por várias estrelas interligadas;
+						\item A diferença mais marcante é o uso de um concentrador (switch) de grande capacidade de \textit{switching}, que trabalha no núcleo \textbf{core} da rede, onde todos os equipamentos críticos são ligados (Servidores, outros switchs, etc).
+					\end{itemize}
+				\item Malha
+					\begin{itemize}
+						\item Caracateriza-se por interligar cada nó com vários outros nós. É típico nas interligações de roteadores em uma rede de comutação de pacotes.
+					\end{itemize}
+			\end{itemize}					
+		}
+		\questao{Do ponto de vista do funcionamento da rede, como diferem as topologias barramento e anel ?}{
+			No barramento, apenas uma máquina por vez tem acesso a rede, enquanto que no anel, vários computadores acessam a ede igualmente.		
+		}
+		\questao{Caracterize redes ponto a ponto e cliente-servidor}{
+			\begin{itemize}
+				\item Redes ponto a ponto
+					\begin{itemize}
+						\item As máquinas são ligadas umas as outras através de um sistema de comunicação qualquer;
+						\item Cada usuário é resposável por administrar seus próprios recursos, podendo compartilhá-los na rede;
+						\item Todos os computadores são clientes e servidores ao mesmo tempo;
+						\item Geralmente usada em pequenos ambientes e poucas máquinas (até 10);
+						\item O S.O usado nas máquinas precisam possuir recursos de rede;
+						% Esta resposta parece estar com problemas						
+						% \item Não há possibilidade da execução de aplicativos clientes/servidor;
+						\item Quando tentam acessar informações em um dispositivo e os dados não estão físicamente armazenados nesles, uma solicitação para acesar tais inforações deve ser feita ao dispositivo onde os dados estão;
+						\item O dispositivo que solicita as informações é chamado de cliente e o que responde a solicitação é chamado de servidor;
+						\item O cliente começa o intercâmbio ao solicitar dados do servidor que responde enviando uma ou mais sequências de dados ao cliente.
+					\end{itemize}
+			\end{itemize}					
+		}
+		\questao{O que é \textit{Download} e \textit{Upload}}{
+			\begin{itemize}
+				\item \textit{Download}: Os arquivos são descarregados do serivodr para o cliente;
+				\item \textit{Upload}: Os arquivos são carregados do cliente para o servidor.
+			\end{itemize}				
+		}
+		\questao{Como é formado um quadro Ethernet ?}{
+			\textit{Frame Ethernet} é o conjunto de dados que trafegam em um \textit{link} Ethernet, camadas 1 e 2 do modelo ISO/OSI. Sendo os principais conteúdos deste
+		
+			\begin{itemize}
+				\item Endereço de destino (MAC Address): Endereço Ethernet do destinatário (6 bytes);
+				\item Endereço Origem (MAC Address): Endereço Ethernet do emissor (6 bytes);
+				\item Tipo: Tipo de dado sendo transmitido (2 bytes);
+				\item Dados: \textit{Container} de dados ou pacote (42 - 1500 bytes);
+				\item CRC: Código de Redundância cíclica (4 bytes);
+			\end{itemize}					
+		}
+
+		\questao{Descreva como funciona o CSMA-CD}{
+			\begin{itemize}
+				\item Quando alguma máquina quer falar na rede o CSMA identifica quando a mídia está disponível (IDLE TIME) para a transmissão. Neste momento a transmissão é iniciada. O mecanismo CD ao mesmo tempo obriga que, os nós escutem a rede enquanto emitem dados, razão pela qual, o CSMS-CD é também conhecido por \textbf{Listen While Talk} (LWT);
+				\item Se uma colisão ocorre, toda transmissão é interrompida e é emitido um sinal, \textbf{JAM} de 48 bits, para anunciar que ocorreu uma colisão. Para evitar que ocorra colisões, sucessivas os nós envolvidos esperam um tempo aleatório para depois deste voltar a fazer comunicações.
+			\end{itemize}				
+		É importante lembrar que, o CSMA-CD é um algoritimo.
+		}
+		
+		\questao{O que é colisão e como é tratada ?}{
+			\textbf{Colisão} é um evento que ocorre frequentemente nas redes, no qual dois computadores tentam enviar informações no mesmo instante. As colisões são normais no funcionamento de uma rede. Entretanto se forem muito frequentes, o desempenho da rede será prejudicado. Para resolver o problema das colisões, é possível dividir a rede em vários segmentos, no passado utilizando bridges, ou até mesmo \textit{switchs} ou mesmo roteadores, de acordo com o tamanho da rede.	
+		}
+		\questao{Caracterize as tecnologias: Ethernet, FastEthernet, GigabitEthernet e 10GB Ethernet}{
+			\begin{itemize}
+				\item \textbf{Ethernet}
+				\begin{itemize}
+					\item Taxa de transferência máxima: 10 Mbps
+					\item Tipos de cado utilizando e o comprimento máximo de cada um
+					\begin{itemize}
+						\item Coaxial grosso - 500m (10Base5);
+						\item Coaxial fino - 185m (10Base2);
+						\item Cabo TP (CAT 3, CAT 5, CAT 6, etc) - 100m (10BaseT);
+						\item Fibra Ótica - 2.000M (10BaseFL), depende da tecnologia.
+					\end{itemize}
+				\end{itemize}
+				\item \textbf{FastEthernet}
+				\begin{itemize}
+					\item Taxa de transferência máxima: 100Mbps;
+					\item Cabos utilizados
+					\begin{itemize}
+						\item Cabo TP CAT5, CAT5e, CAT6, etc - Distância máxima (100m);
+						\item Fibra ótica (Multimodo 50/125 ou 62.5/125µm) - 2.000m, depende da tecnologia
+					\end{itemize}
+					\item Denominações IEEE:
+						\begin{itemize}
+							\item Cabos TP - 100BaseT, 100Base-TX, 100BaseT4, 100Base-T2
+						\end{itemize}
+				\end{itemize}
+				\item \textbf{Gibabit Ethernet}
+				\begin{itemize}
+					\item Taxa de transferência máxima: 1.000Mbps;
+					\item Cabos utilizados e comprimentos máximos
+					\begin{itemize}
+						\item Cabo UTP CAT5e, CAT6 ou CAT6a - 100m;
+						\item Fibra Multimodo padrão SX: 220m;
+						\item Fibra Multimodo padrão LX: 550m;
+						\item Fibra Monomodo padrão LX: 500m ou mais;
+					\end{itemize}
+					\item Denominações IEEE
+					\begin{itemize}
+						\item 1000BaseT, 1000BaeSX, 1000Base-LX
+					\end{itemize}
+				\end{itemize}
+				\item \textbf{10Gigabit Ethernet}
+				\begin{itemize}
+					\item Taxa de transferência máxima: 10Gbps;
+					\item Não suporta CSMA-CD;
+					\item Cabos e comprimentos máximo
+						\begin{itemize}
+							\item 10GBase-CX4 - TPCAT7 - 15M (Experimental);
+							\item 10GBase-T - Cabo TP CAT6 ou 6A (250Mhz) - 55m;
+							\item 10GBase-SR - Short Range - 300m (Fibra multimodo);
+							\item 10GBase-LRM – Long reach multimode – 220m (50/125);
+							\item 10GBASE-LR - Long Range - 10km (fibra monomodo 9/125);
+							\item 10GBASE-ER – Extended range – 40km (fibra monomodo);
+							\item 10GBASE-ZR – Cisco - 80km (fibra monomodo).
+						\end{itemize}
+				\end{itemize}
+			\end{itemize}					
+		}
+		\questao{Quais as principais categorias de cabos TP e suas características ?}{
+			\begin{itemize}
+				\item Categoria 1 (Voz): 1 par, utilizado em equipamentos de telefonia e rádio, não deve ser para uma rede local;
+				\item Categoria 2 (Voz/Dados - Local Talk): 2 pares, no passado era utilizado em redes \textit{Token Ring} chegando a taxas de 4Mbps;
+				\item Categoria 3 (Dados): 2 pares, frequência até 16 MHz, 10Mbps. 24 tranças/m diferente para cada par. Atualmente ainda é possível encontrar em uso em cabeamento estruturado para telefonia VoIP (Voz sobre IP);
+				\item Categoria 4 (Dados/Voz): 2 pares, utilizado para transmissão de até 20MHz e dados a 20Mbps, foi usado em redes \textbf{Token Ring} a uma taxa de 16Mbps;
+				\item Categoria 5: 4 pares, usado em rede \textbf{Fast Ethernet} em frequências até 125 ou 155MHz em redes 100Base-TX e 1000Base-T Gigabit Ethernet;
+				\item Categoria 6: Possui \sout{bitola} 24 AWG e banda passante de até 250MHz e pode ser usado em redes Gigabit Ethernet a velocidade de 1.000 Mbps. Em redes 10GBe alcança 55m;
+				\item Categoria 6A: suportam frequências de 500Mhz, 100m com 10Gbe. Conectores diferentes. Possui separador entre pares, melhorou \textit{cross talk};
+				\item Categoria 7: Em fase de \textbf{desenvolvimento}, para ser usado no 100Gbe.
+			\end{itemize}					
+		}
+	\end{questions}
+\end{document}
