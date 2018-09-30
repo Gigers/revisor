@@ -1,0 +1,91 @@
+% Esta template foi adaptado retirado de: https://www.overleaf.com/18680340cssjcshywjxx#/70316020/
+% Obrigado pelo material
+
+\documentclass[answers]{exam}
+
+%% Language and font encodings
+\usepackage[english]{babel}
+\usepackage[utf8x]{inputenc}
+\usepackage[T1]{fontenc}
+
+%% Sets page size and margins
+\usepackage[a4paper,margin=2cm]{geometry}
+
+%% Useful packages
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{paralist}
+\setlength\FrameSep{4pt}
+
+\newcommand{\image}[3]{
+    \begin{figure}[h]
+        \begin{center}
+        \includegraphics[width=3cm, height=3cm]{#1}
+        \caption{#2}
+        \label{#3}
+        \end{center}
+    \end{figure}
+}
+
+\newcommand{\answer}[1] {
+	\begin{framed}
+		#1	
+	\end{framed}	
+}
+
+\newcommand{\questao}[2]{
+	\question[1]{#1}
+	\answer{#2}
+}
+
+\begin{document}
+	\begin{questions}
+		\questao{Descreva as características de cada um dos equipamentos: Modem, Repetidor, Hub, Bridge, Access Point, Switch, Roteador, dizendo em que camada ISO/OSI ele trabalha}{
+				\begin{itemize}
+					\item \textbf{Modem}: É um dispositivo eletrônico que modula um sinal digital em uma onda analógica, com o objetivo de transiti-lo por uma linha telefônica e demodula o sinal analógico, e convertendo para o formato digital original. Deve trabalhar de acordo com os mesmos padrões, como por exemplo, a mesma velocidade de transmissão, algoritimo de compressão de dados, protocolo. Trabalha na camada 1 do modolo OSI;
+					\item \textbf{Repetidor}: Utilizado para interlicação de redes de mesma tecnologia. Recebe o sinal em uma ponta, amplifica e regenera eletricamente e a entrega na outra porta. É colocado entre dois nós de uma rede com a finalidade de estender a rede. Camada 1 ISO/OSI;
+					\item \textbf{Hub}: É um equipamento que promove um ponto de conexão física entre os nós de uma rede de mesma tecnologia. Recebe sinal em uma porta e o transmite para todas as outras portas ao mesmo tempo. É um polo concentrador de cabos, e cada equipamento conectado a ele pertence a um mesmo segmento. Camada 1 ISO/OSI;
+					\item \textbf{Bridge}: Utilizado para segmentar redes e assim possibilitar o aumento do número de máquinas, e aumentando a performance da rede. Realiza funções de repetidor. Ao receber um quadro em uma porta, abre o quadro, compara o \textit{MAC ADDRESS} de destino, presente no quadro, com os valores \textit{MAC ADDRESS} de sua tabela, e então, encaminha ou não o quadro para outro segmento. Camada 2 ISO/OSI;
+					% Verificar a cada do access point					
+					\item \textbf{AccessPoint}: É um equipamento que possibilita a conexão de nós wireless à rede cabeada, usando radiofrequência. A maioria suporta múltiplas conexões wireless de dispositivos à rede cabeada. Camada 1;
+					\item \textbf{Switch}: Utilizado para segmentar redes, e assim melhorar a performance. Funcionalmente semenlhante a um bridge, e físicamente semelhante ao Hub. Recebe um quadro em uma porta, abre o quadro, lê o \textit{MAC ADDRESS} de destino do quadro e entrega diretamente na porta a qual é vinculado o \textit{MAC ADDRESS} de destino do quadro, conforme os valores de sua tabela de endereço. Cada porta do switch estabelece um domínio de colisão. Camada 2;
+					
+					\item \textbf{Roteador}: Equipamentos capazes de conectar duas ou mais redes heterogêneas (diferentes tecnologias), provendo caminho para que os nós destas redes se comuniquem. Tem a função de fazer a comutação, a tradução de protocolos, estabelecendo uma rota de comunicação entre diferentes redes, provendo a comunicação entre computadores distintas entre si. Camada 3.
+
+				\end{itemize}
+		}
+		\questao{Qual o símbolo gráfico de cada equipamento de rede citado acima}{Figura abaixo}
+		\image{exemplo2.png}{Simbolos dos equipamentos}{s}	
+		\questao{Qual a diferença entre repetidor e bridge ?}{
+			\begin{itemize}
+				\item \textbf{Repetidor}: É um equipamento utilizado para interligação de redes idênticas, pois eles amplificam e regeneram eletricamente os sinais transmitidos no meio físico;
+				\item \textbf{Bridge}: É um termo utilizado para designar um dispositivo que liga duas ou mais redes que usam protocolos iguais ou distintos, ou até mesmo dois segmentos da mesma rede, que usam o mesmo protocolo, por exemplo: Ethernet ou Token Ring.
+			\end{itemize}
+		}
+		\questao{Qual a diferença entre hub e switch}{
+			Físicamente são semelhantes, mas, a forma de funcionamento é bastante diferente. Possuem diversas portas e a principal diferença entre eles é a que, o switch segmente a rede internamente. Cada porta do switch corresponde a um segmento diferente, o que significa que não haverá colisões entre quadros de segmentos diferentes, ao contrário dos hubs, no qual todas as portas partilham o mesmo domínio de colisão		
+		}
+		\questao{Quais as funções de um roteador ?}{
+			Dentre as funções, pode-se citar:
+			\begin{itemize}
+				\item Conectar duas ou mais rede heterogêneas, provendo caminho para que os nós destas redes se comuniquem;
+				\item Fazer comutação, a tradução de protocolos, estabelencendo uma rota e comunicação entre diferentes redes, provendo a comunicação entre computadores distantes.
+			\end{itemize}					
+		}
+		\questao{O que é switch camada 3 ?}{
+			Sâo switches capazes de suportar protocolos de camada 3 do modelo ISO/OSI, como por exemplo  o IP. Além de fazerem comutação de \textit{frames}, podem fazer também a comutação de pacotes, ou mesmo via \textit{hardware}		
+		}
+		\questao{O que é VLAN e como funciona ?}{
+			VLAN pode ser entendida como uma separação lógica entre as redes, feitas sobre um equipamento, normalmente um switch. Esta separação faz com que, os diferentes pedaços segmentados não tenham comunicação entre si.
+		}
+		\questao{O que são protocolos de roteamento e protocolo roteável ?}{
+			\begin{itemize}
+				\item \textbf{Protocolo de roteamento}: Protocolos que servem para trocar informações de construção de uma tabela de roteamento. Possui mecanismos para o compartilhamento de informações de rotas entre os dispositivos de roteamento de uma rede, possibilitando o roteamento dos pacotes de um protocolo roteado;
+				\item \textbf{Protocolo roteável}: É aquele que fornece informação adequada em seu endereçamento de rede para que seus pacotes sejam roteados, como o TCP/IP e o IPX.
+			\end{itemize}					
+		}
+		\questao{O que é rede de pacotes de dados comutados ?}{
+			Dados trafegados na \textit{internet}, podendo ser em formado de páginas web, ou em arquivos de textos/binários, trafegam em um sistema conhecido como rede de pacotes de dados comutados.
+		}
+	\end{questions}
+\end{document}
