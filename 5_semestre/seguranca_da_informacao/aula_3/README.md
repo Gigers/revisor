@@ -16,17 +16,17 @@ Porém, antes de prosseguir, vamos entender alguns conceitos importantes
 
 Vamos começar entendendo sobre o que são ameaças. Ameaças são ocorrências prejudiciais tais como terremotos, falhas de energia, uma sabotagem, exploração de falhas, entre vários outros. 
 
-Veja que, estas ameaças ter duas naturezas principais:
+Veja que, estas ameaças ter duas naturezas principais.
 
 - Safety
- - Relacionado a qualidade;
- - Relacionado também com Confiabilidade;
- - Exige Normas definidas;
- - Sendo assim, tem-se que safety está relacionado a erros e falhas (Não intencional).
+    - Relacionado a qualidade;
+    - Relacionado também com Confiabilidade;
+    - Exige Normas definidas;
+    - Sendo assim, tem-se que safety está relacionado a erros e falhas (Não intencional).
 
 - Security
-        - Relacionado a ameaças;
-        - Desta forma, o Security trata de problemas causados de forma intencional.
+    - Relacionado a ameaças;
+    - Desta forma, o Security trata de problemas causados de forma intencional.
 
 <!-- 1.Security:Medidas,ações contra coisas desagradáveis,perigosas,inesperadas(crimes,acidentes,etc).
 
