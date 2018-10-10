@@ -51,7 +51,7 @@ Certo, com isto entendido, precisamos entender porque estamos sempre mapeando ri
 Desta forma, riscos podem ser quantificados através de uma fórmula simples:
 
 ```js
-risco = vulnerabilidade * risco;
+risco = vulnerabilidade * impacto;
 ```
 
 Veja que, as formas quantitativas da vulnerabilidade e do impacto são as seguintes:
