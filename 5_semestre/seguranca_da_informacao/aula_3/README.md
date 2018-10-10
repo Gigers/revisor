@@ -83,7 +83,7 @@ Agora que sabemos todos estes conceitos básicos, precisamos entender como o pro
 
 Aqui um mind map das etapas realizadas acima:
 
-![mindMapSec](mind_map.png)
+![mindMapSec](mind_map_2.png)
 
 Lembre-se que, todas estas atividades podem variar muito de acordo com o caso, assim como descrito pela norma, é importante que haja adaptações dos mecanismos de segurança descritos na norma.
 
