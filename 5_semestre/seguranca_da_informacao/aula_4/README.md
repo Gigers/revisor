@@ -45,3 +45,5 @@ Este modelo, proposto em 1992, utiliza os papeis de cada usuário (Ou setor) par
 ### Considerações sobre o controle de acesso
 
 Os controles definidos acima, podem ser levados em consideração tanto para o controle de lógico quanto físico da empresa, para o entendimento completo deste tópico, e sua aplicação nos projetos, é necessário que a empresa já tenha uma organização mínima, e também que haja uma classificação de importância de ativos para que assim os acessos possam ser definidos de uma forma mais acertiva, isto de acordo com a norma `ISO 27002/2013`.
+
+Veja que, tudo isto foi implementado no projeto feito nas aulas! Para isto foi necessário a criação de processos, uma estrutura organizacional razoável e também uma definição prévia da importância de cada ativo para a empresa criada pelos alunos durante as aulas.
