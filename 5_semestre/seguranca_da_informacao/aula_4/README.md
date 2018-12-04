@@ -24,6 +24,8 @@ Para resolver o problema apresentado com os métodos simétricos de encriptaçã
 
 Lembre-se que, para empresas o bem mais importante nos dias de hoje são as informações, e para garantir que estas não sejam utilizadas por qualquer agente não autorizado, deve-se utilizar encriptação. Uma fala muito interessante do Diego Aranha no `Mind the sec` que mostra como a criptografia deve ser tratada é: `A encriptação atualmente trata-se de controle! E não apenas de ocultação de informações`, perceba o quão importante passa a ser a criptografia para o controle dos ativos de uma empresa. Um ponto importante, citado na `ISO 27002/2013` é que, para a garantia de segurança é necessário ter processos e pontos de controle!.
 
+Hey, não se esqueça, SSL utiliza chave assimétrica para funcionar, assim através de um `handshake` com o servidor e a troca de informações das chaves, a comunicação começa a ser feita de forma segura :smile:
+
 ## Controle de acesso
 
 De acordo com a norma, o controle de acesso tem por objetivo limitar o acesso a recursos de processamento e informações, citando ainda que, `tudo é proibido, a menos que expressamente permitido`.
