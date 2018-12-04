@@ -1,4 +1,4 @@
-# Segurança da informação - Revisão das atividades
+# Segurança da informação - Revisão das atividades (1° Bimestre)
 
 <!-- Aviso de um marujo: Caso tenha de escolher entre prova e trabalho, escolha trabalho nesta matéria, ele acaba sendo mais interessante-->
 
@@ -27,20 +27,6 @@ Veja que, estas ameaças ter duas naturezas principais.
 - Security
     - Relacionado a ameaças;
     - Desta forma, o Security trata de problemas causados de forma intencional.
-
-<!-- 1.Security:Medidas,ações contra coisas desagradáveis,perigosas,inesperadas(crimes,acidentes,etc).
-
-A. National security:Segurança nacional
-B. Security measures:Medidas de segurança
-C. Maximum security prison:Prisão de segurança máxima
-D. Job security:Segurança de não perder o emprego
-E. Financial security:Segurança financeira(não faltar dinheiro)
-
-2.Safety:Refere-se na maioria dos casos à proteção das pessoas do perigo.Estar livre de situações de risco,ou não oferecer isco.
-
-A. The safety of students.(A segurança dos alunos.)
-B. We are in safety.(Estamos seguros,fora de perigo.)
-C. Safety of genetically-modified foods.(Segurança que os alimentos genéticamente modificados oferece.) -->
 
 Ao entendermos o que são ameaças, podemos entender que, a vulnerabilidade representa uma fraqueza organizacional que permite a uma ameaça causar danos.
 
