@@ -1,7 +1,11 @@
-# Semana 01 - 07/02/2019
+# Gestão de equipes
 
 * Metodo de Avaliação
 > Trabalho
+
+## Sobre a matéria
+
+Boa parte dos conteúdos são criados através de conversas e dinâmicas dentro da sala de aula
 
 ## Manifesto ágil
 
@@ -24,11 +28,3 @@
 
 * Onde se aplica:
 > Cliente com grau de incerteza da origem de seu problema, tende adotar scrum, pelo constante diálogo com a equipe de desenvolvimento.
-
-## Cascata
-
-Tende se aplicar em projeto com alto grau de criticidade (que envolvam vidas humanas ou invenstimento financeiro elevado).
-
-## Scrum
-
-### O que significa sa palavra scrum
