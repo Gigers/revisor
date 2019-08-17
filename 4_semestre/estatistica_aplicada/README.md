@@ -4,7 +4,7 @@ Revisões da matéria de estatística aplicada.
 
 ## Visão geral
 
-Estatística é a `ciência que usa números para descrever dados`. Nos estudos estatísticos chama-se de `dados estatísticos os dados númericos que nos permitem descrever e avaliar fatos para realizar previsões, estimativas e tomadas de decisões` 
+Estatística é a `ciência que usa números para descrever dados`. Nos estudos estatísticos chama-se de `dados estatísticos os dados numéricos que nos permitem descrever e avaliar fatos para realizar previsões, estimativas e tomadas de decisões` 
 
 Este dados estatísticos podem ser representados por [Tabelas](#tabelas) ou [Gráficos](#Gráficos).
 
