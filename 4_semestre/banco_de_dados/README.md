@@ -14,6 +14,8 @@ Ao falarmos sobre os bancos de dados, é importante ter alguns conceitos bem def
     * Fato do mundo real que está registrado e possui um significado no contexto de um domínio de aplicação;
 * Informação -> Significado do dado
     * Fato útil que pode ser extraído a partir dos dados.
+* Ex: Dado a data de aniversário de uma pessoa(Dado), descobrir a idade dela(informação).
+
 
 E lembre-se: `Armazenando informação perdemos a informação !`. Nunca armazene informações e sim dados, isso porque você estará perdendo as informações armazenadas com o tempo, um exemplo simples, o armazenamento da idade de uma pessoa deve ser feito utilizando a data de seu nascimento, e não quantos anos tem direto, pois os anos passam e esta pessoa muda de idade, mas não a data que nasceu.
 
@@ -175,6 +177,7 @@ Modelo de dados abstratos, que descreve a estrutura de um banco de dados, e essa
 
 Dentro deste modelo há alguns conceitos que devem ficar bastante claros, para que haja facilidade no processo de modelagem dos dados.
 * Entidade
+    * Objeto da realidade modelada, sobre os quais deseja-se manter informações na base de dados.
     * Entidade forte:
         * São as entidades que conseguem existir no modelo de forma idependente.
     * Entidade fraca:
@@ -209,7 +212,7 @@ Dentro deste modelo há alguns conceitos que devem ficar bastante claros, para q
         * Os atributos nos relacionamentos são usados para descrever uma relação (Associação) entre as entidades envolvidas.   
 
 * Auto-relacionamento:
-	* Normalmente um relacionamento associa entidades diferentes. Porém há casos especiais em que o relacionamento entra na mesma entidade, nestas situações surge o conceito de PAPEL que identificará o relacionamento.
+	* Normalmente um relacionamento associa entidades diferentes. Porém há casos especiais em que o relacionamento entra na mesma entidade, nestas situações surge o conceito de *PAPEL* que identificará o relacionamento.
 
 * Cardinalidade (Mínina, Máxima)
     * A cardinalidade indica a quantidade de instâncias de relacionamento nas quais uma instância de entidade pode participar.
