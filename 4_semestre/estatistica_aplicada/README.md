@@ -87,3 +87,24 @@ Md = 78 + 84 / 2
 Md = 162 / 2 
 
 Md = 81
+
+
+## Classificação (Agrupamento)
+
+
+### Range(Variação) - h
+
+h = maiorValor - menorValor 
+
+isto é, a diferença entre o maior e o menor valor do conjunto estudado.
+
+
+### Numero de classes - k
+
+k = sqrt(n), onde n é o numero de elementos do conjunto estudado.
+
+
+### Tamanho de cada classe
+
+t = h/k
+
