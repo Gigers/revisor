@@ -45,6 +45,41 @@
 
 # Sistema operacional
 
+## Estrutura
+
+Os sistemas da família Unix podem ser divididos em função:
+
+* kernel(cerne ou núcleo)
+* shell
+* programas do usuário
+
+Estes três grandes componentes utilizam do sistema de arquivos, logo é necessário entender essa infraestrutura.
+
+### Sistema de arquivos
+Os sistemas Unix são estruturados a partir do sistemas de arquivo, logo qualquer coisa que possa ser manipuladoo no sistema é tratada como arquivo. Isso inclui dispositivos de hardware, processos em execução, etc. 
+
+O diretorio raiz(no topo da estrutura) é representada por um sinal de barra(/) e qualquer arquivo ou diretório é referenciado a partir dele.
+
+Cada um dos diretórios possui uma função específica:
+
+* /bin - ferramentas necessárias para a operação do sistema;
+* /sbin - ferramentas do administrador ncessárias para a operação e manutenção do sistema - o "s" ´e de superuser;
+* /dev - cada dispositivo de hardware instalado possui um arquivo neste diretório;
+* /etc - os arquivos de configuração do sistema estão neste diretorio;
+* /home - cada usuário cadastrado no sistema possui um diretório com seu nome em  /home - esta é a única área do disco que a maioria dos usuários esta autorizada a gravar seus arquivos;
+* /lib - as bibliotecas de funções do sistema estão aqui;
+* /mnt - diretório usado para conexão a volumes presentes em outros computadores da rede ou para acessar dispositivos removíveis;
+* /tmp - espaço para arquivos temporários gerados pelos programas ou pelos próprios usuários;
+* /var - informações variávies do sistema(spoll de impressoras, caixas postais, cache de internet, log de sistema, etc).
+* /usr - programas do usuário (ferramentas, editores de texto, navegador, ambientes gráficos);
+
+
+
+
+
+
+#Comandos
+
 ## Reiniciar
 
 ```
