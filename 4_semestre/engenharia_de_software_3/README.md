@@ -10,14 +10,14 @@ problemas.
 
 `Hook Methods` são métodos que podem ser sobrescritos pelas subclasses como forma de estender e/ou especializar o comportamento da classe.
 
-![Representação de Hook Methods](hookMethods.png).
+![Representação de Hook Methods](images/hookMethods.png).
 
 Quando um hook method é utilizado a escolha é feita no momento em que o objeto é instaciando. Isso ocorre pois ao criarmos um novo objeto devemos escolher qual a classe concreta que será utilizada.
 ### Hook Class
 
 `Hook Class` são classes que possuem o comportamento definido em uma outra classe que compõe a classe principal.
 
-![Representação de Hook Class](HookClass.png)
+![Representação de Hook Class](images/HookClass.png)
 
 Na hook class a implementação pode ser trocada a qualquer momento, bastando trocar a instância que foi configurada.
 
@@ -45,7 +45,7 @@ duas subclasses quando utiliza cada um deles:
 
  Segue abaixo UML padrão do `Template method`.
 
- ![Estrutura do template Method](TemplateMethod.png)
+ ![Estrutura do template Method](images/TemplateMethod.png)
 
 ### Strategy
 
