@@ -21,9 +21,27 @@ De forma geral, a maioria das tags contém tag de fechamento, contudo há alguma
 
 ### Documento HTML
 
+Um arquivo .html é chamado de documento html. Sua estrutura básica é:
+
+```html
+<!DOCTYPE html>
+<html>
+	<head>
+	</head>
+	<body>
+	</body>
+</html>
+
+```
 
 
 ### Principais tags
+* ``` <!DOCTYPE html> ``` - utilizada para o navegador entender a versão do HTML.
+* ``` <html></html> ``` - Define um documento html.
+* ``` <head></head> ``` - define configurações da pagina como (titulo, importações).
+* ``` <body></body> ``` - define o corpo, isto é, a estrutura da página html.
+* ``` <h1></h1><h2></h2><h3></h3><h4></h4><h5></h5><h6></h6 ``` - estas tag são utilizadas para cabeçalho da pagina. Esta tag possui variação de tamanho que vai de h1(maior) até h6(menor).
+* ``` <p></p>``` - Define um parágrafo de texto 
+* ``` <title></title> ``` - Define o titulo que ficará na aba do navegador
+* ``` <meta charset="utf-8">``` - Define o enconding como utf8 e assim é possível utilizar acentos da lingua portuguesa.
 
-* ``` <h1></h1> ``` - estas tag são utilizadas para cabeçalho da pagina.
-Esta tag possui variação de tamanho que vai de h1(maior) até h6(menor)
