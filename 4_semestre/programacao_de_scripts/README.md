@@ -14,8 +14,16 @@ As páginas web são baseadas em três tecnologias
 Para marcar um elemento na página utiliza-se a seguinte notação, chamada de tag ou nó: 
 
 ``` html
-<tagname propriedades> conteudo da tag </tagname>
+<tagname propriedade="valor"> conteudo da tag </tagname>
 ```
+
+Por exemplo 
+
+``` html 
+<a href="https://www.g1.globo.com">Site da globo</a>
+```
+
+No exemplo a cima temos uma tag de link `<a>` para o site do globo. A propriedade `href` tem o valor `https://www.g1.globo.com`
 
 De forma geral, a maioria das tags contém tag de fechamento, contudo há algumas tags que fogem a esta regra.
 
@@ -44,4 +52,8 @@ Um arquivo .html é chamado de documento html. Sua estrutura básica é:
 * ``` <p></p>``` - Define um parágrafo de texto 
 * ``` <title></title> ``` - Define o titulo que ficará na aba do navegador
 * ``` <meta charset="utf-8">``` - Define o enconding como utf8 e assim é possível utilizar acentos da lingua portuguesa.
-
+* ``` <a></a> ``` - link para outra página 
+* ``` <ul></ul>``` - lista não ordenada
+* ``` <ol></ol>``` - lista ordenada
+* ``` <li> </li>``` - elemento de uma lista este é utilizado como conteudo das tags `<li>` e  `<ol>`
+* ``` <img> ``` - exibe uma imagem na página
