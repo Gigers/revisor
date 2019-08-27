@@ -1,11 +1,21 @@
 # Padrões de projeto ou Design Patterns
 
 Um `padrão` descreve um conjunto composto por um contexto, um problema e uma solução, isto é, um padrão descreve uma solução para um problema em um contexto. Contudo, um padrão descreve uma solução que ja tenha sido utilizada com sucesso em mais de um contexto.Portanto, um padrão descreve soluções consolidadas.
-
-### Composição
+### Conceitos
+#### Composição
 Apesar de não estar entre os quatro elementos principais de uma linguagem orientada a objetos, a composição é um conceito que vem implícito quando se fala em objetos. a composição combinada com o uso de abstrações pode ser eficaz na solução de diferentes
 problemas.
 
+#### Hook Methods
+
+`Hook Methods` são métodos que podem ser sobrescritos pelas subclasses como forma de estender e/ou especializar o comportamento da classe.
+
+![Representação de Hook Methods](hookMethods.png)
+#### Hook Class
+
+`Hook Class` são classes que possuem o comportamento definido em uma outra classe que compõe a classe principal.
+
+![Representação de Hook Class](HookClass.png)
 
 ## Strategy
 
