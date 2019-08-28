@@ -34,6 +34,33 @@ Algumas técnincas descritivas são: gráficos, tabelas, médias, variâncias, e
 Após conhecidas certas propriedades, imaginam-se proposições que exprimam conclusões para toda a população.
 
 
+## Regras de arrendondamento
+
+### Caso 1
+
+O algarismo a ser conservado for seguido de algarismo inferior a 5, permanece o algarismo a ser conservado e retiram-se os posteriores.
+
+Ex: 2,333333 arredondado a primeira decimal torna-se 2,3
+
+### Caso 2
+
+Quando o algarismo a ser conservado for seguido de algarismo superior a 5, ou igual a 5 seguido de no mínimo um algarismo diferente de zero, soma-se uma unidade ao algarismo a ser conservado e retiram-se os posteriores
+
+Ex: 2,6666 arredondado a primeira decimal torna-se 2,7;
+Ex: 5,850 arredondado a primeira decimal torna-se 4,9;
+
+### Caso 3
+
+O algarismo a ser conservado a ser conservado for ímpar, seguido de 5 e posteriormente de zeros, soma-se uma unidade ao algarismo conservado e retira-se os posteriores
+
+Ex: 5,5550 arredondado a primeira decima torna-se 4,6;
+
+###  Caso 4
+
+O algarismo a ser conservado for par, seguido de 5 e posteriormente de zeros, permanece o algarismo a ser conservado e retira-se os posteriores
+
+Ex: 5,850 arredondado a primeira decimal torna-se 5,8
+
 ## Estatística Descritiva
 
 ### ROL
@@ -78,6 +105,8 @@ Consiste na frequência acumulada da class dividida pela frequência total da di
 
 ![Fórmula Frequência Acumuada Relativa](images/frequencia_acumulada_relatativa.PNG)
 
+
+### Classes ou intervalos de classes
 
 
 ## Gráficos Estatísticos e tabelas
