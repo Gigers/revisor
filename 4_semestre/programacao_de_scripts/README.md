@@ -46,14 +46,17 @@ Um arquivo .html é chamado de documento html. Sua estrutura básica é:
 ### Principais tags
 * ``` <!DOCTYPE html> ``` - utilizada para o navegador entender a versão do HTML.
 * ``` <html></html> ``` - Define um documento html.
-* ``` <head></head> ``` - define configurações da pagina como (titulo, importações).
-* ``` <body></body> ``` - define o corpo, isto é, a estrutura da página html.
-* ``` <h1></h1><h2></h2><h3></h3><h4></h4><h5></h5><h6></h6 ``` - estas tag são utilizadas para cabeçalho da pagina. Esta tag possui variação de tamanho que vai de h1(maior) até h6(menor).
+* ``` <head></head> ``` - define uma informação de configuração sobre o documento (titulo, importações).
+* ``` <title></title> ``` - Define o titulo do documento que ficará na aba do navegador.
+* ``` <body></body> ``` - define o corpo da página.
+* ``` <h1></h1> até <h6></h6 ``` - estas tag são utilizadas para cabeçalho da pagina. Esta tag possui variação de tamanho que vai de h1(maior) até h6(menor).
+* ``` <div></div>```  - define uma seção no documento
 * ``` <p></p>``` - Define um parágrafo de texto 
-* ``` <title></title> ``` - Define o titulo que ficará na aba do navegador
-* ``` <meta charset="utf-8">``` - Define o enconding como utf8 e assim é possível utilizar acentos da lingua portuguesa.
-* ``` <a></a> ``` - link para outra página 
-* ``` <ul></ul>``` - lista não ordenada
-* ``` <ol></ol>``` - lista ordenada
-* ``` <li> </li>``` - elemento de uma lista este é utilizado como conteudo das tags `<li>` e  `<ol>`
-* ``` <img> ``` - exibe uma imagem na página
+* ``` <a></a> ``` - Define um hyperlink
+* ``` <img> ``` - Define uma imagem
+* ``` <meta>``` - Define informações meta
+* ``` <ul></ul>``` - Define uma lista não ordenada
+* ``` <ol></ol>``` - Define uma lista ordenada
+* ``` <li> </li>``` - Define o elemento de uma lista
+* ``` <br>``` - Define uma quebra de linha
+* ``` <form></form> ``` - Define um formulário
