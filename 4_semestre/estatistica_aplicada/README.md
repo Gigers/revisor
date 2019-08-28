@@ -4,9 +4,54 @@ Revisões da matéria de estatística aplicada.
 
 ## Visão geral
 
-Estatística é a `ciência que usa números para descrever dados`. Nos estudos estatísticos chama-se de `dados estatísticos os dados numéricos que nos permitem descrever e avaliar fatos para realizar previsões, estimativas e tomadas de decisões` 
+Estatística é a `ciência que usa números para descrever dados`. Nos estudos estatísticos chama-se de `dados estatísticos os dados numéricos que nos permitem descrever e avaliar fatos para realizar previsões, estimativas e tomadas de decisões`.
+
+Outra definição é que estatística é o `conjunto de técnicas que permite, de forma sistemática, coletar, organizar, descrever, analisar e interpretar dados oriunos de estudos ou experimentoss`.
 
 Este dados estatísticos podem ser representados por [Tabelas](#tabelas) ou [Gráficos](#Gráficos).
+
+## Conceitos
+
+### Populacao
+
+Conjunto de todos os elementos de um fenômeno que possuem uma característica em comum, ou seja, todos os indivíduos ou objetos que fazem parte do estudo. Geralmente é representada pela letra `N`.
+
+### Amostra
+
+É um subconjunto da população que deve ser representativa de moda que ela expresse todas as características da população. Geralmente a amostra é representada pela letra `n`
+
+### ROL
+
+Chama-se ROL a sequência de dados brutos ordenada de forma crescente.
+
+#### Exemplo de construção de um ROL
+
+Suponhamos uma pesquisa em que 10 casais foram entrevistados com relação ao número de filhos que possuíam. Os resultados obtidos, na ordem das entrevistas (dados brutos) foram:
+
+`2, 1, 1, 3, 0, 1, 0, 0, 0, 2.`
+
+Para estes dados, podemos construir o ROL: 
+
+`0, 0, 0, 0, 1, 1, 1, 2, 2, 3.`
+
+
+*Note que o ROL possui a mesma quantidade de dados inicialmente coletados. Ou seja, em nosso exemplo anterior, obteve-se 10 valores. Logo, o ROL deve possuir 10 valores também.*
+
+
+
+## Análise estatística
+
+Uma análise estatística distinguem-se duas etapas:
+
+### Etapa 1: Estatística Descritiva
+
+Procura-se descrever, resumir e agrupar dados, afim qde que se possam tirar conclusões a respeita das características de interesse.
+
+Algumas técnincas descritivas são: gráficos, tabelas, médias, variâncias, etc.
+
+## Etapa 2: Estatística Indutiva
+Após conhecidas certas propriedades, imaginam-se proposições que exprimam conclusões para toda a população.
+
 
 ## Tabelas
 
@@ -107,4 +152,14 @@ k = sqrt(n), onde n é o numero de elementos do conjunto estudado.
 ### Tamanho de cada classe
 
 t = h/k
+
+
+
+## Referências
+
+* [1] Bosquilha, A; Corrêa, M.L.P; Viveiro, T.C.N.G. Minimanual compacto de matemática : teoria e prática : ensino médio: 2. ed. rev.São Paulo: Editora Rideel, 2003
+* [2] ESTATÍSTICA. Disponível em: [<http://professorguru.com.br/estatistica/index.html>](http://professorguru.com.br/estatistica/index.html). Acesso: 2 semestre de 2019
+
+
+
 
