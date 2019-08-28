@@ -10,7 +10,7 @@ Outra definição é que estatística é o `conjunto de técnicas que permite, d
 
 Este dados estatísticos podem ser representados por [Tabelas](#tabelas) ou [Gráficos](#Gráficos).
 
-## Conceitos
+## Conceitos 
 
 ### Populacao
 
@@ -19,6 +19,22 @@ Conjunto de todos os elementos de um fenômeno que possuem uma característica e
 ### Amostra
 
 É um subconjunto da população que deve ser representativa de moda que ela expresse todas as características da população. Geralmente a amostra é representada pela letra `n`
+
+### Análise estatística
+
+Uma análise estatística distinguem-se duas etapas:
+
+#### Etapa 1: Estatística Descritiva
+
+Procura-se descrever, resumir e agrupar dados, afim qde que se possam tirar conclusões a respeita das características de interesse.
+
+Algumas técnincas descritivas são: gráficos, tabelas, médias, variâncias, etc.
+
+#### Etapa 2: Estatística Indutiva
+Após conhecidas certas propriedades, imaginam-se proposições que exprimam conclusões para toda a população.
+
+
+## Estatística Descritiva
 
 ### ROL
 
@@ -34,26 +50,39 @@ Para estes dados, podemos construir o ROL:
 
 `0, 0, 0, 0, 1, 1, 1, 2, 2, 3.`
 
-
 *Note que o ROL possui a mesma quantidade de dados inicialmente coletados. Ou seja, em nosso exemplo anterior, obteve-se 10 valores. Logo, o ROL deve possuir 10 valores também.*
 
+### Frequências
+
+#### Frequências Simples ou absoluta (fi)
+
+É o número de vezes que determinado valor é observado. É válido observar que a soma de todas as frequências simples ou absoluta resultado no tamanho total da amostra `(n)`:
+
+![Fórmula Frequência absoluta](images/frequencia_absoluta.PNG)
+
+#### Frequência relativa (fri)
+
+São os valores das razões (quociente) entre as frequências simples e a frequencia total multiplicada por 100 para que os dados sejam apresentados em porcentagem.
+
+![Fórmula Frequencia relativa](images/frequencia_relativa.PNG)
+
+#### Frequência Acumulada Simples (Fi)
+
+Consiste na somatória das frequências absolutas anteriores.
+
+![Fórmula Frequência Acumulada Simples](images/frequencia_acumulada_simples.PNG)
+
+#### Frequência Acumuada Relativa (Fri)
+ 
+Consiste na frequência acumulada da class dividida pela frequência total da distribuição, multiplicando-se por 100 para obtermos porcentagem. 
+
+![Fórmula Frequência Acumuada Relativa](images/frequencia_acumulada_relatativa.PNG)
 
 
-## Análise estatística
 
-Uma análise estatística distinguem-se duas etapas:
+## Gráficos Estatísticos e tabelas
 
-### Etapa 1: Estatística Descritiva
-
-Procura-se descrever, resumir e agrupar dados, afim qde que se possam tirar conclusões a respeita das características de interesse.
-
-Algumas técnincas descritivas são: gráficos, tabelas, médias, variâncias, etc.
-
-## Etapa 2: Estatística Indutiva
-Após conhecidas certas propriedades, imaginam-se proposições que exprimam conclusões para toda a população.
-
-
-## Tabelas
+### Tabelas
 
 As tabelas dispõem os `dados estatísticos` de modo comparativo. Seu ponto forte é mostrar uma grande quantidade de 	informação em pouco espaço.
 
@@ -66,11 +95,11 @@ o seguinte:
 
 Logo, com base nesta pesquisa, os jornais B e C podem concluir que seus produtos devem sofrer algum tipo de modificação para ganhar o público-leitor.
 
-## Gráficos
+### Gráficos
 
 <!-- Adicionar depois -->
 
-## Medidas de tendência central
+## Medidas de tendência central ou Medidas de posição
 
 Os valores de `medida de tendência central` consiste em encontrar um número representante do grupo, um valor "médio" característica daquele conjunto de dados. Geralmente, esse valor se localiza em torno do meio ou centro de uma distruição.
 
@@ -158,7 +187,7 @@ t = h/k
 ## Referências
 
 * [1] Bosquilha, A; Corrêa, M.L.P; Viveiro, T.C.N.G. Minimanual compacto de matemática : teoria e prática : ensino médio: 2. ed. rev.São Paulo: Editora Rideel, 2003
-* [2] ESTATÍSTICA. Disponível em: [<http://professorguru.com.br/estatistica/index.html>](http://professorguru.com.br/estatistica/index.html). Acesso: 2 semestre de 2019
+* [2] ESTATÍSTICA. Disponível em: [<http://professorguru.com.br/estatistica/index.html>](http://professorguru.com.br/estatistica/index.html). Acesso: 2 semestre de 2019	
 
 
 
