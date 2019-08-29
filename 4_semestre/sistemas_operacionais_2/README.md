@@ -74,7 +74,15 @@ Cada um dos diretórios possui uma função específica:
 * /usr - programas do usuário (ferramentas, editores de texto, navegador, ambientes gráficos);
 
 
+## Kernel 
 
+O `kernel` cria processos toda vez que pedimos ao sistema operacional para rodar um programa. Além disso, o kernel gerencia para que eles colaborem entre si e não se destruam e gerencia os recursos que cada processos utiliza.
+
+O `kernel` é um núcleo monolítico onde possui tudo embutido. Assim, apenas processos e serviços rodam no modo usuário.
+
+![Kernel Unix](imagens/kernel_unix.png)
+
+Os processo comunicam-se com o `kernel` por meio de chamadas de sistemas, em inglês (System Call). Estas interagem com hardware, arquivos, etc. Assim, o processo emite uma `System call` solicitando alguma coisa e o `kernel` utiliza suas rotinas para acessar o recurso desejado.
 
 
 
