@@ -41,11 +41,31 @@ duas subclasses quando utiliza cada um deles:
 
  Este padrão estabelece um modelo de algoritmo que possui algumas partes fixas e algumas partes variáveis. As partes variáveis são lacunas que precisam ser completadas para que o algoritmo faça realmente sentido. As lacunas são representada por `hook methods` que podem ser implementados na subclasse.
 
- * Caso seja uma lacuna obrigatório deverá ser definido como `abstract`. * 
+ **Caso seja uma lacuna obrigatório deverá ser definido como `abstract`. **
 
  Segue abaixo UML padrão do `Template method`.
 
  ![Estrutura do template Method](images/TemplateMethod.png)
+
+#### Pontos Positivos
+
+* Reaproveitamento de código relativo a parte comum de um algoritmo, pois cada passo variável pode ser dfinido na subclasse.
+* Permite que a funcionalidade da classe mãe seja estendida, então é possível definir uma funcionalidade mais geral que é facilmente incorporada a outra a parte específica da aplicação
+
+**È importante lembrar de usar os modficadores adequados para que o 'Contrato' entre a superclasse e subclasses não seja quebrada**
+
+#### Pontos Negativo
+
+* Uma classe que que precisa do comportamento de duas classes só poderá fazer o uso de herança de uma delas
+* Depois que uma implementação for instanciada não será mais possível alterar os passos do algoritmo em tempo de execução.
+
+
+#### Diferença entre Hook methos e Template Methods
+
+Os `Hook Methods` são uma técnica para permitir a extensão de comportamento, enquanto o `Template Method` é um padrão, ou seja, uma solução para um problema mais específico. Contudo, é importante notar que o padrão `Template Method` usa o `Hook Method` em sua solução. 
+
+O conceito de `Hook Method` é mais geral e inclusive é utilizado por outros padrões.
+
 
 ### Strategy
 
