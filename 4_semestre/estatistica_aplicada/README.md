@@ -1,4 +1,4 @@
-# Estatística Aplicada
+
 
 Revisões da matéria de estatística aplicada.
 
@@ -108,6 +108,51 @@ Consiste na frequência acumulada da class dividida pela frequência total da di
 
 ### Classes ou intervalos de classes
 
+Quando temos dados brutos devemos agrupá-los, para a construção de uma tabela conhecida em intervalos que também são conhecidos por classes.
+
+Os tipos de classes ou intervalos estão exemplificados na tabela a seguir:
+
+![simbologia-na-construcao-de-classes](images/simbologia-na-construcao-de-classes.PNG)
+
+#### Exemplo
+
+Considerando o ROL:
+
+16,18,20,20,20,20,20,22,23,23,25,25,26,26,29,30
+
+Agora alguns formas de realizar agrupamentos nesse ROL de acordo com a representação utilizada:
+
+![exemplos-de-tabelas-com-classes](images/exemplos-de-tabelas-com-classes.PNG)
+
+#### Limite inferior (LI)
+
+Menor elemento do conjunto estudado.
+
+Considerando a primeira classes da tabela 1 do exemplo anterior o limite inferior(LI) é 15, na segunda classe é 20 e na terceira classe é 25
+
+#### Limite superior (LS)
+
+Maior elemento do conjunto estudado.
+
+Considerando a primeira classes da tabela 1 do exemplo anterior o limite superior(LS) é 20, na segunda classe é 25 e na terceira classe é 3
+0m
+#### Amplitude de classe
+
+Corresponde da diferença entre o limite superior e limite inferior da classe.
+
+Considerando a tabela 1 do exemplo anterior. Na primeira classe o limite inferior é 15 e o limite superior é 20.
+
+Isto é,
+
+> h = LS - LI
+
+Logo,
+
+> h = 20 - 15 
+> h = 5
+
+
+
 
 ## Gráficos Estatísticos e tabelas
 
@@ -143,9 +188,9 @@ Por exemplo:
 Maísa teve as seguintes notas nas provas de Matemática: 6,5; 7,0; 9,5; 4,0 e 8,0.
 O calculo da média de suas notas é representado por:
 
-Ma = 6,5 + 7,0 + 9,5 + 4,0 + 8,0 / 5 
+> Ma = 6,5 + 7,0 + 9,5 + 4,0 + 8,0 / 5 
 
-Ma = 7,0
+> Ma = 7,0
 
 ### Moda (Mo)
 
@@ -154,7 +199,7 @@ A `moda` de um conjunto de n número é o valor que ocorre com maior frequência
 Exemplo:
 Na sequência numérica 2,2,3,7,9,9,9,10,11,12,18 a moda é 9, pois é o número que aparece com maior frequência;
 
-Mo = 9
+> Mo = 9
 
 Há casos em que pode haver mais de uma moda, como por exemplo na sequencia: 5, 7, 7, 7, 8, 9, 9, 10, 10, 10 há duas modas: 7 e 10. Portanto MO = 7 e 10. 
 
@@ -167,29 +212,29 @@ A `Mediana` de um conjunto de n valores é o valor que ocupa a posição central
 
 Nos dados: 
 
-126,198,164, 460 e 188
+> 126,198,164, 460 e 188
 
 temos cinco elementos que, colocamos em ordem crescente, irão fornecer-nos a mediana: 
 
-126, 164, 188, 198, 460. 
+> 126, 164, 188, 198, 460. 
 
 Como a mediana é o termo central da sequência número, temos:
 
-Mo = 188
+> Md = 188
 
 No caso do número de elementos ser par, a mediana será a média aritmética entre os dois termos centrais:
 
 Exemplo:
 
-68,72,78,84,87,91
+> 68,72,78,84,87,91
 
 A media será a média entre 78,84. Portante temos: 
 
-Md = 78 + 84 / 2
+> Md = 78 + 84 / 2
 
-Md = 162 / 2 
+> Md = 162 / 2 
 
-Md = 81
+> Md = 81
 
 
 ## Classificação (Agrupamento)
@@ -197,19 +242,19 @@ Md = 81
 
 ### Range(Variação) - h
 
-h = maiorValor - menorValor 
+> h = maiorValor - menorValor 
 
 isto é, a diferença entre o maior e o menor valor do conjunto estudado.
 
 
 ### Numero de classes - k
 
-k = sqrt(n), onde n é o numero de elementos do conjunto estudado.
+> k = sqrt(n), onde n é o numero de elementos do conjunto estudado.
 
 
 ### Tamanho de cada classe
 
-t = h/k
+> t = h/k
 
 
 
