@@ -42,7 +42,6 @@ Um arquivo .html é chamado de documento html. Sua estrutura básica é:
 
 ```
 
-
 ### Principais tags
 * ``` <!DOCTYPE html> ``` - utilizada para o navegador entender a versão do HTML.
 * ``` <html></html> ``` - Define um documento html.
@@ -60,3 +59,72 @@ Um arquivo .html é chamado de documento html. Sua estrutura básica é:
 * ``` <li> </li>``` - Define o elemento de uma lista
 * ``` <br>``` - Define uma quebra de linha
 * ``` <form></form> ``` - Define um formulário
+
+
+## CSS (Cascading Style Sheets)
+Utilizada para dar estilo as tags de marcação ([HTML](#HTML)).
+
+Há três formas de utilizar o css junto com o HTML.
+
+* Inline
+* Incorporado
+* Importado
+
+### CSS Inline
+
+O CSS recebe a classificação de Inline quando está junto com uma tag HTML.
+
+Por exemplo,
+
+``` html 
+<span style="color:red">Olá mundo</span>
+```
+
+### CSS Incorporado
+
+O CSS recebe a classificação de Incorporada quando está em um arquivo HTML dentro da tag `<style></style>`
+
+Por exemplo, 
+
+```html 
+<DOCTYPE html>
+<html>
+	<head>
+		<style>
+			span { 
+				color: red;
+			}
+		</style>
+	</head>
+	<body>
+		<span>Olá mundo</span>	
+	</body>
+</html>
+```
+
+### CSS Importado (Linkado ou externo)
+
+O css recebe a classificação de importado quando é escrito em outro arquivo e importando, por meio da tag `<link>` no html.
+
+Por exemplo
+
+* arquivo style.css
+``` css
+span {
+	color: red;
+} 
+```
+* arquivo teste.html
+
+```
+<DOCTYPE html>
+<html>
+	<head>
+		<link rel="stylesheet" type="text/css" href="style.css">
+	</head>
+	<body>
+		<span>Olá mundo</span>	
+	</body>
+</html>
+```
+
