@@ -116,7 +116,7 @@ span {
 ```
 * arquivo teste.html
 
-```
+``` html
 <DOCTYPE html>
 <html>
 	<head>
