@@ -175,7 +175,7 @@ Logo, com base nesta pesquisa, os jornais B e C podem concluir que seus produtos
 
 ## Medidas de tendência central ou Medidas de posição
 
-Os valores de `medida de tendência central` consiste em encontrar um número representante do grupo, um valor "médio" característica daquele conjunto de dados. Geralmente, esse valor se localiza em torno do meio ou centro de uma distruição.
+Os valores de `medida de tendência central` consiste em encontrar um número representante do grupo, um valor "médio" característica daquele conjunto de dados. Geralmente, esse valor se localiza em torno do meio ou centro de uma distribuição.
 
 As três medidas de tendência central mais conhecidas são: média aritmética, moda e mediana.
 
