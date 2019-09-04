@@ -151,6 +151,52 @@ Logo,
 > h = 20 - 15 
 > h = 5
 
+### Determinação de quantidade de classes
+
+A determinação da quantidade de classes pode ser elaborada através de três passos:
+
+1. Determinam-se o maior e o menor número dos dados brutos e, então, calcula-se a amplitude total do rol (diferença entre o maior e o menor daqueles números).
+2. Divide-se a amplitude total em um número conveniente de intervalos de classe que tenham a mesma amplitude
+3. Determinam-se o número de observações que caem dentro de cada intervalo de classe, isto é, calculam-se as frequências de classe.
+
+
+### Definir k(numero de classe) e h(amplitude de cada class) e at(amplitude total)
+
+
+Mostraremos a seguir 3 formas de calcular a quantidade e o tamanho de cada classe. 
+
+Nos exemplos teremos uma amostra de tamanho 200 em que observamos as idades das pessoas. A menor idade foi 10 anos e a maior, 70 anos.
+
+#### Regra de Sturges
+
+A regra de Sturges propôe a seguinte fórmula para calcular o número de classes.
+
+![Formula de Sturges](images/formula-de-sturges.PNG).
+
+Essa fórmula pode ser condensada na seguinte tabela.
+
+![Tabela da formula de Sturges](tabela-regra-de-sturges.PNG)
+
+Em nosso caso, n = 200. Logo:
+
+> k = 1 + 3,3.log 200
+
+> k = 1 + 3,3 . 2,3010
+
+> k = 1 + 7,5933
+
+> k = 8,5933  >>>  9
+
+A amplitude de cada classe é:
+
+![Amplitude Formula de Sturges](images/amplitude-sturges.PNG)
+
+
+
+
+
+
+
 
 
 
@@ -237,24 +283,6 @@ A media será a média entre 78,84. Portante temos:
 > Md = 81
 
 
-## Classificação (Agrupamento)
-
-
-### Range(Variação) - h
-
-> h = maiorValor - menorValor 
-
-isto é, a diferença entre o maior e o menor valor do conjunto estudado.
-
-
-### Numero de classes - k
-
-> k = sqrt(n), onde n é o numero de elementos do conjunto estudado.
-
-
-### Tamanho de cada classe
-
-> t = h/k
 
 
 
