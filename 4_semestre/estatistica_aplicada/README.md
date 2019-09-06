@@ -178,7 +178,7 @@ A regra de Sturges propõe a seguinte fórmula para calcular o número de classe
 
 Essa fórmula pode ser condensada na seguinte tabela.
 
-![Tabela da formula de Sturges](tabela-regra-de-sturges.PNG)
+![Tabela da formula de Sturges](images/tabela-regra-de-sturges.PNG)
 
 Em nosso caso, n = 200. Logo:
 
@@ -200,10 +200,19 @@ Logo, as classes são:
 
 
 
-# Criterio da raiz quadrada
+#### Critério da raiz quadrada
 
+O `número de classes` [k](#Variaveis-utiliazadas-nos-cálculos) é dado  por: 
 
+![Formula Criterio Raiz Quadrada](images/formula-criterio-raiz-quadrada.PNG)
 
+Em nosso exemplo: 
+
+![Calculo com o criterio de Raiz Quadrada](images/calcula-raiz-quadrada.PNG)
+
+Vamos considerar h = 5. Logo, teremos:
+
+![Tabela de criterio raiz](images/tabela-criterio-raiz.PNG)
 
 
 
