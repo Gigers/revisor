@@ -144,31 +144,30 @@ Considerando a tabela 1 do exemplo anterior. Na primeira classe o limite inferio
 
 Isto é,
 
-> At = LS - LI
+> AT = LS - LI
+
+ou 
+
+> AT = maior - menor
 
 Logo,
 
-> At = 20 - 15 
-> At = 5
+> AT = 20 - 15 
+> AT = 5
 
 ### Determinação de quantidade de classes ou construção de classes
 
 A determinação da quantidade de classes pode ser elaborada através de três passos:
 
-1. Determinam-se o maior(limite superior) e o menor número(limite inferior) dos dados brutos e, então, calcula-se a [amplitude total](#Amplitude-de-classe) do rol representada pela variavel `At`.
-2. Divide-se a [amplitude total do rol](#Amplitude-de-classe), variavel `At`, em um número conveniente de intervalos de classe, quantidade de classes representada pela letra `k`,que tenham a mesma amplitude
-3. Determinam-se o número de observações que caem dentro de cada intervalo de classe, isto é, calculam-se as frequências de classe.
+1. Determinam-se o maior [(limite superior)](#Limite-superior) e o menor número[(limite inferior)](#Limite-inferior) dos dados brutos e, então, calcula-se a [amplitude total](#Amplitude-de-classe) do rol representada pela variavel `AT`.
 
+2. Determinar a amplitude de cada classe `h` 
 
-### Variaveis utilizadas nos cálculos 
-* `k` - denota o número de classe que pode ser definida pela [Regra de Sturges](#Regra-de-Sturges), [Critério da Raiz Quadrada](#Criterio-da-raiz-quadrada)
-* `h` - amplitude de cada classe 
-* `At` - [Amplitude total do Rol](#Amplitude-de-classe)
+Divide-se a [amplitude total do rol](#Amplitude-de-classe), variavel `AT`, em um número conveniente de intervalos de classe, quantidade de classes representada pela letra `k` 
+* Para determinar a quantidade de classe, denominada por `k` utilizamos [Regra de Sturges](#Regra-de-Sturges) ou [Critério da Raiz Quadrada](#Criterio-da-raiz-quadrada)
+* Após determinar a amplitudade de cada classe, denominada por `h`, utilizamos a seguinte fórmula:
 
-
-Mostraremos a seguir 3 formas de calcular a quantidade e o tamanho de cada classe. 
-
-Nos exemplos teremos uma amostra de tamanho 200 em que observamos as idades das pessoas. A menor idade foi 10 anos e a maior, 70 anos.
+> h = AT/ k
 
 #### Regra de Sturges
 
@@ -180,6 +179,25 @@ Essa fórmula pode ser condensada na seguinte tabela.
 
 ![Tabela da formula de Sturges](images/tabela-regra-de-sturges.PNG)
 
+#### Critério da raiz quadrada
+
+O `número de classes`  ou quantidade de classes [k](#Variaveis-utiliazadas-nos-cálculos) é dado por: 
+
+![Formula Criterio Raiz Quadrada](images/formula-criterio-raiz-quadrada.PNG)
+
+* Determinam-se o número de observações que caem dentro de cada intervalo de classe, isto é, calculam-se as frequências de classe.
+
+
+### Variaveis utilizadas nos cálculos 
+* `k` - denota o número de classe que pode ser definida pela [Regra de Sturges](#Regra-de-Sturges), [Critério da Raiz Quadrada](#Criterio-da-raiz-quadrada)
+* `h` - amplitude de cada classe 
+* `At` - [Amplitude total do Rol](#Amplitude-de-classe)
+
+
+#### Exemplo 
+No exemplo teremos uma amostra de tamanho 200 em que observamos as idades das pessoas. A menor idade foi 10 anos e a maior, 70 anos.
+
+#### Sturges
 Em nosso caso, n = 200. Logo:
 
 > k = 1 + 3,3.log 200
@@ -198,13 +216,7 @@ Logo, as classes são:
 
 ![Classes usando a formula de Sturges](images/classes-de-sturges.PNG).
 
-
-
-#### Critério da raiz quadrada
-
-O `número de classes` [k](#Variaveis-utiliazadas-nos-cálculos) é dado  por: 
-
-![Formula Criterio Raiz Quadrada](images/formula-criterio-raiz-quadrada.PNG)
+#### Raiz quadrada
 
 Em nosso exemplo: 
 
@@ -213,7 +225,6 @@ Em nosso exemplo:
 Vamos considerar h = 5. Logo, teremos:
 
 ![Tabela de criterio raiz](images/tabela-criterio-raiz.PNG)
-
 
 
 ## Gráficos Estatísticos e tabelas
