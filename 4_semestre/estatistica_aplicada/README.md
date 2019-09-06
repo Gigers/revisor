@@ -314,6 +314,38 @@ A media será a média entre 78,84. Portante temos:
 
 > Md = 81
 
+## Medidas de dispersão
+As medidas de tendência central não são suficientes para caracterizar totalmente uma sequência numérica. Por exemplo, se observarmos as sequências:
+
+> X: 10, 1, 18, 20, 35, 3, 7, 15, 11, 10.
+> Y: 12, 13, 13, 14, 12, 14, 12, 14, 13, 13.
+> Z: 13, 13, 13, 13, 13, 13, 13, 13, 13, 13. 
+
+As três sequências possuem média 13. No entanto, são sequências completamente diferentes do ponto de vista da variabilidade de dados, pois a sequência Z não tem variabilidade da média, na sequência Y tem elementos levemente diferenciados da média e na sequencia X existem muitos elementos diferentes da média.
+
+
+Para avaliar o grau de variabilidade em torno da média, usaremos as medidas de dispersão: [desvio médio](#Desvio-médio), [variância](#Variância) e [desvio padrão](#Desvio-Padrão).
+### Conceito de Desvio
+
+Na estatística o conceito de `desvio`  corresponde o conceito matemático de distância.
+
+### Desvio médio
+O `desvio médio` indica a dispersão dos dados em relação à média de uma sequência. Este medida pode ser avaliada através dos desvio de cada elemento da sequência em relação a média da sequência, isto é, a somatória das diferenças de cada elemento da média. O desvio médio é definido como uma média aritmética dos desvios de cada elemento da sequência. A sua fórmula é expressa por:
+
+![Formula Desvio Medio](images/formula-desvio-medio.PNG)
+
+#### Exemplo
+
+Considere as notas 2,8,5,6 obtidas por 4 alunos.  Determine o devio médio.
+
+Inicialmente, calculamos a média:
+
+![Imagem média aritmética para desvio padrao](images/exemplo-media-desvio-medio.PNG)
+
+Agora, calcularemos o desvio médio, lembrando que a [frequencia de absoluta](#Frequências-Simples-ou-absoluta) de cada elemento é 1, visto que cada elemento apareceu uma única vez.
+
+![Calculo do desvio padrao](images/exemplo-desvio-medio.PNG)
+
 
 
 
