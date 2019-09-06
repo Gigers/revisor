@@ -163,7 +163,7 @@ A determinação da quantidade de classes pode ser elaborada através de três p
 
 2. Determinar a amplitude de cada classe `h` 
 
-Divide-se a [amplitude total do rol](#Amplitude-de-classe), variavel `AT`, em um número conveniente de intervalos de classe, quantidade de classes representada pela letra `k` 
+Divide-se a [amplitude total do rol](#Amplitude-de-classe), variavel `AT` pela quantidade de classes representada pela letra `k` 
 * Para determinar a quantidade de classe, denominada por `k` utilizamos [Regra de Sturges](#Regra-de-Sturges) ou [Critério da Raiz Quadrada](#Criterio-da-raiz-quadrada)
 * Após determinar a amplitudade de cada classe, denominada por `h`, utilizamos a seguinte fórmula:
 
@@ -185,19 +185,19 @@ O `número de classes`  ou quantidade de classes [k](#Variaveis-utiliazadas-nos-
 
 ![Formula Criterio Raiz Quadrada](images/formula-criterio-raiz-quadrada.PNG)
 
-* Determinam-se o número de observações que caem dentro de cada intervalo de classe, isto é, calculam-se as frequências de classe.
+3. Determinam-se o número de observações que caem dentro de cada intervalo de classe, isto é, calculam-se as frequências de classe.
 
 
 ### Variaveis utilizadas nos cálculos 
 * `k` - denota o número de classe que pode ser definida pela [Regra de Sturges](#Regra-de-Sturges), [Critério da Raiz Quadrada](#Criterio-da-raiz-quadrada)
-* `h` - amplitude de cada classe 
+* `h` - Amplitude de cada classe 
 * `At` - [Amplitude total do Rol](#Amplitude-de-classe)
 
 
 #### Exemplo 
 No exemplo teremos uma amostra de tamanho 200 em que observamos as idades das pessoas. A menor idade foi 10 anos e a maior, 70 anos.
 
-#### Sturges
+#### Usando Sturges
 Em nosso caso, n = 200. Logo:
 
 > k = 1 + 3,3.log 200
@@ -220,7 +220,12 @@ Logo, as classes são:
 
 Em nosso exemplo: 
 
-![Calculo com o criterio de Raiz Quadrada](images/calcula-raiz-quadrada.PNG)
+![Calculo com o criterio de Raiz Quadrada](images/calcula-raiz-quadrada.PNG).
+
+A amplitude de cada classe é: 
+
+![amplitude usando raiz](images/amplitude-raiz.PNG)
+
 
 Vamos considerar h = 5. Logo, teremos:
 
