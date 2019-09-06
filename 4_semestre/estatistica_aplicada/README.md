@@ -196,7 +196,7 @@ A amplitude de cada classe é:
 
 Logo, as classes são:
 
-![Classes usando a formula de Sturges](classes-de-sturges.PNG).
+![Classes usando a formula de Sturges](images/classes-de-sturges.PNG).
 
 
 
