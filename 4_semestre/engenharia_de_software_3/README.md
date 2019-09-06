@@ -49,7 +49,7 @@ duas subclasses quando utiliza cada um deles:
 
 #### Pontos Positivos
 
-* Reaproveitamento de código relativo a parte comum de um algoritmo, pois cada passo variável pode ser dfinido na subclasse.
+* Reaproveitamento de código relativo a parte comum de um algoritmo, pois cada passo variável pode ser definido na subclasse.
 * Permite que a funcionalidade da classe mãe seja estendida, então é possível definir uma funcionalidade mais geral que é facilmente incorporada a outra a parte específica da aplicação
 
 **È importante lembrar de usar os modficadores adequados para que o 'Contrato' entre a superclasse e subclasses não seja quebrada**

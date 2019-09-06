@@ -144,23 +144,26 @@ Considerando a tabela 1 do exemplo anterior. Na primeira classe o limite inferio
 
 Isto é,
 
-> h = LS - LI
+> At = LS - LI
 
 Logo,
 
-> h = 20 - 15 
-> h = 5
+> At = 20 - 15 
+> At = 5
 
-### Determinação de quantidade de classes
+### Determinação de quantidade de classes ou construção de classes
 
 A determinação da quantidade de classes pode ser elaborada através de três passos:
 
-1. Determinam-se o maior e o menor número dos dados brutos e, então, calcula-se a amplitude total do rol (diferença entre o maior e o menor daqueles números).
-2. Divide-se a amplitude total em um número conveniente de intervalos de classe que tenham a mesma amplitude
+1. Determinam-se o maior(limite superior) e o menor número(limite inferior) dos dados brutos e, então, calcula-se a [amplitude total](#Amplitude-de-classe) do rol representada pela variavel `At`.
+2. Divide-se a [amplitude total do rol](#Amplitude-de-classe), variavel `At`, em um número conveniente de intervalos de classe, quantidade de classes representada pela letra `k`,que tenham a mesma amplitude
 3. Determinam-se o número de observações que caem dentro de cada intervalo de classe, isto é, calculam-se as frequências de classe.
 
 
-### Definir k(numero de classe) e h(amplitude de cada class) e at(amplitude total)
+### Variaveis utilizadas nos cálculos 
+* `k` - denota o número de classe que pode ser definida pela [Regra de Sturges](#Regra-de-Sturges), [Critério da Raiz Quadrada](#Criterio-da-raiz-quadrada)
+* `h` - amplitude de cada classe 
+* `At` - [Amplitude total do Rol](#Amplitude-de-classe)
 
 
 Mostraremos a seguir 3 formas de calcular a quantidade e o tamanho de cada classe. 
@@ -169,7 +172,7 @@ Nos exemplos teremos uma amostra de tamanho 200 em que observamos as idades das 
 
 #### Regra de Sturges
 
-A regra de Sturges propôe a seguinte fórmula para calcular o número de classes.
+A regra de Sturges propõe a seguinte fórmula para calcular o número de classes.
 
 ![Formula de Sturges](images/formula-de-sturges.PNG).
 
@@ -189,11 +192,15 @@ Em nosso caso, n = 200. Logo:
 
 A amplitude de cada classe é:
 
-![Amplitude Formula de Sturges](images/amplitude-sturges.PNG)
+![Amplitude Formula de Sturges](images/amplitude-sturges.PNG).
+
+Logo, as classes são:
+
+![Classes usando a formula de Sturges](classes-de-sturges.PNG).
 
 
 
-
+# Criterio da raiz quadrada
 
 
 
