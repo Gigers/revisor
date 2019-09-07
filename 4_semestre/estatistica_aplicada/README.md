@@ -6,60 +6,33 @@ Revisões da matéria de estatística aplicada.
 
 Estatística é a `ciência que usa números para descrever dados`. Nos estudos estatísticos chama-se de `dados estatísticos os dados numéricos que nos permitem descrever e avaliar fatos para realizar previsões, estimativas e tomadas de decisões`.
 
-Outra definição é que estatística é o `conjunto de técnicas que permite, de forma sistemática, coletar, organizar, descrever, analisar e interpretar dados oriunos de estudos ou experimentoss`.
+Outra definição aplicável neste contexto é, `conjunto de técnicas que permite, de forma sistemática, coletar, organizar, descrever, analisar e interpretar dados oriunos de estudos ou experimentoss`.
 
 Este dados estatísticos podem ser representados por [Tabelas](#tabelas) ou [Gráficos](#Gráficos).
 
 ## Conceitos 
 
-### Populacao
+### População
 
-Conjunto de todos os elementos de um fenômeno que possuem uma característica em comum, ou seja, todos os indivíduos ou objetos que fazem parte do estudo. Geralmente é representada pela letra `N`.
+Conjunto de todos os elementos de um fenômeno que possui uma característica em comum, ou seja, todos os indivíduos ou objetos que fazem parte de um estudo. Geralmente é representada pela letra `N`.
 
 ### Amostra
 
-É um subconjunto da população que deve ser representativa de moda que ela expresse todas as características da população. Geralmente a amostra é representada pela letra `n`
+É um subconjunto representativa da população, permitindo que todas as características da população sejam descritas e entendidas. Geralmente a amostra é representada pela letra `n`
 
 ### Análise estatística
 
-Uma análise estatística distinguem-se duas etapas:
+A análise estatística apresenta duas etapas:
 
 #### Etapa 1: Estatística Descritiva
 
-Procura-se descrever, resumir e agrupar dados, afim qde que se possam tirar conclusões a respeita das características de interesse.
+Procura-se descrever, resumir e agrupar dados, afim de tirar conclusões sobre os dados.
 
-Algumas técnincas descritivas são: gráficos, tabelas, médias, variâncias, etc.
+Algumas técnicas descritivas são: gráficos, tabelas, médias, variâncias, etc.
 
 #### Etapa 2: Estatística Indutiva
+
 Após conhecidas certas propriedades, imaginam-se proposições que exprimam conclusões para toda a população.
-
-
-## Regras de arrendondamento
-
-### Caso 1
-
-O algarismo a ser conservado for seguido de algarismo inferior a 5, permanece o algarismo a ser conservado e retiram-se os posteriores.
-
-Ex: 2,333333 arredondado a primeira decimal torna-se 2,3
-
-### Caso 2
-
-Quando o algarismo a ser conservado for seguido de algarismo superior a 5, ou igual a 5 seguido de no mínimo um algarismo diferente de zero, soma-se uma unidade ao algarismo a ser conservado e retiram-se os posteriores
-
-Ex: 2,6666 arredondado a primeira decimal torna-se 2,7;
-Ex: 5,850 arredondado a primeira decimal torna-se 4,9;
-
-### Caso 3
-
-O algarismo a ser conservado a ser conservado for ímpar, seguido de 5 e posteriormente de zeros, soma-se uma unidade ao algarismo conservado e retira-se os posteriores
-
-Ex: 5,5550 arredondado a primeira decima torna-se 4,6;
-
-###  Caso 4
-
-O algarismo a ser conservado for par, seguido de 5 e posteriormente de zeros, permanece o algarismo a ser conservado e retira-se os posteriores
-
-Ex: 5,850 arredondado a primeira decimal torna-se 5,8
 
 ## Estatística Descritiva
 
@@ -77,7 +50,7 @@ Para estes dados, podemos construir o ROL:
 
 `0, 0, 0, 0, 1, 1, 1, 2, 2, 3.`
 
-*Note que o ROL possui a mesma quantidade de dados inicialmente coletados. Ou seja, em nosso exemplo anterior, obteve-se 10 valores. Logo, o ROL deve possuir 10 valores também.*
+*Note que o ROL possui a mesma quantidade de dados inicialmente coletados, ou seja, em nosso exemplo anterior, obteve-se 10 valores, logo, o ROL deve também possuir 10 valores.*
 
 ### Frequências
 
@@ -347,7 +320,36 @@ Agora, calcularemos o desvio médio, lembrando que a [frequencia de absoluta](#F
 ![Calculo do desvio padrao](images/exemplo-desvio-medio.PNG)
 
 
+## Utilidades
 
+Abaixo são listados tópicos que podem ajudar na realização do entendimento e realização de exercícios estatísticos.
+
+## Regras de arrendondamento
+
+### Caso 1
+
+Se algarismo a ser conservado for seguido de algarismo inferior a 5, permanece o algarismo a ser conservado e retiram-se os posteriores.
+
+Ex: 2,333333 arredondado a primeira decimal torna-se 2,3
+
+### Caso 2
+
+Quando o algarismo a ser conservado for seguido de algarismo superior a 5, ou igual a 5 seguido de no mínimo um algarismo diferente de zero, soma-se uma unidade ao algarismo a ser conservado e retiram-se os posteriores
+
+Ex: 2,6666 arredondado a primeira decimal torna-se 2,7;
+Ex: 5,850 arredondado a primeira decimal torna-se 4,9;
+
+### Caso 3
+
+O algarismo a ser conservado a ser conservado for ímpar, seguido de 5 e posteriormente de zeros, soma-se uma unidade ao algarismo conservado e retira-se os posteriores
+
+Ex: 5,5550 arredondado a primeira decima torna-se 4,6;
+
+###  Caso 4
+
+O algarismo a ser conservado for par, seguido de 5 e posteriormente de zeros, permanece o algarismo a ser conservado e retira-se os posteriores
+
+Ex: 5,850 arredondado a primeira decimal torna-se 5,8
 
 
 ## Referências
@@ -355,7 +357,3 @@ Agora, calcularemos o desvio médio, lembrando que a [frequencia de absoluta](#F
 * [1] Bosquilha, A; Corrêa, M.L.P; Viveiro, T.C.N.G. Minimanual compacto de matemática : teoria e prática : ensino médio: 2. ed. rev.São Paulo: Editora Rideel, 2003
 * [2] ESTATÍSTICA. Disponível em: [<http://professorguru.com.br/estatistica/index.html>](http://professorguru.com.br/estatistica/index.html). Acesso: 2 semestre de 2019	
 * [3] Associação Brasileira de Normas Técnicas. Regras de arredondamente na numeração decimal. Rio de Janeiro: 2014
-
-
-
-
