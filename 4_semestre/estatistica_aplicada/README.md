@@ -1,7 +1,3 @@
-
-
-Revisões da matéria de estatística aplicada.
-
 ## Visão geral
 
 Estatística é a `ciência que usa números para descrever dados`. Nos estudos estatísticos chama-se de `dados estatísticos os dados numéricos que nos permitem descrever e avaliar fatos para realizar previsões, estimativas e tomadas de decisões`.
@@ -9,6 +5,8 @@ Estatística é a `ciência que usa números para descrever dados`. Nos estudos 
 Outra definição aplicável neste contexto é, `conjunto de técnicas que permite, de forma sistemática, coletar, organizar, descrever, analisar e interpretar dados oriunos de estudos ou experimentoss`.
 
 Este dados estatísticos podem ser representados por [Tabelas](#tabelas) ou [Gráficos](#Gráficos).
+
+Para você que está fazendo esta matéria agora, existe um conjunto de funções e classes (R e Python) que podem te ajudar a resolver os exercícios da aula. O pacote está disponível [aqui](https://github.com/M3nin0/nancian).
 
 ## Conceitos 
 
@@ -18,7 +16,7 @@ Conjunto de todos os elementos de um fenômeno que possui uma característica em
 
 ### Amostra
 
-É um subconjunto representativa da população, permitindo que todas as características da população sejam descritas e entendidas. Geralmente a amostra é representada pela letra `n`
+É um subconjunto representativa da população, permitindo que todas as características da população sejam descritas e entendidas.
 
 ### Análise estatística
 
@@ -54,27 +52,29 @@ Para estes dados, podemos construir o ROL:
 
 ### Frequências
 
+As frequências apresentadas abaixo são utilizadas no processo de distribuição de frequências, onde tem-se como objetivo separar os dados em classes e intervalos que permitam uma forma mais simples e direta de extrair informações sobre seus comportamentos.
+
 #### Frequências Simples ou absoluta (fi)
 
-É o número de vezes que determinado valor é observado. É válido observar que a soma de todas as frequências simples ou absoluta resultado no tamanho total da amostra `(n)`:
+É o número de vezes que determinado valor é observado. A soma de todas as frequências simples devem resultar na quantidade de elementos `(n)` da amostra.
 
 ![Fórmula Frequência absoluta](images/frequencia_absoluta.PNG)
 
 #### Frequência relativa (fri)
 
-São os valores das razões (quociente) entre as frequências simples e a frequencia total multiplicada por 100 para que os dados sejam apresentados em porcentagem.
+São os valores das razões (quociente) entre cada frequência simples e a quantidade de amostras `(n)`, sendo o resultado da operação multiplicado por 100.
 
 ![Fórmula Frequencia relativa](images/frequencia_relativa.PNG)
 
 #### Frequência Acumulada Simples (Fi)
 
-Consiste na somatória das frequências absolutas anteriores.
+Consiste na somatória das frequências simples
 
 ![Fórmula Frequência Acumulada Simples](images/frequencia_acumulada_simples.PNG)
 
 #### Frequência Acumuada Relativa (Fri)
  
-Consiste na frequência acumulada da class dividida pela frequência total da distribuição, multiplicando-se por 100 para obtermos porcentagem. 
+Consiste na frequência acumulada da classe dividida pela frequência total da distribuição, isto multiplicado por 100.
 
 ![Fórmula Frequência Acumuada Relativa](images/frequencia_acumulada_relatativa.PNG)
 
