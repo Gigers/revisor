@@ -1,6 +1,6 @@
-# Estrututa de dados
+# Estrutura de dados
 
-Estruturas de dados são formas otimizadas de armazenar e tratar os dados no meio eletrônico. Este é um campo da ciência da computação de extrema importância, isso porque como é sabido, o campo principal da ciência da computação é a informação.
+Estrutura de dados são formas otimizadas de armazenar e tratar os dados no meio eletrônico. Este é um campo da ciência da computação de extrema importância, isso porque como é sabido, o campo principal da ciência da computação é a informação.
 
 Os estudos realizados nesta área, tratam de transformar as formas de armazenamento vistas no dia-a-dia em formatos estruturados no meio computacional.
 

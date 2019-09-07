@@ -12,7 +12,7 @@
  * São dinâmicas no tamanho;
  * Os elementos podem ser de tipos diferentes
 
-OBS: Ao analisar um algoritimo, coloque primeiro o pior caso.
+OBS: Ao analisar um algoritmo, coloque primeiro o pior caso.
 
 * Slides (https://www.ime.usp.br/~pf/algoritmos-livro/slides/SLIDES-A.pdf)
  * Pagina 33
