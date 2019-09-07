@@ -38,7 +38,7 @@ Após conhecidas certas propriedades, imaginam-se proposições que exprimam con
 
 ### ROL
 
-Chama-se ROL a sequência de dados brutos ordenada de forma crescente.
+Chama-se ROL a sequência de dados brutos ordenada de forma crescente ou decrescente.
 
 #### Exemplo de construção de um ROL
 
