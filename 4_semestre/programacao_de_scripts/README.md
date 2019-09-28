@@ -692,19 +692,28 @@ const car = {
 }
 car.fullName()// undefined undefined 
 ```
+### Promises
 
+A `Promises`("promessa") é um objeto usado para processamento assíncrono e representa valor que pode estar disponível agora,no futuro ou nunca. Nas promises utilizamos o `then` para quando ela tem sucesso e o `catch` para capturar qualquer erro que venha a ocorrer. 
+Para criarmos uma Promise é muito simples, basta inicializar um new Promise que recebe uma função como parâmetro, esta função tem a assinatura `(resolve, reject) => {} `, então podemos realizar nossas tarefas assíncronas no corpo desta função, quando queremos retornar o resultado final fazemos `resolve(resultado)` e quando queremos retornar um erro fazemos `reject(erro)` .
+
+#### Estados das promises
+
+Uma promises pode estar em 4 estados:
+1. `Pending`: O estado inicial da promise,  ela foi inicializada, mas ainda não foi realizada nem rejeitada.
+2. `Fulfilled`:  A promises foi realizar com sucesso, isto é, ela realizou seu processamento com sucesso.
+3. `Rejected`: A promises foi rejeitada, isto é, ela obteve algum erro durante sua execução.
+4. `Settled`: O estado final da promise, neste estado ja sabemos se ela foi resolvida ou rejeitada.
 
 ## Referencias
 * [1] JavaScript. Disponível em: [https://www.w3schools.com/js/](https://www.w3schools.com/js/). Acesso: 2 semestre de 2019
 * [2] HTML. Disponível em: [https://www.w3schools.com/html/](https://www.w3schools.com/html/). Acesso: 2 semestre de 2019
 * [3] CSS. Disponível em: [https://www.w3schools.com/css/](https://www.w3schools.com/css/). Acesso: 2 semestre de 2019
 * [4] Seletores CSS. Disponível em: [https://developer.mozilla.org/pt-BR/docs/Web/CSS/Seletores_CSS](https://developer.mozilla.org/pt-BR/docs/Web/CSS/Seletores_CSS). Acesso: 2 semestre de 2019
+* [5] JS. Disponível em: [https://developer.mozilla.org/pt-BR/docs/Web/JavaScript](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript). Acesso: 2 semestre de 2019
 
 
-<!-- https://www.w3schools.com/js/js_datatypes.asp -->
-<!-- https://www.w3schools.com/js/js_functions.asp -->
 <!-- https://www.w3schools.com/js/js_hoisting.asp -->
-<!-- https://www.w3schools.com/js/js_arrow_function.asp -->
 <!-- https://www.w3schools.com/js/js_this.asp -->
 <!-- https://www.w3schools.com/js/js_es6.asp -->
 <!-- https://www.w3schools.com/js/js_classes.asp -->
