@@ -589,6 +589,110 @@ function minhaFuncao(value) {
 }
 
 ```
+### Funções
+Funções são um bloco de código designado para executar uma tarefa em particular e ela é executa quando é chamada. 
+Por exemplo,
+``` js
+// Declaração
+function produto(p1, p2) {
+  return p1 * p2;   // Retorna o produto de dois números
+}
+// Chamada da função
+produto(3,4) // 12
+```
+#### Sintaxe
+
+Uma função é definida através da palavra reservada `function` seguindo de um nome para função e por último seus parâmetros `()`.
+Os parâmetros são separados por vírgulas `function soma(n1,n2,n3)` e dentro da função os parâmetros se comportam como variáveis locais.
+A função é executada até encontrar um `return` e então a execução para o ponto de onde foi chamada.
+**Lembre-se para executar uma função necesita colocar `()` com seus argumentos, caso não haja os parenteses será mostrado a definição da função.**
+
+``` js
+function produto(p1, p2) {
+  return p1 * p2;   // The function returns the product of p1 and p2
+}
+produto // produto() \n arguments: null \n caller: null \n length: 2 \n name:"produto" \n prototype: Object { … }
+produto(4,3) // 12
+​
+<prototype>: function ()
+```
+
+**As variáveis de funções tem escopo local, logo podem ser usadas somente dentro da função**
+#### Funções anônimas
+Em JavaScript funções também são um tipo de data, logo é possível armazená-las em variáveis. O benefício deste recurso é você poder usar uma função como um objeto e passá-la como argumentos em outras funções.
+
+``` js
+var txt = "";
+var numeros = [45, 4, 9, 16, 25];
+var concatena = function (value) {
+  txt = txt + value + "<br>";
+}
+numeros.forEach(concatena);
+
+txt // "45<br>4<br>9<br>16<br>25<br>"
+
+```
+#### Arrow functions
+
+As `arrows functions` é um sintaxe mais curta de escrever uma função em JavaScript.
+Logo a função
+``` js
+ola = function() {
+  return "Hello World!";
+} 
+```
+Pode ser reescrita da seguinte forma
+```js
+ola = () => {
+  return "Hello World!";
+} 
+```
+
+Além disso, se a função tem apenas um comando você pode omitir as chaves `{}`.
+
+``` js
+ola = () => "Hello World!"; 
+```
+
+ou com parâmetros
+
+``` js
+ola = (val) => "Hello " + val; 
+```
+
+E se a funçaõ tiver apenas um parâmetro podemos omitir os parenteses `()`
+```js
+ ola = val => "Hello " + val; 
+```
+
+##### A palavra `this` em Arrow Functions
+Em função normais a palavra `this` se refere ao escopo na qual ela foi definida, enquando na `arrow function` a palavra  `this` é herdado do contexto da execução.
+
+Exemplo usando funcão normal
+```js 
+const car = {
+  model: 'Fiesta',
+  manufacturer: 'Ford',
+  fullName: function() {
+    return `${this.manufacturer} ${this.model}`
+  }
+}
+car.fullName() // Ford Fiesta
+```
+
+Exemplo usando `arrow functions`
+
+```js 
+const car = {
+  model: 'Fiesta',
+  manufacturer: 'Ford',
+  fullName: () => {
+    return `${this.manufacturer} ${this.model}`
+  }
+}
+car.fullName()// undefined undefined 
+```
+
 
 ## Referencias
 * [1] JavaScript. Disponível em: [https://www.w3schools.com/js/](https://www.w3schools.com/js/). Acesso: 2 semestre de 2019
