@@ -152,7 +152,9 @@ Neste exemplo selecionamos todas as tags `strong`, e dentro das chaves definimos
 
 ##### Seletor por tag
 Este seletor escolhe todos os elementos que correspondem ao nome fornecido.
+
 **Sintaxe:** `nome-da-tag`
+
 **Exemplo:** input corresponderá a qualquer elemento input.
 ``` css
 input{
@@ -161,7 +163,9 @@ input{
 ```
 ##### Seletor por classe
 Este seletor escolhe todos os elementos baseados no valor do seu atributo `classe`.
+
 **Sintaxe:** `.nome-da-classe`
+
 **Exemplo:** `index` corresponderá a qualquer elemento que tenha a classe `index`.
 ``` css
 .index{
@@ -170,7 +174,9 @@ Este seletor escolhe todos os elementos baseados no valor do seu atributo `class
 ```
 ##### Seletor por ID
 Este seletor escolhe o elemento baseados no valor do seu atributo `id`. Deve existir apenas um elemento com determinado ID no mesmo documento.
+
 **Sintaxe:** `#nome-do-id`
+
 **Exemplo:** `#toc` corresponderá ao elemento que tem o id `toc`.
 ``` css
 #toc{
@@ -179,7 +185,9 @@ Este seletor escolhe o elemento baseados no valor do seu atributo `id`. Deve exi
 ```
 ##### Seletor por atributo
 Este seletor básico irá escolher os elementos baseados no valor de seus atributos, ou até mesmo pelo próprio atributo.
+
 **Sintaxe:** `[atrib] [atrib=valor] [atrib*=valor]`
+
 **Exemplo:** `td[colspan="2"]` corresponderá a todos elementos que tem o atributo  `colspan` igual a 2.
 ``` css
 td[colspan="2"]{
@@ -191,7 +199,9 @@ td[colspan="2"]{
 
 ##### Seletores de irmãos adjacentes(vizinhos)
 O combinador `+` seleciona os elementos que seguem imediatamente o elemento especificado anteriormente.
+
 **Sintaxe:** A + B
+
 **Exemplo:** `ul + li` irá corresponder a qualquer elemento `<li>` que segue imediatamente após um elemento `<ul>`
 ``` css
 ul + li {
@@ -201,7 +211,9 @@ ul + li {
 ```
 ##### Seletores gerais de irmãos
 O combinador `~` seleciona os elementos que seguem(não necessariamente imediatamente)o elemento especificado anteriormente, se ambos elementos compartilham o mesmo pai.
+
 **Sintaxe:** A + B
+
 **Exemplo:** `p ~ span` irá corresponder a qualquer elemento `<span>` que seguir um elemento `<p>` dentro de um mesmo pai.
 ``` css
 p ~ span {
@@ -211,7 +223,9 @@ p ~ span {
 ```
 ##### Seletores de filhos
 O combinador `>` seleciona os elementos são filhos diretos do elementos especificado anteriormente.
+
 **Sintaxe:** A > B
+
 **Exemplo:** `ul > li` irá corresponder a qualquer elemento `<li>` que estiver diretamente dentro de um elemento `<ul>`
 ``` css
 ul > li {
@@ -221,7 +235,9 @@ ul > li {
 ```
 ##### Seletores de descendentes
 O combinador ` ` seleciona os elementos são filhos do elementos especificado anteriormente.(não é necessário que seja um filho direto).
+
 **Sintaxe:** A B
+
 **Exemplo:** `div span` irá corresponder a qualquer elemento `<span>` que estiver dentro de um elemento `<div>`
 ``` css
 div span {
@@ -231,7 +247,9 @@ div span {
 ```
 ##### Seletores multiplos
 O combinador `,` seleciona os elementos listados. Este elementos não precisam ter relação de proximidade.
+
 **Sintaxe:** A,B
+
 **Exemplo:** `p, span` irá corresponder a qualquer elemento `<span>` e  qualquer elemento `<p>` dentro do documento.
 ``` css
 p, span {
@@ -302,7 +320,7 @@ let n = 123;
 n = 12.345;
 ```
 
-#### Stringg
+#### String
 O tipo de dados `string` é usado para representar cadeias de caracteres. Eles podem ser construídas usando três tipos de aspas:
 
 1. Aspas duplas: "Hello"
@@ -314,9 +332,9 @@ let str = "Hello";
 let str2 = 'Mundo!';
 let frase = `Ola  ${str2}`; // Ola Mundo
 ```
-#### Booleano 
+#### Boolean
 
-O tipo booleano tem apenas dois valores: `true` e `false`.
+O tipo boolean tem apenas dois valores: `true` e `false`.
 
 Este tipo é comumente usado para armazenar valores de sim/não: `true` significa "sim, correto", e `false` significa "não, incorreto".
 
