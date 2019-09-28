@@ -777,7 +777,7 @@ Segundo exemplo: em vez de adicionar um número a cada col, deixe a inicializaç
 * [3] CSS. Disponível em: [https://www.w3schools.com/css/](https://www.w3schools.com/css/). Acesso: 2 semestre de 2019
 * [4] Seletores CSS. Disponível em: [https://developer.mozilla.org/pt-BR/docs/Web/CSS/Seletores_CSS](https://developer.mozilla.org/pt-BR/docs/Web/CSS/Seletores_CSS). Acesso: 2 semestre de 2019
 * [5] JS. Disponível em: [https://developer.mozilla.org/pt-BR/docs/Web/JavaScript](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript). Acesso: 2 semestre de 2019
-
+* [6] BoptStrap 4 Grid system. Disponível em: [https://www.w3schools.com/bootstrap4/bootstrap_grid_system.asp](https://www.w3schools.com/bootstrap4/bootstrap_grid_system.asp). Acesso: 2 semestre de 2019
 
 <!-- https://www.w3schools.com/js/js_hoisting.asp -->
 <!-- https://www.w3schools.com/js/js_this.asp -->
