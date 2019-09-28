@@ -282,16 +282,6 @@ O seletor `first-line` selecionará a primeira linha de todo elemento `<p>` e mo
 h
 Outros pseudo-elementos estão disponíveis na documentação ![na documentação](https://developer.mozilla.org/pt-BR/docs/Web/CSS/Pseudo-elementos#%C3%8Dndice_de_pseudo-elementos_comuns)
 
-<!-- https://www.w3schools.com/js/js_datatypes.asp -->
-<!-- https://www.w3schools.com/js/js_functions.asp -->
-<!-- https://www.w3schools.com/js/js_hoisting.asp -->
-<!-- https://www.w3schools.com/js/js_arrow_function.asp -->
-<!-- https://www.w3schools.com/js/js_this.asp -->
-<!-- https://www.w3schools.com/js/js_es6.asp -->
-<!-- https://www.w3schools.com/js/js_classes.asp -->
-<!-- https://www.w3schools.com/js/js_errors.asp -->
-<!-- https://www.w3schools.com/js/js_events.asp -->
-<!-- https://www.w3schools.com/js/js_function_closures.asp -->
 ## JavaScript
 ### Variávies
 Uma variável em JavaScript é dinamicamente tipada, isto é, uma variável pode conter qualquer conteúdo. Por exemplo:
@@ -428,3 +418,192 @@ O operador `typeof` nos permite ver qual tipo é armazenado em uma variável.
 - Duas formas: `typeof x` ou `typeof(x)`.
 - Retorna uma string com o nome do tipo, como `"string"`.
 - Para `null` retorna `"object"` -- isso é um erro na linguagem, não é realmente um objeto.
+
+
+### Arrays
+
+Arrays são usados para armazenar múltiplos valores em uma única variável.
+
+Por exemplo:
+
+``` js
+var carros = ['Golfão', 'Polão','Golzeta rabaixada']
+```
+#### Criando um array
+
+> var array_name  = [item1, item2, item3, ...]
+
+Por exemplo:
+
+``` js
+var carros = ['Golfão', 'Polão','Golzeta rabaixada']
+```
+#### Acessando os elementos de um arrray
+
+Voce pode acessar o elemento de um array se referindo ao seu indice.
+
+Por exemplo, para pegar o primeiro elemento do array `carros`:
+
+```js
+carros[0]
+```
+
+**Note: O array começa com indice 0**
+
+#### Alterando um elemento do array
+
+Para mudar o elemento de um array basta usar a variável e o indice que se deseja mudar:
+
+Por exemplo: 
+``` js
+	carros[0] = "Jettão"
+```
+
+#### Arrays são objetos 
+Arrays são um tipo especial de objeto. A função `typeof` retorna `object` para um array. Contudo, é recomendado se referir a Javascript array como Array. A dirença entre `array`e `object` se dá pelo fato de que:
+
+* Arrays usam **números** para acessar seus elementos. Por exempo: ``` carros[0] ```
+* Objetos usam **nomes ou chaves** para acessar seus elementos. Por exemplo: ``` carro.nome ```
+
+#### Métodos de um array
+
+##### Array.toString()
+Converte um array em uma string, com os elementos separados por vírgula.
+
+``` js
+var frutas = ["Banana", "Laranja", "Maça", "Manga"];
+frutas.toString() // Banana, Laranja, Maça, Manga
+``` 
+##### Array.join()
+Junta todos os elementos de um array. Funciona da maneira semalhante a função [toString()](#Array.toString()) com a diferença que você pode determinar o separador.
+
+``` js
+var frutas = ["Banana", "Laranja", "Maça", "Manga"];
+frutas.join(" * ") // Banana * Laranja * Maça * Manga
+``` 
+
+##### Array.pop()
+Remove o último item do array.
+``` js
+var frutas = ["Banana", "Laranja", "Maça", "Manga"];
+frutas.pop() // ["Banana", "Laranja", "Maça"]
+``` 
+
+##### Array.push()
+Adiciona um item no fim do array
+``` js
+var frutas = ["Banana", "Laranja", "Maça", "Manga"];
+frutas.push("Abacate") //["Banana", "Laranja", "Maça", "Manga", "Abacate"];
+```
+
+#### Método de iteração em Arrays
+
+##### Array.forEach()
+O método forEach() chama uma função em cada elemento do array.
+
+``` js
+var txt = "";
+var numeros = [45, 4, 9, 16, 25];
+numeros.forEach(minhafuncao);
+
+function minhafuncao(value, index, array) {
+  txt = txt + value + "<br>";
+}
+console.log(txt) 
+```
+
+##### Array.Map()
+O método map() cria um novo executando uma função em cada elemento do array. Este método não executa a função para um array com elementos sem valores. Além disso, o método não muda o array original.
+
+Este exemplo multiplica cada posicao do array por 2:
+
+``` js 
+var numeros1 = [45, 4, 9, 16, 25];
+var numeros2 = numeros1.map(minhaFuncao);
+
+function minhaFuncao(value, index, array) {
+  return value * 2;
+}
+```
+
+##### Array.Filter()
+
+O método filter() cria um novo array com todos os elementos que passaram no teste da função de callback.
+
+No exemplo a seguir é criado um novo array com todos os elementos maiores do que 18.
+
+``` js
+var numeros = [45, 4, 9, 16, 25];
+var maior18 = numeros.filter(minhaFuncao);
+
+function minhaFuncao(value, index, array) {
+  return value > 18;
+} 
+```
+
+##### Array.Reduce()
+O método reduce() executa uma função em cada elemento do para produzir (reduzí-lo) em um único valor.Este método funciona da esquerda para a direita, isto é, do início até o fim do array.
+
+No exemplo abaixo teremos a soma de todos os elementos do array.
+ 
+``` js
+var numeros = [45, 4, 9, 16, 25];
+var soma = numeros.reduce(minhaFuncao);
+
+function minhaFuncao(total, value, index, array) {
+  return total + value;
+} 
+```
+Note que a função recebe 4 argumentos:
+1. O total (O valor inicial)
+2. O conteúdo da posição
+3. O indice da posição
+4. O array
+
+Contudo, a função pode recebe apenas dois parâmetros (value, total):
+
+``` js
+var numeros = [45, 4, 9, 16, 25];
+var soma = numeros.reduce(minhaFuncao);
+
+function minhaFuncao(total, value) {
+  return total + value;
+} 
+``` 
+
+
+Note as função de iteração sobre um array, com exceção do reduce, recebem três argumentos:
+1. O conteúdo do índice
+2. O indice do array
+3. O próprio array
+
+Contudo, você pode usar somente o valor como parâmetro
+
+``` js
+var txt = "";
+var numeros = [45, 4, 9, 16, 25];
+numeros.forEach(minhaFuncao);
+
+function minhaFuncao(value) {
+  txt = txt + value + "<br>";
+}
+
+```
+
+## Referencias
+* [1] JavaScript. Disponível em: [https://www.w3schools.com/js/](https://www.w3schools.com/js/). Acesso: 2 semestre de 2019
+* [2] HTML. Disponível em: [https://www.w3schools.com/html/](https://www.w3schools.com/html/). Acesso: 2 semestre de 2019
+* [3] CSS. Disponível em: [https://www.w3schools.com/css/](https://www.w3schools.com/css/). Acesso: 2 semestre de 2019
+* [4] Seletores CSS. Disponível em: [https://developer.mozilla.org/pt-BR/docs/Web/CSS/Seletores_CSS](https://developer.mozilla.org/pt-BR/docs/Web/CSS/Seletores_CSS). Acesso: 2 semestre de 2019
+
+
+<!-- https://www.w3schools.com/js/js_datatypes.asp -->
+<!-- https://www.w3schools.com/js/js_functions.asp -->
+<!-- https://www.w3schools.com/js/js_hoisting.asp -->
+<!-- https://www.w3schools.com/js/js_arrow_function.asp -->
+<!-- https://www.w3schools.com/js/js_this.asp -->
+<!-- https://www.w3schools.com/js/js_es6.asp -->
+<!-- https://www.w3schools.com/js/js_classes.asp -->
+<!-- https://www.w3schools.com/js/js_errors.asp -->
+<!-- https://www.w3schools.com/js/js_events.asp -->
+<!-- https://www.w3schools.com/js/js_function_closures.asp -->
