@@ -723,6 +723,54 @@ Uma promises pode estar em 4 estados:
 3. `Rejected`: A promises foi rejeitada, isto é, ela obteve algum erro durante sua execução.
 4. `Settled`: O estado final da promise, neste estado ja sabemos se ela foi resolvida ou rejeitada.
 
+## Bootstrap
+### Bootstrap Grid System
+O Grid system do Bootstrap nos permite divier a página em doze colunas. O grid system é responsivo e as colunas são reorganizadas dependendo do tamanho da tela.
+#### Grid Classes
+O grid system do bootstrap tem cinco classes
+* `.col-` ( largura de tela menor do que 576px)
+* `.col-sm` ( largura de tela maior ou igual do que 576px)
+* `.col-md` ( largura de tela maior ou igual do que 768px)
+* `.col-lg` ( largura de tela maior ou igual  do que 992x)
+* `.col-xl` ( largura de tela maior ou igual do que 1200px)
+
+As classes acima podem ser combinadas para criar layouts flexíveis e dinâmicos.
+
+**Dica:** Cada classe aumenta de escala; portanto, se você deseja definir as mesmas larguras para `sm` e `md`, é necessário especificar apenas `sm`.
+
+#### Regras do grid system
+* Linhas(`rows`) devem estar localizadas dentro de uma classe `.container` (tamanho-fixo) ou `.container-fluid` (tamanho total da tela) para alinhamento(aling) e preenchimento(padding) adequados.
+* As linhas(`rows`) devem ser usada para criar grupos horizontais de colunas
+* O conteúdo deve ser colocado dentro das colunas(`col`) e apenas as colunas(`col`) podem ser filhos imediatos das linhas(`rows`)
+* Classes predefinidas como `.row` e `.col-sm-4` estão disponíveis para criar layouts com grid system rapidamente
+* As colunas do grid system são criadas especificando o número colunas que deseja-se usar. Por exemplo, três colunas iguais usariam três `.col-sm-4`
+* As larguras das colunas são em porcentagem, portanto, elas são sempre fluidas e dimensionadas em relação ao elemento pai
+
+#### Estrutura básica do grid system do bootstrap 4
+``` html 
+<div class="container">
+	<!-- Controla a largura da coluna, e como ela aparece em diferentes dispositivos -->
+	<div class="row">
+		<div class="col-*-*"></div>
+		<div class="col-*-*"></div>
+		<div class="col-*-*"></div>
+	</div>
+
+	<!-- Deixando o bootstrap cuidar do tamanho -->
+	<div class="row">
+		<div class="col"></div>
+		<div class="col"></div>
+		<div class="col"></div>
+		<div class="col"></div>
+	</div> 
+</div>
+
+```
+
+Primeiro exemplo: crie uma linha (<div class = "row">). Em seguida, adicione o número desejado de colunas (tags com as classes .col - * - * apropriadas). A primeira estrela (*) representa a responsividade: sm, md, lg ou xl, enquanto a segunda estrela representa um número, que sempre deve somar 12 para cada linha.
+
+Segundo exemplo: em vez de adicionar um número a cada col, deixe a inicialização manipular o layout, para criar colunas de largura igual: dois elementos "col" = 50% de largura para cada col. três cols = 33,33% de largura para cada col. quatro colunas = 25% de largura, etc. Você também pode usar .col-sm | md | lg | xl para tornar as colunas responsivas.
+
 ## Referencias
 * [1] JavaScript. Disponível em: [https://www.w3schools.com/js/](https://www.w3schools.com/js/). Acesso: 2 semestre de 2019
 * [2] HTML. Disponível em: [https://www.w3schools.com/html/](https://www.w3schools.com/html/). Acesso: 2 semestre de 2019
