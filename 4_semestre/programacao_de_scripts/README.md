@@ -279,9 +279,152 @@ p::first-line {
 }
 ```
 O seletor `first-line` selecionará a primeira linha de todo elemento `<p>` e modificará a cor e colocará em letra maiúscula.
-
+h
 Outros pseudo-elementos estão disponíveis na documentação ![na documentação](https://developer.mozilla.org/pt-BR/docs/Web/CSS/Pseudo-elementos#%C3%8Dndice_de_pseudo-elementos_comuns)
-<!-- https://developer.mozilla.org/pt-BR/docs/Web/CSS/Seletores_CSS -->
-<!-- https://guilhermemuller.com.br/ead/html-css-na-pratica/sintaxe-seletores-css -->
-<!--  https://tableless.com.br/referencia-seletores-css/ -->
-<!-- https://drafts.csswg.org/selectors-4/
+
+<!-- https://www.w3schools.com/js/js_datatypes.asp -->
+<!-- https://www.w3schools.com/js/js_functions.asp -->
+<!-- https://www.w3schools.com/js/js_hoisting.asp -->
+<!-- https://www.w3schools.com/js/js_arrow_function.asp -->
+<!-- https://www.w3schools.com/js/js_this.asp -->
+<!-- https://www.w3schools.com/js/js_es6.asp -->
+<!-- https://www.w3schools.com/js/js_classes.asp -->
+<!-- https://www.w3schools.com/js/js_errors.asp -->
+<!-- https://www.w3schools.com/js/js_events.asp -->
+<!-- https://www.w3schools.com/js/js_function_closures.asp -->
+## JavaScript
+### Variávies
+Uma variável em JavaScript é dinamicamente tipada, isto é, uma variável pode conter qualquer conteúdo. Por exemplo:
+``` js
+let a = 3.1415 
+typeof a // number
+a = 'Olá mundo'
+typeof a // string
+
+```
+### Tipos de dados
+
+#### Number 
+O tipo de dado `number` é usado para representar números, sejam eles inteiros ou números com ponto flutuante(reais).
+Por exemplo.
+``` js
+let n = 123;
+n = 12.345;
+```
+
+#### Stringg
+O tipo de dados `string` é usado para representar cadeias de caracteres. Eles podem ser construídas usando três tipos de aspas:
+
+1. Aspas duplas: "Hello"
+2. Aspas simples: 'Hello'
+3. Crase: <code>&#96;Hello&#96;</code>
+
+``` js
+let str = "Hello";
+let str2 = 'Mundo!';
+let frase = `Ola  ${str2}`; // Ola Mundo
+```
+#### Booleano 
+
+O tipo booleano tem apenas dois valores: `true` e `false`.
+
+Este tipo é comumente usado para armazenar valores de sim/não: `true` significa "sim, correto", e `false` significa "não, incorreto".
+
+```js
+let campoNomeCheck = true; // sim, o campo do nome é verificado
+let campoIdadeCheck = false; // não, o campo idade não é verificado
+```
+
+#### O valor "null"
+
+O valor especial `null` não pertence a nenhum dos tipos descritos acima.
+
+```js
+let idade = null;
+```
+
+Em JavaScript, `null` não é uma "referência a um objeto não-existente" ou um "ponteiro nulo" como em outras linguagens.
+
+É apenas um valor especial que representa "nada", "vazio" ou "valor desconhecido".
+
+#### O valor "undefined"
+
+O valor especial `undefined` também se diferencia. Faz um tipo próprio, tal como `null`.
+
+O significado de `undefined` é "o valor não é atribuído".
+
+Se uma vaiável é declarada, mas não atribuida, então seu valor é `undefined`:
+
+```js run
+let x;
+
+alert(x); // mostra "undefined"
+```
+#### Objeto 
+Objetos são variaveis também. Mas objetos podem conter múltiplos valores.
+
+Este código declara múltiplos valores (Fiat, Uno, branca) para a variável carro:
+
+```js run
+var carro = {tipo:"Fiat", modelo:"Uno", cor:"branca"};
+```
+
+Os valores são escritos com o par  `chave:valor`
+
+> Objetos JavaScript são containers para valores nomeados denominados de propriedade.
+
+Seguindo o exemplo anterior temos a seguinte tabela de propriedade
+
+Propriedade | Valor da Propriedade
+------------|----------------------
+tipo | Fiat
+modelo | Uno 
+cor | branca
+
+
+Para acessar o valor de uma propriedade usa-se a seguinte sintaxe:
+
+>  Objeto. valor 
+
+No exemplo anterior
+``` js 
+carro.cor //branca
+```
+
+###### Métodos em objetos JS
+Objetos também podem conter métodos. Os métodos são armazenados nas propriedades como funções 
+
+Exemplo: 
+
+``` js 
+var person = {
+  firstName: "Joao",
+  lastName : "Silva",
+  id       : 5566,
+  fullName : function() {
+    return this.firstName + " " + this.lastName;
+  }
+};
+
+person.fullName() // Joao Silva
+```
+Neste exemplo a palavra `this` em `this.firstName` referencia a propriedade `firstName` deste Objeto.
+
+**Note que o padrão JSON(JavaScript Object Notation) é basicamente um objeto em JS.**
+
+#####  Resumo
+
+Existem 6 tipos básicos em JavaScript.
+
+- `number` para números de qualquer tipo: inteiro ou ponto flutuante.
+- `string` para cordas. Uma cadeia de caracteres pode ter um ou mais caracteres, não há nenhum tipo de caractere único separado.
+- `boolean` para `true`/`false`.
+- `null` para valores desconhecidos -- um tipo autônomo que tem um único valor `null`.
+- `undefined` para valores não atribuídos -- um tipo autônomo que tem um único valor `undefined`.
+- `object` para estruturas de dados mais complexas.
+
+O operador `typeof` nos permite ver qual tipo é armazenado em uma variável.
+
+- Duas formas: `typeof x` ou `typeof(x)`.
+- Retorna uma string com o nome do tipo, como `"string"`.
+- Para `null` retorna `"object"` -- isso é um erro na linguagem, não é realmente um objeto.
