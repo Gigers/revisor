@@ -12,7 +12,8 @@ Repo para criação de revisões comunitárias das matérias da Fatec SJC
 * Guilherme Pinto (@Guillhermegpp);
 * Rodrigo dos Santos (@Krod);
 * Mauricio Kiyoshi (@kyassunaga);
-* Lucas Ribeiro (@LukasRibeiro).
-* Lucas Salvador (@LASalvador)
+* Lucas Ribeiro (@LukasRibeiro);
+* Lucas Salvador (@LASalvador);
+* Jonathas Henrique de Moraes (@JonyHM).
 
 Obrigado a todos que vem colaborando com o projeto.
