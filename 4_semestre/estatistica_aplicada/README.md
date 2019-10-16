@@ -354,6 +354,47 @@ A variância amostral é representada por (s²) e sua fórmula é:
 
 ![Formula de variancia amostral](images/formula-variancia-amostral.PNG)
 
+## Probabilidade
+
+### Conceitos
+ 
+#### Experimentos Aleatorios 
+
+Fenômenos que, quando repetidos inúmeras vezes em processos semelhantes, possuem resultados imprevisíveis. Por exemplo, O lançamento de um dado e de uma moeda são considerados exemplos de experimentos aleatórios. No caso dos dados podemos ter seis resultados diferentes {1, 2, 3, 4, 5, 6} e no lançamento da moeda, dois {cara, coroa}. 
+#### Espaço Amostral
+São os resultados possíveis que podem ser produzidos de um determinado evento aleatório.
+
+#### Eventos
+Evento é qualquer subconjunto do espaço amostral e geralmente os eventos são representados por letras maiúsculas.
+
+Por exemplo, temos que o número possível de elementos no lançamento de um dado é o seu espaço amostral, que geralmente é representado pela letra grega maiúscula ômega (  Ω ). Ou seja, neste caso temos: 
+
+ Ω ={1, 2, 3, 4, 5, 6}. 
+
+Podemos definir um evento A da seguinte maneira:
+
+* A: sair um número par no lançamento de um dado.
+
+Neste caso, A={2,4,6},
+
+#### União de eventos
+
+Sejam A e B dois eventos; então (A U B) corresponde a um evento que ocorrerá quando uma das três condições forem satisfeitas:
+
+1. Ocorre A e não ocorre B
+2. Não ocorre A e ocorre B
+3. Ocorre A e ocorre B simultaneamente
+
+![Uniao de dois eventos](images/uniao-de-dois-eventos.jpg)
+
+*Figura: União de eventos*
+
+
+
+
+
+
+
 ## Utilidades
 
 Abaixo são listados tópicos que podem ajudar na realização do entendimento e realização de exercícios estatísticos.
