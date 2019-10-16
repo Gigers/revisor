@@ -391,10 +391,6 @@ Sejam A e B dois eventos; então (A U B) corresponde a um evento que ocorrerá q
 
 
 
-
-
-
-
 ## Utilidades
 
 Abaixo são listados tópicos que podem ajudar na realização do entendimento e realização de exercícios estatísticos.
