@@ -16,13 +16,9 @@ Como visto, as estruturas de dados trabalham para organizar, tratar e armazenar 
 
 As aulas aqui colocadas são referentes as aulas anotações que faço, durante as aulas do Fernando Masanori, na Fatec SJC.
 
-# Matérial
-
-Todo o matérial é fruto das pesquisas que faço, então caso encontre problemas ajuda-me a ir corrigindo.
-
 # Revisão
 
-Neste repositório há revisões bimentrais sobre o conteúdo da matéria de estrutura de dados
+Neste repositório há revisões bimentrais sobre o conteúdo da matéria de estrutura de dados (Fatec-SJC - 2018.2)
 
 # Algoritmos
 
