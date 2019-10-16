@@ -341,6 +341,19 @@ Agora, calcularemos o desvio médio, lembrando que a [frequencia de absoluta](#F
 ![Calculo do desvio padrao](images/exemplo-desvio-medio.PNG)
 
 
+### Variância
+
+#### Variância populacional
+A variância populacional é representada por (σ²) e sua fórmula é:
+
+![Formula de variancia populacional](images/formula-variancia-populacional.PNG)
+
+#### Variância amostral
+
+A variância amostral é representada por (s²) e sua fórmula é: 
+
+![Formula de variancia amostral](images/formula-variancia-amostral.PNG)
+
 ## Utilidades
 
 Abaixo são listados tópicos que podem ajudar na realização do entendimento e realização de exercícios estatísticos.
