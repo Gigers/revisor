@@ -1,71 +1,57 @@
-
-
-Revisões da matéria de estatística aplicada.
-
 ## Visão geral
 
-Estatística é a `ciência que usa números para descrever dados`. Nos estudos estatísticos chama-se de `dados estatísticos os dados numéricos que nos permitem descrever e avaliar fatos para realizar previsões, estimativas e tomadas de decisões`.
+Estatística é a `ciência que descreve dados`. Nos estudos estatísticos chama-se de `dados estatísticos os dados numéricos que nos permitem descrever e avaliar fatos para realizar previsões, estimativas e tomadas de decisões`.
 
-Outra definição é que estatística é o `conjunto de técnicas que permite, de forma sistemática, coletar, organizar, descrever, analisar e interpretar dados oriunos de estudos ou experimentoss`.
+Outra definição aplicável neste contexto é `conjunto de técnicas que permite, de forma sistemática, coletar, organizar, descrever, analisar e interpretar dados oriundos de estudos ou experimentos`.
 
 Este dados estatísticos podem ser representados por [Tabelas](#tabelas) ou [Gráficos](#Gráficos).
 
+Para você que está fazendo esta matéria agora, existe um conjunto de funções e classes (R e Python) que podem te ajudar a resolver os exercícios da aula. O pacote está disponível [aqui](https://github.com/M3nin0/nancian).
+
 ## Conceitos 
 
-### Populacao
+Este capítulo apresenta conceitos gerais utilizados na matéria de estatística básica.
 
-Conjunto de todos os elementos de um fenômeno que possuem uma característica em comum, ou seja, todos os indivíduos ou objetos que fazem parte do estudo. Geralmente é representada pela letra `N`.
+### População
+
+Conjunto de todos os elementos de um fenômeno que possui uma característica em comum, ou seja, todos os indivíduos ou objetos que fazem parte de um estudo. Geralmente é representada pela letra `N`.
 
 ### Amostra
 
-É um subconjunto da população que deve ser representativa de moda que ela expresse todas as características da população. Geralmente a amostra é representada pela letra `n`
+É um subconjunto representativa da população, permitindo que todas as características da população sejam descritas e entendidas.
+
+### Dados estatísticos
+
+O entendimento de todos os demais conceitos apresentados neste documento baseia-se na utilização de dados estatísticos, assim sendo, vamos para algumas definições de dados estatísticos e suas classificações.
+
+- Dados estatísticos: São os valores da variável obtidos nos elementos da população ou da amostra;
+- Variável: É qualquer característica da população que pode ser classificada em variável qualitativa ou variável quantitativa;
+    - Variável qualitativa: Quando a variável é um atributo (ou qualidade) do indivíduo pesquisado. Podem ser nominais ou ordinais
+      - Nominais: Não possui ordem dentre as categorias (Exemplo: Sexo, religião);
+      - Ordinais: Existe uma certa ordem (Exemplo: Escolaridade - 1° lugar, 2° lugar)
+    - Variável quantitativa: Quando a variável é um número associado ao indivíduo pesquisado. Podem ser contínuas ou discretas
+    - Discretas: Valores que assumem números inteiros e não tem uma alta variação;
+    - Contínua: Valores racionais (Q), com alta variação.
 
 ### Análise estatística
 
-Uma análise estatística distinguem-se duas etapas:
+A análise estatística apresenta duas etapas:
 
 #### Etapa 1: Estatística Descritiva
 
-Procura-se descrever, resumir e agrupar dados, afim qde que se possam tirar conclusões a respeita das características de interesse.
+Procura-se descrever, resumir e agrupar dados, afim de tirar conclusões sobre os dados.
 
-Algumas técnincas descritivas são: gráficos, tabelas, médias, variâncias, etc.
+Algumas técnicas descritivas são: gráficos, tabelas, médias, variâncias, etc.
 
 #### Etapa 2: Estatística Indutiva
+
 Após conhecidas certas propriedades, imaginam-se proposições que exprimam conclusões para toda a população.
-
-
-## Regras de arrendondamento
-
-### Caso 1
-
-O algarismo a ser conservado for seguido de algarismo inferior a 5, permanece o algarismo a ser conservado e retiram-se os posteriores.
-
-Ex: 2,333333 arredondado a primeira decimal torna-se 2,3
-
-### Caso 2
-
-Quando o algarismo a ser conservado for seguido de algarismo superior a 5, ou igual a 5 seguido de no mínimo um algarismo diferente de zero, soma-se uma unidade ao algarismo a ser conservado e retiram-se os posteriores
-
-Ex: 2,6666 arredondado a primeira decimal torna-se 2,7;
-Ex: 5,850 arredondado a primeira decimal torna-se 4,9;
-
-### Caso 3
-
-O algarismo a ser conservado a ser conservado for ímpar, seguido de 5 e posteriormente de zeros, soma-se uma unidade ao algarismo conservado e retira-se os posteriores
-
-Ex: 5,5550 arredondado a primeira decima torna-se 4,6;
-
-###  Caso 4
-
-O algarismo a ser conservado for par, seguido de 5 e posteriormente de zeros, permanece o algarismo a ser conservado e retira-se os posteriores
-
-Ex: 5,850 arredondado a primeira decimal torna-se 5,8
 
 ## Estatística Descritiva
 
 ### ROL
 
-Chama-se ROL a sequência de dados brutos ordenada de forma crescente.
+Chama-se ROL a sequência de dados brutos ordenada de forma crescente ou decrescente.
 
 #### Exemplo de construção de um ROL
 
@@ -77,38 +63,41 @@ Para estes dados, podemos construir o ROL:
 
 `0, 0, 0, 0, 1, 1, 1, 2, 2, 3.`
 
-*Note que o ROL possui a mesma quantidade de dados inicialmente coletados. Ou seja, em nosso exemplo anterior, obteve-se 10 valores. Logo, o ROL deve possuir 10 valores também.*
+*Note que o ROL possui a mesma quantidade de dados inicialmente coletados, ou seja, em nosso exemplo anterior, obteve-se 10 valores, logo, o ROL deve também possuir 10 valores.*
 
 ### Frequências
 
+As frequências apresentadas abaixo são utilizadas no processo de distribuição de frequências, onde tem-se como objetivo separar os dados em classes e intervalos que permitam uma forma mais simples e direta de extrair informações sobre seus comportamentos.
+
+Vale lembrar que, as formas de aplicação da distribuição de frequência pode variar dependendo do tipo de dado (Contínuo ou discreto).
+
 #### Frequências Simples ou absoluta (fi)
 
-É o número de vezes que determinado valor é observado. É válido observar que a soma de todas as frequências simples ou absoluta resultado no tamanho total da amostra `(n)`:
+É o número de vezes que determinado valor é observado. A soma de todas as frequências simples devem resultar na quantidade de elementos `(n)` da amostra.
 
 ![Fórmula Frequência absoluta](images/frequencia_absoluta.PNG)
 
 #### Frequência relativa (fri)
 
-São os valores das razões (quociente) entre as frequências simples e a frequencia total multiplicada por 100 para que os dados sejam apresentados em porcentagem.
+São os valores das razões (quociente) entre cada frequência simples e a quantidade de amostras `n`, sendo o resultado da operação multiplicado por 100.
 
 ![Fórmula Frequencia relativa](images/frequencia_relativa.PNG)
 
 #### Frequência Acumulada Simples (Fi)
 
-Consiste na somatória das frequências absolutas anteriores.
+Consiste na somatória das frequências simples
 
 ![Fórmula Frequência Acumulada Simples](images/frequencia_acumulada_simples.PNG)
 
-#### Frequência Acumuada Relativa (Fri)
+#### Frequência Acumulada Relativa (Fri)
  
-Consiste na frequência acumulada da class dividida pela frequência total da distribuição, multiplicando-se por 100 para obtermos porcentagem. 
+Consiste na frequência acumulada da classe dividida pela frequência total da distribuição, isto multiplicado por 100.
 
-![Fórmula Frequência Acumuada Relativa](images/frequencia_acumulada_relatativa.PNG)
-
+![Fórmula Frequência Acumulada Relativa](images/frequencia_acumulada_relatativa.PNG)
 
 ### Classes ou intervalos de classes
 
-Quando temos dados brutos devemos agrupá-los, para a construção de uma tabela conhecida em intervalos que também são conhecidos por classes.
+Para facilitar toda a interpretação de dados brutos, estes podem ser agrupados em intervalos (Também chamados de classes), gerando assim uma tabela que melhor divide e apresenta tais dados.
 
 Os tipos de classes ou intervalos estão exemplificados na tabela a seguir:
 
@@ -128,21 +117,21 @@ Agora alguns formas de realizar agrupamentos nesse ROL de acordo com a represent
 
 Menor elemento do conjunto estudado.
 
-Considerando a primeira classes da tabela 1 do exemplo anterior o limite inferior(LI) é 15, na segunda classe é 20 e na terceira classe é 25
+Considerando a primeira classes da tabela 1 do exemplo anterior o limite inferior (LI) é 15, na segunda classe é 20 e na terceira classe é 25
 
 #### Limite superior (LS)
 
 Maior elemento do conjunto estudado.
 
-Considerando a primeira classes da tabela 1 do exemplo anterior o limite superior(LS) é 20, na segunda classe é 25 e na terceira classe é 3
-0m
+Considerando a primeira classes da tabela 1 do exemplo anterior o limite superior (LS) é 20, na segunda classe é 25 e na terceira classe é 30
+
 #### Amplitude de classe
 
-Corresponde da diferença entre o limite superior e limite inferior da classe.
+Corresponde a diferença entre o limite superior e limite inferior da classe.
 
 Considerando a tabela 1 do exemplo anterior. Na primeira classe o limite inferior é 15 e o limite superior é 20.
 
-Isto é,
+Isto é
 
 > AT = LS - LI
 
@@ -155,19 +144,23 @@ Logo,
 > AT = 20 - 15 
 > AT = 5
 
-### Determinação de quantidade de classes ou construção de classes
+### Caracterização da distribuição de frequência
 
-A determinação da quantidade de classes pode ser elaborada através de três passos:
+Em certos casos podem ser necessário determinar a quantidade de classes e o tamanho do intervalo de cada um dessas na tabela de distribuição, para isto, alguns passos podem ser aplicados.
 
-1. Determinam-se o maior [(limite superior)](#Limite-superior) e o menor número[(limite inferior)](#Limite-inferior) dos dados brutos e, então, calcula-se a [amplitude total](#Amplitude-de-classe) do rol representada pela variavel `AT`.
+Para definir a amplitude de cada uma das classes criadas durante a distribuição de frequência, os seguintes passos podem ser utilizados.
+
+1. Determinam-se o maior [(limite superior)](#Limite-superior) e o menor número [(limite inferior)](#Limite-inferior) dos dados brutos, então, calcula-se a [amplitude total](#Amplitude-de-classe) do rol representada pela variável `AT`.
 
 2. Determinar a amplitude de cada classe `h` 
 
-Divide-se a [amplitude total do rol](#Amplitude-de-classe), variavel `AT` pela quantidade de classes representada pela letra `k` 
+Divide-se a [amplitude total do rol](#Amplitude-de-classe), variável `AT` pela quantidade de classes representada pela letra `k` 
+
 * Para determinar a quantidade de classe, denominada por `k` utilizamos [Regra de Sturges](#Regra-de-Sturges) ou [Critério da Raiz Quadrada](#Criterio-da-raiz-quadrada)
+  
 * Após determinar a amplitudade de cada classe, denominada por `h`, utilizamos a seguinte fórmula:
 
-> h = AT/ k
+![Formula Criterio Raiz Quadrada](images/amplitude_classe.png)
 
 #### Regra de Sturges
 
@@ -185,16 +178,17 @@ O `número de classes`  ou quantidade de classes [k](#Variaveis-utiliazadas-nos-
 
 ![Formula Criterio Raiz Quadrada](images/formula-criterio-raiz-quadrada.PNG)
 
-3. Determinam-se o número de observações que caem dentro de cada intervalo de classe, isto é, calculam-se as frequências de classe.
+1. Determinam-se o número de observações que caem dentro de cada intervalo de classe, isto é, calculam-se as frequências de classe.
 
 
-### Variaveis utilizadas nos cálculos 
+### Variáveis utilizadas nos cálculos
+
 * `k` - denota o número de classe que pode ser definida pela [Regra de Sturges](#Regra-de-Sturges), [Critério da Raiz Quadrada](#Criterio-da-raiz-quadrada)
 * `h` - Amplitude de cada classe 
 * `At` - [Amplitude total do Rol](#Amplitude-de-classe)
 
-
 #### Exemplo 
+
 No exemplo teremos uma amostra de tamanho 200 em que observamos as idades das pessoas. A menor idade foi 10 anos e a maior, 70 anos.
 
 #### Usando Sturges
@@ -360,13 +354,40 @@ A variância amostral é representada por (s²) e sua fórmula é:
 
 ![Formula de variancia amostral](images/formula-variancia-amostral.PNG)
 
+## Utilidades
 
-## Referências
+Abaixo são listados tópicos que podem ajudar na realização do entendimento e realização de exercícios estatísticos.
+
+### Regras de arrendondamento
+
+#### Caso 1
+
+Se algarismo a ser conservado for seguido de algarismo inferior a 5, permanece o algarismo a ser conservado e retiram-se os posteriores.
+
+Ex: 2,333333 arredondado a primeira decimal torna-se 2,3
+
+#### Caso 2
+
+Quando o algarismo a ser conservado for seguido de algarismo superior a 5, ou igual a 5 seguido de no mínimo um algarismo diferente de zero, soma-se uma unidade ao algarismo a ser conservado e retiram-se os posteriores
+
+Ex: 2,6666 arredondado a primeira decimal torna-se 2,7;
+Ex: 5,850 arredondado a primeira decimal torna-se 4,9;
+
+#### Caso 3
+
+O algarismo a ser conservado a ser conservado for ímpar, seguido de 5 e posteriormente de zeros, soma-se uma unidade ao algarismo conservado e retira-se os posteriores
+
+Ex: 5,5550 arredondado a primeira decima torna-se 4,6;
+
+####  Caso 4
+
+O algarismo a ser conservado for par, seguido de 5 e posteriormente de zeros, permanece o algarismo a ser conservado e retira-se os posteriores
+
+Ex: 5,850 arredondado a primeira decimal torna-se 5,8
+
+
+# Referências
 
 * [1] Bosquilha, A; Corrêa, M.L.P; Viveiro, T.C.N.G. Minimanual compacto de matemática : teoria e prática : ensino médio: 2. ed. rev.São Paulo: Editora Rideel, 2003
 * [2] ESTATÍSTICA. Disponível em: [<http://professorguru.com.br/estatistica/index.html>](http://professorguru.com.br/estatistica/index.html). Acesso: 2 semestre de 2019	
 * [3] Associação Brasileira de Normas Técnicas. Regras de arredondamente na numeração decimal. Rio de Janeiro: 2014
-
-
-
-

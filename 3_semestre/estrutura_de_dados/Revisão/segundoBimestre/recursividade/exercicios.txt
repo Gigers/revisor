@@ -1,0 +1,6 @@
+1 - Criar uma função que calcula a sequência de Fibonacci de forma recursiva, ou seja, não pode usar estrutura de repetição
+2 - Criar uma função que calcula a potência de forma recursiva, ou seja, não pode usar estrutura de repetição;
+3 - Criar uma função que calcula o somatório dos elementos de uma array de forma recursiva, ou seja, não pode usar estrutura de repetição;
+4 - Criar uma função que obtém o maior valor de um array de forma recursiva, ou seja, não pode usar estrutura de repetição.
+
+Exercícios adaptados de: Lista do Arley
