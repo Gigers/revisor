@@ -18,7 +18,7 @@ As aulas aqui colocadas são referentes as aulas anotações que faço, durante 
 
 # Revisão
 
-Neste repositório há revisões bimentrais sobre o conteúdo da matéria de estrutura de dados (Fatec-SJC - 2018.2)
+Neste repositório há revisões bimentrais sobre o conteúdo da matéria de estrutura de dados (Fatec-SJC - 2017.2)
 
 # Algoritmos
 
