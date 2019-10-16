@@ -389,6 +389,26 @@ Sejam A e B dois eventos; então (A U B) corresponde a um evento que ocorrerá q
 
 *Figura: União de eventos*
 
+#### Instersecçõa de eventos
+
+Sejam A e B dois eventos; então A ∩ B será um evento que corresponde à ocorrência de A e B simultaneamente. 
+*Podemos perceber que o conjunto A ∩ B é um subconjunto de A U B:*
+
+![Interseccao de dois eventos](images/interseccao-de-dois-eventos.jpg)
+*Figura: Intersecçao de dois eventos*
+
+#### Eventos multuamente exclusivos 
+Sejam os eventos A e B. Se A ∩ B = ∅ ou { },isto é, os eventos não ocorrem simultaneamente, os A e B são chamados mutuamente exclusivos. 
+
+
+![eventos mutuamente exclusivos](images/eventos-mutuamente-exclusivos.jpg)
+*Figura: eventos mutuamente exclusivos*
+
+#### Complementar a um evento
+
+Seja A um evento; então AC será também um evento que ocorrerá se, e somente se, A não ocorrer. As figuras abaixo ilustram a situação do complementar em relação a A:
+
+
 
 
 ## Utilidades
