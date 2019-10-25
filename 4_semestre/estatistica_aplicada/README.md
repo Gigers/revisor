@@ -408,6 +408,78 @@ Sejam os eventos A e B. Se A ∩ B = ∅ ou { },isto é, os eventos não ocorrem
 
 Seja A um evento; então AC será também um evento que ocorrerá se, e somente se, A não ocorrer. As figuras abaixo ilustram a situação do complementar em relação a A:
 
+### Probabilidade de um evento
+
+Existem três tipos de probabilidades: 
+* Probabilidade clássica
+* Probabilidade empírica 
+* Probabilidade subjetiva.
+
+**A probabilidade de que o evento E ocorrerá é escrita como P(E) e lê-se “probabilidade de um evento E”.**
+
+#### Probabilidade clássica ou teórica
+
+É utilizada quando cada resultado de um espaço amostral é igualmente possível de ocorrer. 
+
+Ela é calculada pela fórmula:
+
+![Probabilidade clássica](images/probabilidade-de-um-evento1.PNG)
+*Figura: Probabilidade clássica 1*
+
+A probabilidade de um evento é sempre um valor entre 0 e 1, ou seja, entre 0% e 100%.
+
+![Probabilidade de um evento](images/probabilidade-de-um-evento2.PNG)
+*Figura: Probabilidade clássica 2*
+
+Quando a probabilidade de um evento for 0, isso significa que não há possibilidades desse evento ocorrer. Por isso, dizemos que é um **evento impossível**. Em contrapartida, se a probabilidade for igual a 1, isto é, a 100%, isso indica que com certeza ocorrerá tal evento. Por isso dizemos que é um **evento certo**.
+
+#### Probabilidade empírica ou estatística
+
+Quando um experimento (por exemplo, lançar um dado ou lançar uma moeda) é repetido muitas vezes, são formados padrões regulares que permitem encontrar a probabilidade empírica de que determinado evento ocorra.
+
+É a probabilidade observada de um evento, de forma empírica, em experimentos aleatórios.
+
+Por exemplo: ao lançarmos uma moeda 10 vezes, pode ser que ocorra obtermos 2 caras e 8 coroas. Porém, isso não significa que a probabilidade de ocorrer cara não seja 50%. Se repetirmos o experimento lançar uma moeda em torno de 10.000 vezes, é muito provável que o número de caras observadas seja um valor bastante próximo de 5.000. 
+
+Esse fato é explicado pela Lei dos Grandes Números: conforme um experimento é repetido várias vezes, a probabilidade empírica de um evento se aproxima da sua probabilidade teórica (real).
+
+![Probabilidade empirica de um evento](images/probabilidade-de-um-evento3.PNG)
+*Figura: Probabilidade empírirca*
+
+#### Probabilidade subjetiva
+
+As probabilidades subjetivas resultam da intuição, de suposições fundamentadas e de estimativas.
+
+Por exemplo: um médico “acredita” que a chance de um paciente que possui ferimentos oriundos de um acidente de trânsito sobreviver é 80%. Note que se o mesmo paciente fosse avaliado por outro medido, essa probabilidade poderia ser de, por exemplo, 90%.
+
+
+#### Probabilidade do evento complementar 
+
+
+Sendo A um evento e Ã o evento complementar e o fato de a soma das probabilidades de todos os eventos ser sempre igual a 1, temos:
+
+![Probabilidade do evento complementar 1](images/probabilidade-evento-complementar1.PNG)
+*Figura: probabilidade de eventos complementares 1*
+
+ou ainda,
+
+![Probabilidade do evento complementar 2](images/probabilidade-evento-complementar2.PNG)
+*Figura: probabilidade de eventos complementares 2*
+
+### Probabilidade da união de dois eventos
+
+Sejam A e B dois eventos tais que A ∩ B != {}, isto é não são mutuamente exclusivos. Então, 
+
+![probabilidade da uniao de dois eventos](images/probabilidade-da-unia-de-dois-eventos.PNG)
+*Figura: probabilidade da união de dois eventos*
+
+É muito comum acharmos que a probabilidade da união de dois eventos seja igual a soma das probabilidades de A e B, contudo isso só é válido para eventos mutuamente exclusivos. Portanto, Se A e B são dois eventos tais que A ∩ B = {},isto é, são mutuamente exclusivos, então
+
+![probabilidade da uniao de dois eventos mutuamente exclusivos](images/probabilidade-da-unia-de-dois-eventos-mutuamente-exclusivos.PNG)
+*Figura: probabilidade da união de dois eventos mutuamente exclusivos*
+
+
+
 
 
 
