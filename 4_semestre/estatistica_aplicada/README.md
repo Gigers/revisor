@@ -511,6 +511,8 @@ Por exemplo, Lança-se uma moeda 3 vezes. Sejam os eventos:
 * A: ocorrem pelo menos duas caras.
 * B: ocorrem resultados iguais nos três lançamentos.
 
+Inicialmente, vamos montar apenas as possibilidades. Perceba que, partindo do primeiro galho (lado esquerdo da árvore) e fazendo um caminho completo até o final, obtemos todos os 8 elementos do espaço amostral, conforme mostra o lado direito. 
+
 ![Arvore binária de moedas](images/exemplo18-1.PNG)
 
 Agora, vamos marcar as probabilidades nos galhos. Neste caso, por se tratar de uma moeda honesta, a probabilidade de cara e de coroa são iguais a 0,5. 
