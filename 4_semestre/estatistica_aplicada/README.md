@@ -478,8 +478,50 @@ Sejam A e B dois eventos tais que A ∩ B != {}, isto é não são mutuamente ex
 ![probabilidade da uniao de dois eventos mutuamente exclusivos](images/probabilidade-da-unia-de-dois-eventos-mutuamente-exclusivos.PNG)
 *Figura: probabilidade da união de dois eventos mutuamente exclusivos*
 
+### Evento equiprovável
+
+Quando a probabilidade de eventos de um espaço amostral for a mesma dizemos que o evento é `equiprovável`
+
+### Evento não equiprovaveis
+ 
+Quando a probabilidade de ocorrência de cada evento do espaço amostral não for a mesma, dizemso que o evento é `não equiprovável`
+
+### Evento independente
+
+Dois eventos são estatisticamente independentes se a ocorrência de um deles não afetar a ocorrência do outro.
+
+Por exemplo: ao lançarmos uma moeda honesta e observarmos o resultado, podemos ter obtido uma cara. Se lançarmos novamente, a probabilidade de obtermos outra cara não será alterada em função do resultado obtido na(s) jogada(s) anterior(es), ou seja, a probabilidade continua sendo 50%.
 
 
+Dessa maneira, se A e B são eventos independentes então
+
+![Independencia de dois eventos](images/independencia-de-dois-eventos.PNG)
+*Figura: Independencia de dois eventos*
+
+Caso A e B não sejam independentes, dizemos que são eventos independentes.
+
+### Árvore de probabilidade
+
+Uma maneira de resolver alguns exercícios, sem a necessidade de se escrever todas as possibilidades do espaço amostral, é trabalhar com o que chamamos de árvore de possibilidades ou árvore de probabilidades. 
+
+A árvore deve partir de um ponto e “passar”, até o final dela, por todas as possibilidades de resultados. Em seus galhos, anotamos as probabilidades de ocorrências. Ao final dela, multiplicamos os resultados de cada galho para sabermos a probabilidade de um evento em específico. 
+
+Por exemplo, Lança-se uma moeda 3 vezes. Sejam os eventos:
+
+* A: ocorrem pelo menos duas caras.
+* B: ocorrem resultados iguais nos três lançamentos.
+
+![Arvore binária de moedas](images/exemplo18-1.PNG)
+
+Agora, vamos marcar as probabilidades nos galhos. Neste caso, por se tratar de uma moeda honesta, a probabilidade de cara e de coroa são iguais a 0,5. 
+
+![Arvore binária de moedas com probabilidade](images/exemplo18-2.PNG)
+
+Indicamos com as letras A e B os casos de interesse, de acordo com os eventos A e B definidos. Para obtermos as probabilidades de cada evento, basta somarmos os resultados indicados na árvore:
+
+
+P(A) = 4 . 0,125 = 0,5 ou 50%  e
+P(B) = 2 . 0,125 = 0,25 ou 25%
 
 
 
