@@ -525,6 +525,100 @@ Indicamos com as letras A e B os casos de interesse, de acordo com os eventos A 
 P(A) = 4 . 0,125 = 0,5 ou 50%  e
 P(B) = 2 . 0,125 = 0,25 ou 25%
 
+## Distruibuição de probabilidade
+
+### Variáveis aleatórios
+
+Como já vimos no estudo das probabilidades, o conjunto de todos os possíveis resultados de um experimento aleatório é chamado de espaço amostral. Os elementos desse conjunto podem ser numéricos ou não. Por exemplo, o número de filhos de um casal é um exemplo de conjunto numérico. Porém, o grau de escolaridade de um indivíduo é algo não numérico. Dessa forma, em muitas vezes, para podermos trabalhar probabilisticamente com uma variável não numérica, atribuímos valores para cada elemento do espaço amostral. 
+
+
+**Definação:** uma variável aleatória X representa um valor numérico associado a cada resultado de um experimento de probabilidade. A palavra aleatória indica que os valores assumidos por X são obtidos ao acaso.
+
+
+**Notação:** geralmente, as variáveis aleatórias são representadas por letras maiúsculas (X), enquanto que os valores assumidos por essas variáveis aleatórias são representadas por letras minúsculas (x). Dessa forma, se escrevermos X=x queremos dizer que a variável aleatória X assume um valor numérico igual a x. 
+
+
+O resultado de um experimento de probabilidade geralmente é uma contagem ou uma medida. Quando isso ocorre, o resultado é chamado de variável aleatória.
+
+As variáveis aleatórias podem ser de dois tipos: discretas ou contínuas.
+
+#### Variáveis aleatórias discretas
+
+Uma variável aleatória é discreta se ela assume um número finito de valores ou assume um número infinito de valores numeráveis (contáveis). Podemos dizer que uma variável é discreta quando seus valores puderem ser listados.
+
+Por exemplo, o número de ligações recebidas por dia em um escritório pode ser um valor igual a 0, 1, 2, 3, 4, ... Assim, definimos a variável aleatória X:
+
+
+X: número de ligações recebidas pelo escritório. 
+
+
+Os valores que essa variável pode assumir são x=0, 1, 2, 3, ... Dessa forma, se escrevermos X=3 estamos dizendo que “o número de ligações recebidas pelo escritório (X) é igual a 3 ligações (x)”.
+
+#### Variáveis aleatórias continuas
+
+Uma variável aleatória é contínua se ela possui um número incontável de possíveis resultados. Ou seja, uma variável é dita contínua quando os valores que ela pode assumir puderem ser representados como um intervalo na reta dos números reais. Neste caso, os valores assumidos por uma variável contínua, não podem ser listados, visto que são infinitos os possíveis valores dessa variável.
+
+Por exemplo: consideremos o tempo de duração de uma ligação recebida em minutos (incluindo frações de minutos). Neste caso, podemos definir uma variável aleatória Y da seguinte forma:
+
+
+Y: tempo de duração de uma ligação em minutos.
+
+### Distruibuição de probabilidade discreta
+
+Perceba que os valores de Y podem assumir qualquer valor em um intervalo real. Suponhamos, para facilitar, que o tempo máximo de uma ligação seja de 120 minutos. Neste caso, os valores y pertencem ao intervalo [0, 120]. 
+
+
+Uma distribuição de probabilidades deve satisfazer as seguintes condições:
+
+ 
+
+I. A probabilidade de cada valor da variável é um número de 0 à 1. Ou seja:
+
+ 
+
+II. A soma de todas as probabilidades é igual a 1:
+
+![Soma de todas as probabilidades](images/02-distribuicao-probabilidade.PNG)
+
+Perceba que podemos trabalhar com dois tipos de notação: P(X=x) ou simplesmente P(x). Por exemplo, a probabilidade de a variável X assumir o valor igual a 3 pode ser escrita como P(X=3) ou apenas P(3).
+
+Por exemplo,
+
+Um psicólogo aplicou um teste para classificar o nível de estresse dos 150 funcionários de uma empresa. Para isso, ele atribuiu cinco possibilidades: muito calmo, calmo, moderado, irritado, muito irritado. Essas características foram pontuadas com valores de 1 à 5, onde 1 indica a qualidade “muito calmo” e 5 indica “muito irritado”. Definindo a variável aleatória X: nível de estresse, podemos dizer que x=1,2,3,4,5. Os resultados da pesquisa estão na tabela a seguir:
+
+![Distruibuição de probabilidade](images/03-distribuicao-probabilidade.PNG)
+
+
+Construir uma distribuição de probabilidade para a variável X.
+
+ 
+Resolução
+
+Utilizando a tabela, podemos calcular as probabilidades:
+
+ 
+
+P(X=1) = 24/150 = 0,16
+
+P(X=2) = 33/150 = 0,22
+
+P(X=3) = 42/150 = 0,28
+
+P(X=4) = 30/150 = 0,20
+
+P(X=5) = 21/150 = 0,14
+
+
+A distribuição de probabilidades está apresentada na tabela a seguir:
+
+![Distruibuição de probabilidade](images/04-distribuicao-probabilidade.PNG)
+
+
+Graficamente, podemos representar da seguinte forma:
+
+![Distruibuição de probabilidade](images/05-distribuicao-probabilidade.PNG)
+
+
 
 
 ## Utilidades
@@ -564,3 +658,5 @@ Ex: 5,850 arredondado a primeira decimal torna-se 5,8
 * [1] Bosquilha, A; Corrêa, M.L.P; Viveiro, T.C.N.G. Minimanual compacto de matemática : teoria e prática : ensino médio: 2. ed. rev.São Paulo: Editora Rideel, 2003
 * [2] ESTATÍSTICA. Disponível em: [<http://professorguru.com.br/estatistica/index.html>](http://professorguru.com.br/estatistica/index.html). Acesso: 2 semestre de 2019	
 * [3] Associação Brasileira de Normas Técnicas. Regras de arredondamente na numeração decimal. Rio de Janeiro: 2014
+
+https://www.youtube.com/watch?v=FDN6lXBj5Oo&list=PLbGk5E5v8tzVfa0MbgD9cl1ssCAZlIx4-
