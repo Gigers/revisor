@@ -563,18 +563,18 @@ Por exemplo: consideremos o tempo de duração de uma ligação recebida em minu
 
 Y: tempo de duração de uma ligação em minutos.
 
-### Distruibuição de probabilidade discreta
-
 Perceba que os valores de Y podem assumir qualquer valor em um intervalo real. Suponhamos, para facilitar, que o tempo máximo de uma ligação seja de 120 minutos. Neste caso, os valores y pertencem ao intervalo [0, 120]. 
 
+### Distruibuição de probabilidade discreta
 
 Uma distribuição de probabilidades deve satisfazer as seguintes condições:
-
  
 
 I. A probabilidade de cada valor da variável é um número de 0 à 1. Ou seja:
 
- 
+
+![Probabilidade de cada variável](images/01-distribuicao-probabilidade.PNG)
+
 
 II. A soma de todas as probabilidades é igual a 1:
 
@@ -619,7 +619,83 @@ Graficamente, podemos representar da seguinte forma:
 ![Distruibuição de probabilidade](images/05-distribuicao-probabilidade.PNG)
 
 
+### Lei binomial da probabilidade - Ensaios de Bernoulli
 
+Consideremos um experimento que consiste em uma seqüência de ensaios ou tentativas independentes, isto é, ensaios nos quais a probabilidade de um resultado em cada ensaio não depende dos resultados ocorridos nos ensaios anteriores, nem dos resultados nos ensaios posteriores. Em cada ensaio, podem ocorrer apenas dois resultados, um deles que chamaremos de **sucesso(S)** e outro que chamaremos de **fracasso(F)**. À probabilidade de ocorrer sucesso em cada ensaio chamaremos de p; a probabilidade de fracasso chamaremos de q, de tal modo que `q=1–p`. Tal tipo de experimento recebe o nome de ensaio de Bernoulli.
+
+Por exemplo,
+
+Uma moeda é lançada 5 vezes. Cada lançamento é um ensaio, em que dois resultados podem ocorrer: cara ou coroa. Chamemos de sucesso o evento sair uma cara e de fracasso o evento sair uma coroa. Em cada ensaio, p=0,5 e q=0,5.
+
+### Distribuição binomial
+
+Antes de apresentarmos a fórmula e suposições da distribuição Binomial de probabilidades, vamos analisar um exemplo e deduzir a fórmula a partir dele.
+
+Uma prova consta 10 questões com 5 alternativas cada um, sendo apenas uma delas correta. Um aluno que nada sabe a respeito da matéria avaliada, “chuta” uma resposta para cada questão. Qual é a probabilidade dele acertar exatamente 6 questões?
+
+A probabilidade de acertar uma questão aleatoriamente é 1/5 = 0,2. Logo, a de errar essa questão é de
+
+1 - 1/5 = 4/5 = 0,8.
+
+Vamos considerar uma situação bastante específica: o aluno acerta os testes de 1 à 6 e erra os testes de 7 à 10. A probabilidade de isso acontecer é obtida utilizando–se o Princípio Fundamental da Contagem:
+
+> 0,2 . 0,2 . 0,2 . 0,2 . 0,2 . 0,2 . 0,8 . 0,8 . 0,8 . 0,8
+
+> (0,2)^6 . (0,8)^4 = 0,000026 ou 0,0026%.
+
+
+Porém, essa é apenas uma situação de acertos / erros possível. O número total de maneiras que esse aluno pode acertar 6 testes de um total de 10 testes é calculada utilizando–se combinação (visto que a ordem dos acertos NÃO importa):
+
+![Combinacao-6-10](images/01-combinacao-6-10.PNG)
+
+Para cada uma dessas 210 formas, temos uma probabilidade de acerto igual a calculada anteriormente. Logo, a probabilidade de esse aluno acertar 6 testes qualquer é:
+
+> 210 . (0,2)6 . (0,8)4  = 0,0055 ou 0,55%.
+
+
+Vamos definir a variável aleatória X que representa sucesso como sendo:
+
+X: número de testes que o aluno acerta (sucesso).
+
+Associada a X, temos a probabilidade de sucesso p=0,2 e, conseqüentemente, a probabilidade de fracasso q=1–0,2=0,8 (probabilidade de errar o teste).
+
+Lembrando que 
+
+![Combinação-6-10](images/02-combinacao-6-10.PNG)
+
+podemos escrever que a probabilidade do aluno acertar 6 testes é:
+
+![Distribuição binomial notas](images/03-probabilidade-x-6.PNG)
+
+#### Fórmula - Probabilidade da Distribuição Binomial
+
+Generalizando, se em cada uma das n repetições de Ensaios de Bernoulli a probabilidade de ocorrer um evento definido como sucesso é sempre p, a probabilidade de que esse evento ocorra em apenas k das n repetições é dada por:
+
+![Distribuição binomial formula](images/formula-probabilidade-binomial.PNG)
+
+#### Resumindo
+Um experimento binomial deve satisfazer os seguintes critérios:
+
+1. O experimento é repetido **n** vezes, onde cada tentativa é **independente** das demais.
+2.  Há apenas **dois resultados possíveis** em cada tentativa: um de interesse, associado à variável X, chamado de **sucesso** e o seu complementar que é o **fracasso**.
+3. A probabilidade de sucesso será denotada por **p** e é a mesma em cada tentativa. Logo, a **probabilidade de fracasso** será denotada por `q = 1 – p`.
+
+#### Valor Esperado ou Esperança da distribuição Binomial
+
+Seja uma variável X com distribuição Binomial de parâmetros n (número de ensaios de Bernoulli) e p (probabilidade de sucesso). A média ou valor esperado ou, ainda, esperança de X é dado por:
+
+![esperanca-distribuicao-binomial](images/esperanca-distribuicao-binomial.PNG)
+
+#### Variância e Desvio Padrão de uma distribuição Binomial
+Nas mesmas suposições da média, temos:
+
+A variância pode ser calculada por uma das fórmulas:
+
+![variancia distribuicao binomial](images/variancia-distribuicao-binomial-1.PNG)
+
+Para o cálculo do desvio padrão, basta lembrar que o devio padrão é igual à raiz quadrada da variância:
+
+![desvio-padrao-distribuicao-binomial](images/desvio-padrao-distribuicao-binomial-1.PNG)
 
 ## Utilidades
 
