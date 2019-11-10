@@ -8,19 +8,20 @@ O paradigma de programação é uma forma de programar, suportada por linguagens
 
 # Orientação a objetos - Conceito
 
-A orientação a objetos é uma forma de desenvolvimento de software que faz a modelagem do mundo real em software, com comportamentos, estruturas e coleções de objetos
+A orientação a objetos é uma forma de desenvolvimento de *software* que faz a modelagem do mundo real em *software*, com comportamentos, estruturas e coleções de objetos
 
 * No caso dos comportamentos, é possível entender que a classe tem atributos e métodos, esses explicados a seguir
 
 # Classes
 
-As classes são as representações dos modelos reais em software, e são utilizadas como modelo para criar os <code>objetos</code>.
+As classes são as representações dos modelos reais em *software*, e são utilizadas como modelo para criar os <code>objetos</code>.
 
 Nesta são carregadas os atributos e métodos, explicados abaixo.
 
-# Atributos
+## Atributos
 
 Os atributos ou estados, são as características que uma classe apresenta, por exemplo, a classe Pessoa possui os atributos:
+
 * Nome:
 * Idade;
 * Sexo;
@@ -40,13 +41,15 @@ public class Pessoa{
 	double velocidadeDeCaminhada;
 }
 ```
-# Métodos
+
+## Métodos
 
 Os métodos são as operações que manipulam os atributos, que os utiliza para realizar alguma operação, como contas (soma, divisão) , cadastro entre muitos outros.
 
-Eles representam as ações que aquela classe pode realizar, como exemplo, novamente será utilizado a classe Pessoa
+Eles representam as ações que aquela classe pode realizar, como exemplo, a classe Pessoa será utilizada novamente.
 
 A pessoa pode realizar as seguintes operações:
+
 * Andar; 
 * Correr;
 * Pular;
@@ -54,17 +57,19 @@ A pessoa pode realizar as seguintes operações:
 * Pensar.
 
 Sua representação em Java, pode ser feita da seguinte forma:
+
 ```java
 public void pensar(){
     
 }
+
 public void correr(boolean correndo){
     // Aqui vão as ações necessárias para que a ação ocorra
     // Podendo ser utilizando dos atributos
-    // ou através da utilização de argumentos recebidos
+    // ou através da utilização de argumentos recebidos.
 	// Neste caso, os dois são utilizados
 
-    if(correndo == true){
+    if (correndo == true) {
         if (peso < 90)
 			velocidadeDeCaminhada = 120; // Km/h
 		else if (peso > 90)
@@ -77,17 +82,17 @@ public void correr(boolean correndo){
 É interessante notar que, em Java, para realizar a definição de um método é necessário seguir o seguinte padrão:
 
 ```java
-	// modificador de acesso - retorno - nome (argumentos)
-	public void metodo(){
+// modificador de acesso - retorno - nome (argumentos)
+public void metodo() {
 
-	}
+}
 ```
 
 OBS: Este será um assunto melhor tratado no tópico de assinatura de método.
 
-# Método construtor
+### Método construtor
 
-O método construtor é um método que é chamado toda vez que um objeto da classe é criado, mesmo quando não é declarado explicitamente pelo programador, um construtor padrão é declarado e utilizado pelo Java.
+O método construtor é um método chamado toda vez que um objeto da classe é criado, mesmo quando não é declarado explicitamente pelo programador, um construtor padrão é declarado e utilizado pelo Java.
 
 Este, mesmo sendo um método, não tem retorno, e seu nome tem de ser exatamente o mesmo da classe, veja:
 
@@ -97,16 +102,17 @@ public class Pessoa{
     String nome;
     int idade;
 
-    public Pessoa(String nome, int idade){
+	// Construtor pessoa que recebe dois parâmetros (Nome e idade)
+    public Pessoa(String nome, int idade) {
         this.nome = nome;
         this.idade = idade;
     }
 }
 ```
 
-Gerando este construtor é possível criar um objeto já com os atributos preenchidos, como é visto acima.
+Gerando este construtor é possível criar um objeto já com os atributos preenchidos.
 
-OBS: O <code>this</code> utilizado acima é uma auto referência, ou seja, quando está escrito <code>this.nome</code> significa que o atributo <code>nome</code> da própria classe está recebendo o valor do parâmetro nome, que foi passado no construtor da classe Pessoa. 
+OBS: O <code>this</code> utilizado acima é uma auto referência, ou seja, quando está escrito <code>this.nome</code> significa que o atributo <code>nome</code> do objeto que está sendo criado recebe o valor do parâmetro nome, que foi passado no construtor da classe Pessoa. 
 
 # Objetos
 
@@ -119,7 +125,7 @@ OBS: Os objetos são sempre por referência (Explicado mais a frente);
 OBS: Instânciar é o ato de criar o objeto, abaixo um objeto pessoa será criado com o construtor explicado anteriormente:
 
 ```java
-Pessoa pessoa = new Pessoa("Gigers",20);
+Pessoa pessoa = new Pessoa("Gigers", 20);
 ```
 
 # Tipos
@@ -134,6 +140,7 @@ Tipos primitivos são os tipos básicos de dados, presentes em qualquer linguage
 int a = 123;
 int b = a;
 a = 312;
+
 System.out.println("Valor de a: " + a  +"\nValor de b: " + b );
 ```
 Saída:
@@ -145,21 +152,22 @@ Valor de b: 123
 Isto não ocorre nos tipos por referência, vistos no próximo tópico.
 
 ### Tipos primitivos do Java (Tipo por valor)
+
 O Java possui 8 tipos primitivos, e são eles:
 
 ```java
-	boolean
-	byte
-	char
-	double
-	float
-	int 
-	long
-	short
+boolean
+byte
+char
+double
+float
+int 
+long
+short
 ```
 Todos esses tipos são básicos (primitivos) e apresentam apenas valores (Nenhuma referência).
 
-### Dica
+#### Dica
 
 Por que não usar o float ?
 
@@ -167,7 +175,9 @@ O float é uma classe que deixou de ser utilizada em Java, o padrão é utilizar
 
 ## Tipos por referência
 
-São ponteiros que apontam para o endereço de memória ao qual o objeto em questão está alocado, perceba que estes são ponteiros de memória, e são utilizados de forma implicita.
+São ponteiros que apontam para o endereço de memória ao qual o objeto em questão está alocado, perceba que estes são ponteiros de memória, e são utilizados de forma implicita pelo Java.
+
+> Muitos autores citam que o Java não possui ponteiros (De forma explícita), desta forma, o vínculo feito acima foi criado apenas para facilitar o processo de entendimento dos alunos
 
 ```java
 Pessoa pessoaUm = new Pessoa();
@@ -208,9 +218,9 @@ O que ocorre nos tipos por referência é que, são passados endereços de memó
 A principal diferença em utilizar as referências ao invês dos primitivos é que no caso dos valores por referência, que são objetos, é que estes tem métodos, que podem ser utilizados para outras conversões, ou até mesmo para facilitar algum outro processo.
 
 Um pequeno exemplo disso, é a diferença entre int e Integer, ambos atribuidos a mesma função, a utilização de números inteiros, só que o Integer é um objeto, e o int, um dado primitivo. Isto é bem visto na utilização de Arrays (que aceita apenas objetos):
+
 ```
  List<Integer> listaDeInteiros = new ArrayList<Integer>();     // Isso é completamente possível, já que Integer é um objeto
-
 
  List<int> listaDeInteiros = new ArrayList<int>(); // Isso voltará um erro, já que não é possível armazenar dados primitivos em uma array 
 ```
@@ -226,7 +236,7 @@ Double
 Float
 ```
 
-# Autoboxing
+## Autoboxing
 
 Até a versão 5 do Java, para realizar o empacotamento era necessário instânciar as classes equivalentes aos valores primitivos, porém, nas versões mais novas isso não é necessário, com a utilização do autoboxing, basta apenas utilizar a classe referente ao tipo primitivo e pronto, a conversão é feita. Veja:
 
@@ -242,7 +252,7 @@ Integer b = a; // Valor primitivo transformado em referência
 
 Veja que nas versões antigas do Java era necessário criar um objeto do tipo desejado. Nas versões mais novas isso deixou de ser necessário.
 
-# Matrizes em java
+# Matrizes em Java
 
 As matrizes em java permitem alocação de tipos primitivos ou de tipos por referência. A matriz também é um objeto do tipo definido, isso porque ela se torna uma referência a outros objetos. 
 
@@ -250,15 +260,16 @@ Desta forma a matriz passa a ser um ponteiro para ponteiro.
 
 ## Matrizes multidimensionais
 
-Em java podem existir matrizes com quantas dimensões forem necessárias.
+Em Java podem existir matrizes com quantas dimensões forem necessárias.
 
 # for e o for-each
 
 Existem duas formas de loop <code>for</code>, o <code>for</code> simples, já visto em outras linguagens, como C e o <code>for-each</code>, que é a otimização do <code>for</code> simples, veja
 
 Abaixo um exemplo de como o <code>for</code> é feito na linguagem C.
+
 ```c
-int a[] = {1,2,3,4,5};
+int a[] = {1, 2, 3, 4, 5};
 
 // for comum
 // Que utiliza de um sentinela para passar pelos indices do array
@@ -272,15 +283,15 @@ Agora veja um exemplo de como o mesmo <code>for</code> é feito na linguagem Jav
 
 ```java
 
-int[] a = {1,2,3,4,5};
+int[] a = {1, 2, 3, 4, 5};
 
 // for comum, parecido com o for em C, demonstrado acima
 for(int i = 0; i < a.length; i++){
     System.out.println(a[i]);
 }
-
 ```
-OBS: É interessante notar que, o array é mesmo sendo do tipo primitivo tem um método (length), isso ocorre pois como dito no tópico de matrizes, ela é um objeto do tipo que foi definido, neste caso, um objeto de inteiros.
+
+OBS: É interessante notar que, o array mesmo sendo do tipo primitivo tem um método (length), isso ocorre pois como dito no tópico de matrizes, ela é um objeto do tipo que foi definido, neste caso, um objeto de inteiros.
 
 Perceba que o loop acima pode apresentar problemas, caso a coleção de dados tenha que ser toda percorrida, isso porque o programador pode fazer um incremento que não permita que todos os elementos sejam revisados, ou ainda, o limite pode ser menor que a quantidade de elementos, e no pior dos casos, erros podem ocorrer pois o limite de iterações definido passa a quantidade de elementos do array.
 
@@ -324,7 +335,7 @@ Em resumo:
 
 A diferença entre estes dois formatos de for, é que o <code>for-each</code> obrigatóriamente irá percorrer toda a lista, isso porque o <code>for-each</code> é uma forma mais controlada de loop, tendo seu uso recomendado para percorrer toda uma coleção de dados.
 
-Já o <code>for</code> normal, que utiliza sentinela, pode não percorrer ou não passar por todos os itens, isso porque pode variar de acordo com os limites postos e pela forma com que o contador é incrementado.
+Já o <code>for</code> normal, que utiliza sentinela, pode ou não passar por todos os itens, isso porque pode variar de acordo com os limites postos e pela forma com que o contador é incrementado.
 
 ```java
 // Veja um exemplo que pode trazer problemas
@@ -339,7 +350,7 @@ for(int i = 0; i < a.length; i += 2){
 
 ```java
 // Neste exemplo ira ocorrer uma exceção pois 
-// o tamanho do contador que será passado ao index não existe no vetor
+// o tamanho do contador que será passado ao index não existe no vetor,
 // gerando assim problemas
 
 int arr[] = {1,2,3};
@@ -350,17 +361,15 @@ for(int i = 0; i < arr.length; i += 2)
 
 # Modificadores de acesso
 
-Os modificadores de acesso servem para definir qual serão as formas possíveis de acesso a atributos e métodos de algum objeto.
-
-Em java há quatro modificadores de acesso: <code>public, protected, default, private</code>
+Os modificadores de acesso servem para definir qual serão as formas possíveis de acesso a atributos e métodos de algum objeto. Em java há quatro modificadores de acesso: <code>public, protected, default, private</code>
 
 Com excessão do <code>default</code> todos os demais devem ser declarados de forma explicita, veja:
 
 ```java
-	protected String nome;
-	private Integer idade;
-	public double peso;
-	int idade; // Modificador de acesso default 
+protected String nome;
+private Integer idade;
+public double peso;
+int idade; // Modificador de acesso default 
 ```
 
 ## Acessos de cada um dos tipos
@@ -378,8 +387,7 @@ Em resumo temos que:
 <code>public</code> - Pode ser acessado de todos os lugares
 * Classe: Tem acesso;
 * Pacote: Tem acesso;
-* Subclasse: Tem acesso;
-* Todos: Tem acesso.
+* Subclasse: Tem acesso.
 
 <code>default</code> - Pode ser acessado pela classe que o criou e pelas classes presentes no pacote
 * Classe: Tem acesso;
@@ -396,10 +404,10 @@ Em resumo temos que:
 * Pacote: Não tem acesso;
 * Subclasse: Não tem acesso;
 
-OBS: No caso do private, quando alguma consulta ou alteração de atributos com este modificador de acesso precisa ser executado por outrem, é necessário disponibilizar métodos para fazer isso. (Esses por convenção são os métodos gets e sets, vistos mais a frente).
+OBS: No caso do `private`, quando alguma consulta ou alteração de atributos com este modificador de acesso precisa ser executado por outrem, é necessário disponibilizar métodos para fazer isso. (Esses por convenção são os métodos gets e sets, vistos mais a frente).
 
 <!-- Um dos pilares de OO -->
-<!-- Verificar no livro do Rafael -->
+<!-- Verificar no livro do Rafael Santos (INPE) -->
 # Encapsulamento
 
 Antes de ver encapsulamento é interessante citar o que é encapsular, esta pode ser definida como, ocultar partes independentes da implementação, permitindo construir partes invisíveis ao mundo exterior.
@@ -441,7 +449,7 @@ Veja que a única forma de acesso ao saldo, seja para consulta ou alteração é
 
 Com isso é possível perceber que esta ação de ocultar os dados e disponibilizar formas de acesso controlada, faz com que haja mais segurança e controle, além de oferecer mais facilidade, isso porque o oferecido a quem utiliza ira encapsular tratamento, regras e dificuldades.
 
-# gets e sets
+## gets e sets
 
 Com a aplicação dos modificadores de acesso, pode ocorrer de, certos atributos ficarem disponíveis apenas para a classe, mas, pode haver a necessidade de alteração e consulta a este atributo por parte de operações externas a classe
 
@@ -467,8 +475,8 @@ private double altura;
 
 public void setNome(String nome){
     
-    /*O this serve para referênciar a própria classe,
-	o nome que está nesta classe está recebendo o nome que foi passado como parâmetro
+    /*O this serve para referênciar a própria instância,
+	o nome que está nesta está recebendo o nome que foi passado como parâmetro
 	*/
     this.nome = nome;
 }
@@ -492,11 +500,9 @@ public double getAltura(){
 }
 ```
 
-Ao utilizar os <code>gets</code> e <code>sets</code>, além de estar permitindo o acesso aos elementos, é possível fazer um acesso controlado ao atributo, podendo criar regras para que a modificação ou visualização sigam alguma regra.
+Ao utilizar os <code>gets</code> e <code>sets</code>, além de estar permitindo o acesso aos elementos encapsulados, é possível fazer um acesso controlado, gerando regras para a modificação e visualização dos mesmos.
 
-Por exemplo:
-
-Um banco só permite depositar até R$ 500.00 reais de uma vez. Veja como isso é feito com o set.
+Por exemplo, um banco só permite depositar até R$ 500.00 reais de uma vez. Veja como isso é feito através de um método `set`.
 
 ```java
 public class ContaBancaria{
@@ -505,7 +511,7 @@ public class ContaBancaria{
 	private double saldoBancario;
 
 	public void setSaldo(double deposito){
-		if (deposito > 500)
+		if (deposito > 500) // Aplicação da regra
 			System.out.println("Só é possível adicionar até R$ 500.00");
 		else
 			this.saldoBancario += deposito; 
@@ -513,9 +519,9 @@ public class ContaBancaria{
 }
 ``` 
 
-Perceba que através do set uma regra foi criada. Vale lembrar também que este exemplo se encaixa perfeitamente na situação vista no tópico de encapsulamento, isso porque é exatamente esse um dos benefícios tragos pelo encapsulamento, e ele pode ser visto aqui também. Perceba que para quem está depositando o dinheiro não foi necessário saber como aplicar a regra de limite ou algo parecido.
+Perceba que através do `set` uma regra foi criada. Vale lembrar também que este exemplo se encaixa perfeitamente na situação vista no tópico de encapsulamento, isso porque é exatamente esse um dos benefícios trazidos pelo encapsulamento, e ele pode ser visto aqui também. Perceba que para quem está depositando o dinheiro não foi necessário saber como aplicar a regra de limite ou algo parecido.
 
-OBS: É importante ressaltar que, não basta definir gets e sets e dizer que o código foi encapsulado, é necessário que estes façam o controle de como o método irá interagir com o atributo, caso contrário, criar get/set sem regras é a mesma coisa que manter público.
+OBS: É importante ressaltar que, não basta definir `gets` e `sets` e dizer que o código foi encapsulado, é necessário que estes façam o controle de como o método irá interagir com o atributo, caso contrário, criar get/set sem regras é a mesma coisa que manter os atributos público (`public`).
 
 # Assinatura de métodos
 
@@ -528,13 +534,13 @@ Todo método possui uma assinatura. A assinatura define:
 	* Define o tipo de dado que será retornado do método.
 
 * Argumentos:
-    * Neste ponto, serão definidos se o método irá ter argumentos de entrada ou não
+    * Neste ponto, serão definidos se o método irá ter argumentos de entrada ou não.
 
 OBS: Como citado, o método construtor não possui retorno em sua assinatura, assim a assinatura dele é especial contendo apenas, o nome do método e seus argumentos.
 
 # Sobrecarga de método
 
-Sobrecarregar métodos signica declarar diferentes métodos com o mesmo nome, porém com assinaturas diferentes, isto é, com argumentos em quantidades e tipos diferentes.
+Sobrecarregar métodos significa declarar diferentes métodos com o mesmo nome, porém com assinaturas diferentes, isto é, com argumentos em quantidades e tipos diferentes.
 
 Veja um exemplo abaixo
 
