@@ -759,16 +759,16 @@ E ele pode ser usado em outros pontos também, já que com ele é possível aces
 
 # Polimorfismo
 
-Com a herança outro conceito de orientação a objetos pode ser definido com mais facilidade, que é o polimorfismo.
+Com a herança outro conceito de orientação a objetos pode ser definido com mais facilidade, o polimorfismo.
 
 De forma geral o polimorfismo significa multiplas formas, e na orientação a objetos, ele significa que o comportamento de um classe é usado de várias formas.
 
-Como análogia ao mundo real, tem-se o carro. Onde todos tem os mesmos métodos, porém cada um com um funcionamento diferente.
+Como analogia ao mundo real, tem-se o carro. Onde todos tem os mesmos métodos, porém cada um com um funcionamento diferente.
 
 Veja, um exemplo de polimorfismo
 
 ```java
-public class Carro{
+public class Carro {
 
     private String marca;
     private String modelo;
@@ -789,7 +789,7 @@ public class Carro{
 
 }
 
-public class Ferrari extends Carro{
+public class Ferrari extends Carro {
     
     private Integer quantidadeAirBag;
     
@@ -798,8 +798,7 @@ public class Ferrari extends Carro{
         this.quantidadeAirBag = quantidadeAirBag;
     }
 
-    // Aplicando o polimorfismo com a sobscrita de métodos
-
+    // Aplicando o polimorfismo com a sobrescrita de métodos
     @Override
     public void andar(){
         System.out.println("Normalmente a 100 KM/h");
@@ -811,21 +810,21 @@ public class Ferrari extends Carro{
 }
 ```
 
-Perceba que os mesmo métodos da classe Carro, tomaram uma forma diferente, a forma de fazer se tornou diferente. Isso basicamente é polimorfismo.
+Perceba que os mesmos métodos da classe Carro tomaram uma forma diferente, a forma de fazer se tornou diferente. Isso basicamente é polimorfismo. Vale deixar claro que isto não é sobrecarga de métodos, isso porque aqui faço a sobrescrita, sem mudar assinatura. Caso altere a assinatura, estarei criando um novo método, e não sobrescrevendo. 
 
-Vale deixar claro que, isto não é sobrecarga de métodos, isso porque aqui faço a sobrescrita, sem mudar assinatura. Caso altere a assinatura, estarei criando um novo método, e não sobrescrevendo.
+Além disso, o conceito de polimorfismo pode ser visto também na maneira como os objetos são referenciados, além da sobrescrita, vista nos capítulos anteriores.
 
 # Classe abstrata
 
 Como foi visto anteriormente, uma classe é a representação de um modelo do mundo real em software, utilizada para criar objetos, porém, as vezes é necessário que haja modelos para a criação de outras classes, isso é possível com a utilização de classes abstratas.
 
-Assim <code>classes abstratas</code> são classes moldes para outras classes.
+Assim `classes abstratas` são classes moldes para outras classes.
 
 As classes abstratas, por serem modelos para outras classes não podem ser instânciadas, ou seja, não podem ser criados objetos dessas classes. 
 
 Desta forma para realizar a utilização das classes abstratas é necessário utilizar a herança. Com a utilização da classe abstrata os métodos filhos poderão (Opcionalmente) fazer polimorfismo e sobrescrever os métodos herdados.
 
-Seu tipo de relação continua sendo <code>é um tipo de</code>.
+Seu tipo de relação continua sendo `é um tipo de`.
 
 Veja um exemplo:
 
@@ -834,7 +833,7 @@ Veja um exemplo:
 
 public abstract class Pessoa {
 
-	// Utilizando protected, pois desta forma as subclasses poderão ver
+	// Utilizando protected, pois desta forma as subclasses poderão ver (Independente do pacote)
 	// Os atributos
 	protected String nome;
 	protected int idade;
@@ -860,7 +859,6 @@ public class Funcionario extends Pessoa {
 	private String cargo;
 
 	// Para que haja a herança, deve-se utilizar o extends
-
 	public Funcionario(String nome, int idade, double altura) {
 		super(nome, idade, altura);
 		// TODO Auto-generated constructor stub
@@ -872,7 +870,7 @@ public class Funcionario extends Pessoa {
 }
 ```
 
-Perceba que o método <code>andar</code>não foi sobrescrito, já que como dito, esta é uma operação opcional.
+Perceba que o método `andar` não foi sobrescrito, já que como dito, esta é uma operação opcional.
 
 # Métodos abstratos
 
@@ -931,7 +929,7 @@ A <code>Interface</code> pode ser entendida como um contrato ou especificação,
 Ela trabalha de forma parecida com as classes abstratas, porém, tem todos os seus métodos abstratos, o que torna obrigatório sua implementação, como vimos anteriormente.
 
 Além dessa há algumas outras diferenças, e são elas:
-* Todos os métodos dentro da interface são: <code>abstract, public</code>, isso implicitamente, assim ao criar um método dentro da interface, ele já recebe estes atributos, e ainda, são métodos sem corpo algum
+* Todos os métodos dentro da interface são: <code>abstract, public</code>, isso implicitamente, assim ao criar um método dentro da interface, ele já recebe estes modificadores, e ainda, são métodos sem corpo algum
 * Os atributos declarados dentro da interface, são <code>public, static, final</code>
 
 Veja um exemplo de implementação de uma interface
