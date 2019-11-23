@@ -256,7 +256,9 @@ Veja que nas versões antigas do Java era necessário criar um objeto do tipo de
 
 As matrizes em java permitem alocação de tipos primitivos ou de tipos por referência. A matriz também é um objeto do tipo definido, isso porque ela se torna uma referência a outros objetos. 
 
-Desta forma a matriz passa a ser um ponteiro para ponteiro.
+Desta forma a matriz passa a ser uma referência para uma referência.
+
+> Caso seja mais simples entender e assimilar, você pode ler a última frase como: [...] a matriz passa a ser um ponteiro para ponteiro.
 
 ## Matrizes multidimensionais
 
@@ -455,7 +457,7 @@ Com a aplicação dos modificadores de acesso, pode ocorrer de, certos atributos
 
 Neste caso será necessário criar métodos especificos para o acesso e modificação destes atributos, por convenção da comunidade Java esses métodos são os <code>gets</code> e <code>sets</code>
 
-Os gets são métodos que retornam o valor de uma variável encapsulada. E os sets são métodos utilizados para atribuir/alterar o valor de alguma váriavel encapsulada, quando necessário.
+Os `gets` são métodos que retornam o valor de uma variável encapsulada. E os `sets` são métodos utilizados para atribuir/alterar o valor de alguma váriavel encapsulada, quando necessário.
 
 Veja abaixo um exemplo:
 
@@ -536,7 +538,7 @@ Todo método possui uma assinatura. A assinatura define:
 * Argumentos:
     * Neste ponto, serão definidos se o método irá ter argumentos de entrada ou não.
 
-OBS: Como citado, o método construtor não possui retorno em sua assinatura, assim a assinatura dele é especial contendo apenas, o nome do método e seus argumentos.
+OBS: Como citado, o método construtor não possui retorno em sua assinatura, assim a assinatura dele é especial, contendo apenas o nome do método e seus argumentos.
 
 # Sobrecarga de método
 
@@ -565,7 +567,7 @@ public void metodo(Integer args, String args2){
 }
 ```
 
-Veja que apenas o argumento mudou mas assim a JVM será capaz de escolher qual método será utilizado de acordo com a quantidade de argumentos e seus tipos.
+Veja que apenas o argumento mudou, mas assim a JVM será capaz de escolher qual método será utilizado de acordo com a quantidade de argumentos e seus tipos.
 
 Mudar apenas o tipo de retorno não ira caracterizar a sobrecarga, é necessário variar os argumentos. 
 
@@ -718,7 +720,7 @@ public class Funcionario{
 
 Perceba que não ficou natural está descrição feita acima. No caso, pode-se entender que o funcionário <code>tem uma</code> pessoa, o que não é verdade, isso porque ele <code>é uma</code>(É um tipo de) pessoa.
 
-Veja que sintaxe pode até estar correta, porém a semântica não. Vamos resolver este problema utilizando herança.
+Veja que a sintaxe pode até estar correta, porém a semântica não. Vamos resolver este problema utilizando herança.
 
 ```java
 public class Pessoa{
@@ -757,9 +759,9 @@ E ele pode ser usado em outros pontos também, já que com ele é possível aces
 
 # Polimorfismo
 
-Com a herança outro conceito de orientação a objetos, pode ser definido com mais facilidade, que é o polimorfismo.
+Com a herança outro conceito de orientação a objetos pode ser definido com mais facilidade, que é o polimorfismo.
 
-De forma geral o polimorfismo significa multiplas formas, e na orientação a objetos, ele significa que o comportamento de um classe foi usado de várias formas.
+De forma geral o polimorfismo significa multiplas formas, e na orientação a objetos, ele significa que o comportamento de um classe é usado de várias formas.
 
 Como análogia ao mundo real, tem-se o carro. Onde todos tem os mesmos métodos, porém cada um com um funcionamento diferente.
 
@@ -811,7 +813,7 @@ public class Ferrari extends Carro{
 
 Perceba que os mesmo métodos da classe Carro, tomaram uma forma diferente, a forma de fazer se tornou diferente. Isso basicamente é polimorfismo.
 
-Vale deixar claro que, isto não é sobrecarga de métodos, isso porque aqui faço a sobrescrita, sem mudar assinatura. Caso altere a assinatura, estareí criando um novo método, e não sobrescrevendo.
+Vale deixar claro que, isto não é sobrecarga de métodos, isso porque aqui faço a sobrescrita, sem mudar assinatura. Caso altere a assinatura, estarei criando um novo método, e não sobrescrevendo.
 
 # Classe abstrata
 
@@ -874,9 +876,9 @@ Perceba que o método <code>andar</code>não foi sobrescrito, já que como dito,
 
 # Métodos abstratos
 
-Além das classes, os métodos também podem ser declarados como abstratos, neste caso o método não terá corpo nenhum, e obrigatóriamente a classe que carrega métodos abstratos deve ser abstrata.
+Além das classes, os métodos também podem ser declarados como abstratos, neste caso o método não terá corpo nenhum, e obrigatoriamente a classe que carrega métodos abstratos deve ser abstrata.
 
-Com métodos abstratos as classes que herdarem a classe abstrata obrigatóriamente terão de implementar (Sobrescrever) os métodos abstratos (Mesmo que seja para deixar eles em branco).
+Com métodos abstratos as classes que herdarem a classe abstrata obrigatoriamente terão de implementar (Sobrescrever) os métodos abstratos (Mesmo que seja para deixar eles em branco).
 
 Veja um exemplo, deste tipo de utilização dos métodos abstratos
 
