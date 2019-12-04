@@ -941,19 +941,19 @@ export class Pessoa {
 
 Template Syntax | Exemplo    | Descrição
 ----------------|------------|-------------------
-Data Binding    | <p>{{ homeTitle }}</p> | Vincula o conteudo do atributo `homeTitle` ao conteúdo de texto da tag P
-Property Binding | <input type="text" [value]="myString"/> | Atribui o conteúdo da variável `myString` como valor da propriedade `value` da tag `input`
-Two way data binding | <input type="text" [(ngModel)]="myString"/> | Atribui o conteúdo da variável `myString` como valor da propriedade `value` da tag `input` além disso também permite a alteração de conteúdo da variável `myString` pelo usuário.
-Event Binding | <button (click)="alertMe()">Click me</button> | Criar um `listener`(escutador) que aguarda o evento `click`, quando este evento ocorre chama o método `alertMe()`
-Custom Property Biding | <p>{{ninja.nome}}</p> | Atribui como conteúdo de texto da tag p a propriedade `nome` do objeto `ninja`
+Data Binding    | ``` <p>{{ homeTitle }}</p> ``` | Vincula o conteudo do atributo `homeTitle` ao conteúdo de texto da tag P
+Property Binding | ``` <input type="text" [value]="myString"/> ``` | Atribui o conteúdo da variável `myString` como valor da propriedade `value` da tag `input`
+Two way data binding | ``` <input type="text" [(ngModel)]="myString"/> ``` | Atribui o conteúdo da variável `myString` como valor da propriedade `value` da tag `input` além disso também permite a alteração de conteúdo da variável `myString` pelo usuário.
+Event Binding | ``` <button (click)="alertMe()">Click me</button> ```| Criar um `listener`(escutador) que aguarda o evento `click`, quando este evento ocorre chama o método `alertMe()`
+Custom Property Biding | ``` <p>{{ninja.nome}}</p> ``` | Atribui como conteúdo de texto da tag p a propriedade `nome` do objeto `ninja`
 
 ##### Diretivas Angular
 
 Diretivas Angular | Descrição 
 ------------------|----------------
-<section *ngIf="showSection"> | Remove ou recria este elemento `section` em uma parte da página com base na expressão showSection.
-<li *ngFor="let item of list"> | Transforma o elemento li e seu conteúdo em um modelo e usa isso para instanciar uma exibição para cada item da lista `list`.
-<div [ngClass]="{'active': isActive, 'disabled': isDisabled}"> | Vincula a presença de classes CSS no elemento à veracidade dos valores de mapa associados. A expressão à direita deve retornar o mapa {class-name: true / false}.
+``` <section *ngIf="showSection"> ``` | Remove ou recria este elemento `section` em uma parte da página com base na expressão showSection.
+``` <li *ngFor="let item of list"> ``` | Transforma o elemento li e seu conteúdo em um modelo e usa isso para instanciar uma exibição para cada item da lista `list`.
+``` <div [ngClass]="{'active': isActive, 'disabled': isDisabled}"> ``` | Vincula a presença de classes CSS no elemento à veracidade dos valores de mapa associados. A expressão à direita deve retornar o mapa {class-name: true / false}.
 
 #### Stackblitz
 Stackblitz é uma plataforma de desenvolvimento online que providencia um ambiente completo para testes de códigos em Angular, React, Vue e outros frameworks. Com ela, o compartilhamento de pequenos códigos fica mais simples.
