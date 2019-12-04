@@ -955,6 +955,58 @@ Diretivas Angular | Descrição
 ``` <li *ngFor="let item of list"> ``` | Transforma o elemento li e seu conteúdo em um modelo e usa isso para instanciar uma exibição para cada item da lista `list`.
 ``` <div [ngClass]="{'active': isActive, 'disabled': isDisabled}"> ``` | Vincula a presença de classes CSS no elemento à veracidade dos valores de mapa associados. A expressão à direita deve retornar o mapa {class-name: true / false}.
 
+#### HTTP Client no Angular
+
+O HttpClient em @ angular / common / http oferece uma API HTTP do cliente simplificada para aplicativos Angular que repousa na interface XMLHttpRequest exposta pelos navegadores. Os benefícios adicionais do HttpClient incluem recursos de testabilidade, objetos de solicitação e resposta digitados, interceptação de solicitação e resposta, APIs observáveis e tratamento de erros simplificado.
+
+##### Setup
+Antes de poder usar o HttpClient, é necessário importar o Angular HttpClientModule. A maioria dos aplicativos faz isso no AppModule raiz.
+
+app/app.module.ts
+``` ts
+import { NgModule }         from '@angular/core';
+import { BrowserModule }    from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http'; // importando o HttpClient 
+
+@NgModule({
+  imports: [
+    BrowserModule,
+    // import HttpClientModule after BrowserModule.
+    HttpClientModule, // injetando no angular
+  ],
+  declarations: [
+    AppComponent,
+  ],
+  bootstrap: [ AppComponent ]
+})
+export class AppModule {}
+```
+
+Depois de importar o HttpClientModule para o AppModule, é possível injetar o HttpClient em uma classe de aplicativo, conforme mostrado no seguinte exemplo de `ConfigService`.
+
+app/config/config.service.ts
+
+``` ts
+import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+
+@Injectable()
+export class ConfigService {
+  constructor(private http: HttpClient) { }
+}
+
+```
+##### Requisitando dados do servidor
+
+O ConfigService busca esse arquivo com um método get () no HttpClient.
+
+``` ts 
+getDados() : void {
+  alunos$: Observable<Object>;
+  alunos$ = this.http.get('localhost:3102/dadods')
+}
+```
+
 #### Stackblitz
 Stackblitz é uma plataforma de desenvolvimento online que providencia um ambiente completo para testes de códigos em Angular, React, Vue e outros frameworks. Com ela, o compartilhamento de pequenos códigos fica mais simples.
 
