@@ -8,9 +8,9 @@ As páginas web são baseadas em três tecnologias
 * CSS - Define estilo
 * JavaScript - Define Comportamento
 
-Além disso, a matéria engloba assuntos relacionados a Typescript e Angular, que serão abordados mais a frente.
+Além disso, a matéria engloba assuntos relacionados a Typescript,Angular e BootStrap, que serão abordados mais a frente.
 
-# Sumário
+## Sumário
 
 1. [HTML](#html-hypertext-markup-language)
 2. [CSS](#css-cascading-style-sheets)
