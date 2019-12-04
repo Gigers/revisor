@@ -1031,4 +1031,5 @@ Um exemplo de uma aplicação Angular hospedada no Stackblitz foi criado [aqui](
 * [16] Seletores CSS. Disponível em: [https://developer.mozilla.org/pt-BR/docs/Web/CSS/Seletores_CSS](https://developer.mozilla.org/pt-BR/docs/Web/CSS/Seletores_CSS). Acesso: 2 semestre de 2019
 * [17] JS. Disponível em: [https://developer.mozilla.org/pt-BR/docs/Web/JavaScript](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript). Acesso: 2 semestre de 2019
 * [18] BoptStrap 4 Grid system. Disponível em: [https://www.w3schools.com/bootstrap4/bootstrap_grid_system.asp](https://www.w3schools.com/bootstrap4/bootstrap_grid_system.asp). Acesso: 2 semestre de 2019
-
+* [19] HttpClient. Disponível em: [https://angular.io/guide/http](https://angular.io/guide/http). Acesso: 2 semestre de 2019
+* [20] Cheat Sheet. Disponível em: [https://angular.io/guide/cheatsheet](https://angular.io/guide/cheatsheet). Acesso: 2 semestre de 2019
