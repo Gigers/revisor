@@ -10,6 +10,15 @@ As páginas web são baseadas em três tecnologias
 
 Além disso, a matéria engloba assuntos relacionados a Typescript e Angular, que serão abordados mais a frente.
 
+# Sumário
+
+1. [HTML](#html-hypertext-markup-language)
+2. [CSS](#css-cascading-style-sheets)
+3. [JavaScript](#javascript)
+4. [BootStrap](#bootstrap)
+5. [TypeScript](#typescript)
+5. [Angular](#angular)
+
 ## HTML (Hypertext Markup Language)
 
 É a linguagem de *marcação* utilizada para definir a estrutura de uma página.
