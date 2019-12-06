@@ -8,7 +8,18 @@ As páginas web são baseadas em três tecnologias
 * CSS - Define estilo
 * JavaScript - Define Comportamento
 
-Além disso, a matéria engloba assuntos relacionados a Typescript e Angular, que serão abordados mais a frente.
+Além disso, a matéria engloba assuntos relacionados a Typescript,Angular e BootStrap, que serão abordados mais a frente.
+
+## Sumário
+
+1. [HTML](#html-hypertext-markup-language)
+2. [CSS](#css-cascading-style-sheets)
+3. [JavaScript](#javascript)
+4. [BootStrap](#bootstrap)
+5. [TypeScript](#typescript)
+6. [Angular](#angular)
+7. [Node.js](#nodejs)
+
 
 ## HTML (Hypertext Markup Language)
 
@@ -935,8 +946,135 @@ export class Pessoa {
   /*Códigos abaixo omitidos*/
 }
 ```
+#### Quick Reference Angular
 
-#### Stackblitz
+##### Template Syntax
+
+Template Syntax | Exemplo    | Descrição
+----------------|------------|-------------------
+Data Binding    | ``` <p>{{ homeTitle }}</p> ``` | Vincula o conteudo do atributo `homeTitle` ao conteúdo de texto da tag P
+Property Binding | ``` <input type="text" [value]="myString"/> ``` | Atribui o conteúdo da variável `myString` como valor da propriedade `value` da tag `input`
+Two way data binding | ``` <input type="text" [(ngModel)]="myString"/> ``` | Atribui o conteúdo da variável `myString` como valor da propriedade `value` da tag `input` além disso também permite a alteração de conteúdo da variável `myString` pelo usuário.
+Event Binding | ``` <button (click)="alertMe()">Click me</button> ```| Criar um `listener`(escutador) que aguarda o evento `click`, quando este evento ocorre chama o método `alertMe()`
+Custom Property Biding | ``` <p>{{ninja.nome}}</p> ``` | Atribui como conteúdo de texto da tag p a propriedade `nome` do objeto `ninja`
+
+##### Diretivas Angular
+
+Diretivas Angular | Descrição 
+------------------|----------------
+``` <section *ngIf="showSection"> ``` | Remove ou recria este elemento `section` em uma parte da página com base na expressão showSection.
+``` <li *ngFor="let item of list"> ``` | Transforma o elemento li e seu conteúdo em um modelo e usa isso para instanciar uma exibição para cada item da lista `list`.
+``` <div [ngClass]="{'active': isActive, 'disabled': isDisabled}"> ``` | Vincula a presença de classes CSS no elemento à veracidade dos valores de mapa associados. A expressão à direita deve retornar o mapa {class-name: true / false}.
+
+#### HTTP Client no Angular
+
+O HttpClient em @ angular / common / http oferece uma API HTTP do cliente simplificada para aplicativos Angular que repousa na interface XMLHttpRequest exposta pelos navegadores. Os benefícios adicionais do HttpClient incluem recursos de testabilidade, objetos de solicitação e resposta digitados, interceptação de solicitação e resposta, APIs observáveis e tratamento de erros simplificado.
+
+##### Setup
+Antes de poder usar o HttpClient, é necessário importar o Angular HttpClientModule. A maioria dos aplicativos faz isso no AppModule raiz.
+
+app/app.module.ts
+``` ts
+import { NgModule }         from '@angular/core';
+import { BrowserModule }    from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http'; // importando o HttpClient 
+
+@NgModule({
+  imports: [
+    BrowserModule,
+    // import HttpClientModule after BrowserModule.
+    HttpClientModule, // injetando no angular
+  ],
+  declarations: [
+    AppComponent,
+  ],
+  bootstrap: [ AppComponent ]
+})
+export class AppModule {}
+```
+
+Depois de importar o HttpClientModule para o AppModule, é possível injetar o HttpClient em uma classe de aplicativo, conforme mostrado no seguinte exemplo de `ConfigService`.
+
+app/config/config.service.ts
+
+``` ts
+import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+
+@Injectable()
+export class ConfigService {
+  constructor(private http: HttpClient) { }
+}
+
+```
+##### Requisitando dados do servidor
+
+O ConfigService busca esse arquivo com um método get () no HttpClient.
+
+``` ts 
+getDados() : void {
+  alunos$: Observable<Object>;
+  alunos$ = this.http.get('localhost:3102/dadods')
+}
+```
+
+## Node.js
+
+Node.js é um interpretador de JavaScript assíncrono com código aberto orientado a eventos, criado por Ryan Dahl em 2009, focado em migrar a programação do Javascript do cliente (frontend) para os servidores, criando aplicações de alta escalabilidade (como um servidor web)[1], manipulando milhares de conexões/eventos simultâneas em tempo real numa única máquina física.[2]
+
+O Node.js (ambiente de execução Javascript no servidor) foi implementado baseado no interpretador V8 JavaScript Engine (interpretador de JavaScript em C++ com código aberto da Google, utilizado no Chrome), com desenvolvimento mantido pela fundação Node.js em parceria com a Linux Foundation. 
+### NPM 
+NPM (originalmente abreviação de Node Package Manager) é um gerenciador de pacotes para a linguagem de programação JavaScript. É o gerenciador de pacotes padrão para o ambiente de tempo de execução JavaScript Node.js. Ele consiste em um cliente de linha de comando, também chamado npm, e um banco de dados online de pacotes públicos e privados pagos, chamado registro npm. O registro é acessado pelo cliente e os pacotes disponíveis podem ser pesquisados e pesquisados no site da npm. O gerenciador de pacotes e o registro são gerenciados pela npm, Inc.
+
+### Criando um servidor com Express
+
+**Lembre-se de instalar o node na sua máquina e rodar os comandos no cmd**
+
+Iniciando um projeto node
+
+> npm init -y
+
+Para criar um servidor com express é necessário instalá-lo
+
+> npm install --save express
+
+após isso basta fazer o seguinte arquivo(index.js) para subir o servidor
+
+``` js
+const http = require("http");
+const express = require("express"); // importando express
+const app = express();
+
+// rota 1
+app.get("/", function(req, res) { // definindo rota /
+    res.send("<h1>Servidor rodando com ExpressJS</h1>");
+});
+// rota 2
+app.get("/teste", function(req, res) { // definindo rota /teste
+    res.send("<h1>Servidor rodando com ExpressJS com a rota /teste</h1>");
+});
+// rota 3
+app.get("/soma/:a/:b", function(req, res){ //definindo rota /soma
+    var s = req.params.a + req.params.b
+    res.send(`<h1>Servidor express com parâmetros, soma: ${s} </h1>`);  
+}); 
+
+http.createServer(app).listen(3000, () => console.log("Servidor rodando local na porta 3000"));
+```
+ 
+Para rodar seu servidor basta executar:
+
+> node index.js
+
+No arquivo `index.js` criamos um servidor com o express e definimos três rotas 
+
+1. `/` , que retorna um texto simples
+2. `/teste`, que retorna um texto com a rota
+3. `/soma/:a/:b`, que retorna a soma dos parametros a e b 
+
+O express também aceita outros métodos http como post, put, delete, etc.
+
+## Stackblitz
 Stackblitz é uma plataforma de desenvolvimento online que providencia um ambiente completo para testes de códigos em Angular, React, Vue e outros frameworks. Com ela, o compartilhamento de pequenos códigos fica mais simples.
 
 Um exemplo de uma aplicação Angular hospedada no Stackblitz foi criado [aqui](https://stackblitz.com/edit/cadastro-matriculas-firebase-orm). Nele foram aplicados conceitos de roteamento, lazy loading e comunicação com banco de dados externo utilizando Firebase.
@@ -960,4 +1098,8 @@ Um exemplo de uma aplicação Angular hospedada no Stackblitz foi criado [aqui](
 * [16] Seletores CSS. Disponível em: [https://developer.mozilla.org/pt-BR/docs/Web/CSS/Seletores_CSS](https://developer.mozilla.org/pt-BR/docs/Web/CSS/Seletores_CSS). Acesso: 2 semestre de 2019
 * [17] JS. Disponível em: [https://developer.mozilla.org/pt-BR/docs/Web/JavaScript](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript). Acesso: 2 semestre de 2019
 * [18] BoptStrap 4 Grid system. Disponível em: [https://www.w3schools.com/bootstrap4/bootstrap_grid_system.asp](https://www.w3schools.com/bootstrap4/bootstrap_grid_system.asp). Acesso: 2 semestre de 2019
-
+* [19] HttpClient. Disponível em: [https://angular.io/guide/http](https://angular.io/guide/http). Acesso: 2 semestre de 2019
+* [20] Cheat Sheet. Disponível em: [https://angular.io/guide/cheatsheet](https://angular.io/guide/cheatsheet). Acesso: 2 semestre de 2019
+* [21] Node.js. Disponível em: [https://pt.wikipedia.org/wiki/Node.js](https://pt.wikipedia.org/wiki/Node.js). Acesso: 2 semestre de 2019
+* [22] npm. Disponível em: [https://en.wikipedia.org/wiki/Npm_(software)](https://en.wikipedia.org/wiki/Npm_(software)). Acesso: 2 semestre de 2019
+* [23] Criando Um Servidor Em Node Com Express. Disponível em: [https://blog.matheuscastiglioni.com.br/criando-um-servidor-em-node-com-express/](https://blog.matheuscastiglioni.com.br/criando-um-servidor-em-node-com-express/). Acesso: 2 semestre de 2019
