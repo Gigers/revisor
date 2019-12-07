@@ -1007,9 +1007,33 @@ Diferente das junções internas, as externas não exigem que haja uma ligação
 
 Neste caso a primeira tabela especificada no momento do `select` terá todos os seus elementos persistidos, mesmo aqueles que não tem qualquer ligação com os elementos da segunda tabela especificada, gerando assim um resultado, com todos os elementos da tabela A (Primeira a ser declarada), mais os elementos da tabela B (Segunda a ser declarada) que tem alguma correspondência em A.
 
+```sql
+SELECT
+    a.nome,
+    b.nome
+FROM
+    tabelaA a
+LEFT OUTER JOIN
+    tabelaB b
+ON
+    a.id = b.id;
+```
+
 ##### Right Outer Join
 
 Esta é a operação inversa da citada anteriormente, aqui a tabela levada em consideração é a segunda a ser declarada no `select`, desta forma, na tabela gerada como resultado, todos os elementos de B (Segunda tabela a ser declarada) serão mantidos mesmo que não tenham correspondência com A, e também os elementos de A, estes que são somente aqueles que tem alguma ligação com B.
+
+```sql
+SELECT
+    a.nome,
+    b.nome
+FROM
+    tabelaA a
+RIGHT OUTER JOIN
+    tabelaB b
+ON
+    a.id = b.id;
+```
 
 ##### Full Outer Join
 
