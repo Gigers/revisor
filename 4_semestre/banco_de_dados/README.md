@@ -478,13 +478,13 @@ O Structured Query Language (SQL) é a linguagem padrão para os bancos de dados
 ## Tipos de comandos SQL
 
 Os comandos em SQL podem ser divididos em categorias, sendo algumas delas (Tratadas durante as aulas):
-- Data Definition Language (DDL)
+- [Data Definition Language (DDL)](#definição-de-dados-ddl)
     - Esta é a linguagem SQL que será utilizada para realizar a criação e definição das estruturas que serão utilizadas para o armazenamento dos dados.
 
-- Data Manipulation Language  (DML)
+- [Data Manipulation Language  (DML)](#definição-de-dados-ddl)
     - Esta é a linguagem SQL que será utilizada para fazer a manipulação dos dados que estão armazenados.
     
-- Data Query Language (DQL)
+- [Data Query Language (DQL)](#definição-de-dados-ddl)
     - Utilizada para realizar a recuperação dos dados que estão armazenados.
 
 - Data Control Language (DCL)
@@ -502,6 +502,15 @@ Esta é a linguagem SQL que será utilizada para realizar a criação e definiç
 
 1. [CREATE](#create)
 2. [ALTER](#alter)
+    1.[Adicionando novas colunas](#adicionando-colunas)
+    2.[Modificando colunas](#modificando-colunas)
+    3.[Excluindo Colunas](#excluindo-colunas)
+    4.[Renomeando Colunas](#renomeando-colunas)
+    5.[Incluindo Constraints](#incluindo-constraints)
+    6.[Excluindo Constraints](#excluindo-constraints)
+    7.[Modificando Constraints](#modificando-constraints)
+    8.[Ativando/Desativando Constraints](#ativandodesativando-constraint)
+    9.[Renomeando Table](#renomeando-table)
 3. [DROP](#drop)
 
 ### Create
@@ -764,13 +773,13 @@ Exemplo:
 DROP TABLE CLI
 ```
 
-## Manipulação de dados(DML) :warning:
+## Manipulação de dados(DML)
 
 Esta é a linguagem SQL que será utilizada para fazer a manipulação dos dados que estão armazenados. Dentro desse conjunto temos os seguinte comandos:
 
-1. [Insert]()
-2. [Update]()
-3. [Delete]()
+1. [Insert](#insert)
+2. [Update](#update)
+3. [Delete](#delete)
 
 ### Insert
 
@@ -835,7 +844,25 @@ WHERE nome_aluno = 'Vandeilson'
 
 ## Consulta de dados(DQL)
 
-Estas são as formas utilizadas para realizar a consulta dos dados que estão armazenados na base dados. Neste tópico será feito o uso de diversos comandos para a manipulação dos dados
+Estas são as formas utilizadas para realizar a consulta dos dados que estão armazenados na base dados. Neste tópico será feito o uso de diversos comandos para a manipulação dos dados. Dentro desse conjunto temos os seguintes comandos:
+1.[Selects](#selects)
+2.[Junções](#junções)
+    1.[Inner Join](#junção-interna-inner-join)
+    2.[Outer Join](#junção-externa-outer-join)
+    3.[Left Outer Join](#left-outer-join)
+    4.[Right Outer Join](#right-outer-join)
+    5.[Full Outer Join](#full-outer-join)
+    6.[Equi Join](#junção-idêntica-equi-join)
+    7.[Non Equi Join](#junção-não-identica-non-equi-join)
+    8.[Natural Join](#natural-joins)
+    9.[Self Join](#self-joins)
+3.[Operadores de Conjunto](#operadores-de-conjunto)
+    1.[Union](union-união)
+    2.[Intersect](#intersect-intersecção)
+    3.[Minus](#minus-diferença)
+4.[Funções de grupo](#funções-de-grupo)
+5.[SubConsulta](#subconsulta)
+
 
 ### Selects
 
