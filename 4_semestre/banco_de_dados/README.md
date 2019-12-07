@@ -497,9 +497,272 @@ A tabela abaixo faz o descritivo destas categorias e de algumas outras:
 Com estes conceitos básicos definidos, é possível começar a realizar a seleção por dados dentro de um SGBD, os próximos tópicos irão abordar tanto a criação de tabelas, sua manipulação e recuperaão de dados.
 
 
-## Definição de dados :warning:
+## Definição de dados (DDL) 
+Esta é a linguagem SQL que será utilizada para realizar a criação e definição das estruturas que serão utilizadas para o armazenamento dos dados. Dentro desse bloco encotramos os seguinte comandos:
 
-Este tópico ainda está em construção. Caso queira, você pode ajudar a escrever ele. :bowtie:
+1. CREATE
+2. ALTER
+3. DROP
+
+### Create
+Comando responsável por criar a estruturar de uma tabela dentro do SGBD.
+A sintaxe baśica dele consiste no seguinte comando.
+
+* Sintaxa do CREATE
+``` sql
+CREATE TABLE nome_schema.nome_table (
+    coluna_1 tipo_dado colum_constraint,
+    coluna_2 tipo_dado colum_constraint,
+    ...
+    table_constraint
+);
+```
+
+Nesta sintaxe: 
+
+1. Especificar o nome da tabela e esquema(schema) no qual a nova tabela será criada
+2. Lista de todas as colunas da tabela com seu [tipo de dados](https://www.oracletutorial.com/oracle-basics/oracle-data-types/) e uma restrição de coluna como: NOT NULL, primary key, check
+3. Restrições da tabela como chave estrangeira(foreign key), primary key, etc.
+
+
+* Example CREATE
+```js
+CREATE TABLE bd_faculdade.alunos (
+ra_aluno NUMBER primary key,
+nome_aluno VARCHAR not null,
+cpf_aluno VARCHAR(13) not null,
+cod_curso number(4) not null, 
+CONSTRAINT fk_cod_curso FOREIGN KEY(cod_curso)
+REFERENCES curso(cod_curso)
+)
+```
+
+OBS: Neste exemplo de comando criamos a restrição de `primary key` a nível de coluna, contudo é possível criá-lo através de nível de tabela como no comando abaixo:
+
+```js
+CREATE TABLE bd_faculdade.alunos (
+ra_aluno number(4),
+nome_aluno varchar(100) not null,
+cpf_aluno VARCHAR(13),
+cod_curso number(4) not null,
+CONSTRAINT uk_cpf UNIQUE(CPF), # Constraint Unique CPF
+CONSTRAINT pk_aluno PRIMARY KEY(ra_aluno), # Constraint PK 
+CONSTRAINT fk_cod_curso FOREIGN KEY(cod_curso) #Constraint FK
+REFERENCES curso(cod_curso)
+)
+```
+
+### Alter
+Comando responsável por alterar a estruturar de tabelas já criadas. Com ele é possível: Aumentar tamanho da coluna, acrescentar nova coluna, adicionar novo constraint.
+
+* Sintaxe básica do Alter Table
+
+```sql
+ALTER TABLE NOME_DA_TABELA
+    [ADD definição de coluna,]
+    [MODIFY definição de coluna,]
+    [DROP COLUMN nome,]
+    [RENAME COLUMN antigo TO novo,]
+    [ADD CONSTRAINT definição de constraint,]
+    [MODIFY CONSTRAINT definição de constraint,]
+    [DROP CONSTRAINT nome,]
+    [RENAME CONSTRAINT antigo TO novo,]
+    [ENABLE | DISABLE constraint,]
+    [RENAME TO novo_nome];
+```
+
+Segue abaixo uma lista de exemplos de uso do comando alter table:
+
+#### Adicionando Colunas 
+
+Sintaxe:
+
+```sql
+ALTER TABLE NOME_DA_TABELA 
+ADD (definição de coluna)
+```
+
+Exemplo: 
+
+```sql
+ALTER TABLE PEDIDO ADD valor_total number(8,2)
+ALTER TABLE PEDIDO ADD ped_data DATE
+```
+
+PS: Observe que ao realizar tal comando o seguinte acontece:
+
+1. A coluna torna-se a última coluna da tabela
+2. Se já existirem registros na tabela, então a coluna será NULA para todos os registros.
+
+#### Modificando colunas
+
+Sintaxe: 
+
+``` sql 
+ALTER TABLE NOME_DA_TABELA 
+MODIFY [Definição de coluna]
+```
+
+Exemplo: 
+
+```sql 
+
+ALTER TABLE PEDIDO MODIFY PED_COD number(8)
+
+```
+
+PS: Observe que ao realizar tal comando a seguinte regra existes:
+
+**Apenas é possível para tipos equivalentes**
+
+* Exemplo:
+* number(4) -> number(8)
+* varchar(4) -> varchar(8)
+
+
+**Demais modificações só são permitidas se a coluna não tiver dado inserido**
+
+#### Excluindo Colunas
+Sintaxe: 
+
+``` sql
+ALTER TABLE NOME_DA_TABELA 
+DROP COLUMN NOME_COLUNA
+```
+
+Exemplo :
+
+```sql 
+ALTER TABLE PEDIDO DROP COLUMN PED_DATA
+```
+
+**NOTE QUE: Não são permitidas exclusões de colunas com alguma constraint associada! É preciso excluir a restrição antes.**
+
+
+#### Renomeando colunas
+
+Sintaxe: 
+```sql
+ALTER TABLE NOME_DA_TABELA
+RENAME COLUMN NOME_ANTIGO TO NOME_NOVO
+```
+
+Exemplo: 
+
+```sql
+ALTER TABLE PEDIDO
+RENAME COLUMN PED_DATA TO PED_DATA_CADASTRO
+```
+
+#### Incluindo constraints
+
+Sintaxe : 
+
+```sql
+#Primary key
+ALTER TABLE NOME_DA_TABELA
+ADD CONSTRAINT NOME_RESTRICAO PRIMARY(COLUNA_PG)
+#Foreign key
+ALTER TABLE NOME_DA_TABELA
+ADD CONSTRAINT NOME_RESTRICAO FOREIIGN KEY(COLUNA_PG) REFERENCES TABELA_REFERIDA (COLUNA_PK)
+#Unique
+ALTER TABLE NOME_DA_TABELA
+ADD CONSTRAINT NOME_RESTRICAO UNIQUE(COLUNA_UK)
+```
+
+Exemplo: 
+```sql
+#Primary key
+ALTER TABLE PEDIDO 
+ADD CONSTRAINT PK_PEDIDO PRIMARY KEY(PEDIDO)
+#Foreign key
+ALTER TABLE PEDIDO
+ADD CONSTRAINT FK_CLI_COD FOREIGN KEY(CLI_COD)
+REFERENCES CLIENTE(CLI_COD)
+#Unique
+ALTER TABLE CLIENTE
+ADD CONSTRAINT UK_CLI_CPF UNIQUE(CLI_CPF)
+```
+
+#### Excluindo Constraints
+
+Sintaxe: 
+
+```sql
+ALTER TABLE NOME_DA_TABELA
+DROP CONSTRAINT NOME_RESTRICAO [CASCADE]
+```
+* Comando válido para qualquer restrição
+* A Cláusula CASCADE elemina as constraints dependentes.
+
+Exemplo: 
+```sql
+ALTER TABLE CLIENTE
+DROP CONSTRAINT UK_CLI_CPF CASCADE
+```
+
+#### Modificando constraints 
+
+Sintaxe: 
+
+```sql
+ALTER TABLE NOME_DA_TABELA
+RENAME CONSTRAINT NOME_ANTIGO to NOME_NOVO
+```
+
+Exemplo:
+
+```sql
+ALTER TABLE PROJETO RENAME CONSTRAINT
+PK_PROJETO_COD_PROJETO TO PK_PROJETO
+```
+
+#### Ativando/Desativando Constraint
+
+Sintaxe: 
+```sql
+ALTER TABLE NOME_DA_TABELA [ENABLE | DISABLE]
+CONSTRAINT NOME_CONSTRAINT [CASCADE]
+```
+
+* Enable: Habilita constraint
+* Disable: Desabilita constraint
+* Cascade: aplica a mesma regra para constraints dependentes
+
+```sql
+ALTER TABLE CLIENTE
+DISABLE CONSTRAINT PK_CLI_COD CASCADE
+```
+#### Renomeando table
+
+Sintaxe :
+
+```sql
+ALTER TABLE NOME_DA_TABELA
+RENAME TO NOME_NOVO
+```
+Exemplo:
+
+```sql
+ALTER TABLE CLIENTE
+RENAME TO CLI
+```
+### Drop
+
+Comando responsável por apagar toda a estrutura de uma tabela
+
+Sintaxe: 
+
+```sql
+DROP TABLE NOME_DA_TABELA [CASCADE]
+```
+
+Exemplo:
+
+```sql
+
+DROP TABLE CLI
+```
 
 ### View
 
@@ -514,7 +777,6 @@ Mostra sempre resultados de dados atualizados, pois o motor do banco de dados re
  
  
 * Sintaxe do VIEW
-
 ```sql
 CREATE (OR REPLACE, FORCE, NOFORCE) VIEW (NOME) AS 
     SELECT 
@@ -524,11 +786,11 @@ CREATE (OR REPLACE, FORCE, NOFORCE) VIEW (NOME) AS
     WHERE (CONDIÇÕES);
 ```
 
-## Manipulação de dados :warning:
+## Manipulação de dados(DML) :warning:
 
 Este tópico ainda está em construção. Caso queira, você pode ajudar a escrever ele. :bowtie:
 
-## Consulta de dados
+## Consulta de dados(DQL)
 
 Estas são as formas utilizadas para realizar a consulta dos dados que estão armazenados na base dados. Neste tópico será feito o uso de diversos comandos para a manipulação dos dados
 
