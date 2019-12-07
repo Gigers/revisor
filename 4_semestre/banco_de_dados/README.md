@@ -764,31 +764,74 @@ Exemplo:
 DROP TABLE CLI
 ```
 
-### View
-
-View é uma tabela virtual baseada no conjunto de resultados de uma consulta SQL.
-
-Mostra sempre resultados de dados atualizados, pois o motor do banco de dados recria os dados toda vez que um usuário consulta a visão.
- 
- * Uso do View:
- Evita que usuários não autorizados tenham acesso a todos os dados de uma tabela
- Os dados não estão fisicamente armazenados
- Evita redundâncias
- 
- 
-* Sintaxe do VIEW
-```sql
-CREATE (OR REPLACE, FORCE, NOFORCE) VIEW (NOME) AS 
-    SELECT 
-        (COLUNAS) (APELIDO)
-    FROM 
-        (TABELA)
-    WHERE (CONDIÇÕES);
-```
-
 ## Manipulação de dados(DML) :warning:
 
-Este tópico ainda está em construção. Caso queira, você pode ajudar a escrever ele. :bowtie:
+Esta é a linguagem SQL que será utilizada para fazer a manipulação dos dados que estão armazenados. Dentro desse conjunto temos os seguinte comandos:
+
+1. [Insert]()
+2. [Update]()
+3. [Delete]()
+
+### Insert
+
+Comando responsável por inserir registros nas tabelas
+
+Sintaxe: 
+
+```sql
+
+INSERT INTO NOME_DA_TABELA
+(coluna1, coluna2, ... , coluna_n)
+VALUES
+(valor1,valor2, ..., valor_n)
+```
+Exemplo: 
+
+```sql
+INSERT INTO aluno (ra_aluno,nome_aluno, cpf_aluno, cod_curso) VALUES (
+123, 'Vandeilson', 123123123, 12
+);
+```
+
+### Update
+Comando responsável por atualizar dados de registros já existentes em um tabela
+
+Sintaxe: 
+
+```sql
+UPDATE NOME_DA_TABELA
+SET coluna1 = valor1,
+    coluna2 = valor2,
+    ...
+    coluna_n = valor_n
+[WHERE condição]
+
+```
+
+Exemplo: 
+
+```sql
+UPDATE aluno
+SET cpf_aluno = 2345678,
+    cod_curso = 14
+WHERE nome_aluno = 'Vandeilson'
+```
+
+### Delete 
+
+Comando responsável por apagar(deletar) um registro em uma tabela
+
+Sintaxe: 
+```sql
+DELETE FROM NOME_DA_TABELA 
+[WHERE condição]
+```
+
+Exemplo: 
+```sql
+DELETE FROM aluno
+WHERE nome_aluno = 'Vandeilson'
+```
 
 ## Consulta de dados(DQL)
 
@@ -1124,6 +1167,28 @@ WHERE
 
 Perceba que, dentro de uma consulta há outra, este conceito permite que diversas formas de consultar os dados sejam feitas.
 
+### View
+
+View é uma tabela virtual baseada no conjunto de resultados de uma consulta SQL.
+
+Mostra sempre resultados de dados atualizados, pois o motor do banco de dados recria os dados toda vez que um usuário consulta a visão.
+ 
+ * Uso do View:
+ Evita que usuários não autorizados tenham acesso a todos os dados de uma tabela
+ Os dados não estão fisicamente armazenados
+ Evita redundâncias
+ 
+ 
+* Sintaxe do VIEW
+```sql
+CREATE (OR REPLACE, FORCE, NOFORCE) VIEW (NOME) AS 
+    SELECT 
+        (COLUNAS) (APELIDO)
+    FROM 
+        (TABELA)
+    WHERE (CONDIÇÕES);
+```
+
 ## Trigger
 
 Trigger basicamente é um gatilho, que é ativo quando uma determinada ação ocorre dentro do banco de dados. Esta ação pode ser definida no momento da criação da trigger.
@@ -1187,4 +1252,7 @@ A estrutura descrita pode ser visualizada na figura abaixo:
 
 ## Referências bibliográficas
 
-Pet news. (2018). Normalização de Bancos de Dados Relacionais. [online] Available at: http://www.dsc.ufcg.edu.br/~pet/jornal/maio2011/materias/recapitulando.html [Acessado em 14 Abril de 2018]
+1. Pet news. (2018). Normalização de Bancos de Dados Relacionais. [online] Available at: http://www.dsc.ufcg.edu.br/~pet/jornal/maio2011/materias/recapitulando.html [Acessado em 14 Abril de 2018]
+2. Oracle / PLSQL: INSERT Statement [https://www.techonthenet.com/oracle/insert.php](https://www.techonthenet.com/oracle/insert.php) Acesso: 07 de dezembro 2019
+3. Oracle / PLSQL: UPDATE Statement [https://www.techonthenet.com/oracle/update.php](https://www.techonthenet.com/oracle/update.php) Acesso: 07 de dezembro 2019
+4. Oracle / PLSQL: DELETE Statement [https://www.techonthenet.com/oracle/delete.php](https://www.techonthenet.com/oracle/delete.php) Acesso: 07 de dezembro 2019
