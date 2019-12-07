@@ -500,9 +500,9 @@ Com estes conceitos básicos definidos, é possível começar a realizar a sele�
 ## Definição de dados (DDL) 
 Esta é a linguagem SQL que será utilizada para realizar a criação e definição das estruturas que serão utilizadas para o armazenamento dos dados. Dentro desse bloco encotramos os seguinte comandos:
 
-1. CREATE
-2. ALTER
-3. DROP
+1. [CREATE](#create)
+2. [ALTER](#alter)
+3. [DROP](#drop)
 
 ### Create
 Comando responsável por criar a estruturar de uma tabela dentro do SGBD.
