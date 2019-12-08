@@ -394,7 +394,7 @@ Em resumo temos que:
 <code>default</code> - Pode ser acessado pela classe que o criou e pelas classes presentes no pacote
 * Classe: Tem acesso;
 * Pacote: Tem acesso;
-* Subclasse: Não tem acesso.
+* Subclasse: Somente no mesmo pacote.
 
 <code>protected</code> - Permite que apenas classes que estão no mesmo pacote acessem a variável. A diferença desta para o <code>default</code> é que as subclasses também tem acesso.
 * Classe: Tem acesso;
