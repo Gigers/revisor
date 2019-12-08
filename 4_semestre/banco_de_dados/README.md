@@ -478,13 +478,13 @@ O Structured Query Language (SQL) é a linguagem padrão para os bancos de dados
 ## Tipos de comandos SQL
 
 Os comandos em SQL podem ser divididos em categorias, sendo algumas delas (Tratadas durante as aulas):
-- Data Definition Language (DDL)
+- [Data Definition Language (DDL)](#definição-de-dados-ddl)
     - Esta é a linguagem SQL que será utilizada para realizar a criação e definição das estruturas que serão utilizadas para o armazenamento dos dados.
 
-- Data Manipulation Language  (DML)
+- [Data Manipulation Language  (DML)](#definição-de-dados-ddl)
     - Esta é a linguagem SQL que será utilizada para fazer a manipulação dos dados que estão armazenados.
     
-- Data Query Language (DQL)
+- [Data Query Language (DQL)](#definição-de-dados-ddl)
     - Utilizada para realizar a recuperação dos dados que estão armazenados.
 
 - Data Control Language (DCL)
@@ -497,40 +497,372 @@ A tabela abaixo faz o descritivo destas categorias e de algumas outras:
 Com estes conceitos básicos definidos, é possível começar a realizar a seleção por dados dentro de um SGBD, os próximos tópicos irão abordar tanto a criação de tabelas, sua manipulação e recuperaão de dados.
 
 
-## Definição de dados :warning:
+## Definição de dados (DDL) 
+Esta é a linguagem SQL que será utilizada para realizar a criação e definição das estruturas que serão utilizadas para o armazenamento dos dados. Dentro desse bloco encotramos os seguinte comandos:
 
-Este tópico ainda está em construção. Caso queira, você pode ajudar a escrever ele. :bowtie:
+1. [CREATE](#create)
+2. [ALTER](#alter)
+    1.[Adicionando novas colunas](#adicionando-colunas)
+    2.[Modificando colunas](#modificando-colunas)
+    3.[Excluindo Colunas](#excluindo-colunas)
+    4.[Renomeando Colunas](#renomeando-colunas)
+    5.[Incluindo Constraints](#incluindo-constraints)
+    6.[Excluindo Constraints](#excluindo-constraints)
+    7.[Modificando Constraints](#modificando-constraints)
+    8.[Ativando/Desativando Constraints](#ativandodesativando-constraint)
+    9.[Renomeando Table](#renomeando-table)
+3. [DROP](#drop)
 
-### View
+### Create
+Comando responsável por criar a estruturar de uma tabela dentro do SGBD.
+A sintaxe baśica dele consiste no seguinte comando.
 
-View é uma tabela virtual baseada no conjunto de resultados de uma consulta SQL.
-
-Mostra sempre resultados de dados atualizados, pois o motor do banco de dados recria os dados toda vez que um usuário consulta a visão.
- 
- * Uso do View:
- Evita que usuários não autorizados tenham acesso a todos os dados de uma tabela
- Os dados não estão fisicamente armazenados
- Evita redundâncias
- 
- 
-* Sintaxe do VIEW
-
-```sql
-CREATE (OR REPLACE, FORCE, NOFORCE) VIEW (NOME) AS 
-    SELECT 
-        (COLUNAS) (APELIDO)
-    FROM 
-        (TABELA)
-    WHERE (CONDIÇÕES);
+* Sintaxa do CREATE
+``` sql
+CREATE TABLE nome_schema.nome_table (
+    coluna_1 tipo_dado colum_constraint,
+    coluna_2 tipo_dado colum_constraint,
+    ...
+    table_constraint
+);
 ```
 
-## Manipulação de dados :warning:
+Nesta sintaxe: 
 
-Este tópico ainda está em construção. Caso queira, você pode ajudar a escrever ele. :bowtie:
+1. Especificar o nome da tabela e esquema(schema) no qual a nova tabela será criada
+2. Lista de todas as colunas da tabela com seu [tipo de dados](https://www.oracletutorial.com/oracle-basics/oracle-data-types/) e uma restrição de coluna como: NOT NULL, primary key, check
+3. Restrições da tabela como chave estrangeira(foreign key), primary key, etc.
 
-## Consulta de dados
 
-Estas são as formas utilizadas para realizar a consulta dos dados que estão armazenados na base dados. Neste tópico será feito o uso de diversos comandos para a manipulação dos dados
+* Example CREATE
+```js
+CREATE TABLE bd_faculdade.alunos (
+ra_aluno NUMBER primary key,
+nome_aluno VARCHAR not null,
+cpf_aluno VARCHAR(13) not null,
+cod_curso number(4) not null, 
+CONSTRAINT fk_cod_curso FOREIGN KEY(cod_curso)
+REFERENCES curso(cod_curso)
+)
+```
+
+OBS: Neste exemplo de comando criamos a restrição de `primary key` a nível de coluna, contudo é possível criá-lo através de nível de tabela como no comando abaixo:
+
+```js
+CREATE TABLE bd_faculdade.alunos (
+ra_aluno number(4),
+nome_aluno varchar(100) not null,
+cpf_aluno VARCHAR(13),
+cod_curso number(4) not null,
+CONSTRAINT uk_cpf UNIQUE(CPF), # Constraint Unique CPF
+CONSTRAINT pk_aluno PRIMARY KEY(ra_aluno), # Constraint PK 
+CONSTRAINT fk_cod_curso FOREIGN KEY(cod_curso) #Constraint FK
+REFERENCES curso(cod_curso)
+)
+```
+
+### Alter
+Comando responsável por alterar a estruturar de tabelas já criadas. Com ele é possível: Aumentar tamanho da coluna, acrescentar nova coluna, adicionar novo constraint.
+
+* Sintaxe básica do Alter Table
+
+```sql
+ALTER TABLE NOME_DA_TABELA
+    [ADD definição de coluna,]
+    [MODIFY definição de coluna,]
+    [DROP COLUMN nome,]
+    [RENAME COLUMN antigo TO novo,]
+    [ADD CONSTRAINT definição de constraint,]
+    [MODIFY CONSTRAINT definição de constraint,]
+    [DROP CONSTRAINT nome,]
+    [RENAME CONSTRAINT antigo TO novo,]
+    [ENABLE | DISABLE constraint,]
+    [RENAME TO novo_nome];
+```
+
+Segue abaixo uma lista de exemplos de uso do comando alter table:
+
+#### Adicionando Colunas 
+
+Sintaxe:
+
+```sql
+ALTER TABLE NOME_DA_TABELA 
+ADD (definição de coluna)
+```
+
+Exemplo: 
+
+```sql
+ALTER TABLE PEDIDO ADD valor_total number(8,2)
+ALTER TABLE PEDIDO ADD ped_data DATE
+```
+
+PS: Observe que ao realizar tal comando o seguinte acontece:
+
+1. A coluna torna-se a última coluna da tabela
+2. Se já existirem registros na tabela, então a coluna será NULA para todos os registros.
+
+#### Modificando colunas
+
+Sintaxe: 
+
+``` sql 
+ALTER TABLE NOME_DA_TABELA 
+MODIFY [Definição de coluna]
+```
+
+Exemplo: 
+
+```sql 
+
+ALTER TABLE PEDIDO MODIFY PED_COD number(8)
+
+```
+
+PS: Observe que ao realizar tal comando a seguinte regra existes:
+
+**Apenas é possível para tipos equivalentes**
+
+* Exemplo:
+* number(4) -> number(8)
+* varchar(4) -> varchar(8)
+
+
+**Demais modificações só são permitidas se a coluna não tiver dado inserido**
+
+#### Excluindo Colunas
+Sintaxe: 
+
+``` sql
+ALTER TABLE NOME_DA_TABELA 
+DROP COLUMN NOME_COLUNA
+```
+
+Exemplo :
+
+```sql 
+ALTER TABLE PEDIDO DROP COLUMN PED_DATA
+```
+
+**NOTE QUE: Não são permitidas exclusões de colunas com alguma constraint associada! É preciso excluir a restrição antes.**
+
+
+#### Renomeando colunas
+
+Sintaxe: 
+```sql
+ALTER TABLE NOME_DA_TABELA
+RENAME COLUMN NOME_ANTIGO TO NOME_NOVO
+```
+
+Exemplo: 
+
+```sql
+ALTER TABLE PEDIDO
+RENAME COLUMN PED_DATA TO PED_DATA_CADASTRO
+```
+
+#### Incluindo constraints
+
+Sintaxe : 
+
+```sql
+#Primary key
+ALTER TABLE NOME_DA_TABELA
+ADD CONSTRAINT NOME_RESTRICAO PRIMARY(COLUNA_PG)
+#Foreign key
+ALTER TABLE NOME_DA_TABELA
+ADD CONSTRAINT NOME_RESTRICAO FOREIIGN KEY(COLUNA_PG) REFERENCES TABELA_REFERIDA (COLUNA_PK)
+#Unique
+ALTER TABLE NOME_DA_TABELA
+ADD CONSTRAINT NOME_RESTRICAO UNIQUE(COLUNA_UK)
+```
+
+Exemplo: 
+```sql
+#Primary key
+ALTER TABLE PEDIDO 
+ADD CONSTRAINT PK_PEDIDO PRIMARY KEY(PEDIDO)
+#Foreign key
+ALTER TABLE PEDIDO
+ADD CONSTRAINT FK_CLI_COD FOREIGN KEY(CLI_COD)
+REFERENCES CLIENTE(CLI_COD)
+#Unique
+ALTER TABLE CLIENTE
+ADD CONSTRAINT UK_CLI_CPF UNIQUE(CLI_CPF)
+```
+
+#### Excluindo Constraints
+
+Sintaxe: 
+
+```sql
+ALTER TABLE NOME_DA_TABELA
+DROP CONSTRAINT NOME_RESTRICAO [CASCADE]
+```
+* Comando válido para qualquer restrição
+* A Cláusula CASCADE elemina as constraints dependentes.
+
+Exemplo: 
+```sql
+ALTER TABLE CLIENTE
+DROP CONSTRAINT UK_CLI_CPF CASCADE
+```
+
+#### Modificando constraints 
+
+Sintaxe: 
+
+```sql
+ALTER TABLE NOME_DA_TABELA
+RENAME CONSTRAINT NOME_ANTIGO to NOME_NOVO
+```
+
+Exemplo:
+
+```sql
+ALTER TABLE PROJETO RENAME CONSTRAINT
+PK_PROJETO_COD_PROJETO TO PK_PROJETO
+```
+
+#### Ativando/Desativando Constraint
+
+Sintaxe: 
+```sql
+ALTER TABLE NOME_DA_TABELA [ENABLE | DISABLE]
+CONSTRAINT NOME_CONSTRAINT [CASCADE]
+```
+
+* Enable: Habilita constraint
+* Disable: Desabilita constraint
+* Cascade: aplica a mesma regra para constraints dependentes
+
+```sql
+ALTER TABLE CLIENTE
+DISABLE CONSTRAINT PK_CLI_COD CASCADE
+```
+#### Renomeando table
+
+Sintaxe :
+
+```sql
+ALTER TABLE NOME_DA_TABELA
+RENAME TO NOME_NOVO
+```
+Exemplo:
+
+```sql
+ALTER TABLE CLIENTE
+RENAME TO CLI
+```
+### Drop
+
+Comando responsável por apagar toda a estrutura de uma tabela
+
+Sintaxe: 
+
+```sql
+DROP TABLE NOME_DA_TABELA [CASCADE]
+```
+
+Exemplo:
+
+```sql
+
+DROP TABLE CLI
+```
+
+## Manipulação de dados(DML)
+
+Esta é a linguagem SQL que será utilizada para fazer a manipulação dos dados que estão armazenados. Dentro desse conjunto temos os seguinte comandos:
+
+1. [Insert](#insert)
+2. [Update](#update)
+3. [Delete](#delete)
+
+### Insert
+
+Comando responsável por inserir registros nas tabelas
+
+Sintaxe: 
+
+```sql
+
+INSERT INTO NOME_DA_TABELA
+(coluna1, coluna2, ... , coluna_n)
+VALUES
+(valor1,valor2, ..., valor_n)
+```
+Exemplo: 
+
+```sql
+INSERT INTO aluno (ra_aluno,nome_aluno, cpf_aluno, cod_curso) VALUES (
+123, 'Vandeilson', 123123123, 12
+);
+```
+
+### Update
+Comando responsável por atualizar dados de registros já existentes em um tabela
+
+Sintaxe: 
+
+```sql
+UPDATE NOME_DA_TABELA
+SET coluna1 = valor1,
+    coluna2 = valor2,
+    ...
+    coluna_n = valor_n
+[WHERE condição]
+
+```
+
+Exemplo: 
+
+```sql
+UPDATE aluno
+SET cpf_aluno = 2345678,
+    cod_curso = 14
+WHERE nome_aluno = 'Vandeilson'
+```
+
+### Delete 
+
+Comando responsável por apagar(deletar) um registro em uma tabela
+
+Sintaxe: 
+```sql
+DELETE FROM NOME_DA_TABELA 
+[WHERE condição]
+```
+
+Exemplo: 
+```sql
+DELETE FROM aluno
+WHERE nome_aluno = 'Vandeilson'
+```
+
+## Consulta de dados(DQL)
+
+Estas são as formas utilizadas para realizar a consulta dos dados que estão armazenados na base dados. Neste tópico será feito o uso de diversos comandos para a manipulação dos dados. Dentro desse conjunto temos os seguintes comandos:
+1.[Selects](#selects)
+2.[Junções](#junções)
+    1.[Inner Join](#junção-interna-inner-join)
+    2.[Outer Join](#junção-externa-outer-join)
+    3.[Left Outer Join](#left-outer-join)
+    4.[Right Outer Join](#right-outer-join)
+    5.[Full Outer Join](#full-outer-join)
+    6.[Equi Join](#junção-idêntica-equi-join)
+    7.[Non Equi Join](#junção-não-identica-non-equi-join)
+    8.[Natural Join](#natural-joins)
+    9.[Self Join](#self-joins)
+3.[Operadores de Conjunto](#operadores-de-conjunto)
+    1.[Union](union-união)
+    2.[Intersect](#intersect-intersecção)
+    3.[Minus](#minus-diferença)
+4.[Funções de grupo](#funções-de-grupo)
+5.[SubConsulta](#subconsulta)
+
 
 ### Selects
 
@@ -675,9 +1007,33 @@ Diferente das junções internas, as externas não exigem que haja uma ligação
 
 Neste caso a primeira tabela especificada no momento do `select` terá todos os seus elementos persistidos, mesmo aqueles que não tem qualquer ligação com os elementos da segunda tabela especificada, gerando assim um resultado, com todos os elementos da tabela A (Primeira a ser declarada), mais os elementos da tabela B (Segunda a ser declarada) que tem alguma correspondência em A.
 
+```sql
+SELECT
+    a.nome,
+    b.nome
+FROM
+    tabelaA a
+LEFT OUTER JOIN
+    tabelaB b
+ON
+    a.id = b.id;
+```
+
 ##### Right Outer Join
 
 Esta é a operação inversa da citada anteriormente, aqui a tabela levada em consideração é a segunda a ser declarada no `select`, desta forma, na tabela gerada como resultado, todos os elementos de B (Segunda tabela a ser declarada) serão mantidos mesmo que não tenham correspondência com A, e também os elementos de A, estes que são somente aqueles que tem alguma ligação com B.
+
+```sql
+SELECT
+    a.nome,
+    b.nome
+FROM
+    tabelaA a
+RIGHT OUTER JOIN
+    tabelaB b
+ON
+    a.id = b.id;
+```
 
 ##### Full Outer Join
 
@@ -862,6 +1218,28 @@ WHERE
 
 Perceba que, dentro de uma consulta há outra, este conceito permite que diversas formas de consultar os dados sejam feitas.
 
+### View
+
+View é uma tabela virtual baseada no conjunto de resultados de uma consulta SQL.
+
+Mostra sempre resultados de dados atualizados, pois o motor do banco de dados recria os dados toda vez que um usuário consulta a visão.
+ 
+ * Uso do View:
+ Evita que usuários não autorizados tenham acesso a todos os dados de uma tabela
+ Os dados não estão fisicamente armazenados
+ Evita redundâncias
+ 
+ 
+* Sintaxe do VIEW
+```sql
+CREATE (OR REPLACE, FORCE, NOFORCE) VIEW (NOME) AS 
+    SELECT 
+        (COLUNAS) (APELIDO)
+    FROM 
+        (TABELA)
+    WHERE (CONDIÇÕES);
+```
+
 ## Trigger
 
 Trigger basicamente é um gatilho, que é ativo quando uma determinada ação ocorre dentro do banco de dados. Esta ação pode ser definida no momento da criação da trigger.
@@ -925,4 +1303,7 @@ A estrutura descrita pode ser visualizada na figura abaixo:
 
 ## Referências bibliográficas
 
-Pet news. (2018). Normalização de Bancos de Dados Relacionais. [online] Available at: http://www.dsc.ufcg.edu.br/~pet/jornal/maio2011/materias/recapitulando.html [Acessado em 14 Abril de 2018]
+1. Pet news. (2018). Normalização de Bancos de Dados Relacionais. [online] Available at: http://www.dsc.ufcg.edu.br/~pet/jornal/maio2011/materias/recapitulando.html [Acessado em 14 Abril de 2018]
+2. Oracle / PLSQL: INSERT Statement [https://www.techonthenet.com/oracle/insert.php](https://www.techonthenet.com/oracle/insert.php) Acesso: 07 de dezembro 2019
+3. Oracle / PLSQL: UPDATE Statement [https://www.techonthenet.com/oracle/update.php](https://www.techonthenet.com/oracle/update.php) Acesso: 07 de dezembro 2019
+4. Oracle / PLSQL: DELETE Statement [https://www.techonthenet.com/oracle/delete.php](https://www.techonthenet.com/oracle/delete.php) Acesso: 07 de dezembro 2019
